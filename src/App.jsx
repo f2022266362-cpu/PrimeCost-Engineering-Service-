@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -96,6 +97,9 @@ export default function App() {
         onOpenConsultation={openConsultation} 
         onOpenProposal={openProposal} 
       />
+
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 }
