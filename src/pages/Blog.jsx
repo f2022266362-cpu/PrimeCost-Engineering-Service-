@@ -158,6 +158,47 @@ const articles = [
 </ul>
     `
   },
+  {
+    id: 'structural-engineering-estimate-cost-houston',
+    title: 'How Much Does a Structural Engineering Estimate Cost in Houston?',
+    category: 'Structural',
+    readTime: '6 min read',
+    summary: 'A breakdown of what drives structural engineering estimate pricing in Houston, typical cost ranges by project type, and why fast turnaround can matter as much as price.',
+    content: `
+<h2>What Affects the Cost of a Structural Engineering Estimate</h2>
+<p>If you're a contractor, architect, or developer in Houston, one question comes up before almost every project: how much will the structural engineering estimate cost? The answer depends on a handful of clear factors rather than guesswork.</p>
+
+<h3>1. Project Size & Complexity</h3>
+<p>A single-family residential addition requires far less analysis than a multi-story commercial structure. Square footage, number of floors, and load-bearing requirements all factor directly into engineering hours.</p>
+
+<h3>2. Type of Construction</h3>
+<p>Steel-frame, concrete, and wood structures each demand different calculations. Steel and reinforced concrete projects generally take longer to estimate because of additional load and connection analysis.</p>
+
+<h3>3. PE Stamp & Code Compliance</h3>
+<p>Projects requiring a licensed Professional Engineer (PE) stamp for permitting cost more than informal estimates, since they carry legal and professional liability.</p>
+
+<h3>4. Turnaround Time</h3>
+<p>Standard estimates take longer to prepare than rush estimates. Firms offering same-day or under-24-hour scoping bids typically prioritize scheduling to meet bid deadlines.</p>
+
+<h3>Typical Price Ranges by Project Type</h3>
+<ul>
+  <li><strong>Residential additions & remodels:</strong> Lower end of the pricing scale, since the scope is contained and load paths are simpler.</li>
+  <li><strong>Light commercial buildouts:</strong> Mid-range, due to MEP coordination and code review requirements.</li>
+  <li><strong>Multi-family & larger commercial new-builds:</strong> Higher end, reflecting structural complexity and drawing volume.</li>
+</ul>
+
+<h3>Why Turnaround Time Matters as Much as Price</h3>
+<p>In Houston's competitive bidding environment, contractors often lose jobs not because their numbers were wrong, but because they were late. A structural engineering partner that delivers scoping bids within 24 hours helps you respond to RFPs faster and lock in subcontractor pricing sooner.</p>
+
+<h3>How the Estimating Process Works</h3>
+<ul>
+  <li>Submit your project drawings and specifications through a secure portal or email.</li>
+  <li>Certified estimators review the scope using industry-standard software and current material pricing.</li>
+  <li>Every estimate goes through a quality check before it's sent back to you.</li>
+  <li>You receive PE-stamped documentation when the project requires it for permitting.</li>
+</ul>
+    `
+  },
 
   // MEP
   {
