@@ -9,7 +9,7 @@ import SchemaManager from '../components/SchemaManager';
 const servicesData = {
   'architectural-design': {
     name: 'Architectural Design Services',
-    description: 'We provide complete architectural solutions including conceptual design, floor plans, permit drawings, renovation plans, construction documents, code compliance reviews, and 3D modeling.',
+    description: 'We provide professional architectural drawings for commercial permits and residential building permit sets, including conceptual layouts, site plans, cross-sections, and coordinate details.',
     whoNeedsIt: [
       { role: 'Developers', context: 'Need fast conceptual designs and permit-ready drawing packages to secure zoning approvals and start site prep.' },
       { role: 'Homeowners', context: 'Planning custom luxury homes, renovations, or expansions requiring compliance with local building codes.' },
@@ -34,7 +34,7 @@ const servicesData = {
   },
   'structural-engineering': {
     name: 'Structural Engineering Services',
-    description: 'Our structural engineers design safe, efficient, and code-compliant structures for residential, commercial, industrial, and multifamily developments.',
+    description: 'We deliver structural calculations, load schedules, foundation designs, and PE stamped structural drawings Houston and nationwide for all construction permits.',
     whoNeedsIt: [
       { role: 'Architects', context: 'Require calculations, load schedules, and structural framing coordinates to complement architectural plans.' },
       { role: 'Developers', context: 'Seeking material optimization (value engineering) for concrete, structural steel, or timber framings.' },
@@ -59,7 +59,7 @@ const servicesData = {
   },
   'mep-engineering': {
     name: 'MEP Engineering Services',
-    description: 'Comprehensive Mechanical, Electrical, Plumbing, and Fire Protection design solutions coordinated with architectural and structural disciplines.',
+    description: 'Professional MEP design services Houston and nationwide. We coordinate mechanical, electrical, and plumbing engineering systems to ensure fast permit approvals.',
     whoNeedsIt: [
       { role: 'Real Estate Investors', context: 'Rehabilitating older commercial or residential properties requiring brand-new, energy-efficient MEP infrastructure.' },
       { role: 'Developers', context: 'Building large-scale projects requiring utility service sizing, transformer connections, and sewer taps.' },
@@ -84,7 +84,7 @@ const servicesData = {
   },
   'bim-cad': {
     name: 'BIM & CAD Services',
-    description: 'Advanced Building Information Modeling and drafting services that improve coordination, reduce conflicts, and enhance project execution.',
+    description: 'High-quality 3D BIM modeling for contractors and developers, featuring Revit coordination, shop drawings, and clash detection to prevent site conflicts.',
     whoNeedsIt: [
       { role: 'General Contractors', context: 'Need to coordinate trade layouts, perform clash detection, and produce fabrication shop drawings.' },
       { role: 'Subcontractors', context: 'Need to generate precise sheet metal, mechanical, or plumbing pipe routing shop drawings from design models.' },

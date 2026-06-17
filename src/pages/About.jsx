@@ -35,8 +35,8 @@ export default function About() {
   return (
     <div style={styles.containerPage}>
       <SchemaManager 
-        title="Contact & Corporate Headquarters" 
-        description="Connect with CEO Frank Moore and President Hal Jordan at the Houston HQ. View hours, payment methods, and contact numbers."
+        title="Contact & Pre-Construction Corporate Headquarters | PRIMECOST" 
+        description="Get in touch with PRIMECOST corporate headquarters in Houston, Texas. We provide certified PE stamped drawings and pre-construction engineering bids nationwide."
       />
 
       {/* Header Banner */}

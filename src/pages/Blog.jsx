@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   BookOpen, Search, Filter, Calendar, User, 
   ArrowLeft, Clock, Bookmark, ChevronRight, CheckSquare 
@@ -6,6 +7,88 @@ import {
 import SchemaManager from '../components/SchemaManager';
 
 const articles = [
+  // HIGH-INTENT SEO TOPICS
+  {
+    id: 'structural-engineering-estimate-cost-houston',
+    title: 'How Much Does a Structural Engineering Estimate Cost in Houston?',
+    category: 'Structural',
+    readTime: '6 min read',
+    summary: 'A complete pre-construction guide on structural engineering estimate cost factors in Houston and surrounding regions. Learn about PE stamped drawing requirements, soil challenges, and permit fees.',
+    content: `
+<h2>Structural Engineering Cost Estimating in the Houston Metro</h2>
+<p>If you are planning a new construction build, an addition, or a commercial build-out in the Houston area, one of your first steps is securing a <strong>structural engineering estimate cost Houston</strong>. Understanding these costs upfront helps you avoid surprise delays during municipal permit reviews.</p>
+
+<h3>Average Cost of Structural Engineering in Houston</h3>
+<p>For most projects, structural design costs are calculated either as a percentage of the total construction cost (typically 1.5% to 5% for commercial and 2% to 8% for custom residential) or as a flat fee. In Houston, Sugar Land, and Katy, flat fees generally range as follows:</p>
+<ul>
+  <li><strong>Custom Residential Foundation & Framing:</strong> $1,500 - $4,500</li>
+  <li><strong>Commercial Build-outs & Renovations:</strong> $3,000 - $8,500</li>
+  <li><strong>Structural Inspections & Engineering Assessment Reports:</strong> $500 - $1,200</li>
+  <li><strong>PE Stamped Structural Drawings Houston:</strong> $2,000 - $6,000 depending on complexity</li>
+</ul>
+
+<h3>Key Factors Driving Your Structural Design Bid</h3>
+<p>Several local conditions in southeast Texas directly affect the complexity of your structural design and the resulting <strong>pre-construction estimating company Houston</strong> costs:</p>
+
+<h4>1. Soil Challenges (Expansive Clay)</h4>
+<p>Houston is famous for its expansive clay soils (often referred to as "black gumbo"). These soils swell when wet and shrink when dry, placing immense pressure on slab-on-grade foundations. To prevent cracking, structural engineers must design thick post-tensioned slabs or deep drilled concrete piers. This requires detailed structural calculations and increases the engineering hours required.</p>
+
+<h4>2. Wind Load Requirements (Hurricane Zones)</h4>
+<p>Due to proximity to the Gulf Coast, structural calculations for permits in Houston and coastal suburbs like Pearland must account for wind speeds up to 120-140 mph. This requires engineers to specify complex shear walls, braced frames, and wind-uplift connectors, which increase framing design complexity.</p>
+
+<h4>3. Fast Turnaround Structural Engineering Bid Needs</h4>
+<p>If you are bidding on a tight timeline, a <strong>fast turnaround structural engineering bid</strong> is crucial. Standard turnaround times in the industry can take 3 to 4 weeks. Working with a dedicated firm like PRIMECOST can reduce this to days, saving you thousands in carrying costs, though rush engineering fees may apply.</p>
+
+<h3>Why You Need a Digital PE Stamp for Your Permit Drawings</h3>
+<p>Municipalities like the Houston Permitting Center strictly require all architectural and structural drawings to bear a digital <strong>PE stamped structural drawings Houston</strong> validation from a licensed Professional Engineer. The PE stamp certifies that the framing and load pathways comply with the International Building Code (IBC) and local amendments, ensuring your submittal is approved without rejection.</p>
+
+<h3>How to Save Money on Pre-Construction Estimating Services</h3>
+<p>Contractors and developers can optimize costs by using coordinated <strong>construction cost estimating services Texas</strong> and BIM modeling. Discover how integrated BIM modeling prevents clashes by visiting our <a href="/services/bim-cad" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">BIM & CAD Services page</a>, or request a customized proposal directly through our team.</p>
+    `
+  },
+  {
+    id: 'bim-vs-traditional-drafting-houston-contractors',
+    title: 'BIM Modeling vs. Traditional Drafting: What Houston Contractors Should Know',
+    category: 'BIM',
+    readTime: '5 min read',
+    summary: 'Comparing modern Autodesk Revit BIM modeling workflows against traditional 2D CAD drafting. Learn why Houston contractors are switching to BIM to prevent onsite clashes.',
+    content: `
+<h2>Modern 3D BIM Modeling vs. 2D Drafting</h2>
+<p>For decades, commercial and residential projects in Texas were built using 2D CAD drawings. However, as projects grow more complex and schedules compress, the choice between <strong>BIM modeling for contractors</strong> and traditional drafting is becoming a major differentiator for winning bids.</p>
+
+<h3>What is the Difference?</h3>
+<p>Traditional drafting generates separate 2D floor plans, sections, and elevation sheets. Building Information Modeling (BIM) creates a single, parameter-driven 3D digital model of the structure. When you change a window size in BIM, every coordinate, floor plan, and material schedule updates automatically.</p>
+
+<h3>Why Houston Contractors Are Upgrading to BIM</h3>
+<ul>
+  <li><strong>Clash Detection:</strong> In 2D, finding out that a structural steel beam blocks an HVAC duct path usually happens on site, leading to expensive delay change orders. BIM clash detection scans the unified model to resolve conflicts before excavation begins.</li>
+  <li><strong>Quantity Takeoffs:</strong> BIM models generate instant, precise material bills, giving you an advantage during the <strong>pre-construction estimating company Houston</strong> bidding phase.</li>
+  <li><strong>Permit Approvals:</strong> Coordinated 3D models allow plans examiners at the Houston Permitting Center to quickly review egress and accessibility requirements, speeding up permit issuance.</li>
+</ul>
+<p>Learn how our coordination process works by visiting our dedicated <a href="/services/bim-cad" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">BIM & CAD Modeling Solutions</a> page, or request a scoping proposal for your next project.</p>
+    `
+  },
+  {
+    id: 'common-reasons-building-permits-rejected-houston',
+    title: '5 Common Reasons Building Permits Get Rejected in Houston (and How to Avoid Them)',
+    category: 'Construction',
+    readTime: '6 min read',
+    summary: 'Avoid costly delays at the Houston Permitting Center. Learn about the top 5 drawing omissions that lead to permit rejections and how to fix them.',
+    content: `
+<h2>Navigating the Houston Permitting Center</h2>
+<p>Securing building licenses in the Houston area (including Sugar Land, Katy, and Spring) can be a bottleneck for developers. The city's plans examiners review packages meticulously, and even minor omissions can send you back to the design phase.</p>
+
+<h3>Top 5 Egress & Drafting Rejections</h3>
+<ol>
+  <li><strong>Missing Geotechnical or Soil Reports:</strong> Houston's expansive soils mean foundations require site-specific geotechnical boring data. Submitting standard slabs without soil reports is a quick rejection.</li>
+  <li><strong>Unstamped Architectural or Structural Drawings:</strong> City codes mandate a professional <strong>PE stamped structural drawings Houston</strong> verification for commercial and multi-family structures.</li>
+  <li><strong>Incomplete Egress/Accessibility Plans:</strong> Life-safety plans must clearly map exit travel distances, fire ratings, and ADA compliance details (e.g. ramp gradients, turning radii).</li>
+  <li><strong>Coordination Failures:</strong> Discrepancies between architectural wall locations and structural framing plans raise red flags immediately during plan review.</li>
+  <li><strong>Outdated Building Code Reference:</strong> Submitting designs referencing older code cycles rather than the latest adopted International Building Code (IBC) standard leads to immediate rejections.</li>
+</ol>
+<p>Our team specializes in preparing coordinated, permit-ready sets that slide through plan reviews. Contact our <a href="/about" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">pre-construction engineering team</a> today to review your drawings.</p>
+    `
+  },
   // ARCHITECTURAL
   {
     id: 'guide-architectural-design',
@@ -482,6 +565,7 @@ function Blog() {
 
             {/* Dynamically Inject HTML Content */}
             <div 
+              className="article-content-body"
               style={styles.articleContent}
               dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
             />
@@ -827,28 +911,6 @@ if (typeof document !== 'undefined') {
   styleSheet.innerText = articleStyles;
   document.head.appendChild(styleSheet);
 }
-// Add wrapper class to article render
-const OrigBlog = Blog;
-Blog = function BlogWithClass(props) {
-  const element = OrigBlog(props);
-  // Apply formatting class to modal reader container
-  if (element && element.props && element.props.children) {
-    const children = React.Children.toArray(element.props.children);
-    const modalReaderIdx = children.findIndex(c => c && c.props && c.props.style === styles.overlay);
-    if (modalReaderIdx !== -1) {
-      const modal = children[modalReaderIdx];
-      const modalContentIdx = modal.props.children.findIndex(c => c && c.props && c.props.className === 'animate-fade-in');
-      if (modalContentIdx !== -1) {
-        const modalContainer = modal.props.children[modalContentIdx];
-        const contentIdx = modalContainer.props.children.findIndex(c => c && c.props && c.props.dangerouslySetInnerHTML);
-        if (contentIdx !== -1) {
-          modalContainer.props.children[contentIdx].props.className = 'article-content-body';
-        }
-      }
-    }
-  }
-  return element;
-};
 
 export { styles };
 export default Blog;

@@ -75,6 +75,31 @@ export default function SchemaManager({ title, description, schemaType, schemaDa
     };
     schemasToInject.push(orgSchema);
 
+    // Base ProfessionalService Schema (always present, targets nationwide US and local markets)
+    const localBusinessSchema = {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "PRIMECOST",
+      "image": "https://www.primecost.biz/logo.png",
+      "url": "https://www.primecost.biz",
+      "telephone": "+1-832-234-6456",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "440 Louisiana St, Suite 900",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "postalCode": "77002",
+        "addressCountry": "US"
+      },
+      "areaServed": ["US", "Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"],
+      "sameAs": [
+        "https://www.linkedin.com/company/primecost-biz",
+        "https://www.facebook.com/primecost-biz"
+      ]
+    };
+    schemasToInject.push(localBusinessSchema);
+
     // Dynamic Schema Injection based on page type
     if (schemaType && schemaData) {
       switch (schemaType) {

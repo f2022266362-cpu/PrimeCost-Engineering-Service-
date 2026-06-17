@@ -19,28 +19,28 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
       id: 'architectural-design',
       title: 'Architectural Design Services',
       icon: <DraftingCompass size={32} style={styles.serviceIcon} />,
-      outcome: 'Translate spatial concepts into permit-ready construction documentation. We ensure code-compliant layouts optimized for builder efficiency, local zoning compliance, and aesthetic appeal.',
+      outcome: 'Translate spatial concepts into permit-ready construction documentation. We deliver architectural drawings for commercial permits and custom residential permit sets optimized for code compliance.',
       deliverables: ['Site Plans', 'Floor Plans', 'Elevations', 'Building Sections', 'Permit Sets', 'Construction Documents', '3D Models']
     },
     {
       id: 'structural-engineering',
       title: 'Structural Engineering Services',
       icon: <Building2 size={32} style={styles.serviceIcon} />,
-      outcome: 'Design robust foundation and framing systems that guarantee structural safety and optimal material efficiency. We minimize construction costs through value engineering and code compliance.',
+      outcome: 'Design robust foundation and framing systems that guarantee safety. Get a fast turnaround structural engineering estimate cost Houston or nationwide, featuring digital PE stamp drawings.',
       deliverables: ['Structural Calculations', 'Foundation Design', 'Framing Plans', 'Concrete Design', 'Steel Design', 'Wood Design', 'Structural Reports']
     },
     {
       id: 'mep-engineering',
       title: 'MEP Engineering Services',
       icon: <Wrench size={32} style={styles.serviceIcon} />,
-      outcome: 'Create highly energy-efficient mechanical, electrical, plumbing, and fire safety systems. Our designs ensure absolute mechanical coordination, preventing field modification costs.',
+      outcome: 'Create energy-efficient mechanical, electrical, and plumbing layouts. Our MEP design services Houston, Texas and nationwide ensure absolute coordination and fast municipal approvals.',
       deliverables: ['HVAC Design', 'Electrical Layouts', 'Lighting Plans', 'Power Distribution', 'Plumbing Systems', 'Fire Protection Plans', 'Load Calculations']
     },
     {
       id: 'bim-cad',
       title: 'BIM & CAD Services',
       icon: <Cpu size={32} style={styles.serviceIcon} />,
-      outcome: 'Mitigate spatial risks before physical excavation begins. We construct virtual coordinate models that highlight structural conflicts, preventing costly field changes.',
+      outcome: 'Mitigate coordination risks before excavation. We construct intelligent virtual BIM modeling for contractors that highlights structural clashes, preventing expensive site rework.',
       deliverables: ['Revit Models', 'BIM Coordination', 'Clash Detection Reports', 'Shop Drawings', 'As-Built Drawings', 'AutoCAD Drafting']
     },
     {
@@ -111,8 +111,8 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
   return (
     <div>
       <SchemaManager 
-        title="Engineering, Architectural Design & Pre-Construction" 
-        description="PRIMECOST delivers professional architectural design, structural calculations, MEP systems, BIM modeling, and permit-ready drawing sets."
+        title="Structural Engineering & Estimating Services in Houston | PRIMECOST" 
+        description="PRIMECOST provides fast turnaround structural engineering estimates, PE stamped drawings, MEP design, and construction estimating services in Houston, Sugar Land, Katy, Pearland, and across the United States."
         schemaType="FAQ"
         schemaData={{ questions: faqs }}
       />
@@ -122,12 +122,12 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
         <div style={styles.heroOverlay} />
         <div className="container" style={styles.heroContainer}>
           <div style={styles.heroContent}>
-            <span style={styles.heroTagline}>26 YEARS OF PRE-CONSTRUCTION EXCELLENCE</span>
+            <span style={styles.heroTagline}>NATIONWIDE PRE-CONSTRUCTION EXCELLENCE | BASED IN HOUSTON, TX</span>
             <h1 style={styles.heroTitle}>
-              Engineering, Architectural Design & Pre-Construction Solutions
+              Structural Engineering, MEP Design & Construction Estimating Services
             </h1>
             <p style={styles.heroSubtitle}>
-              From concept development and permit drawings to structural engineering, MEP design, BIM modeling, and construction documentation, we deliver complete design solutions that help owners, developers, architects, engineers, and contractors build with confidence.
+              PRIMECOST provides fast turnaround structural engineering bids, PE stamped drawings, MEP design, and coordinated BIM modeling for contractors, developers, and owners across the United States. From Houston, Sugar Land, and Katy to nationwide projects, we deliver permit-ready sets that prevent carrying cost delays.
             </p>
             <div style={styles.heroCta}>
               <button onClick={onOpenProposal} className="btn btn-secondary">Request a Proposal</button>
