@@ -88,16 +88,24 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
   const faqs = [
     {
-      question: 'What is included in architectural design services?',
-      answer: 'Architectural design services typically include concept development, floor plans, elevations, sections, permit drawings, code compliance reviews, and construction documentation.'
+      question: 'How much does a structural engineering estimate cost in Houston?',
+      answer: 'The structural engineering estimate cost Houston generally depends on the scope of work. Custom residential foundation and framing bids range from $1,500 to $4,500, while commercial build-outs range from $3,000 to $8,500. PRIMECOST offers fast turnaround structural engineering bids to keep your pre-construction on schedule.'
     },
     {
-      question: 'Do you provide permit-ready drawing sets?',
-      answer: 'Yes. We prepare complete permit-ready construction documents that comply with local building requirements and state PE stamp rules.'
+      question: 'Why do building departments require PE stamped structural drawings in Houston?',
+      answer: 'Municipal building departments, such as the Houston Permitting Center, require PE stamped structural drawings Houston and nationwide to verify that framing designs and load pathways comply with the International Building Code (IBC). Stamped documents ensure safety against wind uplift (hurricane zones) and expansive clay soils.'
     },
     {
-      question: 'Can BIM help reduce construction costs?',
-      answer: 'BIM improves coordination between disciplines, identifies clashes early, and reduces costly field changes during construction. It saves up to 5-10% of total construction costs.'
+      question: 'What is the difference between MEP design and structural design?',
+      answer: 'Structural design focuses on the physical stability and load pathways of a building (foundation, framing, steel, concrete). MEP design services Houston focus on the systems that make the building functional (mechanical HVAC, electrical grids, plumbing risers, and fire protection). Both require coordinated design to prevent onsite conflicts.'
+    },
+    {
+      question: 'Do you provide construction cost estimating services in Texas?',
+      answer: 'Yes, PRIMECOST is a leading pre-construction estimating company Houston. We provide comprehensive construction cost estimating services Texas and nationwide, helping contractors bid accurately and win more projects.'
+    },
+    {
+      question: 'What is the benefit of BIM modeling for contractors?',
+      answer: 'BIM modeling for contractors allows you to build virtually before physical excavation. By combining architectural, structural, and MEP models in a 3D coordinate space, we run automated clash detection to prevent costly field change orders.'
     }
   ];
 
@@ -326,6 +334,39 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Local & National Coverage / SEO Keywords Section */}
+      <section style={{ ...styles.section, backgroundColor: '#f1f5f9', borderTop: '1px solid #cbd5e1', borderBottom: '1px solid #cbd5e1' }}>
+        <div className="container">
+          <div style={styles.sectionHeader}>
+            <span style={styles.sectionTag}>TEXAS & NATIONWIDE COVERAGE</span>
+            <h2 style={styles.sectionTitle}>Local Pre-Construction Experts</h2>
+            <p style={styles.sectionSubtitle}>
+              We deliver PE stamped structural drawings, MEP design, and construction cost estimating services across Texas and the United States.
+            </p>
+          </div>
+          <div style={styles.seoGrid} className="seoGrid-custom">
+            <div style={styles.seoCard} className="glass">
+              <h4 style={styles.seoCardTitle}>Houston Metro Coverage</h4>
+              <p style={styles.seoText}>
+                Need a fast turnaround structural engineering estimate cost Houston? We serve clients in <strong>Houston</strong>, <strong>Sugar Land</strong>, <strong>Katy</strong>, <strong>Spring</strong>, <strong>Cypress</strong>, <strong>Pearland</strong>, and <strong>The Woodlands</strong>. Our team provides local site evaluations, expansive clay foundation designs, and municipal permit drawing reviews.
+              </p>
+            </div>
+            <div style={styles.seoCard} className="glass">
+              <h4 style={styles.seoCardTitle}>Texas Estimating & Engineering</h4>
+              <p style={styles.seoText}>
+                As a premier <strong>pre-construction estimating company Houston</strong>, we provide accurate <strong>construction cost estimating services Texas</strong> and nationwide. Get detailed structural calculations for permits, architectural drawings for commercial permits, and MEP design services Houston.
+              </p>
+            </div>
+            <div style={styles.seoCard} className="glass">
+              <h4 style={styles.seoCardTitle}>Nationwide PE Stamping</h4>
+              <p style={styles.seoText}>
+                We deliver <strong>digital PE stamp drawings</strong> and <strong>PE stamped structural drawings Houston</strong> and nationwide. Whether you need a fast turnaround structural engineering bid or a comprehensive BIM modeling for contractors setup, we have you covered.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -775,6 +816,30 @@ const styles = {
     color: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
+  },
+  seoGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '2rem',
+    marginTop: '2rem',
+  },
+  seoCard: {
+    backgroundColor: '#ffffff',
+    borderRadius: '12px',
+    padding: '2rem',
+    border: '1px solid #cbd5e1',
+    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+  },
+  seoCardTitle: {
+    fontSize: '1.25rem',
+    color: '#1b3b6f',
+    marginBottom: '1rem',
+    fontFamily: "'Outfit', sans-serif",
+  },
+  seoText: {
+    fontSize: '0.9rem',
+    color: '#475569',
+    lineHeight: '1.6',
   }
 };
 
@@ -791,6 +856,12 @@ if (typeof document !== 'undefined') {
     }
     .industry-card:hover div:first-child {
       background-color: rgba(15, 23, 42, 0.65) !important;
+    }
+    @media (max-width: 900px) {
+      .seoGrid-custom {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
     }
     @media (max-width: 768px) {
       h1 { font-size: 2.2rem !important; }
