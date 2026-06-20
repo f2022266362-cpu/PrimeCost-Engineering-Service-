@@ -7,6 +7,13 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
 
   return (
     <footer style={styles.footer}>
+      {/* Visually hidden links for SEO indexing */}
+      <div style={styles.visuallyHidden}>
+        <a href="https://www.bbb.org/">Better Business Bureau</a>
+        <a href="https://www.thebluebook.com/">The Blue Book Building & Construction Network</a>
+        <a href="https://citylocal101.com/">CityLocal101 Business Directory</a>
+        <a href="https://business.yelp.com/">Yelp for Business</a>
+      </div>
       <div className="container">
         <div style={styles.grid}>
           {/* Company Details Column */}
@@ -60,10 +67,16 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               <span style={styles.compBadge}>GDPR Compliant</span>
               <span style={styles.compBadge}>CCPA Compliant</span>
             </div>
-            <div style={styles.bbbContainer}>
-              <a href="https://www.bbb.org" target="_blank" rel="noopener noreferrer" className="bbb-link" style={styles.bbbLink}>
-                <img src="/bbb.png" alt="BBB Accredited Business" style={styles.bbbImg} />
+            <div style={styles.logoRow}>
+              <a href="https://www.bbb.org" target="_blank" rel="noopener noreferrer" className="footer-badge-link" style={styles.badgeLink}>
+                <img src="/bbb.png" alt="BBB Accredited Business" style={styles.bbbBadgeImg} />
               </a>
+              <a href="https://business.yelp.com" target="_blank" rel="noopener noreferrer" className="footer-badge-link" style={styles.badgeLink}>
+                <img src="/yelp.png" alt="Yelp Business" style={styles.yelpBadgeImg} />
+              </a>
+              <div className="footer-badge-link" style={styles.badgeLink}>
+                <img src="/texas-seal.png" alt="Texas USA Seal" style={styles.texasBadgeImg} />
+              </div>
             </div>
           </div>
 
@@ -312,18 +325,49 @@ const styles = {
     letterSpacing: '0.5px',
     width: 'fit-content',
   },
-  bbbContainer: {
-    marginTop: '1rem',
+  logoRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.8rem',
+    marginTop: '1.2rem',
+    flexWrap: 'wrap',
   },
-  bbbLink: {
+  badgeLink: {
     display: 'inline-block',
     transition: 'transform 0.2s ease-in-out, opacity 0.2s',
   },
-  bbbImg: {
-    height: '65px',
+  bbbBadgeImg: {
+    height: '55px',
     width: 'auto',
     borderRadius: '4px',
     display: 'block',
+  },
+  yelpBadgeImg: {
+    height: '45px',
+    width: 'auto',
+    borderRadius: '50%',
+    display: 'block',
+    backgroundColor: '#ffffff',
+    padding: '2px',
+  },
+  texasBadgeImg: {
+    height: '45px',
+    width: 'auto',
+    borderRadius: '50%',
+    display: 'block',
+    backgroundColor: '#ffffff',
+    padding: '2px',
+  },
+  visuallyHidden: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    border: '0',
   },
 };
 
@@ -343,7 +387,7 @@ if (typeof document !== 'undefined') {
     footer a:hover {
       color: #c5a880 !important;
     }
-    .bbb-link:hover {
+    .footer-badge-link:hover {
       transform: translateY(-2px);
       opacity: 0.9;
     }
