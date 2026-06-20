@@ -60,6 +60,11 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               <span style={styles.compBadge}>GDPR Compliant</span>
               <span style={styles.compBadge}>CCPA Compliant</span>
             </div>
+            <div style={styles.bbbContainer}>
+              <a href="https://www.bbb.org" target="_blank" rel="noopener noreferrer" className="bbb-link" style={styles.bbbLink}>
+                <img src="/bbb.png" alt="BBB Accredited Business" style={styles.bbbImg} />
+              </a>
+            </div>
           </div>
 
           {/* Contact & Hours Column */}
@@ -307,6 +312,19 @@ const styles = {
     letterSpacing: '0.5px',
     width: 'fit-content',
   },
+  bbbContainer: {
+    marginTop: '1rem',
+  },
+  bbbLink: {
+    display: 'inline-block',
+    transition: 'transform 0.2s ease-in-out, opacity 0.2s',
+  },
+  bbbImg: {
+    height: '65px',
+    width: 'auto',
+    borderRadius: '4px',
+    display: 'block',
+  },
 };
 
 // Add responsive footer grid media query behavior
@@ -324,6 +342,10 @@ if (typeof document !== 'undefined') {
     }
     footer a:hover {
       color: #c5a880 !important;
+    }
+    .bbb-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
     }
   `;
   const styleSheet = document.createElement("style");
