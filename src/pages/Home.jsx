@@ -92,8 +92,8 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
       answer: 'The structural engineering estimate cost Houston generally depends on the scope of work. Custom residential foundation and framing bids range from $1,500 to $4,500, while commercial build-outs range from $3,000 to $8,500. PRIMECOST offers fast turnaround structural engineering bids to keep your pre-construction on schedule.'
     },
     {
-      question: 'Why do building departments require PE stamped structural drawings in Houston?',
-      answer: 'Municipal building departments, such as the Houston Permitting Center, require PE stamped structural drawings Houston and nationwide to verify that framing designs and load pathways comply with the International Building Code (IBC). Stamped documents ensure safety against wind uplift (hurricane zones) and expansive clay soils.'
+      question: 'What are construction estimating services?',
+      answer: 'Construction estimating services are professional analyses that calculate the total cost of a construction project, including materials, labor, equipment, and overhead. PRIMECOST provides fast, accurate construction estimating services for residential, commercial, and industrial projects nationwide — with turnarounds as fast as 24 hours.'
     },
     {
       question: 'What is the difference between MEP design and structural design?',
@@ -101,13 +101,34 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
     },
     {
       question: 'Do you provide construction cost estimating services in Texas?',
-      answer: 'Yes, PRIMECOST is a leading pre-construction estimating company Houston. We provide comprehensive construction cost estimating services Texas and nationwide, helping contractors bid accurately and win more projects.'
+      answer: 'Yes, PRIMECOST is a leading pre-construction estimating company Houston. We provide comprehensive construction cost estimating services Texas and nationwide, helping contractors bid accurately and win more projects. Our estimates are detailed, market-based, and delivered in fast turnaround timeframes.'
     },
     {
       question: 'What is the benefit of BIM modeling for contractors?',
-      answer: 'BIM modeling for contractors allows you to build virtually before physical excavation. By combining architectural, structural, and MEP models in a 3D coordinate space, we run automated clash detection to prevent costly field change orders.'
+      answer: 'BIM modeling for contractors allows you to build virtually before physical excavation. By combining architectural, structural, and MEP models in a 3D coordinate space, we run automated clash detection to prevent costly field change orders. Studies show BIM-coordinated projects reduce construction costs by 5–15%.'
+    },
+    {
+      question: 'What is quantity takeoff?',
+      answer: 'Quantity takeoff is the detailed measurement and counting of all materials required for a construction project, derived from architectural and engineering blueprints. Our quantity takeoff services use digital tools like Bluebeam and PlanSwift to deliver highly accurate material counts for concrete, drywall, lumber, steel, electrical, and all other trades.'
+    },
+    {
+      question: 'Why do building departments require PE stamped structural drawings?',
+      answer: 'Municipal building departments, such as the Houston Permitting Center, require PE stamped structural drawings Houston and nationwide to verify that framing designs and load pathways comply with the International Building Code (IBC). Stamped documents ensure safety against wind uplift (hurricane zones) and expansive clay soils.'
+    },
+    {
+      question: 'What is pre-construction planning?',
+      answer: 'Pre-construction planning involves all activities completed before ground-breaking, including design development, structural engineering, MEP systems, permitting, cost estimation, and procurement strategy. PRIMECOST specializes in full-service pre-construction planning and documentation — delivering permit-ready sets that prevent costly delays.'
+    },
+    {
+      question: 'Can you work on projects nationwide?',
+      answer: 'Yes! PRIMECOST provides engineering, estimating, and architectural design services across all 50 US states. We are headquartered in Houston, TX, and serve clients in California, Florida, New York, Arizona, Georgia, Nevada, Ohio, Pennsylvania, and everywhere in between with fast turnaround and PE-stamped documentation.'
+    },
+    {
+      question: 'How do I get started with my project?',
+      answer: 'Getting started is easy! Click "Schedule Consultation" to book a free call with our engineering team, or click "Request Proposal" to submit your project details. You can also WhatsApp us directly at +1 (832) 234-6456 for immediate assistance — we respond within 24 hours, guaranteed.'
     }
   ];
+
 
   const trustMetrics = [
     { value: '26', label: 'Years of Experience' },
