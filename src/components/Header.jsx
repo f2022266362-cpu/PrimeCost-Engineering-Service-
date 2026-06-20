@@ -85,6 +85,9 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
                   <Link to="/services/bim-cad" style={styles.dropdownItem}>BIM & CAD Services</Link>
                   <Link to="/services/interior-design" style={styles.dropdownItem}>Interior Design</Link>
                   <Link to="/services/visualization" style={styles.dropdownItem}>3D Visualization</Link>
+                  <Link to="/services/quantity-takeoff" style={styles.dropdownItem}>Quantity Takeoff</Link>
+                  <Link to="/services/cost-estimation" style={styles.dropdownItem}>Cost Estimation</Link>
+                  <Link to="/services/shop-drawings" style={styles.dropdownItem}>Shop Drawings</Link>
                 </div>
               )}
             </div>

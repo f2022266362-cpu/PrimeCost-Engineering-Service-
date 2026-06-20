@@ -582,6 +582,40 @@ function Blog() {
           </div>
         </div>
       )}
+      
+      {/* Visually hidden keywords for SEO search ranking */}
+      <div style={styles.visuallyHidden}>
+        <span>construction project estimation</span>
+        <span>estimating for contractors</span>
+        <span>estimating for builders</span>
+        <span>estimating for developers</span>
+        <span>estimating for architects</span>
+        <span>estimating for engineers</span>
+        <span>outsourced construction estimates</span>
+        <span>construction estimating support</span>
+        <span>professional takeoff services</span>
+        <span>fast bid estimates</span>
+        <span>competitive bid estimates</span>
+        <span>accurate construction pricing</span>
+        <span>construction cost planning</span>
+        <span>estimate preparation services</span>
+        <span>construction estimating workflow</span>
+        <span>construction estimate outsourcing</span>
+        <span>construction quantity calculations</span>
+        <span>cost estimating professionals</span>
+        <span>commercial bid estimates</span>
+        <span>residential bid estimates</span>
+        <span>plumbing takeoff</span>
+        <span>mechanical takeoff</span>
+        <span>HVAC takeoff</span>
+        <span>roofing takeoff</span>
+        <span>painting takeoff</span>
+        <span>flooring takeoff</span>
+        <span>masonry takeoff</span>
+        <span>lumber takeoff</span>
+        <span>steel takeoff</span>
+        <span>rebar takeoff</span>
+      </div>
     </div>
   );
 }
@@ -851,6 +885,17 @@ const styles = {
     fontWeight: '600',
     fontSize: '0.9rem',
     boxShadow: '0 4px 6px -1px rgba(27, 59, 111, 0.2)',
+  },
+  visuallyHidden: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    border: '0',
   }
 };
 

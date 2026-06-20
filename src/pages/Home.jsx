@@ -417,6 +417,35 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
           </div>
         </div>
       </section>
+      
+      {/* Visually hidden keywords for SEO search ranking */}
+      <div style={styles.visuallyHidden}>
+        <span>construction estimating company</span>
+        <span>cost estimating company</span>
+        <span>quantity takeoff company</span>
+        <span>construction estimating firm</span>
+        <span>professional estimators</span>
+        <span>construction consultants</span>
+        <span>estimating consultants</span>
+        <span>takeoff specialists</span>
+        <span>USA construction estimating</span>
+        <span>Texas estimating services</span>
+        <span>California estimating services</span>
+        <span>Florida estimating services</span>
+        <span>New York estimating services</span>
+        <span>Arizona estimating services</span>
+        <span>Georgia estimating services</span>
+        <span>Nevada estimating services</span>
+        <span>Ohio estimating services</span>
+        <span>Pennsylvania estimating services</span>
+        <span>nationwide estimating services</span>
+        <span>US construction estimators</span>
+        <span>American construction projects</span>
+        <span>commercial construction USA</span>
+        <span>residential construction USA</span>
+        <span>industrial construction USA</span>
+        <span>engineering services</span>
+      </div>
     </div>
   );
 }
@@ -840,6 +869,17 @@ const styles = {
     fontSize: '0.9rem',
     color: '#475569',
     lineHeight: '1.6',
+  },
+  visuallyHidden: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    border: '0',
   }
 };
 

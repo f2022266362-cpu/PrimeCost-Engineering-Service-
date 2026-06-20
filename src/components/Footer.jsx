@@ -9,10 +9,112 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
     <footer style={styles.footer}>
       {/* Visually hidden links for SEO indexing */}
       <div style={styles.visuallyHidden}>
-        <a href="https://www.bbb.org/">Better Business Bureau</a>
-        <a href="https://www.thebluebook.com/">The Blue Book Building & Construction Network</a>
-        <a href="https://citylocal101.com/">CityLocal101 Business Directory</a>
-        <a href="https://business.yelp.com/">Yelp for Business</a>
+        <a href="https://www.linkedin.com">LinkedIn</a>
+        <a href="https://www.crunchbase.com">Crunchbase</a>
+        <a href="https://www.alignable.com">Alignable</a>
+        <a href="https://www.bark.com">Bark</a>
+        <a href="https://www.houzz.com/professionals">Houzz Professionals</a>
+        <a href="https://www.buildzoom.com">BuildZoom</a>
+        <a href="https://www.thebluebook.com">The Blue Book Building & Construction Network</a>
+        <a href="https://www.constructconnect.com">ConstructConnect</a>
+        <a href="https://www.construction.com">Dodge Construction Network</a>
+        <a href="https://www.thomasnet.com">ThomasNet</a>
+        <a href="https://www.manta.com">Manta Business Directory</a>
+        <a href="https://www.hotfrog.com">Hotfrog</a>
+        <a href="https://www.cylex.us.com">Cylex US</a>
+        <a href="https://www.brownbook.net">Brownbook</a>
+        <a href="https://www.bizhwy.com">Bizhwy</a>
+        <a href="https://www.tupalo.com">Tupalo</a>
+        <a href="https://www.fyple.com">Fyple</a>
+        <a href="https://www.ezlocal.com">EZLocal</a>
+        <a href="https://www.local.com">Local.com</a>
+        <a href="https://www.chamberofcommerce.com">Chamber of Commerce</a>
+        <a href="https://www.yellowpages.com">Yellow Pages</a>
+        <a href="https://www.yelp.com">Yelp</a>
+        <a href="https://www.bbb.org">Better Business Bureau</a>
+        <a href="https://www.mapquest.com">MapQuest</a>
+        <a href="https://www.merchantcircle.com">MerchantCircle</a>
+        <a href="https://foursquare.com">Foursquare</a>
+        <a href="https://business.nextdoor.com">Nextdoor Business</a>
+        <a href="https://www.usdirectory.com">US Directory</a>
+        <a href="https://www.businessdirectoryusa.com">Business Directory USA</a>
+        <a href="https://www.showmelocal.com">ShowMeLocal</a>
+        <a href="https://www.engineering.com">Engineering.com</a>
+        <a href="https://www.enr.com">Engineering News-Record</a>
+        <a href="https://www.asce.org">American Society of Civil Engineers</a>
+        <a href="https://www.nspe.org">National Society of Professional Engineers</a>
+        <a href="https://www.aia.org">American Institute of Architects</a>
+        <a href="https://www.agc.org">Associated General Contractors of America</a>
+        <a href="https://www.abc.org">Associated Builders and Contractors</a>
+        <a href="https://www.bdcnetwork.com">Building Design+Construction</a>
+        <a href="https://www.constructiondive.com">Construction Dive</a>
+        <a href="https://www.forconstructionpros.com">For Construction Pros</a>
+        <a href="https://archinect.com">Archinect</a>
+        <a href="https://www.archdaily.com">ArchDaily</a>
+        <a href="https://www.designboom.com">designboom</a>
+        <a href="https://worldarchitecture.org">World Architecture Community</a>
+        <a href="https://www.constructionexec.com">Construction Executive</a>
+        <a href="https://www.buildingconnected.com">BuildingConnected</a>
+        <a href="https://www.procore.com">Procore</a>
+        <a href="https://www.planhub.com">PlanHub</a>
+        <a href="https://www.bidclerk.com">BidClerk</a>
+        <a href="https://www.constructconnect.com/construct-a-lead">ConstructConnect Lead Management</a>
+        <a href="https://medium.com">Medium</a>
+        <a href="https://substack.com">Substack</a>
+        <a href="https://www.blogger.com">Blogger</a>
+        <a href="https://wordpress.com">WordPress</a>
+        <a href="https://www.tumblr.com">Tumblr</a>
+        <a href="https://www.quora.com">Quora</a>
+        <a href="https://www.reddit.com">Reddit</a>
+        <a href="https://dev.to">Dev.to</a>
+        <a href="https://hashnode.com">Hashnode</a>
+        <a href="https://vocal.media">Vocal Media</a>
+        <a href="https://www.behance.net">Behance</a>
+        <a href="https://dribbble.com">Dribbble</a>
+        <a href="https://www.pinterest.com">Pinterest</a>
+        <a href="https://www.youtube.com">YouTube</a>
+        <a href="https://vimeo.com">Vimeo</a>
+        <a href="https://www.facebook.com/business">Facebook Business</a>
+        <a href="https://www.instagram.com">Instagram</a>
+        <a href="https://x.com">X (formerly Twitter)</a>
+        <a href="https://www.tiktok.com">TikTok</a>
+        <a href="https://www.threads.net">Threads</a>
+        <a href="https://www.goodfirms.co">GoodFirms</a>
+        <a href="https://clutch.co">Clutch</a>
+        <a href="https://www.designrush.com">DesignRush</a>
+        <a href="https://www.topdevelopers.co">TopDevelopers</a>
+        <a href="https://techbehemoths.com">TechBehemoths</a>
+        <a href="https://upcity.com">UpCity</a>
+        <a href="https://www.g2.com">G2</a>
+        <a href="https://www.trustpilot.com">Trustpilot</a>
+        <a href="https://www.sitejabber.com">Sitejabber</a>
+        <a href="https://reviewfoxy.com">ReviewFoxy</a>
+        <a href="https://www.asaonline.com">American Subcontractors Association</a>
+        <a href="https://www.nahb.org">National Association of Home Builders</a>
+        <a href="https://www.concrete.org">American Concrete Institute</a>
+        <a href="https://www.csiresources.org">Construction Specifications Institute</a>
+        <a href="https://engineeringmanagementinstitute.org">Engineering Management Institute</a>
+        <a href="https://www.constructionbusinessowner.com">Construction Business Owner</a>
+        <a href="https://www.builderonline.com">BUILDER Online</a>
+        <a href="https://www.construction-today.com">Construction Today</a>
+        <a href="https://theconstructor.org">The Constructor</a>
+        <a href="https://www.civilax.com">Civilax</a>
+        <a href="https://www.engineeringclicks.com">Engineering Clicks</a>
+        <a href="https://constructech.com">Constructech</a>
+        <a href="https://aec-business.com">AEC Business</a>
+        <a href="https://www.constructionplacements.com">Construction Placements</a>
+        <a href="https://www.civildigital.com">CivilDigital</a>
+        <a href="https://engineeringdiscoveries.com">Engineering Discoveries</a>
+        <a href="https://www.angi.com">Angi</a>
+        <a href="https://www.homeadvisor.com">HomeAdvisor</a>
+        <a href="https://www.thumbtack.com">Thumbtack</a>
+        <a href="https://www.networx.com">Networx</a>
+        <a href="https://porch.com">Porch</a>
+        <a href="https://www.fixr.com">Fixr</a>
+        <a href="https://www.hometalk.com">Hometalk</a>
+        <a href="https://www.contractors.com">Contractors.com</a>
+        <a href="https://www.buildzoom.com/contractors">BuildZoom Contractors</a>
+        <a href="https://www.constructconnect.com/networking-events">ConstructConnect Networking Events</a>
       </div>
       <div className="container">
         <div style={styles.grid}>
@@ -41,6 +143,9 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               <li><Link to="/services/bim-cad" style={styles.link}>BIM & CAD Modeling</Link></li>
               <li><Link to="/services/interior-design" style={styles.link}>Interior Space Planning</Link></li>
               <li><Link to="/services/visualization" style={styles.link}>3D Rendering & Visuals</Link></li>
+              <li><Link to="/services/quantity-takeoff" style={styles.link}>Quantity Takeoff</Link></li>
+              <li><Link to="/services/cost-estimation" style={styles.link}>Cost Estimation</Link></li>
+              <li><Link to="/services/shop-drawings" style={styles.link}>Shop Drawings</Link></li>
             </ul>
           </div>
 
@@ -74,9 +179,6 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               <a href="https://business.yelp.com" target="_blank" rel="noopener noreferrer" className="footer-badge-link" style={styles.badgeLink}>
                 <img src="/yelp.png" alt="Yelp Business" style={styles.yelpBadgeImg} />
               </a>
-              <div className="footer-badge-link" style={styles.badgeLink}>
-                <img src="/texas-seal.png" alt="Texas USA Seal" style={styles.texasBadgeImg} />
-              </div>
             </div>
           </div>
 

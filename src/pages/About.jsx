@@ -342,6 +342,40 @@ export default function About() {
         </div>
 
       </div>
+      
+      {/* Visually hidden keywords for SEO search ranking */}
+      <div style={styles.visuallyHidden}>
+        <span>construction planning services</span>
+        <span>construction procurement support</span>
+        <span>value engineering services</span>
+        <span>project planning services</span>
+        <span>cost control services</span>
+        <span>construction budgeting services</span>
+        <span>project estimating experts</span>
+        <span>construction estimating solutions</span>
+        <span>virtual estimating services</span>
+        <span>remote estimating services</span>
+        <span>freelance estimators</span>
+        <span>earthwork takeoff</span>
+        <span>sitework takeoff</span>
+        <span>excavation takeoff</span>
+        <span>insulation takeoff</span>
+        <span>doors and windows takeoff</span>
+        <span>landscaping takeoff</span>
+        <span>demolition takeoff</span>
+        <span>construction bid preparation</span>
+        <span>contractor estimating services</span>
+        <span>outsource estimating services</span>
+        <span>construction management support</span>
+        <span>project scheduling support</span>
+        <span>cost engineering services</span>
+        <span>multifamily construction estimates</span>
+        <span>retail construction estimates</span>
+        <span>office building estimates</span>
+        <span>warehouse estimates</span>
+        <span>school construction estimates</span>
+        <span>bid management services</span>
+      </div>
     </div>
   );
 }
@@ -737,6 +771,17 @@ const styles = {
     fontSize: '0.88rem',
     color: '#64748b',
     fontWeight: '600',
+  },
+  visuallyHidden: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    border: '0',
   }
 };
 

@@ -156,6 +156,69 @@ const servicesData = {
       { question: 'How long does a 3D animation video take to make?', answer: 'Typically, a 60-second animated walkthrough takes 2 to 3 weeks to model, populate, render, and edit.' },
       { question: 'Can you integrate real surrounding photography?', answer: 'Yes. We can composite our 3D renderings onto drone photography of the actual construction site for absolute context.' }
     ]
+  },
+  'quantity-takeoff': {
+    name: 'Quantity Takeoff Services',
+    description: 'We deliver precise material takeoffs and quantity calculations for residential, commercial, and industrial construction projects to streamline bidding.',
+    whoNeedsIt: [
+      { role: 'General Contractors', context: 'Need to estimate material costs accurately before submitting final bids to ensure profit margins.' },
+      { role: 'Subcontractors', context: 'Require precise measurements for trade packages like lumber, concrete, drywall, or steel.' },
+      { role: 'Developers', context: 'Need feasibility analysis and material counts during the pre-construction phase.' }
+    ],
+    process: [
+      { step: '1', title: 'Plan Analysis', desc: 'Verify all project drawings, details, and trade specs.' },
+      { step: '2', title: 'Digital Quantification', desc: 'Perform color-coded digital plan takeoffs.' },
+      { step: '3', title: 'Material Breakdown', desc: 'Quantify materials by CSI division, size, and type.' },
+      { step: '4', title: 'Audit & Finalize', desc: 'Review all calculations and deliver formatted spreadsheets.' }
+    ],
+    deliverables: ['Detailed Bill of Materials (BOM)', 'Excel Quantity Takeoff Spreadsheets', 'Color-Coded Plan Markups', 'CSI Division Breakdowns', 'Slab and Framing Quantity Reports'],
+    software: ['Planswift', 'Bluebeam', 'On-Screen Takeoff'],
+    faqs: [
+      { question: 'What is a quantity takeoff?', answer: 'A quantity takeoff is a detailed measurement and count of all materials required for a construction project, derived directly from architectural and engineering blueprints.' },
+      { question: 'How accurate are your material takeoffs?', answer: 'We ensure 99% accuracy by utilizing digital takeoff software and employing experienced estimators.' }
+    ]
+  },
+  'cost-estimation': {
+    name: 'Cost Estimation Services',
+    description: 'Professional cost estimation, preliminary budgets, detailed bids, and quantity surveying to ensure your project stays within budget.',
+    whoNeedsIt: [
+      { role: 'Builders & Developers', context: 'Require budget estimates for bidding and securing bank financing.' },
+      { role: 'Architects', context: 'Want to ensure their schematic designs align with the client\'s budget constraints.' },
+      { role: 'Subcontractors', context: 'Need assistance preparing competitive and profitable trade bids.' }
+    ],
+    process: [
+      { step: '1', title: 'Scope Definition', desc: 'Align on project parameters, bidding goals, and geographic location.' },
+      { step: '2', title: 'Material Takeoff', desc: 'Conduct a thorough material quantity takeoff.' },
+      { step: '3', title: 'Labor & Markup Costing', desc: 'Apply local labor rates, material pricing, and overhead markups.' },
+      { step: '4', title: 'Report Generation', desc: 'Deliver detailed cost breakdown estimates and budget reports.' }
+    ],
+    deliverables: ['Detailed Cost Breakdown Estimates', 'Excel Estimating Spreadsheets', 'Preliminary Budget Summaries', 'Labor & Material Pricing Analyses', 'Bid Proposals'],
+    software: ['Planswift', 'RSMeans', 'Excel'],
+    faqs: [
+      { question: 'How do you calculate regional pricing?', answer: 'We utilize localized market data and RSMeans databases adjusted for zip code locations to reflect realistic local costs.' },
+      { question: 'Can you help with preliminary budget estimation?', answer: 'Yes, we provide preliminary estimates based on square footage and historical data to help in early-stage feasibility planning.' }
+    ]
+  },
+  'shop-drawings': {
+    name: 'Shop Drawing & CAD Drafting Services',
+    description: 'Accurate CAD and BIM shop drawings for fabrication, including structural steel, architectural woodwork, MEP layouts, and as-built coordination.',
+    whoNeedsIt: [
+      { role: 'Fabricators', context: 'Require highly detailed layout drawings for manufacturing steel, wood, glass, or cabinetry.' },
+      { role: 'Subcontractors', context: 'Need field layout and coordination drawings to install HVAC, piping, or framing.' },
+      { role: 'General Contractors', context: 'Need coordinated as-built drawings for building permits and facilities management.' }
+    ],
+    process: [
+      { step: '1', title: 'Engineering Intake', desc: 'Review structural calculations and design drawings.' },
+      { step: '2', title: 'CAD/BIM Modeling', desc: 'Create precise 2D details or 3D coordinate models.' },
+      { step: '3', title: 'Clash Review', desc: 'Verify dimensions and check for conflicts between structural and MEP elements.' },
+      { step: '4', title: 'Detail Transmittal', desc: 'Produce final shop drawings ready for workshop fabrication.' }
+    ],
+    deliverables: ['Structural Steel Shop Drawings', 'Millwork & Cabinet Shop Drawings', 'MEP Coordination Drawings', 'As-Built CAD Drafts', 'Fabrication Spool Drawings'],
+    software: ['AutoCAD', 'Revit', 'SolidWorks'],
+    faqs: [
+      { question: 'What are shop drawings?', answer: 'Shop drawings are detailed diagrams that show how a component will be manufactured, fabricated, and installed, bridging the gap between design and construction.' },
+      { question: 'Do you provide as-built drawings?', answer: 'Yes, we update design models to reflect field modifications and deliver coordinated as-built drawings.' }
+    ]
   }
 };
 
@@ -344,6 +407,140 @@ export default function ServicePage() {
             </a>
           </div>
         </div>
+      </div>
+      
+      {/* Visually hidden keywords for SEO search ranking */}
+      <div style={styles.visuallyHidden}>
+        <span>construction estimating services</span>
+        <span>cost estimation services</span>
+        <span>quantity takeoff services</span>
+        <span>construction takeoff services</span>
+        <span>material takeoff services</span>
+        <span>residential estimating services</span>
+        <span>commercial estimating services</span>
+        <span>industrial estimating services</span>
+        <span>bid estimate services</span>
+        <span>construction cost consultant</span>
+        <span>general contractor estimates</span>
+        <span>subcontractor estimating</span>
+        <span>construction bids</span>
+        <span>winning construction bids</span>
+        <span>accurate estimates</span>
+        <span>fast turnaround estimates</span>
+        <span>construction tender services</span>
+        <span>estimate review services</span>
+        <span>bid support services</span>
+        <span>proposal preparation services</span>
+        <span>civil engineering services</span>
+        <span>structural engineering support</span>
+        <span>engineering consulting</span>
+        <span>construction engineering</span>
+        <span>building design support</span>
+
+        {serviceId === 'quantity-takeoff' && (
+          <>
+            <span>construction quantity takeoff</span>
+            <span>material quantity takeoff</span>
+            <span>outsourced takeoff services</span>
+            <span>accurate quantity takeoffs</span>
+            <span>construction material estimates</span>
+            <span>project quantity calculations</span>
+            <span>takeoff and estimating company</span>
+            <span>framing takeoff</span>
+            <span>wood framing estimates</span>
+            <span>metal framing estimates</span>
+            <span>foundation estimates</span>
+            <span>structural steel estimates</span>
+            <span>concrete estimating services</span>
+            <span>electrical estimating services</span>
+            <span>mechanical estimating services</span>
+            <span>plumbing estimating services</span>
+            <span>roof estimating services</span>
+            <span>interior finish estimates</span>
+            <span>exterior finish estimates</span>
+            <span>civil estimating services</span>
+            <span>site development estimates</span>
+            <span>grading estimates</span>
+            <span>paving estimates</span>
+            <span>asphalt estimating services</span>
+            <span>utility estimating services</span>
+            <span>storm drainage estimates</span>
+            <span>water line estimates</span>
+            <span>drywall takeoff</span>
+            <span>concrete takeoff</span>
+            <span>electrical takeoff</span>
+          </>
+        )}
+
+        {serviceId === 'cost-estimation' && (
+          <>
+            <span>cost analysis services</span>
+            <span>construction forecasting</span>
+            <span>construction project budgeting</span>
+            <span>quantity surveying services</span>
+            <span>cost management services</span>
+            <span>project feasibility estimates</span>
+            <span>construction economics</span>
+            <span>construction finance planning</span>
+            <span>estimating and takeoff</span>
+            <span>construction documentation</span>
+            <span>construction cost analysis</span>
+            <span>construction estimating experts</span>
+            <span>online estimating services</span>
+            <span>construction bid consulting</span>
+            <span>project estimating services</span>
+            <span>construction bid assistance</span>
+            <span>cost breakdown estimates</span>
+            <span>CSI division estimates</span>
+            <span>trade specific estimates</span>
+            <span>construction estimating reports</span>
+            <span>construction scope review</span>
+            <span>professional quantity surveyor</span>
+            <span>construction estimating professionals</span>
+            <span>preliminary estimates</span>
+            <span>budget estimates</span>
+            <span>detailed cost estimates</span>
+            <span>project cost estimation</span>
+            <span>building cost estimator</span>
+            <span>construction budget planning</span>
+            <span>construction quantity surveyor</span>
+          </>
+        )}
+
+        {serviceId === 'shop-drawings' && (
+          <>
+            <span>CAD drafting services</span>
+            <span>shop drawing services</span>
+            <span>structural shop drawings</span>
+            <span>architectural shop drawings</span>
+            <span>MEP shop drawings</span>
+            <span>fabrication drawings</span>
+            <span>as built drawings</span>
+            <span>construction drafting services</span>
+            <span>2D drafting services</span>
+            <span>3D modeling services</span>
+            <span>BIM services</span>
+            <span>Planswift estimating</span>
+            <span>Bluebeam takeoff</span>
+            <span>Bluebeam estimating</span>
+            <span>Planswift takeoff services</span>
+            <span>On Screen Takeoff</span>
+            <span>OST takeoff services</span>
+            <span>construction software experts</span>
+            <span>digital takeoff services</span>
+            <span>architectural drafting</span>
+            <span>engineering takeoffs</span>
+            <span>engineering estimates</span>
+            <span>engineering calculations</span>
+            <span>engineering planning</span>
+            <span>engineering project management</span>
+            <span>engineering documentation</span>
+            <span>engineering design support</span>
+            <span>engineering solutions</span>
+            <span>project engineering services</span>
+            <span>construction project support</span>
+          </>
+        )}
       </div>
     </div>
   );
@@ -610,6 +807,17 @@ const styles = {
     borderRadius: '8px',
     fontWeight: '700',
     fontSize: '0.88rem',
+  },
+  visuallyHidden: {
+    position: 'absolute',
+    width: '1px',
+    height: '1px',
+    padding: '0',
+    margin: '-1px',
+    overflow: 'hidden',
+    clip: 'rect(0, 0, 0, 0)',
+    whiteSpace: 'nowrap',
+    border: '0',
   }
 };
 
