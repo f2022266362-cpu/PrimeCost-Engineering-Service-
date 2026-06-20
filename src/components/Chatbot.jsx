@@ -411,16 +411,15 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          style={styles.whatsappFloatingBtn}
+          className="whatsapp-container-bounce"
           aria-label="Chat with live assistant on WhatsApp"
           title="Chat with Live Assistant on WhatsApp"
         >
-          {/* WhatsApp SVG icon */}
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.698-1.8A12.94 12.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#25D366"/>
-            <path d="M22.11 19.463c-.296-.148-1.747-.862-2.018-.96-.271-.099-.468-.148-.665.148-.198.296-.763.96-.936 1.157-.172.198-.345.222-.641.074-.296-.148-1.249-.46-2.378-1.469-.879-.785-1.473-1.754-1.645-2.05-.172-.296-.018-.456.129-.603.132-.132.296-.345.444-.517.148-.173.197-.296.296-.494.099-.197.05-.37-.025-.518-.074-.148-.665-1.602-.911-2.194-.24-.576-.484-.498-.665-.507l-.567-.01c-.197 0-.518.074-.789.37-.271.296-1.036 1.013-1.036 2.47 0 1.458 1.061 2.868 1.209 3.066.148.197 2.087 3.188 5.06 4.473.707.305 1.259.487 1.689.623.71.225 1.356.193 1.866.117.569-.085 1.747-.714 1.994-1.403.246-.69.246-1.28.172-1.403-.074-.123-.271-.197-.567-.345z" fill="#fff"/>
-          </svg>
-          <span style={styles.whatsappBadge}>Chat with Live Assistant</span>
+          <img
+            src="/whatsapp-logo-3d.png"
+            alt="WhatsApp"
+            className="whatsapp-float-logo"
+          />
         </a>
       )}
 
@@ -459,10 +458,11 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                 title="Chat with Live Assistant on WhatsApp"
                 aria-label="Open WhatsApp chat"
               >
-                <svg viewBox="0 0 32 32" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.698-1.8A12.94 12.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#25D366"/>
-                  <path d="M22.11 19.463c-.296-.148-1.747-.862-2.018-.96-.271-.099-.468-.148-.665.148-.198.296-.763.96-.936 1.157-.172.198-.345.222-.641.074-.296-.148-1.249-.46-2.378-1.469-.879-.785-1.473-1.754-1.645-2.05-.172-.296-.018-.456.129-.603.132-.132.296-.345.444-.517.148-.173.197-.296.296-.494.099-.197.05-.37-.025-.518-.074-.148-.665-1.602-.911-2.194-.24-.576-.484-.498-.665-.507l-.567-.01c-.197 0-.518.074-.789.37-.271.296-1.036 1.013-1.036 2.47 0 1.458 1.061 2.868 1.209 3.066.148.197 2.087 3.188 5.06 4.473.707.305 1.259.487 1.689.623.71.225 1.356.193 1.866.117.569-.085 1.747-.714 1.994-1.403.246-.69.246-1.28.172-1.403-.074-.123-.271-.197-.567-.345z" fill="#fff"/>
-                </svg>
+                <img
+                  src="/whatsapp-logo-3d.png"
+                  alt="WhatsApp"
+                  style={{ width: '18px', height: '18px', objectFit: 'contain', marginRight: '4px', borderRadius: '4px' }}
+                />
                 <span style={{ fontSize: '0.72rem', fontWeight: '600' }}>WhatsApp</span>
               </a>
               <button onClick={() => setIsOpen(false)} style={styles.closeBtn}>
@@ -473,10 +473,11 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
 
           {/* WhatsApp banner inside chat */}
           <div style={styles.whatsappBanner}>
-            <svg viewBox="0 0 32 32" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-              <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.698-1.8A12.94 12.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#25D366"/>
-              <path d="M22.11 19.463c-.296-.148-1.747-.862-2.018-.96-.271-.099-.468-.148-.665.148-.198.296-.763.96-.936 1.157-.172.198-.345.222-.641.074-.296-.148-1.249-.46-2.378-1.469-.879-.785-1.473-1.754-1.645-2.05-.172-.296-.018-.456.129-.603.132-.132.296-.345.444-.517.148-.173.197-.296.296-.494.099-.197.05-.37-.025-.518-.074-.148-.665-1.602-.911-2.194-.24-.576-.484-.498-.665-.507l-.567-.01c-.197 0-.518.074-.789.37-.271.296-1.036 1.013-1.036 2.47 0 1.458 1.061 2.868 1.209 3.066.148.197 2.087 3.188 5.06 4.473.707.305 1.259.487 1.689.623.71.225 1.356.193 1.866.117.569-.085 1.747-.714 1.994-1.403.246-.69.246-1.28.172-1.403-.074-.123-.271-.197-.567-.345z" fill="#fff"/>
-            </svg>
+            <img
+              src="/whatsapp-logo-3d.png"
+              alt="WhatsApp"
+              style={{ width: '18px', height: '18px', objectFit: 'contain', flexShrink: 0 }}
+            />
             <span>Prefer live help?</span>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={styles.whatsappBannerLink}>
               Chat with a Live Assistant on WhatsApp →
@@ -519,10 +520,11 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                         <FileText size={12} /> Request Proposal
                       </button>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={styles.inlineCtaBtnWhatsApp}>
-                        <svg viewBox="0 0 32 32" width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.698-1.8A12.94 12.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#25D366"/>
-                          <path d="M22.11 19.463c-.296-.148-1.747-.862-2.018-.96-.271-.099-.468-.148-.665.148-.198.296-.763.96-.936 1.157-.172.198-.345.222-.641.074-.296-.148-1.249-.46-2.378-1.469-.879-.785-1.473-1.754-1.645-2.05-.172-.296-.018-.456.129-.603.132-.132.296-.345.444-.517.148-.173.197-.296.296-.494.099-.197.05-.37-.025-.518-.074-.148-.665-1.602-.911-2.194-.24-.576-.484-.498-.665-.507l-.567-.01c-.197 0-.518.074-.789.37-.271.296-1.036 1.013-1.036 2.47 0 1.458 1.061 2.868 1.209 3.066.148.197 2.087 3.188 5.06 4.473.707.305 1.259.487 1.689.623.71.225 1.356.193 1.866.117.569-.085 1.747-.714 1.994-1.403.246-.69.246-1.28.172-1.403-.074-.123-.271-.197-.567-.345z" fill="#fff"/>
-                        </svg>
+                        <img
+                          src="/whatsapp-logo-3d.png"
+                          alt="WhatsApp"
+                          style={{ width: '14px', height: '14px', objectFit: 'contain', marginRight: '4px' }}
+                        />
                         WhatsApp Us
                       </a>
                     </div>
