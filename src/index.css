@@ -396,24 +396,19 @@ button, input, select, textarea {
   transform: translateY(0);
 }
 
-/* WhatsApp Bounce Animation */
-@keyframes whatsapp-bounce {
-  0%, 40%, 100% {
-    transform: translateY(0);
+/* WhatsApp Water Wave / Siren pulse effect */
+@keyframes whatsapp-wave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
   }
-  15% {
-    transform: translateY(-12px);
-  }
-  22% {
-    transform: translateY(0);
-  }
-  28% {
-    transform: translateY(-5px);
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
 
-.whatsapp-container-bounce {
-  animation: whatsapp-bounce 2.0s infinite;
+.whatsapp-container-pulse {
   position: relative;
   display: flex !important;
   align-items: center;
@@ -421,22 +416,48 @@ button, input, select, textarea {
   width: 60px;
   height: 60px;
   text-decoration: none;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  z-index: 10;
 }
 
-.whatsapp-container-bounce:hover {
+.whatsapp-container-pulse::before,
+.whatsapp-container-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.whatsapp-container-pulse::before {
+  animation: whatsapp-wave 4s cubic-bezier(0.25, 0, 0, 1) infinite;
+}
+
+.whatsapp-container-pulse::after {
+  animation: whatsapp-wave 4s cubic-bezier(0.25, 0, 0, 1) infinite;
+  animation-delay: 2s;
+}
+
+.whatsapp-container-pulse:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-float-logo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 50%;
 }
+
 
 
 

@@ -411,12 +411,12 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-container-bounce"
+          className="whatsapp-container-pulse"
           aria-label="Chat with live assistant on WhatsApp"
           title="Chat with Live Assistant on WhatsApp"
         >
           <img
-            src="/whatsapp-logo-3d.png"
+            src="/whatsapp-logo-round.png"
             alt="WhatsApp"
             className="whatsapp-float-logo"
           />
@@ -459,7 +459,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                 aria-label="Open WhatsApp chat"
               >
                 <img
-                  src="/whatsapp-logo-3d.png"
+                  src="/whatsapp-logo-round.png"
                   alt="WhatsApp"
                   style={{ width: '18px', height: '18px', objectFit: 'contain', marginRight: '4px', borderRadius: '4px' }}
                 />
@@ -474,7 +474,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
           {/* WhatsApp banner inside chat */}
           <div style={styles.whatsappBanner}>
             <img
-              src="/whatsapp-logo-3d.png"
+              src="/whatsapp-logo-round.png"
               alt="WhatsApp"
               style={{ width: '18px', height: '18px', objectFit: 'contain', flexShrink: 0 }}
             />
@@ -521,7 +521,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                       </button>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={styles.inlineCtaBtnWhatsApp}>
                         <img
-                          src="/whatsapp-logo-3d.png"
+                          src="/whatsapp-logo-round.png"
                           alt="WhatsApp"
                           style={{ width: '14px', height: '14px', objectFit: 'contain', marginRight: '4px' }}
                         />
