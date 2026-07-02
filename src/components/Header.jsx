@@ -47,10 +47,12 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
           <div style={styles.topContact}>
             <span style={styles.contactItem}><Phone size={13} /> Main: <a href="tel:+18322346456">(832) 234-6456</a></span>
             <span style={styles.contactDivider}>|</span>
-            <span style={styles.contactItem}>Corporate: <a href="tel:+17472237816">(747) 223-7816</a></span>
+            <span style={styles.contactItem}>HQ: 440 Louisiana St, Houston, TX</span>
+            <span style={styles.contactDivider}>|</span>
+            <span style={styles.contactItem}>Hours: Mon-Fri 9AM-6PM, Sat 10AM-4PM</span>
           </div>
           <div style={styles.topPromo}>
-            <span>Guaranteed Scoping Bid Under 24 Hrs</span>
+            <span>Licensed PEs in 49 States | 24-48 Hr Turnaround</span>
           </div>
         </div>
       </div>
@@ -79,15 +81,16 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
               </button>
               {activeDropdown === 'services' && (
                 <div style={styles.dropdownMenu} className="animate-fade-in">
-                  <Link to="/services/architectural-design" style={styles.dropdownItem}>Architectural Design</Link>
                   <Link to="/services/structural-engineering" style={styles.dropdownItem}>Structural Engineering</Link>
-                  <Link to="/services/mep-engineering" style={styles.dropdownItem}>MEP Engineering</Link>
-                  <Link to="/services/bim-cad" style={styles.dropdownItem}>BIM & CAD Services</Link>
+                  <Link to="/services/sign-stamp-services" style={styles.dropdownItem}>Sign & Stamp Services</Link>
+                  <Link to="/services/permit-correction" style={styles.dropdownItem}>Permit Correction</Link>
+                  <Link to="/services/architectural-design" style={styles.dropdownItem}>Architectural Design</Link>
+                  <Link to="/services/home-design" style={styles.dropdownItem}>Home Design</Link>
                   <Link to="/services/interior-design" style={styles.dropdownItem}>Interior Design</Link>
-                  <Link to="/services/visualization" style={styles.dropdownItem}>3D Visualization</Link>
-                  <Link to="/services/quantity-takeoff" style={styles.dropdownItem}>Quantity Takeoff</Link>
-                  <Link to="/services/cost-estimation" style={styles.dropdownItem}>Cost Estimation</Link>
-                  <Link to="/services/shop-drawings" style={styles.dropdownItem}>Shop Drawings</Link>
+                  <Link to="/services/exterior-design" style={styles.dropdownItem}>Exterior Design</Link>
+                  <Link to="/services/construction-services" style={styles.dropdownItem}>General Construction</Link>
+                  <Link to="/services/mep-engineering" style={styles.dropdownItem}>MEP Engineering</Link>
+                  <Link to="/services/bim-cad" style={styles.dropdownItem}>BIM & CAD Drafting</Link>
                 </div>
               )}
             </div>
@@ -115,6 +118,8 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
             </div>
 
             <Link to="/portfolio" style={isActive('/portfolio') ? styles.activeNavLink : styles.navLink}>Portfolio</Link>
+            <Link to="/pricing" style={isActive('/pricing') ? styles.activeNavLink : styles.navLink}>Pricing</Link>
+            <Link to="/service-areas" style={isActive('/service-areas') ? styles.activeNavLink : styles.navLink}>Service Areas</Link>
             <Link to="/blog" style={isSubActive('/blog') ? styles.activeNavLink : styles.navLink}>GEO Content Hub</Link>
             <Link to="/about" style={isActive('/about') ? styles.activeNavLink : styles.navLink}>Contact & HQ</Link>
           </nav>
@@ -165,12 +170,16 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
               </button>
               {activeDropdown === 'services' && (
                 <div style={styles.mobileSubMenu}>
-                  <Link to="/services/architectural-design" style={styles.mobileSubLink}>Architectural Design</Link>
                   <Link to="/services/structural-engineering" style={styles.mobileSubLink}>Structural Engineering</Link>
-                  <Link to="/services/mep-engineering" style={styles.mobileSubLink}>MEP Engineering</Link>
-                  <Link to="/services/bim-cad" style={styles.mobileSubLink}>BIM & CAD Services</Link>
+                  <Link to="/services/sign-stamp-services" style={styles.mobileSubLink}>Sign & Stamp Services</Link>
+                  <Link to="/services/permit-correction" style={styles.mobileSubLink}>Permit Correction</Link>
+                  <Link to="/services/architectural-design" style={styles.mobileSubLink}>Architectural Design</Link>
+                  <Link to="/services/home-design" style={styles.mobileSubLink}>Home Design</Link>
                   <Link to="/services/interior-design" style={styles.mobileSubLink}>Interior Design</Link>
-                  <Link to="/services/visualization" style={styles.mobileSubLink}>3D Visualization</Link>
+                  <Link to="/services/exterior-design" style={styles.mobileSubLink}>Exterior Design</Link>
+                  <Link to="/services/construction-services" style={styles.mobileSubLink}>General Construction</Link>
+                  <Link to="/services/mep-engineering" style={styles.mobileSubLink}>MEP Engineering</Link>
+                  <Link to="/services/bim-cad" style={styles.mobileSubLink}>BIM & CAD Drafting</Link>
                 </div>
               )}
             </div>
@@ -194,6 +203,8 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
             </div>
 
             <Link to="/portfolio" style={styles.mobileLink}>Portfolio</Link>
+            <Link to="/pricing" style={styles.mobileLink}>Pricing</Link>
+            <Link to="/service-areas" style={styles.mobileLink}>Service Areas</Link>
             <Link to="/blog" style={styles.mobileLink}>GEO Content Hub</Link>
             <Link to="/about" style={styles.mobileLink}>Contact & HQ</Link>
 

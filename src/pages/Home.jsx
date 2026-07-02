@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   DraftingCompass, Building2, Cpu, Wrench, Palette, Eye, 
-  ArrowRight, ShieldCheck, HelpCircle, Users, CheckCircle, ChevronDown, ChevronUp, Star
+  ArrowRight, ShieldCheck, HelpCircle, Users, CheckCircle, ChevronDown, ChevronUp, Star,
+  Layers, Calculator
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
@@ -16,46 +17,46 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
   const services = [
     {
-      id: 'architectural-design',
-      title: 'Architectural Design Services',
-      icon: <DraftingCompass size={32} style={styles.serviceIcon} />,
-      outcome: 'Translate spatial concepts into permit-ready construction documentation. We deliver architectural drawings for commercial permits and custom residential permit sets optimized for code compliance.',
-      deliverables: ['Site Plans', 'Floor Plans', 'Elevations', 'Building Sections', 'Permit Sets', 'Construction Documents', '3D Models']
+      id: 'structural-engineering',
+      title: 'Structural Engineering',
+      icon: <Building2 size={32} style={styles.serviceIcon} />,
+      outcome: 'Our licensed Professional Engineers (PE) provide fully stamped structural drawings for new construction, renovations, and additions. From foundation design to framing and load calculations, we ensure every project meets local building codes and structural safety standards.',
+      deliverables: ['Structural Calculations', 'Foundation Design & Pier Details', 'Framing Plans & Joist Layouts', 'Concrete, Steel & Wood Design', 'PE Stamped Permit Drawings']
     },
     {
-      id: 'structural-engineering',
-      title: 'Structural Engineering Services',
-      icon: <Building2 size={32} style={styles.serviceIcon} />,
-      outcome: 'Design robust foundation and framing systems that guarantee safety. Get a fast turnaround structural engineering estimate cost Houston or nationwide, featuring digital PE stamp drawings.',
-      deliverables: ['Structural Calculations', 'Foundation Design', 'Framing Plans', 'Concrete Design', 'Steel Design', 'Wood Design', 'Structural Reports']
+      id: 'architectural-design',
+      title: 'Architectural Design',
+      icon: <DraftingCompass size={32} style={styles.serviceIcon} />,
+      outcome: 'Complete architectural design and drafting services — from concept plans to permit-ready construction drawings — tailored for residential and commercial projects.',
+      deliverables: ['Conceptual Space Plans', 'Permit Drawings Packages', 'Construction Drawings Sheets', 'Elevations & Section Cuts']
+    },
+    {
+      id: 'pre-construction-engineering',
+      title: 'Pre-Construction Engineering Solutions',
+      icon: <Cpu size={32} style={styles.serviceIcon} />,
+      outcome: 'We support contractors and property owners with engineering evaluations, plan review responses, and structural consulting before construction begins — reducing delays and costly redesigns.',
+      deliverables: ['Engineering Evaluation Reports', 'City Plan Review Responses', 'Structural Consulting Letters', 'Feasibility Audits']
     },
     {
       id: 'mep-engineering',
       title: 'MEP Engineering Services',
       icon: <Wrench size={32} style={styles.serviceIcon} />,
-      outcome: 'Create energy-efficient mechanical, electrical, and plumbing layouts. Our MEP design services Houston, Texas and nationwide ensure absolute coordination and fast municipal approvals.',
-      deliverables: ['HVAC Design', 'Electrical Layouts', 'Lighting Plans', 'Power Distribution', 'Plumbing Systems', 'Fire Protection Plans', 'Load Calculations']
+      outcome: 'Create energy-efficient mechanical, electrical, and plumbing layouts. Our MEP design services Houston and nationwide ensure absolute coordination and fast municipal approvals.',
+      deliverables: ['HVAC Equipment & Duct Plans', 'Electrical Load Panel Schedules', 'Sanitary Plumbing Isometrics', 'Fire Protection Layouts']
     },
     {
       id: 'bim-cad',
       title: 'BIM & CAD Services',
-      icon: <Cpu size={32} style={styles.serviceIcon} />,
+      icon: <Layers size={32} style={styles.serviceIcon} />,
       outcome: 'Mitigate coordination risks before excavation. We construct intelligent virtual BIM modeling for contractors that highlights structural clashes, preventing expensive site rework.',
-      deliverables: ['Revit Models', 'BIM Coordination', 'Clash Detection Reports', 'Shop Drawings', 'As-Built Drawings', 'AutoCAD Drafting']
+      deliverables: ['Revit 3D Modeling (LOD 300)', 'Navisworks Clash Reports', 'BIM Trade Coordination Plans', 'Shop & As-Built Drawings']
     },
     {
-      id: 'interior-design',
-      title: 'Interior Design Services',
-      icon: <Palette size={32} style={styles.serviceIcon} />,
-      outcome: 'Craft functional, visually engaging, and ergonomically balanced interior environments. We coordinate material palettes and lighting design for high occupant comfort and branding.',
-      deliverables: ['Space Planning', 'Furniture Layouts', 'Material Selection', 'Lighting Design', 'Mood Boards', '3D Visualizations']
-    },
-    {
-      id: 'visualization',
-      title: 'Visualization Services',
-      icon: <Eye size={32} style={styles.serviceIcon} />,
-      outcome: 'Secure fast stakeholder buy-in and marketing pre-sales. We generate photorealistic exterior/interior renderings and walkthrough animations that represent real lighting and textures.',
-      deliverables: ['Exterior Renderings', 'Interior Renderings', '3D Animations', 'Walkthrough Videos', 'Marketing Visuals']
+      id: 'cost-estimation',
+      title: 'Project Estimation Support',
+      icon: <Calculator size={32} style={styles.serviceIcon} />,
+      outcome: 'As part of our full-service engineering process, we also provide project estimation support to help clients plan budgets accurately alongside their structural design.',
+      deliverables: ['Material Quantities Takeoffs', 'Preliminary Budget Estimates', 'CSI Division Cost Summaries', 'Bid Proposals Support']
     }
   ];
 
@@ -88,44 +89,28 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
   const faqs = [
     {
-      question: 'How much does a structural engineering estimate cost in Houston?',
-      answer: 'The structural engineering estimate cost Houston generally depends on the scope of work. Custom residential foundation and framing bids range from $1,500 to $4,500, while commercial build-outs range from $3,000 to $8,500. PRIMECOST offers fast turnaround structural engineering bids to keep your pre-construction on schedule.'
+      question: 'Are you licensed to provide services in my state?',
+      answer: 'PRIMECOST operates through a network of state-licensed Professional Engineers across 49 states. Every project is reviewed, signed, and stamped by an engineer specifically licensed in your project\'s state, ensuring full code compliance.'
     },
     {
-      question: 'What are construction estimating services?',
-      answer: 'Construction estimating services are professional analyses that calculate the total cost of a construction project, including materials, labor, equipment, and overhead. PRIMECOST provides fast, accurate construction estimating services for residential, commercial, and industrial projects nationwide — with turnarounds as fast as 24 hours.'
+      question: 'Do you help fix permit rejections or corrections?',
+      answer: 'Yes — our Permitting & Compliance Department specializes in responding to municipal plan review comments, drafting correction packages, and managing resubmittals until your permit is fully approved.'
     },
     {
-      question: 'What is the difference between MEP design and structural design?',
-      answer: 'Structural design focuses on the physical stability and load pathways of a building (foundation, framing, steel, concrete). MEP design services Houston focus on the systems that make the building functional (mechanical HVAC, electrical grids, plumbing risers, and fire protection). Both require coordinated design to prevent onsite conflicts.'
+      question: 'Do you handle the actual construction too, or just design?',
+      answer: 'We offer both. Our Construction Department can manage your project from early layout phases through to completed construction, or you can use our design and engineering services independently.'
     },
     {
-      question: 'Do you provide construction cost estimating services in Texas?',
-      answer: 'Yes, PRIMECOST is a leading pre-construction estimating company Houston. We provide comprehensive construction cost estimating services Texas and nationwide, helping contractors bid accurately and win more projects. Our estimates are detailed, market-based, and delivered in fast turnaround timeframes.'
+      question: 'Do you provide PE-stamped structural drawings?',
+      answer: 'Yes, all our structural drawings are stamped by licensed Professional Engineers (PE), accepted by city and county building departments across Texas and nationwide.'
     },
     {
-      question: 'What is the benefit of BIM modeling for contractors?',
-      answer: 'BIM modeling for contractors allows you to build virtually before physical excavation. By combining architectural, structural, and MEP models in a 3D coordinate space, we run automated clash detection to prevent costly field change orders. Studies show BIM-coordinated projects reduce construction costs by 5–15%.'
+      question: 'What structural engineering services do you offer?',
+      answer: 'Foundation design, framing analysis, load calculations, structural evaluations, renovation/addition engineering, and full construction drawing packages.'
     },
     {
-      question: 'What is quantity takeoff?',
-      answer: 'Quantity takeoff is the detailed measurement and counting of all materials required for a construction project, derived from architectural and engineering blueprints. Our quantity takeoff services use digital tools like Bluebeam and PlanSwift to deliver highly accurate material counts for concrete, drywall, lumber, steel, electrical, and all other trades.'
-    },
-    {
-      question: 'Why do building departments require PE stamped structural drawings?',
-      answer: 'Municipal building departments, such as the Houston Permitting Center, require PE stamped structural drawings Houston and nationwide to verify that framing designs and load pathways comply with the International Building Code (IBC). Stamped documents ensure safety against wind uplift (hurricane zones) and expansive clay soils.'
-    },
-    {
-      question: 'What is pre-construction planning?',
-      answer: 'Pre-construction planning involves all activities completed before ground-breaking, including design development, structural engineering, MEP systems, permitting, cost estimation, and procurement strategy. PRIMECOST specializes in full-service pre-construction planning and documentation — delivering permit-ready sets that prevent costly delays.'
-    },
-    {
-      question: 'Can you work on projects nationwide?',
-      answer: 'Yes! PRIMECOST provides engineering, estimating, and architectural design services across all 50 US states. We are headquartered in Houston, TX, and serve clients in California, Florida, New York, Arizona, Georgia, Nevada, Ohio, Pennsylvania, and everywhere in between with fast turnaround and PE-stamped documentation.'
-    },
-    {
-      question: 'How do I get started with my project?',
-      answer: 'Getting started is easy! Click "Schedule Consultation" to book a free call with our engineering team, or click "Request Proposal" to submit your project details. You can also WhatsApp us directly at +1 (832) 234-6456 for immediate assistance — we respond within 24 hours, guaranteed.'
+      question: 'Do you also help with project estimates?',
+      answer: 'Yes, alongside our engineering services, we offer estimation support to help you plan your project budget accurately.'
     }
   ];
 
@@ -140,8 +125,8 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
   return (
     <div>
       <SchemaManager 
-        title="Structural Engineering & Estimating Services in Houston | PRIMECOST" 
-        description="PRIMECOST provides fast turnaround structural engineering estimates, PE stamped drawings, MEP design, and construction estimating services in Houston, Sugar Land, Katy, Pearland, and across the United States."
+        title="Structural Engineering Services Houston | PE Stamped Drawings — PRIMECOST" 
+        description="Licensed structural engineering firm in Houston offering PE-stamped structural drawings, architectural design, and pre-construction engineering solutions. Fast, accurate, code-compliant designs for residential & commercial projects."
         schemaType="FAQ"
         schemaData={{ questions: faqs }}
       />
@@ -151,19 +136,30 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
         <div style={styles.heroOverlay} />
         <div className="container" style={styles.heroContainer}>
           <div style={styles.heroContent}>
-            <span style={styles.heroTagline}>NATIONWIDE PRE-CONSTRUCTION EXCELLENCE | BASED IN HOUSTON, TX</span>
+            <span style={styles.heroTagline}>★ 49 STATES LICENSED PE NETWORK | NATIONWIDE ENGINEERING, DESIGN & CONSTRUCTION</span>
             <h1 style={styles.heroTitle}>
-              Structural Engineering, MEP Design & Construction Estimating Services
+              Licensed Structural Engineering, Design & Construction Solutions — Nationwide
             </h1>
             <p style={styles.heroSubtitle}>
-              PRIMECOST provides fast turnaround structural engineering bids, PE stamped drawings, MEP design, and coordinated BIM modeling for contractors, developers, and owners across the United States. From Houston, Sugar Land, and Katy to nationwide projects, we deliver permit-ready sets that prevent carrying cost delays.
+              PRIMECOST is a full-service engineering and construction firm providing PE-stamped structural drawings, architectural & interior design, construction services, and permit correction support across all 49 states we serve.
             </p>
             <div style={styles.heroCta}>
-              <button onClick={onOpenProposal} className="btn btn-secondary">Request a Proposal</button>
-              <button onClick={onOpenConsultation} className="btn btn-outline-white">Schedule Consultation</button>
+              <button onClick={onOpenConsultation} className="btn btn-secondary">Request Engineering Consultation</button>
+              <Link to="/service-areas" className="btn btn-outline-white">Check Service in Your State</Link>
               <Link to="/portfolio" className="btn btn-primary" style={{ backgroundColor: 'rgba(27, 59, 111, 0.85)' }}>
                 View Portfolio <ArrowRight size={16} />
               </Link>
+            </div>
+            
+            {/* Trust Bar */}
+            <div style={styles.heroTrustBar}>
+              <span style={styles.trustBarItem}>✓ Licensed PEs in 49 States</span>
+              <span style={styles.trustBarDivider}>|</span>
+              <span style={styles.trustBarItem}>✓ Sign & Stamp Services</span>
+              <span style={styles.trustBarDivider}>|</span>
+              <span style={styles.trustBarItem}>✓ Permit Correction Experts</span>
+              <span style={styles.trustBarDivider}>|</span>
+              <span style={styles.trustBarItem}>✓ 24-48 Hr Turnaround</span>
             </div>
           </div>
         </div>
@@ -333,11 +329,14 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#c5a880" color="#c5a880" />)}
                 </div>
                 <p style={styles.reviewBody}>
-                  "PRIMECOS delivered permit-ready drawings for our 45-unit residential multifamily complex in Houston. The coordination between structural calculations and HVAC layout saved us at least $35k in framing modification costs during build."
+                  "PRIMECOST delivered permit-ready drawings for our 45-unit residential multifamily complex in Houston. The coordination between structural calculations and HVAC layout saved us at least $35k in framing modification costs during build."
                 </p>
-                <div style={styles.reviewer}>
-                  <strong>Marcus Vance</strong>
-                  <span>Lead Developer, Vance Group LLC</span>
+                <div style={styles.reviewerContainer}>
+                  <div style={styles.reviewerAvatar}>MV</div>
+                  <div style={styles.reviewer}>
+                    <strong style={{ display: 'block', color: '#1b3b6f' }}>Marcus Vance</strong>
+                    <span style={{ color: '#64748b', fontSize: '0.8rem' }}>Lead Developer, Vance Group LLC</span>
+                  </div>
                 </div>
               </div>
 
@@ -348,9 +347,12 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                 <p style={styles.reviewBody}>
                   "The Revit BIM model provided was flawless. Their clash detection caught two significant conflicts between the steel structure and primary drainage pipes. Their engineers updated structural parameters on the same day."
                 </p>
-                <div style={styles.reviewer}>
-                  <strong>Elena Rostova</strong>
-                  <span>Managing Partner, Rostova Architects</span>
+                <div style={styles.reviewerContainer}>
+                  <div style={styles.reviewerAvatar}>ER</div>
+                  <div style={styles.reviewer}>
+                    <strong style={{ display: 'block', color: '#1b3b6f' }}>Elena Rostova</strong>
+                    <span style={{ color: '#64748b', fontSize: '0.8rem' }}>Managing Partner, Rostova Architects</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -901,6 +903,43 @@ const styles = {
     clip: 'rect(0, 0, 0, 0)',
     whiteSpace: 'nowrap',
     border: '0',
+  },
+  heroTrustBar: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1.25rem',
+    marginTop: '2rem',
+    flexWrap: 'wrap',
+    color: '#cbd5e1',
+    fontSize: '0.82rem',
+    fontWeight: '600',
+    fontFamily: 'monospace',
+    letterSpacing: '0.05em',
+  },
+  trustBarItem: {
+    color: '#c5a880',
+  },
+  trustBarDivider: {
+    color: '#475569',
+  },
+  reviewerContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    marginTop: '1.5rem',
+  },
+  reviewerAvatar: {
+    width: '42px',
+    height: '42px',
+    borderRadius: '50%',
+    backgroundColor: '#1b3b6f',
+    color: '#c5a880',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: '700',
+    fontSize: '0.9rem',
+    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
   }
 };
 

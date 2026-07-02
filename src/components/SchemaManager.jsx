@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 export default function SchemaManager({ title, description, schemaType, schemaData }) {
   useEffect(() => {
     // 1. Set standard page titles and meta descriptions
-    document.title = title ? `${title} | PRIMECOST` : 'PRIMECOST - Engineering, Architectural Design & Pre-Construction';
+    document.title = title ? (title.includes('PRIMECOST') ? title : `${title} | PRIMECOST`) : 'PRIMECOST - Engineering, Architectural Design & Pre-Construction';
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -92,6 +92,25 @@ export default function SchemaManager({ title, description, schemaType, schemaDa
         "postalCode": "77002",
         "addressCountry": "US"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.7615,
+        "longitude": -95.3675
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ],
       "areaServed": ["US", "Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"],
       "sameAs": [
         "https://www.linkedin.com/company/primecost-biz",

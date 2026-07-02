@@ -19,7 +19,9 @@ const projects = [
     deliverables: ['PE-Stamped Foundation Prints', 'HVAC Duct Coordinate Plans', 'Navisworks Clash Reports', 'Revit Coordinated Model (LOD 300)', 'Fire Protection Sprinkler Layouts'],
     technologies: ['Revit', 'Navisworks Manage', 'ETABS', 'AISC Steel Standards', 'Manual N Calculations'],
     results: 'Zero field modifications required for structural or mechanical systems. Saved developer an estimated $42,500 in framing correction labor and prevented 2 weeks of construction delay.',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop',
+    stateTag: 'Texas',
+    deptTag: 'Structural Engineering'
   },
   {
     id: 'woodlands-villa',
@@ -34,7 +36,9 @@ const projects = [
     deliverables: ['Pier Drilling Layout & Detail prints', 'PE-Stamped Structural Calculations Pack', 'Shear Wall Shear Resistance Schedules', 'Wind Load Tie-down Strapping Specifications'],
     technologies: ['RISA-3D', 'AutoCAD', 'WoodWorks Sizer', 'IBC Section 1609 Compliance'],
     results: 'Obtained fast city building permits within 5 days of submittal. Foundation settlement calculations project less than 0.25 inches of movement over 30 years.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+    stateTag: 'Texas',
+    deptTag: 'Structural Engineering'
   },
   {
     id: 'galveston-depot',
@@ -49,7 +53,9 @@ const projects = [
     deliverables: ['Tilt-up Concrete Panel shop drawings', 'Slab-on-Grade Expansion Joint schedule', 'Wind Shear frame calculations', 'Crane foundation details'],
     technologies: ['SAP2000', 'Revit Structure', 'ACI 360 Slab Standards', 'AISC Wind Code'],
     results: 'Successfully passed local building department storm code reviews. Tilt-up panels were erected in 4 working days with zero alignment errors.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+    stateTag: 'Texas',
+    deptTag: 'Structural Engineering'
   },
   {
     id: 'downtown-office',
@@ -64,7 +70,9 @@ const projects = [
     deliverables: ['Interior Space Floor Plans', 'ADA Egress site layouts', 'Electrical single-line modifications', 'Title 24 / ComCheck Energy certificates', 'Acoustic partition details'],
     technologies: ['AutoCAD Architecture', 'Trace 700', 'Dialux Lighting Program', 'ComCheck'],
     results: 'Obtained certificate of occupancy within 2 weeks of municipal submittal. Reduced calculated electrical lighting loads by 22% compared to standard base codes.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop',
+    stateTag: 'Texas',
+    deptTag: 'Architectural & Design'
   }
 ];
 
@@ -130,7 +138,11 @@ export default function Portfolio() {
                 <span style={styles.cardLocation}><MapPin size={12} /> {p.location}</span>
               </div>
               <div style={styles.cardBody}>
-                <span style={styles.cardType}>{p.buildingType}</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
+                  <span style={styles.cardType}>{p.buildingType}</span>
+                  {p.stateTag && <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#1b3b6f', backgroundColor: '#eff6ff', padding: '0.2rem 0.6rem', borderRadius: '999px', border: '1px solid #bfdbfe' }}>{p.stateTag}</span>}
+                  {p.deptTag && <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#c5a880', backgroundColor: '#faf7f0', padding: '0.2rem 0.6rem', borderRadius: '999px', border: '1px solid #f0e6d0' }}>{p.deptTag}</span>}
+                </div>
                 <h3 style={styles.cardTitle}>{p.name}</h3>
                 <p style={styles.cardScope}><strong>Scope:</strong> {p.scope}</p>
                 <div style={styles.cardStats}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle2, FileUp, ShieldCheck } from 'lucide-react';
+import { saveLeadToSheet } from '../utils/sheetsLogger';
 
 export default function ProposalModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -64,12 +65,24 @@ Sent via PRIMECOS pre-construction portal.`;
 
     const mailtoUrl = `mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Simulate API request
-    setTimeout(() => {
+    // Save to Google Sheets then redirect
+    saveLeadToSheet({
+      type: 'proposal',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company || '',
+      projectType: formData.projectType,
+      area: formData.area,
+      location: formData.location,
+      scope: formData.scope,
+      fileName: fileName || 'None',
+      details: formData.details || ''
+    }).finally(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
       window.location.href = mailtoUrl;
-    }, 1800);
+    });
   };
 
   return (

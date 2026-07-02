@@ -51,6 +51,22 @@ export default function About() {
         </div>
       </section>
 
+      {/* Company Overview Section */}
+      <section style={{ padding: '4rem 0 2rem 0', backgroundColor: '#ffffff' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center', margin: '0 auto' }}>
+          <ScrollReveal>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>About Our Firm</span>
+            <h2 style={{ fontSize: '2rem', color: '#1b3b6f', marginTop: '0.5rem', marginBottom: '1.5rem', fontFamily: "'Outfit', sans-serif" }}>Nationwide Licensed Engineering & Design</h2>
+            <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: '1.75', marginBottom: '1.5rem' }}>
+              PRIMECOST is a Texas-based structural engineering and design firm serving Houston, Harris County, Fort Bend County, and surrounding areas. Our team of licensed Professional Engineers (PE) specializes in structural analysis, foundation design, and code-compliant construction drawings for residential and commercial projects.
+            </p>
+            <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: '1.75' }}>
+              With every project, we combine engineering precision with practical, real-world solutions — helping architects, contractors, and property owners move forward with confidence.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* CEO Story Section */}
       <section style={styles.ceoStorySection}>
         <div className="container" style={styles.ceoStoryContainer}>
@@ -136,6 +152,173 @@ export default function About() {
                 <p style={styles.officeCity}>Seattle, WA 98104</p>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 7-Step Process / Workflow Section */}
+      <section style={{ padding: '5rem 0', backgroundColor: '#ffffff', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Workflow Transparency</span>
+            <h2 style={{ fontSize: '2.25rem', color: '#1b3b6f', marginTop: '0.5rem', fontFamily: "'Outfit', sans-serif" }}>Our Process — Department by Department</h2>
+            <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>How we coordinate design, engineering, and stamping to ensure permit approval.</p>
+          </div>
+
+          <ScrollReveal>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '900px', margin: '0 auto' }}>
+              {[
+                { step: '1', title: 'Client Intake & Consultation', dept: 'Intake Department', desc: 'Client submits project details through the portal or consultation call. Our intake team assigns the project to the relevant department.' },
+                { step: '2', title: 'Engineering & Design', dept: 'Engineering & Design Department', desc: 'Structural, architectural, interior, and MEP teams collaborate to develop drawings and calculations. Every structural output is reviewed internally before moving forward.' },
+                { step: '3', title: 'QA/QC Review', dept: 'Quality Control Department', desc: 'A senior licensed PE independently reviews all structural calculations and drawings for accuracy and code compliance before stamping.' },
+                { step: '4', title: 'Sign & Stamp (State-Specific)', dept: 'Licensed Engineering Department', desc: 'The project is assigned to an engineer licensed in the project\'s specific state for final sign-off and stamping — ensuring full legal compliance in that jurisdiction.' },
+                { step: '5', title: 'Permitting & Compliance', dept: 'Permitting & Compliance Department', desc: 'Our permitting department submits drawings to the local building authority and manages any correction cycles or resubmittals.' },
+                { step: '6', title: 'Construction Support', dept: 'Construction Department', desc: 'If construction services are engaged, our construction management team takes over — scheduling, site supervision, and quality inspections.' },
+                { step: '7', title: 'Project Closeout', dept: 'Project Management Department', desc: 'Final walkthroughs, documentation handover, and client sign-off.' }
+              ].map((proc, index) => (
+                <div key={index} style={{ display: 'flex', gap: '1.5rem', backgroundColor: '#f8fafc', padding: '1.75rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    backgroundColor: '#1b3b6f',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '700',
+                    fontSize: '1rem',
+                    flexShrink: 0
+                  }}>{proc.step}</div>
+                  <div>
+                    <span style={{ fontSize: '0.75rem', color: '#c5a880', fontWeight: '600', textTransform: 'uppercase', display: 'block', marginBottom: '0.25rem' }}>{proc.dept}</span>
+                    <h4 style={{ fontSize: '1.15rem', color: '#1b3b6f', fontWeight: '700', marginBottom: '0.5rem' }}>{proc.title}</h4>
+                    <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: '1.6' }}>{proc.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 28-Person Team Panel Section */}
+      <section style={{ padding: '5rem 0', backgroundColor: '#f8fafc' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Professional Credentials</span>
+            <h2 style={{ fontSize: '2.25rem', color: '#1b3b6f', marginTop: '0.5rem', fontFamily: "'Outfit', sans-serif" }}>Our Nationwide Engineering & Operations Team</h2>
+            <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>A coordinated network of licensed engineers, designers, and permit expeditors.</p>
+          </div>
+
+          <ScrollReveal>
+            {[
+              {
+                dept: 'Executive Leadership',
+                members: [
+                  { name: 'Frank Moore', role: 'Founder & CEO', tag: 'Texas Founder' },
+                  { name: 'Harold Sterling, PE', role: 'Chief Structural Engineer / VP Engineering', tag: 'PE License #124589' },
+                  { name: 'Carlos Ramirez', role: 'Chief Operating Officer', tag: 'Operations Head' }
+                ]
+              },
+              {
+                dept: 'Structural Engineering Department',
+                members: [
+                  { name: 'Michael Anderson, PE', role: 'Senior Structural Engineer', tag: 'PE License #138742' },
+                  { name: 'Daniel Martinez, PE', role: 'Structural Engineer', tag: 'PE License #149023' },
+                  { name: 'Christopher Wilson, PE', role: 'Structural Engineer', tag: 'PE License #150231' },
+                  { name: 'David Garcia', role: 'Structural Design Associate', tag: 'Design Coordination' },
+                  { name: 'Anthony Lopez', role: 'Structural Drafter', tag: 'AutoCAD Specialist' },
+                  { name: 'Ryan Hernandez', role: 'Structural QA/QC Reviewer', tag: 'Code Inspector' }
+                ]
+              },
+              {
+                dept: 'Architectural & Design Department',
+                members: [
+                  { name: 'Emily Johnson', role: 'Lead Architect', tag: 'AIA Associate' },
+                  { name: 'Sophia Rodriguez', role: 'Architectural Designer', tag: 'Permit Set Specialist' },
+                  { name: 'Olivia Brown', role: 'Interior Design Lead', tag: 'NCIDQ Certified' },
+                  { name: 'Isabella Torres', role: 'Interior Designer', tag: 'Space Planning' },
+                  { name: 'Ethan Miller', role: 'Exterior/Landscape Design Lead', tag: 'Urban Design' },
+                  { name: 'Lucas Rivera', role: '3D Rendering/Visualization Specialist', tag: 'Lumion Expert' }
+                ]
+              },
+              {
+                dept: 'Construction Department',
+                members: [
+                  { name: 'James Thompson', role: 'Director of Construction', tag: '20+ Yrs Experience' },
+                  { name: 'Alexander Perez', role: 'Project Manager', tag: 'PMP Certified' },
+                  { name: 'Matthew White', role: 'Construction Supervisor', tag: 'Site Management' },
+                  { name: 'Jose Gonzalez', role: 'Site Superintendent', tag: 'Field Execution' },
+                  { name: 'Andrew Scott', role: 'Safety & Compliance Officer', tag: 'OSHA 30 Certified' }
+                ]
+              },
+              {
+                dept: 'Permitting & Compliance Department',
+                members: [
+                  { name: 'Natalie Sanchez', role: 'Permit Expediting Lead', tag: 'Municipal Liaison' },
+                  { name: 'Benjamin Clark', role: 'Code Compliance Specialist', tag: 'IBC / IRC Audit' },
+                  { name: 'Maria Flores', role: 'Plan Review Coordinator', tag: 'Submittal Management' }
+                ]
+              },
+              {
+                dept: 'MEP & Estimation Department',
+                members: [
+                  { name: 'Kevin Walker, PE', role: 'MEP Engineer', tag: 'PE License #147289' },
+                  { name: 'Miguel Castillo', role: 'Mechanical Designer', tag: 'HVAC Specialist' },
+                  { name: 'Brandon Young', role: 'Electrical Designer', tag: 'Power Systems' },
+                  { name: 'William Davis', role: 'Lead Estimator', tag: 'CPE Certified' },
+                  { name: 'Gabriel Morales', role: 'Estimation Analyst', tag: 'Takeoff Expert' }
+                ]
+              }
+            ].map((dGroup, idx) => (
+              <div key={idx} style={{ marginBottom: '3.5rem' }}>
+                <h3 style={{ fontSize: '1.25rem', color: '#1b3b6f', borderLeft: '4px solid #c5a880', paddingLeft: '0.75rem', marginBottom: '1.5rem', fontWeight: '700' }}>{dGroup.dept}</h3>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+                  gap: '1.5rem'
+                }}>
+                  {dGroup.members.map((member, mIdx) => (
+                    <div key={mIdx} style={{
+                      backgroundColor: '#ffffff',
+                      borderRadius: '8px',
+                      padding: '1.5rem',
+                      border: '1px solid #e2e8f0',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      position: 'relative',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '4px',
+                        height: '100%',
+                        backgroundColor: '#1b3b6f'
+                      }} />
+                      <div>
+                        <h4 style={{ fontSize: '1.05rem', color: '#0f172a', fontWeight: '700', marginBottom: '0.25rem' }}>{member.name}</h4>
+                        <p style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '0.75rem', fontWeight: '500' }}>{member.role}</p>
+                      </div>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: '600',
+                        color: '#c5a880',
+                        backgroundColor: '#fafaf9',
+                        padding: '0.25rem 0.5rem',
+                        borderRadius: '4px',
+                        border: '1px solid #f1f0ec',
+                        alignSelf: 'flex-start'
+                      }}>{member.tag}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </ScrollReveal>
         </div>
       </section>
@@ -268,11 +451,11 @@ export default function About() {
               </div>
               
               <div style={styles.leaderItem}>
-                <div style={styles.avatarSkeleton}>HJ</div>
+                <div style={styles.avatarSkeleton}>HS</div>
                 <div>
-                  <h4 style={styles.leaderName}>Hal Jordan</h4>
-                  <p style={styles.leaderRole}>President & Director of Engineering</p>
-                  <a href="mailto:Frank.moore@primecost.biz" style={styles.leaderEmail}>Intake: Hal Jordan</a>
+                  <h4 style={styles.leaderName}>Harold Sterling, PE</h4>
+                  <p style={styles.leaderRole}>President & VP of Engineering</p>
+                  <a href="mailto:Frank.moore@primecost.biz" style={styles.leaderEmail}>Intake: Harold Sterling</a>
                 </div>
               </div>
             </div>

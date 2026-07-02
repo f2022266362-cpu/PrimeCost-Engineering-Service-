@@ -11,6 +11,8 @@ import Blog from './pages/Blog';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import ServiceAreas from './pages/ServiceAreas';
+import Pricing from './pages/Pricing';
 import ProposalModal from './components/ProposalModal';
 import ConsultationModal from './components/ConsultationModal';
 
@@ -67,6 +69,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/service-areas" element={<ServiceAreas />} />
+          <Route path="/pricing" element={<Pricing />} />
           
           {/* Fallback to Home */}
           <Route path="*" element={<Home onOpenConsultation={openConsultation} onOpenProposal={openProposal} />} />

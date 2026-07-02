@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, Video, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { saveLeadToSheet } from '../utils/sheetsLogger';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -67,14 +68,27 @@ export default function ConsultationModal({ isOpen, onClose }) {
       return;
     }
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    const subject = `Consultation Request: ${formData.name}`;
+    const body = `Details:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nFormat: ${formData.format}\nDate: ${formData.date}\nTime Slot: ${formData.timeSlot}\nNotes: ${formData.notes}`;
+    const mailtoUrl = `mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Save to Google Sheets then redirect
+    saveLeadToSheet({
+      type: 'consultation',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company || '',
+      format: formData.format,
+      date: formData.date,
+      timeSlot: formData.timeSlot,
+      notes: formData.notes || ''
+    }).finally(() => {
       setIsSubmitting(false);
-        const subject = `Consultation Request: ${formData.name}`;
-        const body = `Details:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nFormat: ${formData.format}\nDate: ${formData.date}\nTime Slot: ${formData.timeSlot}\nNotes: ${formData.notes}`;
-        const mailtoUrl = `mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoUrl;
-        setIsSuccess(true);
-    }, 1500);
+      setIsSuccess(true);
+      window.location.href = mailtoUrl;
+    });
   };
 
   const formatDateLabel = (d) => {
@@ -98,7 +112,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <div style={styles.header}>
               <h2 style={styles.title}>Schedule a Consultation</h2>
               <p style={styles.subtitle}>
-                Book a 30-minute scoping session with Frank Moore (CEO) or Hal Jordan (President) to align on pre-construction details.
+                Book a 30-minute scoping session with Frank Moore (CEO) or Harold Sterling, PE (VP Engineering) to align on pre-construction details.
               </p>
             </div>
 
@@ -279,7 +293,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
             </p>
             <div style={styles.ticketCard}>
               <p><strong>Attendee:</strong> {formData.name} ({formData.company || 'Private Project'})</p>
-              <p><strong>Host:</strong> Hal Jordan (President) & Frank Moore (CEO)</p>
+              <p><strong>Host:</strong> Harold Sterling, PE (VP Engineering) &amp; Frank Moore (CEO)</p>
               <p><strong>Format:</strong> {formData.format}</p>
               <p><strong>Date:</strong> {formData.date}</p>
               <p><strong>Time Slot:</strong> {formData.timeSlot} (Central Time)</p>

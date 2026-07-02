@@ -179,8 +179,8 @@ const servicesData = {
     ]
   },
   'cost-estimation': {
-    name: 'Cost Estimation Services',
-    description: 'Professional cost estimation, preliminary budgets, detailed bids, and quantity surveying to ensure your project stays within budget.',
+    name: 'Project Estimation Support',
+    description: 'As part of our full-service engineering process, we provide project estimation support to help clients plan budgets accurately alongside their structural design.',
     whoNeedsIt: [
       { role: 'Builders & Developers', context: 'Require budget estimates for bidding and securing bank financing.' },
       { role: 'Architects', context: 'Want to ensure their schematic designs align with the client\'s budget constraints.' },
@@ -218,6 +218,132 @@ const servicesData = {
     faqs: [
       { question: 'What are shop drawings?', answer: 'Shop drawings are detailed diagrams that show how a component will be manufactured, fabricated, and installed, bridging the gap between design and construction.' },
       { question: 'Do you provide as-built drawings?', answer: 'Yes, we update design models to reflect field modifications and deliver coordinated as-built drawings.' }
+    ]
+  },
+  'sign-stamp-services': {
+    name: 'Sign & Stamp Services',
+    description: 'Professional Engineer (PE) sign and stamp services in all 49 states we serve, certifying that structural drawings and calculations comply with local building codes.',
+    whoNeedsIt: [
+      { role: 'Out-of-State Architects', context: 'Need a local engineer of record to review and stamp designs for municipal approval.' },
+      { role: 'Developers', context: 'Require professional endorsement on structural packages to secure construction permits.' },
+      { role: 'General Contractors', context: 'Need certified load capacity calculations and framing details stamped by a licensed PE.' }
+    ],
+    process: [
+      { step: '1', title: 'Plan Submission', desc: 'Submit your completed structural or architectural drawings and geotechnical report.' },
+      { step: '2', title: 'Engineering Review', desc: 'Our licensed PE reviews load paths, calculations, and framing designs for code compliance.' },
+      { step: '3', title: 'Revisions & Updates', desc: 'Identify and resolve any design issues or building code conflicts.' },
+      { step: '4', title: 'Digital/Wet Stamp', desc: 'Apply a state-specific PE stamp and signature to the finalized drawings.' }
+    ],
+    deliverables: ['PE Stamped Structural Drawings', 'Certified Calculations Packages', 'Engineer of Record Letters', 'Code Compliance Certifications'],
+    software: ['AutoCAD', 'Revit', 'ETABS', 'RISA-3D'],
+    faqs: [
+      { question: 'What is a PE stamp?', answer: 'A Professional Engineer (PE) stamp certifies that drawings and calculations were prepared under the supervision of a licensed engineer and comply with local safety codes.' },
+      { question: 'Are you licensed in my state?', answer: 'Yes, we have a network of licensed Professional Engineers covering 49 U.S. states.' }
+    ]
+  },
+  'permit-correction': {
+    name: 'Permit Correction Services',
+    description: 'Fast plan review response packages and structural modifications to resolve city or county building department rejections and obtain building permits.',
+    whoNeedsIt: [
+      { role: 'Property Owners', context: 'Stuck in permitting loops with municipal plans examiners and needing fast revisions.' },
+      { role: 'Developers', context: 'Encountering structural or code comments that threaten project schedules.' },
+      { role: 'Contractors', context: 'Need plan review response letters and modified calculations signed by a PE.' }
+    ],
+    process: [
+      { step: '1', title: 'Comment Review', desc: 'Analyze the building department\'s rejection comments and plan examiner notes.' },
+      { step: '2', title: 'Engineering Intake', desc: 'Correlate comments with structural drawings and code guidelines.' },
+      { step: '3', title: 'Plan Revisions', desc: 'Update framing layouts, connections, or foundation prints to satisfy requirements.' },
+      { step: '4', title: 'Response Submission', desc: 'Provide a clean plan review response letter and stamped drawing package for resubmittal.' }
+    ],
+    deliverables: ['Plan Review Response Letters', 'PE-Stamped Revised Drawings', 'Updated Calculations Sheets', 'Building Code Variance Reports'],
+    software: ['AutoCAD', 'Revit', 'RISA-3D'],
+    faqs: [
+      { question: 'How fast can you resolve permit comments?', answer: 'We specialize in rapid turnaround, typically compiling comment responses and drawing edits within 3 to 5 business days.' },
+      { question: 'Do you guarantee permit approval?', answer: 'We manage the correction cycle and coordinate directly with plans examiners until your building permit is successfully issued.' }
+    ]
+  },
+  'home-design': {
+    name: 'Home Design',
+    description: 'Custom residential planning and architectural home design, translating your vision into detailed permit-ready custom home plans.',
+    whoNeedsIt: [
+      { role: 'Homeowners', context: 'Planning custom luxury homes, secondary dwellings (ADUs), or significant home expansions.' },
+      { role: 'Builders', context: 'Seeking market-optimized model home designs and permit-ready spec home packages.' },
+      { role: 'Investors', context: 'Converting existing structures or designing new high-yield residential properties.' }
+    ],
+    process: [
+      { step: '1', title: 'Conceptual Design', desc: 'Translate your vision, layout preferences, and budget into preliminary sketches.' },
+      { step: '2', title: 'Floor Plans', desc: 'Design detailed floor plans, room configurations, and initial spatial flow.' },
+      { step: '3', title: '3D Visualizations', desc: 'Generate exterior elevations and 3D renderings to visualize the finished home.' },
+      { step: '4', title: 'Permit Drawings', desc: 'Draft full construction and permit-ready residential design documents.' }
+    ],
+    deliverables: ['Custom Floor Plans', 'Exterior Elevations', 'Window & Door Schedules', 'Electrical & Finish Plans', 'Permit Submittal Sheets'],
+    software: ['Revit', 'AutoCAD', 'SketchUp', 'Enscape'],
+    faqs: [
+      { question: 'Can you design custom homes from scratch?', answer: 'Yes, we specialize in high-end custom home design, starting from initial concepts through to final PE-stamped structural prints.' },
+      { question: 'Do you handle local zoning setbacks?', answer: 'Yes, our home designs are tailored to comply with municipal zoning regulations, height limits, and building setbacks.' }
+    ]
+  },
+  'exterior-design': {
+    name: 'Exterior Design',
+    description: 'Transforming building envelopes, facades, and landscapes to maximize curb appeal and outdoor usability for commercial and residential properties.',
+    whoNeedsIt: [
+      { role: 'Property Owners', context: 'Wanting to modernize facades, add porches, or update landscaping layouts.' },
+      { role: 'Developers', context: 'Need commercial strip center facades or subdivision entries designed for strong tenant attraction.' },
+      { role: 'Renovators', context: 'Seeking coordinated cladding, lighting, and entry designs that increase property value.' }
+    ],
+    process: [
+      { step: '1', title: 'Site Inspection', desc: 'Analyze existing exterior facades, topography, and property lines.' },
+      { step: '2', title: 'Material Selection', desc: 'Choose cladding (stucco, siding, stone), color schemes, and siding profiles.' },
+      { step: '3', title: 'Lighting & Landscaping', desc: 'Integrate architectural exterior lighting and structural landscape walls.' },
+      { step: '4', title: '3D CGI Rendering', desc: 'Generate photorealistic exterior renderings to finalize materials and views.' }
+    ],
+    deliverables: ['Exterior Material Specifications', 'Reflected Exterior Lighting Plans', 'Facade Detail Drawings', 'Photorealistic CGI Renderings', 'Site & Landscaping Layouts'],
+    software: ['SketchUp', 'Lumion', 'Photoshop', 'Revit'],
+    faqs: [
+      { question: 'What is included in exterior design?', answer: 'We specify exterior cladding, window configurations, paint schedules, lighting fixtures, and decorative structures (decks, pergolas, retaining walls).' },
+      { question: 'Do you coordinate with HOA guidelines?', answer: 'Yes, we prepare compliance submittal packages matching your Homeowners Association (HOA) architectural requirements.' }
+    ]
+  },
+  'construction-services': {
+    name: 'General Construction Services',
+    description: 'Full-service general contracting, project management, and site supervision for residential, commercial, and industrial construction builds.',
+    whoNeedsIt: [
+      { role: 'Developers', context: 'Seeking a single-source design-build firm to manage projects from ground break to occupancy.' },
+      { role: 'Homeowners', context: 'Planning custom home builds, additions, or major structural renovations.' },
+      { role: 'Business Owners', context: 'Needing commercial office tenant improvements, retail build-outs, or warehouse modifications.' }
+    ],
+    process: [
+      { step: '1', title: 'Pre-Con Planning', desc: 'Develop schedules, finalize budgets, and coordinate subcontractor procurement.' },
+      { step: '2', title: 'Permit Clearance', desc: 'Obtain all municipal building, utility, and environmental licenses.' },
+      { step: '3', title: 'Site Execution', desc: 'Manage site excavation, foundation pouring, structural framing, and utility runs.' },
+      { step: '4', title: 'QC Inspections', desc: 'Perform regular quality and engineering safety checks throughout the build phases.' }
+    ],
+    deliverables: ['Project Scheduling (Gantt)', 'Safety Plan & Compliance Audits', 'Subcontractor Contracts & Bids', 'Daily Project Progress Reports', 'Final Occupancy Certifications'],
+    software: ['Procore', 'MS Project', 'Excel'],
+    faqs: [
+      { question: 'Do you offer design-build services?', answer: 'Yes, we combine architectural design, structural engineering, permitting, and construction under one unified roof.' },
+      { question: 'Are you licensed and insured for construction?', answer: 'Yes, PRIMECOST maintains active general contracting licensing, structural safety credentials, and complete liability insurance.' }
+    ]
+  },
+  'pre-construction-engineering': {
+    name: 'Pre-Construction Engineering',
+    description: 'Comprehensive engineering evaluations, design feasibility reviews, and structural consulting before ground-break to reduce construction change orders.',
+    whoNeedsIt: [
+      { role: 'Developers', context: 'Need value engineering to optimize concrete and steel framing costs.' },
+      { role: 'Contractors', context: 'Seeking plan reviews to identify structural clashes before staging materials.' },
+      { role: 'Property Managers', context: 'Require site evaluations, structural inspections, and code audits before property acquisition.' }
+    ],
+    process: [
+      { step: '1', title: 'Drawing Audit', desc: 'Review architectural and structural sets for structural alignment.' },
+      { step: '2', title: 'Value Engineering', desc: 'Identify opportunities to reduce material costs while maintaining structural safety.' },
+      { step: '3', title: 'Clash Resolution', desc: 'Run coordination checks between structural frames and MEP piping.' },
+      { step: '4', title: 'Final Report', desc: 'Deliver pre-construction feasibility audits and stamp corrections.' }
+    ],
+    deliverables: ['Value Engineering Audits', 'Clash Analysis Summaries', 'Structural Assessment Reports', 'Municipal Permitting Checklists'],
+    software: ['Revit', 'Navisworks Manage', 'ETABS'],
+    faqs: [
+      { question: 'What is value engineering?', answer: 'Value engineering reviews design packages to optimize structural members and materials, reducing costs without compromising safety or compliance.' },
+      { question: 'Why is pre-construction engineering important?', answer: 'It resolves spatial conflicts and structural errors virtually, preventing expensive field modifications during actual construction.' }
     ]
   }
 };

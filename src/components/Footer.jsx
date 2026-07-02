@@ -121,7 +121,7 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
           {/* Company Details Column */}
           <div style={styles.colLarge}>
             <Link to="/" style={styles.logoBox}>
-              <img src="/logo.png" alt="PRIMECOST Logo" style={styles.logoImg} />
+              <img src="/logo.png" alt="PRIMECOST Structural Engineering Services Houston logo" style={styles.logoImg} loading="lazy" />
             </Link>
             <p style={styles.aboutText}>
               Delivering high-end architectural drawings, structural calculations, MEP schematics, BIM models, and pre-construction bidding packages. Engineering your vision with precision since 2005.
@@ -129,7 +129,7 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
             <div style={styles.leadership}>
               <h5 style={styles.smallHeading}>Executive Leadership</h5>
               <p style={styles.leaderText}><strong>CEO:</strong> Frank Moore</p>
-              <p style={styles.leaderText}><strong>President:</strong> Hal Jordan</p>
+              <p style={styles.leaderText}><strong>President:</strong> Harold Sterling, PE</p>
             </div>
           </div>
 
@@ -137,15 +137,16 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
           <div style={styles.col}>
             <h4 style={styles.heading}>Services</h4>
             <ul style={styles.list}>
-              <li><Link to="/services/architectural-design" style={styles.link}>Architectural Design</Link></li>
               <li><Link to="/services/structural-engineering" style={styles.link}>Structural Engineering</Link></li>
+              <li><Link to="/services/sign-stamp-services" style={styles.link}>Sign & Stamp Services</Link></li>
+              <li><Link to="/services/permit-correction" style={styles.link}>Permit Correction</Link></li>
+              <li><Link to="/services/architectural-design" style={styles.link}>Architectural Design</Link></li>
+              <li><Link to="/services/home-design" style={styles.link}>Home Design</Link></li>
+              <li><Link to="/services/interior-design" style={styles.link}>Interior Design</Link></li>
+              <li><Link to="/services/exterior-design" style={styles.link}>Exterior Design</Link></li>
+              <li><Link to="/services/construction-services" style={styles.link}>General Construction</Link></li>
               <li><Link to="/services/mep-engineering" style={styles.link}>MEP Engineering</Link></li>
-              <li><Link to="/services/bim-cad" style={styles.link}>BIM & CAD Modeling</Link></li>
-              <li><Link to="/services/interior-design" style={styles.link}>Interior Space Planning</Link></li>
-              <li><Link to="/services/visualization" style={styles.link}>3D Rendering & Visuals</Link></li>
-              <li><Link to="/services/quantity-takeoff" style={styles.link}>Quantity Takeoff</Link></li>
-              <li><Link to="/services/cost-estimation" style={styles.link}>Cost Estimation</Link></li>
-              <li><Link to="/services/shop-drawings" style={styles.link}>Shop Drawings</Link></li>
+              <li><Link to="/services/bim-cad" style={styles.link}>BIM & CAD Drafting</Link></li>
             </ul>
           </div>
 
@@ -174,10 +175,10 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
             </div>
             <div style={styles.logoRow}>
               <a href="https://www.bbb.org" target="_blank" rel="noopener noreferrer" className="footer-badge-link" style={styles.badgeLink}>
-                <img src="/bbb.png" alt="BBB Accredited Business" style={styles.bbbBadgeImg} />
+                <img src="/bbb.png" alt="PRIMECOST BBB Accredited Structural Engineering Houston" style={styles.bbbBadgeImg} loading="lazy" />
               </a>
               <a href="https://business.yelp.com" target="_blank" rel="noopener noreferrer" className="footer-badge-link" style={styles.badgeLink}>
-                <img src="/yelp.png" alt="Yelp Business" style={styles.yelpBadgeImg} />
+                <img src="/yelp.png" alt="PRIMECOST Yelp Rated Houston Structural Engineering Firm" style={styles.yelpBadgeImg} loading="lazy" />
               </a>
             </div>
           </div>
