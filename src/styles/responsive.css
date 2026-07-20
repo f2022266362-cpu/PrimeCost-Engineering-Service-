@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Position hero text comfortably below header while aligned nicely */
+  /* Clean top padding so image content fills top space right below navbar */
   .hero-section {
-    padding-top: 11.5rem !important;
+    padding-top: 6.5rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }

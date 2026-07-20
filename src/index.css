@@ -113,9 +113,9 @@ button, input, select, textarea {
   .hero-bg-mobile-img {
     display: block;
     object-fit: cover;
-    object-position: center top;
-    top: -60px;
-    height: calc(100% + 60px);
+    object-position: center 75%;
+    top: 0;
+    height: 100%;
   }
 }
 
