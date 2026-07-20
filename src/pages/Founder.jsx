@@ -32,7 +32,7 @@ export default function Founder() {
 
       {/* Hero Section */}
       <section style={styles.heroSection}>
-        <div className="container" style={styles.container}>
+        <div className="container founder-page-grid" style={styles.container}>
           
           {/* Left: Founder Portrait */}
           <div style={styles.portraitCol}>

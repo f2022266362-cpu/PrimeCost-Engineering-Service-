@@ -272,12 +272,24 @@ footer a:hover {
    Additional CSS-class based overrides below
    ============================================================ */
 
-/* About page responsive */
+/* Founder & About page responsive */
 @media (max-width: 991px) {
   .founderContainer,
+  .founder-page-grid,
   .contactGrid {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+    gap: 2rem !important;
+  }
+
+  .founder-page-grid > div {
+    width: 100% !important;
+  }
+
+  div[style*="width: '340px'"],
+  div[style*="width: 340px"] {
+    width: 240px !important;
+    height: 240px !important;
+    margin: 0 auto !important;
   }
 
   .portraitWrapper {
