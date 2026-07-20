@@ -62,7 +62,7 @@ export default function Portfolio() {
 
       {/* Project Grid */}
       <section style={styles.gridSection}>
-        <div className="container" style={styles.projectsGrid}>
+        <div className="container projectsGrid" style={styles.projectsGrid}>
           {filteredProjects.map((p) => (
             <ProjectCard 
               key={p.id} 

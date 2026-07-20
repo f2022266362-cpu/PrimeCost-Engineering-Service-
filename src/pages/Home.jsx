@@ -484,7 +484,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
           )}
 
           {/* Regular Projects Grid */}
-          <div style={styles.projectsGrid}>
+          <div style={styles.projectsGrid} className="projectsGrid">
             {filteredProjects.map((p, idx) => (
               <ScrollReveal key={p.id} variant="fade-up" style={{ transitionDelay: `${idx * 0.1}s` }}>
                 <ProjectCard 

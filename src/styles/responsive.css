@@ -240,23 +240,26 @@ img {
   }
 }
 
-/* Process steps 2-column layout on mobile with Process 5 centered */
+/* Process steps & Projects/Case Studies 2-column layout on mobile with 5th item centered */
 @media (max-width: 991px) {
-  .processStepsGrid {
+  .processStepsGrid,
+  .projectsGrid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1rem !important;
     margin-top: 2rem !important;
   }
 
-  .processStepsGrid > *:nth-child(5) {
+  .processStepsGrid > *:nth-child(5),
+  .projectsGrid > *:nth-child(5) {
     grid-column: 1 / -1 !important;
     justify-self: center !important;
     width: 100% !important;
-    max-width: 360px !important;
+    max-width: 380px !important;
   }
 
-  .processStepsGrid > * {
+  .processStepsGrid > *,
+  .projectsGrid > * {
     width: 100% !important;
   }
 
