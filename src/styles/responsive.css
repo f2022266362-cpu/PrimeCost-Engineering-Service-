@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Increase top padding slightly so text moves down comfortably below navbar */
+  /* Increase top padding so text moves down into the middle of the screen */
   .hero-section {
-    padding-top: 7.5rem !important;
+    padding-top: 13.5rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }
