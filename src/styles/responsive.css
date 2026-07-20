@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Increase top padding so text moves down into the middle of the screen */
+  /* Move hero text down further to exact center of mobile screen */
   .hero-section {
-    padding-top: 13.5rem !important;
+    padding-top: 17.5rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }
