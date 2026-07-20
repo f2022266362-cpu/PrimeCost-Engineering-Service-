@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Reduce top padding — image starts ~2 inches below hamburger menu */
+  /* Increase top padding slightly so text moves down comfortably below navbar */
   .hero-section {
-    padding-top: 5.5rem !important;
+    padding-top: 7.5rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }
