@@ -194,7 +194,7 @@ export default function AllServices() {
       />
 
       {/* Hero Banner */}
-      <div style={{
+      <div className="services-hero-banner" style={{
         background: 'linear-gradient(135deg, #0F2446 0%, #1a3a6e 60%, #0F2446 100%)',
         padding: '9rem 1.5rem 5rem',
         textAlign: 'center',
@@ -278,17 +278,13 @@ export default function AllServices() {
       </div>
 
       {/* Services Grid */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 1.5rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 1.5rem' }} className="all-services-container">
         {filtered.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '4rem', color: '#556987' }}>
             <p style={{ fontSize: '1.1rem' }}>No services found for "<strong>{search}</strong>"</p>
           </div>
         ) : (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '1.75rem'
-          }}>
+          <div className="all-services-cards-grid">
             {filtered.map((cat, idx) => (
               <ScrollReveal key={cat.id} variant="fade-up" style={{ transitionDelay: `${(idx % 6) * 0.06}s` }}>
                 <div style={{

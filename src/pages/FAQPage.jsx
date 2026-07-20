@@ -38,7 +38,7 @@ export default function FAQPage() {
       />
 
       {/* Hero Banner */}
-      <div style={{
+      <div className="faq-hero-banner" style={{
         background: 'linear-gradient(135deg, #0F2446 0%, #1a3a6e 60%, #0F2446 100%)',
         padding: '9rem 1.5rem 5rem',
         textAlign: 'center',
@@ -97,7 +97,7 @@ export default function FAQPage() {
         </ScrollReveal>
       </div>
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1.5rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1.5rem' }} className="faq-content-container">
 
         {/* Search Results */}
         {searchResults !== null ? (
@@ -124,10 +124,10 @@ export default function FAQPage() {
             )}
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '2rem', alignItems: 'start' }}>
+          <div className="faq-main-layout">
 
             {/* Sidebar — Category List */}
-            <div style={{
+            <div className="faq-sidebar-categories" style={{
               background: '#fff', borderRadius: '20px', padding: '1.25rem',
               border: '1px solid #e8eef5', boxShadow: '0 4px 20px rgba(15,36,70,0.05)',
               position: 'sticky', top: '100px'
