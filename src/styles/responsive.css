@@ -279,6 +279,26 @@ img {
   }
 }
 
+/* Career page mobile responsiveness */
+@media (max-width: 991px) {
+  .career-perks-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+
+  .career-jobs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .career-perks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
 /* ============================================================
    FOOTER — Responsive grid
    ============================================================ */

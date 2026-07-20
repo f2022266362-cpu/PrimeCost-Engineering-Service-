@@ -93,7 +93,7 @@ export default function Career() {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <ScrollReveal variant="fade-up">
             <Badge variant="gold" style={{ marginBottom: '1.25rem' }}>WE'RE HIRING</Badge>
-            <h1 style={styles.heroTitle}>Build the Future<br />With Us</h1>
+            <h1 style={{ ...styles.heroTitle, fontSize: 'clamp(2.1rem, 6vw, 3.8rem)' }}>Build the Future<br />With Us</h1>
             <p style={styles.heroSub}>
               Join a fast-growing structural engineering and design firm trusted by developers,
               architects, and contractors across all 50 states.
@@ -123,7 +123,7 @@ export default function Career() {
             title="A Place to Grow Your Career"
             subtitle="We invest in our people with competitive pay, remote flexibility, mentorship, and meaningful work that shapes communities."
           />
-          <div style={styles.perksGrid}>
+          <div style={styles.perksGrid} className="career-perks-grid">
             {[
               { icon: '🏠', title: 'Remote-First', desc: 'Work from anywhere. Most roles are fully remote or hybrid.' },
               { icon: '📈', title: 'Career Growth', desc: 'Clear advancement paths from junior to senior to PE licensure support.' },
@@ -152,7 +152,7 @@ export default function Career() {
             title="Current Job Openings"
             subtitle="Don't see your role? Send your CV to Frank.moore@primecost.biz — we're always looking for great talent."
           />
-          <div style={styles.jobsGrid}>
+          <div style={styles.jobsGrid} className="career-jobs-grid">
             {openings.map((job, i) => (
               <ScrollReveal key={job.id} variant="fade-up" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <GlassCard style={styles.jobCard} hoverLift>
