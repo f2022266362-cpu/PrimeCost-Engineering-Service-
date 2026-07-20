@@ -240,6 +240,15 @@ img {
   }
 }
 
+/* Process steps grid 1-column on mobile */
+@media (max-width: 768px) {
+  .processStepsGrid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    margin-top: 2rem !important;
+  }
+}
+
 /* ============================================================
    FOOTER — Responsive grid
    ============================================================ */
