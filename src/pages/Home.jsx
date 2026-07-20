@@ -567,7 +567,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             subtitle="From structural scoping to stamp certification and municipal submittal reviews."
           />
 
-          <div style={styles.processStepsGrid}>
+          <div style={styles.processStepsGrid} className="processStepsGrid">
             {[
               { step: '01', title: 'Consultation & Scoping', desc: 'Our intake team logs your blueprints and schedules a scoping call to map architectural tolerances.' },
               { step: '02', title: 'Design & Calculations', desc: 'Structural and mechanical designers compile beam parameters and load metrics inside Revit.' },
