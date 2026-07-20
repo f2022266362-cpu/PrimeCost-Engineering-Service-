@@ -81,7 +81,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
   // Filters for projects
   const filteredProjects = activeFilter === 'all' 
-    ? projects.slice(0, 4) 
+    ? projects.slice(0, 5) 
     : projects.filter(p => p.category === activeFilter);
 
   // Large Featured project & Small list
@@ -434,62 +434,13 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             ))}
           </div>
 
-          {/* Featured Project Layout */}
-          {activeFilter === 'all' && (
-            <ScrollReveal variant="fade-up">
-              <div style={styles.featuredProjectContainer}>
-                <div style={{ ...styles.featuredProjectImg, backgroundImage: `url(${featuredProject.image})` }}>
-                  <div style={styles.featuredProjectImgOverlay} />
-                  <Badge variant="gold" style={styles.featuredProjectBadge}>Featured Project</Badge>
-                </div>
-                
-                <GlassCard hoverLift={false} style={styles.featuredProjectContent}>
-                  <span style={styles.featuredProjLoc}><MapPin size={14} style={{ color: '#C89A45' }} /> {featuredProject.location}</span>
-                  <h3 style={styles.featuredProjTitle}>{featuredProject.name}</h3>
-                  
-                  <div style={styles.featuredProjDetailsGrid}>
-                    <div>
-                      <strong>Client</strong>
-                      <p>{featuredProject.client}</p>
-                    </div>
-                    <div>
-                      <strong>Construction Cost</strong>
-                      <p>{featuredProject.constructionCost}</p>
-                    </div>
-                    <div>
-                      <strong>Duration</strong>
-                      <p>{featuredProject.duration}</p>
-                    </div>
-                    <div>
-                      <strong>Services Used</strong>
-                      <p>{featuredProject.servicesUsed.join(', ')}</p>
-                    </div>
-                  </div>
-
-                  <p style={styles.featuredProjText}>
-                    <strong>Challenge:</strong> {featuredProject.challenges}
-                  </p>
-                  <p style={styles.featuredProjText}>
-                    <strong>Solution:</strong> {featuredProject.solution}
-                  </p>
-
-                  <Link to="/portfolio" style={styles.featuredProjBtn}>
-                    <PrimaryButton variant="primary" icon={<ArrowRight size={16} />}>
-                      Read Case Study Details
-                    </PrimaryButton>
-                  </Link>
-                </GlassCard>
-              </div>
-            </ScrollReveal>
-          )}
-
-          {/* Regular Projects Grid */}
+          {/* Projects Grid (2x2 + 5th Centered on Mobile) */}
           <div style={styles.projectsGrid} className="projectsGrid">
             {filteredProjects.map((p, idx) => (
               <ScrollReveal key={p.id} variant="fade-up" style={{ transitionDelay: `${idx * 0.1}s` }}>
                 <ProjectCard 
                   project={p} 
-                  onViewDetails={() => alert(`Case Study: ${p.name} Details Modal can be opened via the Portfolio page.`)} 
+                  onViewDetails={() => alert(`Case Study: ${p.name}\n\nScope: ${p.scope}\n\nFull details available on our Portfolio page.`)} 
                 />
               </ScrollReveal>
             ))}
