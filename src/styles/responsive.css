@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Move hero text down further to exact center of mobile screen */
+  /* Position hero text comfortably below header while aligned nicely */
   .hero-section {
-    padding-top: 17.5rem !important;
+    padding-top: 11.5rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }

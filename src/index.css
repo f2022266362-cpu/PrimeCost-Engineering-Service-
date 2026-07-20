@@ -113,7 +113,7 @@ button, input, select, textarea {
   .hero-bg-mobile-img {
     display: block;
     object-fit: cover;
-    object-position: center 80%;
+    object-position: center 30%;
     top: 0;
     height: 100%;
   }
