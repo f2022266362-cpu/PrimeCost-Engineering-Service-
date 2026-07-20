@@ -64,11 +64,11 @@ export default function About() {
 
       {/* ── Main Grid: Form + Info ── */}
       <section style={styles.section}>
-        <div className="container" style={styles.grid}>
+        <div className="container contactGrid" style={styles.grid}>
 
           {/* ── LEFT: Contact Form ── */}
           <ScrollReveal variant="fade-right">
-            <GlassCard style={styles.formCard}>
+            <GlassCard style={styles.formCard} className="about-form-card">
               <h2 style={styles.cardTitle}>Send Us a Message</h2>
               <p style={styles.cardSubtitle}>
                 Fill in your details and we'll get back to you within 24 hours.
@@ -88,7 +88,7 @@ export default function About() {
               ) : (
                 <form onSubmit={handleSubmit} style={styles.form}>
                   {/* Row 1 */}
-                  <div style={styles.row}>
+                  <div style={styles.row} className="formRow">
                     <div style={styles.group}>
                       <label style={styles.label}>Full Name *</label>
                       <input
@@ -110,7 +110,7 @@ export default function About() {
                   </div>
 
                   {/* Row 2 */}
-                  <div style={styles.row}>
+                  <div style={styles.row} className="formRow">
                     <div style={styles.group}>
                       <label style={styles.label}>Phone Number</label>
                       <input
@@ -268,7 +268,7 @@ const styles = {
     marginBottom: '0.75rem',
   },
   pageTitle: {
-    fontSize: '3rem',
+    fontSize: 'clamp(2rem, 6vw, 3rem)',
     fontWeight: '850',
     color: '#0F2446',
     fontFamily: "'Outfit', sans-serif",

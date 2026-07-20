@@ -340,6 +340,15 @@ footer a:hover {
     gap: 2rem !important;
   }
 
+  .formRow {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .about-form-card {
+    padding: 1.5rem !important;
+  }
+
   .founder-page-grid > div {
     width: 100% !important;
   }
