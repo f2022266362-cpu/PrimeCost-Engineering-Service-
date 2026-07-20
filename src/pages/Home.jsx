@@ -1284,7 +1284,7 @@ if (typeof document !== 'undefined') {
     }
     
     @media (max-width: 768px) {
-      .statsContainer, .projectsGrid, .processStepsGrid, .certificationsGrid {
+      .statsContainer, .projectsGrid, .certificationsGrid {
         grid-template-columns: 1fr !important;
       }
       .heroTitle {
