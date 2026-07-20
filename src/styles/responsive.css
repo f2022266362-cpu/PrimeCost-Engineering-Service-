@@ -156,9 +156,9 @@ img {
 }
 
 @media (max-width: 576px) {
-  /* Clean top padding so image content fills top space right below navbar */
+  /* Text positioned in the center/middle of the screen */
   .hero-section {
-    padding-top: 6.5rem !important;
+    padding-top: 15rem !important;
     padding-bottom: 3rem !important;
     min-height: 100svh !important;
   }
