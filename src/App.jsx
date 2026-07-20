@@ -13,8 +13,15 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import ServiceAreas from './pages/ServiceAreas';
 import Pricing from './pages/Pricing';
+import Career from './pages/Career';
+import Founder from './pages/Founder';
+import AllServices from './pages/AllServices';
+import FAQPage from './pages/FAQPage';
 import ProposalModal from './components/ProposalModal';
 import ConsultationModal from './components/ConsultationModal';
+
+import PrimaryButton from './components/ui/PrimaryButton';
+import { ArrowUp } from 'lucide-react';
 
 // Scroll Restoration Utility
 function ScrollToTop() {
@@ -23,6 +30,73 @@ function ScrollToTop() {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
   return null;
+}
+
+// Optimized Scroll Progress Bar Component
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (totalScroll > 0) {
+            setProgress((window.scrollY / totalScroll) * 100);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div 
+      className="scroll-progress-bar" 
+      style={{ width: `${progress}%` }} 
+    />
+  );
+}
+
+// Optimized Back To Top Button Component
+function BackToTopButton() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isOverThreshold = window.scrollY > 300;
+          setShow(prev => (prev !== isOverThreshold ? isOverThreshold : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <button 
+      onClick={scrollToTop} 
+      className={`back-to-top-btn ${show ? 'show' : ''}`}
+      aria-label="Back to Top"
+    >
+      <ArrowUp size={20} />
+    </button>
+  );
 }
 
 export default function App() {
@@ -46,23 +120,38 @@ export default function App() {
   const closeConsultation = () => setIsConsultationOpen(false);
 
   return (
-    <div style={styles.appWrapper}>
+    <div style={styles.appWrapper} className="blueprint-grid">
       <ScrollToTop />
       
-      {/* Top Loading Progress Bar */}
+
+      {/* Top Window Viewport Scroll Progress Bar */}
+      <ScrollProgressBar />
+
+      {/* Accessible Skip links */}
+      <a href="#main-content" className="skip-link">Skip to Content</a>
+      <a href="#footer-section" className="skip-link">Skip to Footer</a>
+
+      {/* Top Loading Progress Bar for router transitions */}
       {navigating && <div className="page-loading-bar" />}
 
-      {/* Header Sticky Navigation */}
+      {/* Header Sticky Navigation (shrinking on scroll) */}
       <Header 
         onOpenConsultation={openConsultation} 
         onOpenProposal={openProposal} 
       />
       
       {/* Main Content Router with swipe animation */}
-      <main style={styles.mainContent} key={location.pathname} className="page-transition-swipe">
+      <main 
+        id="main-content"
+        style={styles.mainContent} 
+        key={location.pathname} 
+        className="page-transition-swipe"
+      >
         <Routes location={location}>
           <Route path="/" element={<Home onOpenConsultation={openConsultation} onOpenProposal={openProposal} />} />
+          <Route path="/services" element={<AllServices />} />
           <Route path="/services/:serviceId" element={<ServicePage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/industries/:industryId" element={<IndustryPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
@@ -71,6 +160,8 @@ export default function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/service-areas" element={<ServiceAreas />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/founder" element={<Founder />} />
           
           {/* Fallback to Home */}
           <Route path="*" element={<Home onOpenConsultation={openConsultation} onOpenProposal={openProposal} />} />
@@ -100,6 +191,20 @@ export default function App() {
         onOpenConsultation={openConsultation} 
         onOpenProposal={openProposal} 
       />
+
+      {/* Back-to-Top Floating Button */}
+      <BackToTopButton />
+
+      {/* Sticky mobile CTA bar */}
+      <div className="sticky-mobile-cta">
+        <PrimaryButton 
+          variant="primary" 
+          onClick={openProposal}
+          style={{ width: '100%', borderRadius: '8px', padding: '0.6rem' }}
+        >
+          Get a Quote
+        </PrimaryButton>
+      </div>
     </div>
   );
 }
@@ -114,7 +219,8 @@ const styles = {
   mainContent: {
     flexGrow: 1,
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    position: 'relative'
   }
 };
 export { styles };

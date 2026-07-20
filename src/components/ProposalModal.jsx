@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle2, FileUp, ShieldCheck } from 'lucide-react';
 import { saveLeadToSheet } from '../utils/sheetsLogger';
+import emailjs from '@emailjs/browser';
 
 export default function ProposalModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -36,53 +37,82 @@ export default function ProposalModal({ isOpen, onClose }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!formData.acceptTerms) {
-      alert("Please accept the terms to request a proposal.");
+      alert('Please accept the terms.');
       return;
     }
+
     setIsSubmitting(true);
 
-    const subject = `PRIMECOS Proposal Request: ${formData.projectType} Project`;
-    const body = `Intake details from website proposal request:
+    try {
+      // Send Email via EmailJS
+      const response = await emailjs.send(
+        'service_d8j1sej',
+        'template_db31n9m',
+        {
+          full_name: formData.name,
+          corporate_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          project_type: formData.projectType,
+          target_area: formData.area,
+          address: formData.location,
+          service_scope: formData.scope,
+          message: formData.details,
+        },
+        '0X16ZaXaNEcpPNsbo'
+      );
 
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company || 'N/A'}
-Project Type: ${formData.projectType}
-Target Area: ${formData.area} sq ft
-Location: ${formData.location}
-Service Scopes: ${formData.scope}
-Attached file name: ${fileName || 'None'}
+      console.log('SUCCESS:', response);
 
-Details & Key Challenges:
-${formData.details || 'None provided'}
+      // Save lead in Google Sheets
+      await saveLeadToSheet({
+        type: 'proposal',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        projectType: formData.projectType,
+        area: formData.area,
+        location: formData.location,
+        scope: formData.scope,
+        fileName: fileName || 'None',
+        details: formData.details,
+      });
 
----
-Sent via PRIMECOS pre-construction portal.`;
-
-    const mailtoUrl = `mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    // Save to Google Sheets then redirect
-    saveLeadToSheet({
-      type: 'proposal',
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company || '',
-      projectType: formData.projectType,
-      area: formData.area,
-      location: formData.location,
-      scope: formData.scope,
-      fileName: fileName || 'None',
-      details: formData.details || ''
-    }).finally(() => {
-      setIsSubmitting(false);
       setIsSuccess(true);
-      window.location.href = mailtoUrl;
-    });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        projectType: 'Commercial',
+        scope: 'Full Architectural & Structural Engineering',
+        area: '',
+        location: '',
+        details: '',
+        acceptTerms: false,
+      });
+      setFileName('');
+
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+
+      alert(`
+Status: ${err?.status || 'N/A'}
+
+Text: ${err?.text || 'N/A'}
+
+Message: ${err?.message || 'N/A'}
+      `);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -274,7 +304,7 @@ Sent via PRIMECOS pre-construction portal.`;
               <p><strong>Expected Scoping Bid:</strong> Within 24 business hours</p>
             </div>
             <p style={styles.successNotice}>
-              A confirmation email and initial intake questionnaire have been sent to <strong>{formData.email}</strong>.
+              Our engineering team will review your details and contact you at <strong>{formData.email}</strong> within 24 business hours.
             </p>
             <button style={styles.closeSuccessBtn} onClick={onClose}>
               Return to Website

@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Calendar, FileText } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '18322346456';
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20PRIMECOST%2C%20I%20would%20like%20to%20chat%20with%20a%20live%20assistant%20about%20my%20project.`;
-
 const FAQ_DATA = [
   // Architectural & Engineering
   {
@@ -325,13 +322,15 @@ const FAQ_DATA = [
   },
   {
     question: "How do I schedule a consultation?",
-    answer: "Click the 'Schedule Consultation' button in the navigation header or use the button below. All submissions are personally reviewed by CEO Frank Moore. You can also WhatsApp us at +1 (832) 234-6456 for immediate assistance."
+    answer: "Click the 'Schedule Consultation' button in the navigation header or use the button below. All submissions are personally reviewed by CEO Frank Moore. You can also call us at +1 (832) 234-6456 for immediate assistance."
   },
   {
     question: "Where is your headquarters located?",
     answer: "Our corporate office is at 440 Louisiana St, Suite 900, Houston, TX 77002, in the heart of Houston's Theater District. We serve clients nationwide and internationally."
   }
 ];
+
+const WHATSAPP_URL = "https://wa.me/18322346456";
 
 export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -368,7 +367,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
 
     setTimeout(() => {
       setIsTyping(false);
-      let responseText = "Thank you for reaching out! For detailed engineering inquiries, please submit a proposal request, WhatsApp us at +1 (832) 234-6456, or email CEO Frank Moore at Frank.moore@primecost.biz.";
+      let responseText = "Thank you for reaching out! For detailed engineering inquiries, please submit a proposal request, call us at +1 (832) 234-6456, or email CEO Frank Moore at Frank.moore@primecost.biz.";
       
       const query = text.toLowerCase();
       const matchedFaq = FAQ_DATA.find(faq =>
@@ -379,11 +378,11 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
       if (matchedFaq) {
         responseText = matchedFaq.answer;
       } else if (query.includes("consult") || query.includes("schedule") || query.includes("book")) {
-        responseText = "Would you like to schedule a free consultation with our engineers? Click the button below or WhatsApp us instantly at +1 (832) 234-6456.";
+        responseText = "Would you like to schedule a free consultation with our engineers? Click the button below or call us instantly at +1 (832) 234-6456.";
       } else if (query.includes("proposal") || query.includes("quote") || query.includes("cost") || query.includes("price")) {
-        responseText = "You can request a free scoping proposal — we respond under 24 hours. Click the proposal button below, or chat with us live on WhatsApp at +1 (832) 234-6456.";
+        responseText = "You can request a free scoping proposal — we respond under 24 hours. Click the proposal button below, or call us at +1 (832) 234-6456.";
       } else if (query.includes("whatsapp") || query.includes("chat") || query.includes("live") || query.includes("call") || query.includes("phone")) {
-        responseText = `You can reach our live team instantly on WhatsApp! Tap the green WhatsApp button on the screen, or click here: wa.me/${WHATSAPP_NUMBER}. Our main phone is (832) 234-6456.`;
+        responseText = "You can reach our live team instantly by calling us at (832) 234-6456 or emailing CEO Frank Moore at Frank.moore@primecost.biz.";
       }
 
       setMessages(prev => [...prev, {
@@ -404,36 +403,38 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
   const quickFaqs = FAQ_DATA.slice(0, 8);
 
   return (
-    <div style={styles.chatbotContainer}>
-      {/* WhatsApp Floating Button */}
+    <div style={styles.chatbotContainer} className="chatbot-widget">
+      {/* Chat Floating Toggle Buttons */}
       {!isOpen && (
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-container-pulse"
-          aria-label="Chat with live assistant on WhatsApp"
-          title="Chat with Live Assistant on WhatsApp"
-        >
-          <img
-            src="/whatsapp-logo-round.png"
-            alt="WhatsApp"
-            className="whatsapp-float-logo"
-          />
-        </a>
-      )}
+        <>
+          {/* WhatsApp Floating Button */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-container-bounce"
+            aria-label="Chat with live assistant on WhatsApp"
+            title="Chat with Live Assistant on WhatsApp"
+          >
+            <img
+              src="/whatsapp-logo-3d.png"
+              alt="WhatsApp"
+              className="whatsapp-float-logo"
+            />
+            <span style={styles.whatsappBadge}>Live Help</span>
+          </a>
 
-      {/* Chat Floating Toggle Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          style={styles.floatingBtn}
-          className="pulse-glow"
-          aria-label="Open support chat"
-        >
-          <MessageSquare size={24} />
-          <span style={styles.badge}>Live Chat</span>
-        </button>
+          {/* Chat Floating Toggle Button */}
+          <button
+            onClick={() => setIsOpen(true)}
+            style={styles.floatingBtn}
+            className="pulse-glow"
+            aria-label="Open support chat"
+          >
+            <MessageSquare size={24} />
+            <span style={styles.badge}>Live Chat</span>
+          </button>
+        </>
       )}
 
       {/* Chat Window */}
@@ -449,39 +450,10 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
               </div>
             </div>
             <div style={styles.headerActions}>
-              {/* WhatsApp button in chat header */}
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={styles.whatsappHeaderBtn}
-                title="Chat with Live Assistant on WhatsApp"
-                aria-label="Open WhatsApp chat"
-              >
-                <img
-                  src="/whatsapp-logo-round.png"
-                  alt="WhatsApp"
-                  style={{ width: '18px', height: '18px', objectFit: 'contain', marginRight: '4px', borderRadius: '4px' }}
-                />
-                <span style={{ fontSize: '0.72rem', fontWeight: '600' }}>WhatsApp</span>
-              </a>
               <button onClick={() => setIsOpen(false)} style={styles.closeBtn}>
                 <X size={18} />
               </button>
             </div>
-          </div>
-
-          {/* WhatsApp banner inside chat */}
-          <div style={styles.whatsappBanner}>
-            <img
-              src="/whatsapp-logo-round.png"
-              alt="WhatsApp"
-              style={{ width: '18px', height: '18px', objectFit: 'contain', flexShrink: 0 }}
-            />
-            <span>Prefer live help?</span>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={styles.whatsappBannerLink}>
-              Chat with a Live Assistant on WhatsApp →
-            </a>
           </div>
 
           {/* Messages Area */}
@@ -519,14 +491,6 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                       >
                         <FileText size={12} /> Request Proposal
                       </button>
-                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={styles.inlineCtaBtnWhatsApp}>
-                        <img
-                          src="/whatsapp-logo-round.png"
-                          alt="WhatsApp"
-                          style={{ width: '14px', height: '14px', objectFit: 'contain', marginRight: '4px' }}
-                        />
-                        WhatsApp Us
-                      </a>
                     </div>
                   )}
 
@@ -604,37 +568,6 @@ const styles = {
     alignItems: 'flex-end',
     gap: '12px',
   },
-  whatsappFloatingBtn: {
-    backgroundColor: '#25D366',
-    color: '#ffffff',
-    border: 'none',
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
-    cursor: 'pointer',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 8px 30px rgba(37, 211, 102, 0.45)',
-    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-    position: 'relative',
-    textDecoration: 'none',
-  },
-  whatsappBadge: {
-    position: 'absolute',
-    top: '-4px',
-    right: '-4px',
-    backgroundColor: '#0f172a',
-    color: '#ffffff',
-    fontSize: '0.6rem',
-    fontWeight: '700',
-    padding: '2px 5px',
-    borderRadius: '10px',
-    border: '2px solid #ffffff',
-    whiteSpace: 'nowrap',
-    maxWidth: '100px',
-  },
   floatingBtn: {
     backgroundColor: '#1b3b6f',
     color: '#ffffff',
@@ -662,6 +595,20 @@ const styles = {
     padding: '2px 6px',
     borderRadius: '10px',
     border: '2px solid #ffffff',
+  },
+  whatsappBadge: {
+    position: 'absolute',
+    top: '-4px',
+    right: '-4px',
+    backgroundColor: '#25D366',
+    color: '#ffffff',
+    fontSize: '0.62rem',
+    fontWeight: '700',
+    padding: '2px 5px',
+    borderRadius: '10px',
+    border: '2px solid #ffffff',
+    whiteSpace: 'nowrap',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
   },
   chatWindow: {
     width: '380px',
@@ -720,21 +667,6 @@ const styles = {
     alignItems: 'center',
     gap: '0.5rem',
   },
-  whatsappHeaderBtn: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '4px',
-    backgroundColor: '#25D366',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '20px',
-    padding: '0.3rem 0.65rem',
-    cursor: 'pointer',
-    textDecoration: 'none',
-    fontSize: '0.72rem',
-    fontWeight: '700',
-    transition: 'opacity 0.2s',
-  },
   closeBtn: {
     background: 'none',
     border: 'none',
@@ -743,22 +675,6 @@ const styles = {
     padding: '4px',
     borderRadius: '50%',
     transition: 'background-color 0.2s',
-  },
-  whatsappBanner: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-    backgroundColor: '#f0fdf4',
-    borderBottom: '1px solid #bbf7d0',
-    padding: '0.5rem 1rem',
-    fontSize: '0.78rem',
-    color: '#166534',
-  },
-  whatsappBannerLink: {
-    color: '#15803d',
-    fontWeight: '700',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
   },
   messagesContainer: {
     flex: 1,
@@ -822,20 +738,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '4px',
-  },
-  inlineCtaBtnWhatsApp: {
-    backgroundColor: '#25D366',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '4px',
-    padding: '0.4rem 0.6rem',
-    fontSize: '0.72rem',
-    fontWeight: '600',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '4px',
-    textDecoration: 'none',
   },
   faqSlider: {
     padding: '0.5rem 1rem 0.75rem 1rem',
@@ -925,13 +827,46 @@ if (typeof document !== 'undefined') {
       background-color: #e2e8f0 !important;
       color: #1b3b6f !important;
     }
-    .whatsappFloatingBtn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.55) !important;
+    @keyframes whatsapp-bounce {
+      0%, 40%, 100% {
+        transform: translateY(0);
+      }
+      15% {
+        transform: translateY(-12px);
+      }
+      22% {
+        transform: translateY(0);
+      }
+      28% {
+        transform: translateY(-5px);
+      }
     }
-    .whatsappHeaderBtn:hover {
-      opacity: 0.85;
+    .whatsapp-container-bounce {
+      animation: whatsapp-bounce 2.0s infinite;
+      position: relative;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      text-decoration: none;
+      border-radius: 50%;
+      background-color: #25D366;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
     }
+    .whatsapp-container-bounce:hover {
+      transform: scale(1.1) !important;
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6) !important;
+    }
+    .whatsapp-float-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
   `;
   document.head.appendChild(styleSheet);
 }

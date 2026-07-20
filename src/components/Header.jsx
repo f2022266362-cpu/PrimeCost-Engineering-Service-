@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Calendar } from 'lucide-react';
+import { Menu, X, ChevronDown, Calendar } from 'lucide-react';
+import PrimaryButton from './ui/PrimaryButton';
 
 export default function Header({ onOpenConsultation, onOpenProposal }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,14 +10,18 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 30;
+          setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,11 +32,7 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
   }, [location]);
 
   const toggleDropdown = (name) => {
-    if (activeDropdown === name) {
-      setActiveDropdown(null);
-    } else {
-      setActiveDropdown(name);
-    }
+    setActiveDropdown(activeDropdown === name ? null : name);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -40,106 +41,81 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
   return (
     <header style={{
       ...styles.header,
-      ...(scrolled ? styles.headerScrolled : {})
-    }} className="glass">
-      <div style={styles.topBar}>
-        <div className="container" style={styles.topBarContent}>
-          <div style={styles.topContact}>
-            <span style={styles.contactItem}><Phone size={13} /> Main: <a href="tel:+18322346456">(832) 234-6456</a></span>
-            <span style={styles.contactDivider}>|</span>
-            <span style={styles.contactItem}>HQ: 440 Louisiana St, Houston, TX</span>
-            <span style={styles.contactDivider}>|</span>
-            <span style={styles.contactItem}>Hours: Mon-Fri 9AM-6PM, Sat 10AM-4PM</span>
-          </div>
-          <div style={styles.topPromo}>
-            <span>Licensed PEs in 49 States | 24-48 Hr Turnaround</span>
-          </div>
-        </div>
-      </div>
-
+      height: scrolled ? '90px' : '105px',
+      ...(scrolled ? styles.headerScrolled : styles.headerUnscrolled)
+    }}>
       <div style={styles.navBar}>
         <div className="container" style={styles.navContent}>
-          <Link to="/" style={styles.logoLink}>
-            <img src="/logo.png" alt="PRIMECOST" style={styles.logoImg} className="logo-animate" />
+          {/* Logo container with 2° hover rotation */}
+          <Link to="/" style={styles.logoLink} className="logo-hover-rotate">
+            <img src="/logo-new.png" alt="PRIMECOS Logo" style={{ ...styles.logoImg, height: scrolled ? '86px' : '103px' }} />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav style={styles.desktopNav} className="desktopNav">
-            <Link to="/" style={isActive('/') ? styles.activeNavLink : styles.navLink}>Home</Link>
-            
-            {/* Services Dropdown */}
-            <div 
-              style={styles.dropdownContainer}
-              onMouseEnter={() => setActiveDropdown('services')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button style={{
-                ...(isSubActive('/services') ? styles.activeNavLink : styles.navLink),
-                ...styles.dropdownBtn
-              }}>
-                Services <ChevronDown size={14} />
-              </button>
-              {activeDropdown === 'services' && (
-                <div style={styles.dropdownMenu} className="animate-fade-in">
-                  <Link to="/services/structural-engineering" style={styles.dropdownItem}>Structural Engineering</Link>
-                  <Link to="/services/sign-stamp-services" style={styles.dropdownItem}>Sign & Stamp Services</Link>
-                  <Link to="/services/permit-correction" style={styles.dropdownItem}>Permit Correction</Link>
-                  <Link to="/services/architectural-design" style={styles.dropdownItem}>Architectural Design</Link>
-                  <Link to="/services/home-design" style={styles.dropdownItem}>Home Design</Link>
-                  <Link to="/services/interior-design" style={styles.dropdownItem}>Interior Design</Link>
-                  <Link to="/services/exterior-design" style={styles.dropdownItem}>Exterior Design</Link>
-                  <Link to="/services/construction-services" style={styles.dropdownItem}>General Construction</Link>
-                  <Link to="/services/mep-engineering" style={styles.dropdownItem}>MEP Engineering</Link>
-                  <Link to="/services/bim-cad" style={styles.dropdownItem}>BIM & CAD Drafting</Link>
-                </div>
-              )}
-            </div>
+          {/* Desktop Navigation Capsule */}
+          <div style={styles.navCapsule} className="desktop-nav-capsule">
+            <nav style={styles.desktopNav}>
+              {/* Home */}
+              <Link to="/" style={isActive('/') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Home</Link>
 
-            {/* Industries Dropdown */}
-            <div 
-              style={styles.dropdownContainer}
-              onMouseEnter={() => setActiveDropdown('industries')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button style={{
-                ...(isSubActive('/industries') ? styles.activeNavLink : styles.navLink),
-                ...styles.dropdownBtn
-              }}>
-                Industries <ChevronDown size={14} />
-              </button>
-              {activeDropdown === 'industries' && (
-                <div style={styles.dropdownMenu} className="animate-fade-in">
-                  <Link to="/industries/residential" style={styles.dropdownItem}>Residential Projects</Link>
-                  <Link to="/industries/multifamily" style={styles.dropdownItem}>Multifamily Projects</Link>
-                  <Link to="/industries/commercial" style={styles.dropdownItem}>Commercial Projects</Link>
-                  <Link to="/industries/industrial" style={styles.dropdownItem}>Industrial Projects</Link>
-                </div>
-              )}
-            </div>
+              {/* Services Dropdown */}
+              <div
+                style={styles.dropdownContainer}
+                onMouseEnter={() => setActiveDropdown('services')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button style={{ ...(isSubActive('/services') ? styles.activeNavLink : styles.navLink), ...styles.dropdownBtn }}>
+                  Services <ChevronDown size={13} style={{ transition: 'transform 0.2s', transform: activeDropdown === 'services' ? 'rotate(180deg)' : 'rotate(0)' }} />
+                </button>
+                {activeDropdown === 'services' && (
+                  <div style={{ ...styles.dropdownMenu, minWidth: '620px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0' }} className="animate-fade-in glass-panel">
+                    <Link to="/services/structural-engineering" style={styles.dropdownItem}>🏗️ Structural Engineering</Link>
+                    <Link to="/services/civil-engineering" style={styles.dropdownItem}>🛣️ Civil Engineering</Link>
+                    <Link to="/services/architectural-design" style={styles.dropdownItem}>📐 Architectural Design</Link>
+                    <Link to="/services/mep-engineering" style={styles.dropdownItem}>⚡ MEP Engineering</Link>
+                    <Link to="/services/construction-services" style={styles.dropdownItem}>🔨 Construction Services</Link>
+                    <Link to="/services/bim-cad" style={styles.dropdownItem}>💻 BIM & Digital Engineering</Link>
+                    <Link to="/services/geotechnical-engineering" style={styles.dropdownItem}>🌍 Geotechnical Engineering</Link>
+                    <Link to="/services/project-management" style={styles.dropdownItem}>📋 Project Management</Link>
+                    <Link to="/services/cost-estimation" style={styles.dropdownItem}>💰 Cost Estimation & QS</Link>
+                    <Link to="/services/inspection-assessment" style={styles.dropdownItem}>🔍 Inspection & Assessment</Link>
+                    <Link to="/services/permits-compliance" style={styles.dropdownItem}>📄 Permits & Compliance</Link>
+                    <Link to="/services/surveying" style={styles.dropdownItem}>📏 Surveying</Link>
+                    <Link to="/services/specialty-engineering" style={styles.dropdownItem}>🌉 Specialty Engineering</Link>
+                    <Link to="/services/sustainability" style={styles.dropdownItem}>🌿 Sustainability</Link>
+                    <Link to="/services/consultation" style={styles.dropdownItem}>🤝 Consultation</Link>
+                    <div style={{ gridColumn: '1 / -1', borderTop: '1px solid rgba(15,36,70,0.08)', padding: '0.5rem 1rem' }}>
+                      <Link to="/services" style={{ ...styles.dropdownItem, color: '#C89A45', fontWeight: 700 }}>⭐ View All Services →</Link>
+                    </div>
+                  </div>
+                )}
+              </div>
 
-            <Link to="/portfolio" style={isActive('/portfolio') ? styles.activeNavLink : styles.navLink}>Portfolio</Link>
-            <Link to="/pricing" style={isActive('/pricing') ? styles.activeNavLink : styles.navLink}>Pricing</Link>
-            <Link to="/service-areas" style={isActive('/service-areas') ? styles.activeNavLink : styles.navLink}>Service Areas</Link>
-            <Link to="/blog" style={isSubActive('/blog') ? styles.activeNavLink : styles.navLink}>GEO Content Hub</Link>
-            <Link to="/about" style={isActive('/about') ? styles.activeNavLink : styles.navLink}>Contact & HQ</Link>
-          </nav>
+              {/* Projects */}
+              <Link to="/portfolio" style={isActive('/portfolio') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Projects</Link>
 
-          <div style={styles.ctaGroup} className="ctaGroup">
-            <button 
-              onClick={onOpenProposal} 
-              style={{ ...styles.proposalBtn }} 
-              className="btn btn-outline animate-bounce"
+              {/* Founder */}
+              <Link to="/founder" style={isActive('/founder') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Founder</Link>
+
+              {/* About */}
+              <Link to="/about" style={isActive('/about') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">About</Link>
+
+              {/* Career */}
+              <Link to="/career" style={isActive('/career') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Career</Link>
+
+              {/* Blog */}
+              <Link to="/blog" style={isActive('/blog') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Blog</Link>
+
+              {/* FAQ */}
+              <Link to="/faq" style={isActive('/faq') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">FAQ</Link>
+            </nav>
+
+            <PrimaryButton
+              onClick={onOpenProposal}
+              variant="primary"
+              style={{ padding: '0.5rem 1.1rem', borderRadius: '30px', fontSize: '0.72rem' }}
             >
-              Request Proposal
-            </button>
-            <button 
-              onClick={onOpenConsultation} 
-              style={{ ...styles.consultBtn }}
-              className="btn btn-primary pulse-glow animate-pulse"
-            >
-              <Calendar size={16} />
-              Schedule Consultation
-            </button>
+              Get a Quote <span style={{ marginLeft: '4px' }}>→</span>
+            </PrimaryButton>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -156,65 +132,62 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div style={styles.mobileDrawer} className="animate-fade-in">
+        <div style={styles.mobileDrawer} className="animate-fade-in glass-panel-dark">
           <div style={styles.mobileNavLinks}>
             <Link to="/" style={styles.mobileLink}>Home</Link>
-            
+
             {/* Mobile Services */}
             <div>
               <button style={styles.mobileDropdownBtn} onClick={() => toggleDropdown('services')}>
-                Services <ChevronDown size={16} style={{
-                  transform: activeDropdown === 'services' ? 'rotate(180deg)' : 'rotate(0)',
-                  transition: 'transform 0.2s'
-                }} />
+                Services <ChevronDown size={16} style={{ transform: activeDropdown === 'services' ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
               </button>
               {activeDropdown === 'services' && (
                 <div style={styles.mobileSubMenu}>
-                  <Link to="/services/structural-engineering" style={styles.mobileSubLink}>Structural Engineering</Link>
-                  <Link to="/services/sign-stamp-services" style={styles.mobileSubLink}>Sign & Stamp Services</Link>
-                  <Link to="/services/permit-correction" style={styles.mobileSubLink}>Permit Correction</Link>
-                  <Link to="/services/architectural-design" style={styles.mobileSubLink}>Architectural Design</Link>
-                  <Link to="/services/home-design" style={styles.mobileSubLink}>Home Design</Link>
-                  <Link to="/services/interior-design" style={styles.mobileSubLink}>Interior Design</Link>
-                  <Link to="/services/exterior-design" style={styles.mobileSubLink}>Exterior Design</Link>
-                  <Link to="/services/construction-services" style={styles.mobileSubLink}>General Construction</Link>
-                  <Link to="/services/mep-engineering" style={styles.mobileSubLink}>MEP Engineering</Link>
-                  <Link to="/services/bim-cad" style={styles.mobileSubLink}>BIM & CAD Drafting</Link>
+                  <Link to="/services/structural-engineering" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🏗️ Structural Engineering</Link>
+                  <Link to="/services/civil-engineering" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🛣️ Civil Engineering</Link>
+                  <Link to="/services/architectural-design" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>📐 Architectural Design</Link>
+                  <Link to="/services/mep-engineering" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>⚡ MEP Engineering</Link>
+                  <Link to="/services/construction-services" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🔨 Construction Services</Link>
+                  <Link to="/services/bim-cad" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>💻 BIM & Digital</Link>
+                  <Link to="/services/geotechnical-engineering" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🌍 Geotechnical</Link>
+                  <Link to="/services/project-management" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>📋 Project Management</Link>
+                  <Link to="/services/cost-estimation" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>💰 Cost Estimation</Link>
+                  <Link to="/services/inspection-assessment" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🔍 Inspection</Link>
+                  <Link to="/services/permits-compliance" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>📄 Permits</Link>
+                  <Link to="/services/surveying" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>📏 Surveying</Link>
+                  <Link to="/services/specialty-engineering" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🌉 Specialty Engineering</Link>
+                  <Link to="/services/sustainability" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🌿 Sustainability</Link>
+                  <Link to="/services/consultation" style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>🤝 Consultation</Link>
+                  <Link to="/services" style={{ ...styles.mobileSubLink, color: '#C89A45', fontWeight: 700 }} onClick={() => setIsOpen(false)}>⭐ View All Services →</Link>
                 </div>
               )}
             </div>
 
-            {/* Mobile Industries */}
-            <div>
-              <button style={styles.mobileDropdownBtn} onClick={() => toggleDropdown('industries')}>
-                Industries We Serve <ChevronDown size={16} style={{
-                  transform: activeDropdown === 'industries' ? 'rotate(180deg)' : 'rotate(0)',
-                  transition: 'transform 0.2s'
-                }} />
-              </button>
-              {activeDropdown === 'industries' && (
-                <div style={styles.mobileSubMenu}>
-                  <Link to="/industries/residential" style={styles.mobileSubLink}>Residential Projects</Link>
-                  <Link to="/industries/multifamily" style={styles.mobileSubLink}>Multifamily Projects</Link>
-                  <Link to="/industries/commercial" style={styles.mobileSubLink}>Commercial Projects</Link>
-                  <Link to="/industries/industrial" style={styles.mobileSubLink}>Industrial Projects</Link>
-                </div>
-              )}
-            </div>
+            {/* Projects */}
+            <Link to="/portfolio" style={styles.mobileLink}>Projects</Link>
 
-            <Link to="/portfolio" style={styles.mobileLink}>Portfolio</Link>
-            <Link to="/pricing" style={styles.mobileLink}>Pricing</Link>
-            <Link to="/service-areas" style={styles.mobileLink}>Service Areas</Link>
-            <Link to="/blog" style={styles.mobileLink}>GEO Content Hub</Link>
-            <Link to="/about" style={styles.mobileLink}>Contact & HQ</Link>
+            {/* Mobile Founder */}
+            <Link to="/founder" style={styles.mobileLink}>Founder</Link>
+
+            {/* About */}
+            <Link to="/about" style={styles.mobileLink}>About</Link>
+
+            {/* Career */}
+            <Link to="/career" style={styles.mobileLink}>Career</Link>
+
+            {/* Blog */}
+            <Link to="/blog" style={styles.mobileLink}>Blog</Link>
+
+            {/* FAQ */}
+            <Link to="/faq" style={styles.mobileLink} onClick={() => setIsOpen(false)}>FAQ</Link>
 
             <div style={styles.mobileCtaGroup}>
-              <button onClick={() => { setIsOpen(false); onOpenProposal(); }} style={styles.mobileProposalBtn}>
+              <PrimaryButton onClick={() => { setIsOpen(false); onOpenProposal(); }} variant="outline" style={{ width: '100%', borderColor: '#ffffff', color: '#ffffff' }}>
                 Request a Proposal
-              </button>
-              <button onClick={() => { setIsOpen(false); onOpenConsultation(); }} style={styles.mobileConsultBtn}>
+              </PrimaryButton>
+              <PrimaryButton onClick={() => { setIsOpen(false); onOpenConsultation(); }} variant="secondary" style={{ width: '100%' }}>
                 <Calendar size={16} /> Schedule Consultation
-              </button>
+              </PrimaryButton>
             </div>
           </div>
         </div>
@@ -225,94 +198,86 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
 
 const styles = {
   header: {
-    position: 'sticky',
+    position: 'fixed',
     top: 0,
+    left: 0,
     width: '100%',
     zIndex: 100,
-    transition: 'all 0.3s ease',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+    transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  headerUnscrolled: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   headerScrolled: {
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.07)',
-  },
-  topBar: {
-    backgroundColor: '#0f172a',
-    color: '#cbd5e1',
-    padding: '0.4rem 0',
-    fontSize: '0.78rem',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-  },
-  topBarContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  topContact: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-  },
-  contactItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.3rem',
-  },
-  contactDivider: {
-    color: '#475569',
-  },
-  topPromo: {
-    fontWeight: '600',
-    color: '#c5a880',
+    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backdropFilter: 'blur(18px)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.45)',
+    boxShadow: '0 12px 40px rgba(15, 36, 70, 0.12)',
   },
   navBar: {
-    padding: '0.75rem 0',
+    width: '100%',
   },
   navContent: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
   },
   logoLink: {
     display: 'flex',
     alignItems: 'center',
   },
   logoImg: {
-    height: '85px',
+    transition: 'height 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
     width: 'auto',
-    borderRadius: '4px',
-    animation: 'pulseLogo 3s ease-in-out infinite',
+  },
+  navCapsule: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.38)',
+    backdropFilter: 'blur(24px) saturate(200%)',
+    WebkitBackdropFilter: 'blur(24px) saturate(200%)',
+    border: '1px solid rgba(255, 255, 255, 0.55)',
+    borderRadius: '9999px',
+    padding: '0.25rem 0.25rem 0.25rem 1.5rem',
+    gap: '1.5rem',
+    boxShadow: '0 15px 35px rgba(15, 36, 70, 0.05), inset 0 0 15px rgba(255, 255, 255, 0.2)',
   },
   desktopNav: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.75rem',
+    gap: '0.9rem',
   },
   navLink: {
-    fontSize: '0.9rem',
-    fontWeight: '600',
-    color: '#334155',
-    padding: '0.5rem 0',
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
+    fontSize: '0.82rem',
+    fontWeight: '700',
+    color: '#050D1F',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    padding: '0.4rem 0',
     cursor: 'pointer',
     border: 'none',
     background: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative'
   },
   activeNavLink: {
-    fontSize: '0.9rem',
-    fontWeight: '700',
-    color: '#1b3b6f',
-    padding: '0.5rem 0',
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
+    fontSize: '0.82rem',
+    fontWeight: '800',
+    color: '#050D1F',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    padding: '0.4rem 0',
     cursor: 'pointer',
     border: 'none',
     background: 'none',
-    borderBottom: '2px solid #c5a880',
+    borderBottom: '2px solid #C89A45',
+    display: 'flex',
+    alignItems: 'center',
   },
   dropdownContainer: {
     position: 'relative',
@@ -323,55 +288,39 @@ const styles = {
   dropdownMenu: {
     position: 'absolute',
     top: '100%',
-    left: '0',
-    backgroundColor: '#ffffff',
-    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    borderRadius: '8px',
-    padding: '0.75rem 0',
-    minWidth: '220px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    marginTop: '0.75rem',
+    width: '220px',
+    padding: '0.5rem 0',
+    zIndex: 101,
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #e2e8f0',
-    marginTop: '0.5rem',
+    overflow: 'hidden'
   },
   dropdownItem: {
     padding: '0.6rem 1.25rem',
     fontSize: '0.85rem',
     fontWeight: '500',
-    color: '#475569',
-    transition: 'all 0.15s',
-  },
-  ctaGroup: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-  },
-  proposalBtn: {
-    padding: '0.6rem 1.25rem',
-    fontSize: '0.85rem',
-  },
-  consultBtn: {
-    padding: '0.6rem 1.25rem',
-    fontSize: '0.85rem',
+    color: '#0F2446',
+    transition: 'all 0.2s ease',
   },
   mobileToggle: {
     display: 'none',
     background: 'none',
     border: 'none',
-    color: '#0f172a',
+    color: '#0F2446',
     cursor: 'pointer',
   },
   mobileDrawer: {
     position: 'fixed',
-    top: '80px',
+    top: '78px',
     left: 0,
     width: '100%',
-    height: 'calc(100vh - 80px)',
-    backgroundColor: '#ffffff',
+    height: 'calc(100vh - 78px)',
     zIndex: 99,
     padding: '2rem 1.5rem',
     overflowY: 'auto',
-    borderTop: '1px solid #e2e8f0',
   },
   mobileNavLinks: {
     display: 'flex',
@@ -381,9 +330,9 @@ const styles = {
   mobileLink: {
     fontSize: '1.1rem',
     fontWeight: '600',
-    color: '#0f172a',
+    color: '#ffffff',
     paddingBottom: '0.5rem',
-    borderBottom: '1px solid #f1f5f9',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
   },
   mobileDropdownBtn: {
     display: 'flex',
@@ -394,9 +343,9 @@ const styles = {
     border: 'none',
     fontSize: '1.1rem',
     fontWeight: '600',
-    color: '#0f172a',
+    color: '#ffffff',
     paddingBottom: '0.5rem',
-    borderBottom: '1px solid #f1f5f9',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
     cursor: 'pointer',
     textAlign: 'left',
   },
@@ -405,13 +354,13 @@ const styles = {
     flexDirection: 'column',
     gap: '0.8rem',
     padding: '0.75rem 1rem 0.25rem 1rem',
-    backgroundColor: '#f8fafc',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderRadius: '8px',
     marginTop: '0.4rem',
   },
   mobileSubLink: {
     fontSize: '0.95rem',
-    color: '#475569',
+    color: 'rgba(255, 255, 255, 0.7)',
     fontWeight: '500',
   },
   mobileCtaGroup: {
@@ -419,39 +368,53 @@ const styles = {
     flexDirection: 'column',
     gap: '0.75rem',
     marginTop: '1.5rem',
-  },
-  mobileProposalBtn: {
-    backgroundColor: 'transparent',
-    border: '2px solid #1b3b6f',
-    color: '#1b3b6f',
-    padding: '0.8rem',
-    borderRadius: '8px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    textAlign: 'center',
-  },
-  mobileConsultBtn: {
-    backgroundColor: '#1b3b6f',
-    border: 'none',
-    color: '#ffffff',
-    padding: '0.8rem',
-    borderRadius: '8px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.5rem',
-  },
-  
-  // Hover behaviors handled via inline-conditional activeDropdown checking
+  }
 };
 
-// Add CSS selectors dynamically for hover effects
+// Add CSS selectors dynamically for hover effects & active states
 if (typeof document !== 'undefined') {
   const hoverStyles = `
-    .nav-link:hover { color: #1b3b6f !important; }
-    .dropdown-item:hover { background-color: #f1f5f9; color: #1b3b6f !important; }
+    .nav-link-underline::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #C89A45;
+      transition: width var(--duration-fast) var(--ease-out);
+    }
+    .nav-link-underline:hover::after {
+      width: 100%;
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(200, 154, 69, 0.1);
+      color: #C89A45 !important;
+      padding-left: 1.5rem;
+    }
+    
+    .primary-glow-hover:hover {
+      box-shadow: 0 12px 24px rgba(15, 36, 70, 0.25), 0 0 12px rgba(200, 154, 69, 0.35) !important;
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 991px) {
+      .desktop-nav-capsule {
+        display: none !important;
+      }
+      .mobileToggle {
+        display: block !important;
+      }
+    }
+    @media (min-width: 992px) {
+      .desktop-nav-capsule {
+        display: flex !important;
+      }
+      .mobileToggle {
+        display: none !important;
+      }
+    }
   `;
   const styleSheet = document.createElement("style");
   styleSheet.innerText = hoverStyles;

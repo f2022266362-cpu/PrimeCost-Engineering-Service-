@@ -1,0 +1,485 @@
+/* ============================================================
+   PRIMECOST — COMPREHENSIVE RESPONSIVE STYLESHEET
+   Breakpoints:
+     • Desktop   : > 1024px  (default styles)
+     • Tablet    : ≤ 1024px  / ≤ 991px
+     • Mobile-L  : ≤ 768px
+     • Mobile-M  : ≤ 600px
+     • Mobile-S  : ≤ 480px
+   ============================================================ */
+
+/* ── Global overflow guard ── */
+html,
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   FONT SIZE SCALE
+   ============================================================ */
+@media (max-width: 1024px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+}
+
+/* ============================================================
+   CONTAINER — Tighter gutters on small screens
+   ============================================================ */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+  }
+}
+
+/* ============================================================
+   HEADER / NAV — Mobile toggle / Desktop capsule
+   ============================================================ */
+@media (max-width: 991px) {
+  .desktop-nav-capsule {
+    display: none !important;
+  }
+  .mobileToggle {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .desktop-nav-capsule {
+    display: flex !important;
+  }
+  .mobileToggle {
+    display: none !important;
+  }
+}
+
+/* Desktop nav capsule liquid glass hover — desktop only */
+.desktop-nav-capsule {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav-capsule:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.52) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow:
+      0 18px 40px rgba(15, 36, 70, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  }
+}
+
+/* Nav underline hover */
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #C89A45;
+  transition: width var(--duration-fast, 0.2s) var(--ease-out, ease);
+}
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(200, 154, 69, 0.1) !important;
+  color: #C89A45 !important;
+  padding-left: 1.5rem !important;
+}
+
+.primary-glow-hover:hover {
+  box-shadow: 0 12px 24px rgba(15, 36, 70, 0.25), 0 0 12px rgba(200, 154, 69, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LOGO HOVER — desktop only
+   ============================================================ */
+.logo-hover-rotate {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 992px) {
+  .logo-hover-rotate:hover {
+    transform: rotate(2deg) scale(1.03);
+  }
+}
+
+/* ============================================================
+   HERO SECTION — Home page
+   ============================================================ */
+@media (max-width: 991px) {
+  .hero-responsive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .hero-stronger {
+    font-size: 4rem !important;
+  }
+
+  .hero-tomorrow {
+    font-size: 3.8rem !important;
+    margin-top: -0.8rem !important;
+  }
+
+  .glass-stats-bar {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
+    padding: 1.25rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Reduce top padding — image starts ~2 inches below hamburger menu */
+  .hero-section {
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+    min-height: 100svh !important;
+  }
+
+  .hero-responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-stronger {
+    font-size: 2.8rem !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .hero-tomorrow {
+    font-size: 2.8rem !important;
+    margin-top: -0.5rem !important;
+  }
+
+  .hero-we-build {
+    font-size: 0.85rem !important;
+  }
+
+  .hero-proverbs-quote {
+    font-size: 0.95rem !important;
+    padding-left: 0.9rem !important;
+  }
+
+  .glass-stats-bar {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ============================================================
+   HERO SECTION — Responsive Background
+   All screen sizes handled by .hero-bg-img (object-fit: cover)
+   ============================================================ */
+
+
+@media (max-width: 991px) {
+  .hero-video-wrapper {
+    height: 320px !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-video-wrapper {
+    height: 240px !important;
+  }
+}
+
+/* ============================================================
+   GLASS HOVER — disable expensive transforms on touch
+   ============================================================ */
+@media (max-width: 768px) {
+  .glass-hover-lift:hover {
+    transform: none !important;
+  }
+
+  .float-animate {
+    animation: none !important;
+  }
+
+  .btn-shine-effect::after {
+    display: none !important;
+  }
+
+  .glass-stats-bar:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   FOOTER — Responsive grid
+   ============================================================ */
+@media (max-width: 991px) {
+  footer div.container > div:first-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  footer div.container > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer div.container > div:nth-child(2) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+}
+
+footer a:hover {
+  color: #C89A45 !important;
+}
+
+/* ============================================================
+   HOME PAGE — dynamic layout overrides via classes
+   Applied via JS-injected styles in Home.jsx
+   Additional CSS-class based overrides below
+   ============================================================ */
+
+/* About page responsive */
+@media (max-width: 991px) {
+  .founderContainer,
+  .contactGrid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  .portraitWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .founderInfo {
+    text-align: center !important;
+  }
+
+  .founderQuoteBox {
+    border-left: none !important;
+    border-top: 4px solid #C89A45 !important;
+  }
+
+  .founderSignature {
+    text-align: center !important;
+  }
+
+  .timelineLine {
+    left: 20px !important;
+  }
+
+  .timeline-item-container {
+    justify-content: flex-start !important;
+  }
+
+  .timeline-item-container > div {
+    width: 100% !important;
+    text-align: left !important;
+    padding-left: 3rem !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-item-container > div:first-child {
+    display: none !important;
+  }
+
+  .timeline-item-container > div:nth-child(2) {
+    width: 0 !important;
+  }
+
+  .timeline-item-container > div:last-child {
+    display: block !important;
+  }
+
+  .timeline-item-container .timeline-item-container-inner {
+    text-align: left !important;
+  }
+
+  .timeline-item-container div[style*="left: 50%"] {
+    left: 20px !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .formRow,
+  .cardsGrid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   STICKY MOBILE CTA — on tablets too (≤991px)
+   utilities.css only shows at ≤768px; we extend to 991px
+   ============================================================ */
+@media (max-width: 991px) {
+  .sticky-mobile-cta {
+    display: flex !important;
+  }
+
+  /* Push content above the sticky bar */
+  #main-content,
+  main {
+    padding-bottom: 60px;
+  }
+
+  footer {
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sticky-mobile-cta {
+    display: none !important;
+  }
+
+  #main-content,
+  main {
+    padding-bottom: 0;
+  }
+
+  footer {
+    padding-bottom: 0;
+  }
+}
+
+/* ============================================================
+   BACK TO TOP — above sticky bar on mobile
+   ============================================================ */
+@media (max-width: 991px) {
+  .back-to-top-btn {
+    bottom: 4.5rem !important;
+    right: 1rem !important;
+  }
+}
+
+/* ============================================================
+   PAGE TRANSITION
+   ============================================================ */
+.page-transition-swipe {
+  animation: pageFadeIn 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   PAGE LOADING BAR (router transitions)
+   ============================================================ */
+.page-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #C89A45, #0F2446, #C89A45);
+  background-size: 200% 100%;
+  animation: loadingBarAnim 0.55s ease-in-out;
+  z-index: 9999;
+}
+
+@keyframes loadingBarAnim {
+  0%   { opacity: 1; background-position: 0% 0%; width: 0%; }
+  80%  { opacity: 1; background-position: 100% 0%; width: 90%; }
+  100% { opacity: 0; width: 100%; }
+}
+
+/* ============================================================
+   REDUCED MOTION OVERRIDE
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-fade-up,
+  .reveal-fade-left,
+  .reveal-fade-right,
+  .reveal-scale-in,
+  .reveal-blur-in {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .float-animate {
+    animation: none !important;
+  }
+
+  .btn-shine-effect::after {
+    display: none !important;
+  }
+
+  .glass-stats-bar {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   CHATBOT — mobile positioning & sizing
+   ============================================================ */
+@media (max-width: 991px) {
+  /* Push chatbot above the sticky mobile CTA bar */
+  .chatbot-widget {
+    bottom: 5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small phones, make chat window full-width */
+  .chatbot-widget {
+    bottom: 5rem !important;
+    right: 0.5rem !important;
+    left: 0.5rem !important;
+    align-items: stretch !important;
+  }
+
+  /* Chat window: stretch to fit */
+  .chatbot-widget > div:not(button) {
+    width: 100% !important;
+    max-height: 75vh !important;
+  }
+}
+

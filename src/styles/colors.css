@@ -1,0 +1,42 @@
+:root {
+  --color-primary: #0F2446;
+  --color-primary-rgb: 15, 36, 70;
+  --color-primary-light: #1b3b6f;
+  --color-primary-dark: #071328;
+  
+  --color-gold: #C89A45;
+  --color-gold-rgb: 200, 154, 69;
+  --color-gold-light: #dcc29f;
+  --color-gold-dark: #a88137;
+  
+  --color-bg: #F5F9FC;
+  --color-bg-dark: #0B111E;
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  
+  --color-glass-bg: rgba(255, 255, 255, 0.45);
+  --color-glass-border: rgba(255, 255, 255, 0.45);
+  --color-glass-bg-dark: rgba(15, 36, 70, 0.45);
+  --color-glass-border-dark: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark-theme-auto {
+    --color-bg: #0B111E;
+    --color-glass-bg: rgba(15, 36, 70, 0.45);
+    --color-glass-border: rgba(255, 255, 255, 0.08);
+  }
+}

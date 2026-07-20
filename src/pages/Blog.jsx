@@ -1,461 +1,115 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  BookOpen, Search, Filter, Calendar, User, 
-  ArrowLeft, Clock, Bookmark, ChevronRight, CheckSquare 
-} from 'lucide-react';
+import { Search, Calendar, User, ArrowLeft, Clock, ChevronRight } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 
 const articles = [
-  // HIGH-INTENT SEO TOPICS
   {
-    id: 'structural-engineering-estimate-cost-houston',
-    title: 'How Much Does a Structural Engineering Estimate Cost in Houston?',
+    id: 'choose-structural-engineer',
+    title: 'How to Choose the Right Structural Engineer for Your Residential Project',
     category: 'Structural',
-    readTime: '6 min read',
-    summary: 'A complete pre-construction guide on structural engineering estimate cost factors in Houston and surrounding regions. Learn about PE stamped drawing requirements, soil challenges, and permit fees.',
-    content: `
-<h2>Structural Engineering Cost Estimating in the Houston Metro</h2>
-<p>If you are planning a new construction build, an addition, or a commercial build-out in the Houston area, one of your first steps is securing a <strong>structural engineering estimate cost Houston</strong>. Understanding these costs upfront helps you avoid surprise delays during municipal permit reviews.</p>
-
-<h3>Average Cost of Structural Engineering in Houston</h3>
-<p>For most projects, structural design costs are calculated either as a percentage of the total construction cost (typically 1.5% to 5% for commercial and 2% to 8% for custom residential) or as a flat fee. In Houston, Sugar Land, and Katy, flat fees generally range as follows:</p>
-<ul>
-  <li><strong>Custom Residential Foundation & Framing:</strong> $1,500 - $4,500</li>
-  <li><strong>Commercial Build-outs & Renovations:</strong> $3,000 - $8,500</li>
-  <li><strong>Structural Inspections & Engineering Assessment Reports:</strong> $500 - $1,200</li>
-  <li><strong>PE Stamped Structural Drawings Houston:</strong> $2,000 - $6,000 depending on complexity</li>
-</ul>
-
-<h3>Key Factors Driving Your Structural Design Bid</h3>
-<p>Several local conditions in southeast Texas directly affect the complexity of your structural design and the resulting <strong>pre-construction estimating company Houston</strong> costs:</p>
-
-<h4>1. Soil Challenges (Expansive Clay)</h4>
-<p>Houston is famous for its expansive clay soils (often referred to as "black gumbo"). These soils swell when wet and shrink when dry, placing immense pressure on slab-on-grade foundations. To prevent cracking, structural engineers must design thick post-tensioned slabs or deep drilled concrete piers. This requires detailed structural calculations and increases the engineering hours required.</p>
-
-<h4>2. Wind Load Requirements (Hurricane Zones)</h4>
-<p>Due to proximity to the Gulf Coast, structural calculations for permits in Houston and coastal suburbs like Pearland must account for wind speeds up to 120-140 mph. This requires engineers to specify complex shear walls, braced frames, and wind-uplift connectors, which increase framing design complexity.</p>
-
-<h4>3. Fast Turnaround Structural Engineering Bid Needs</h4>
-<p>If you are bidding on a tight timeline, a <strong>fast turnaround structural engineering bid</strong> is crucial. Standard turnaround times in the industry can take 3 to 4 weeks. Working with a dedicated firm like PRIMECOST can reduce this to days, saving you thousands in carrying costs, though rush engineering fees may apply.</p>
-
-<h3>Why You Need a Digital PE Stamp for Your Permit Drawings</h3>
-<p>Municipalities like the Houston Permitting Center strictly require all architectural and structural drawings to bear a digital <strong>PE stamped structural drawings Houston</strong> validation from a licensed Professional Engineer. The PE stamp certifies that the framing and load pathways comply with the International Building Code (IBC) and local amendments, ensuring your submittal is approved without rejection.</p>
-
-<h3>How to Save Money on Pre-Construction Estimating Services</h3>
-<p>Contractors and developers can optimize costs by using coordinated <strong>construction cost estimating services Texas</strong> and BIM modeling. Discover how integrated BIM modeling prevents clashes by visiting our <a href="/services/bim-cad" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">BIM & CAD Services page</a>, or request a customized proposal directly through our team.</p>
-    `
+    readTime: '15 min read',
+    summary: 'Selecting the right structural engineer ensures your home is safe, compliant, and structurally sound. Learn the exact criteria, red flags, and interview questions to find the best fit.'
   },
   {
-    id: 'bim-vs-traditional-drafting-houston-contractors',
-    title: 'BIM Modeling vs. Traditional Drafting: What Houston Contractors Should Know',
-    category: 'BIM',
-    readTime: '5 min read',
-    summary: 'Comparing modern Autodesk Revit BIM modeling workflows against traditional 2D CAD drafting. Learn why Houston contractors are switching to BIM to prevent onsite clashes.',
-    content: `
-<h2>Modern 3D BIM Modeling vs. 2D Drafting</h2>
-<p>For decades, commercial and residential projects in Texas were built using 2D CAD drawings. However, as projects grow more complex and schedules compress, the choice between <strong>BIM modeling for contractors</strong> and traditional drafting is becoming a major differentiator for winning bids.</p>
-
-<h3>What is the Difference?</h3>
-<p>Traditional drafting generates separate 2D floor plans, sections, and elevation sheets. Building Information Modeling (BIM) creates a single, parameter-driven 3D digital model of the structure. When you change a window size in BIM, every coordinate, floor plan, and material schedule updates automatically.</p>
-
-<h3>Why Houston Contractors Are Upgrading to BIM</h3>
-<ul>
-  <li><strong>Clash Detection:</strong> In 2D, finding out that a structural steel beam blocks an HVAC duct path usually happens on site, leading to expensive delay change orders. BIM clash detection scans the unified model to resolve conflicts before excavation begins.</li>
-  <li><strong>Quantity Takeoffs:</strong> BIM models generate instant, precise material bills, giving you an advantage during the <strong>pre-construction estimating company Houston</strong> bidding phase.</li>
-  <li><strong>Permit Approvals:</strong> Coordinated 3D models allow plans examiners at the Houston Permitting Center to quickly review egress and accessibility requirements, speeding up permit issuance.</li>
-</ul>
-<p>Learn how our coordination process works by visiting our dedicated <a href="/services/bim-cad" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">BIM & CAD Modeling Solutions</a> page, or request a scoping proposal for your next project.</p>
-    `
-  },
-  {
-    id: 'common-reasons-building-permits-rejected-houston',
-    title: '5 Common Reasons Building Permits Get Rejected in Houston (and How to Avoid Them)',
+    id: 'permit-approval-mistakes',
+    title: '10 Common Mistakes That Delay Building Permit Approval',
     category: 'Construction',
-    readTime: '6 min read',
-    summary: 'Avoid costly delays at the Houston Permitting Center. Learn about the top 5 drawing omissions that lead to permit rejections and how to fix them.',
-    content: `
-<h2>Navigating the Houston Permitting Center</h2>
-<p>Securing building licenses in the Houston area (including Sugar Land, Katy, and Spring) can be a bottleneck for developers. The city's plans examiners review packages meticulously, and even minor omissions can send you back to the design phase.</p>
-
-<h3>Top 5 Egress & Drafting Rejections</h3>
-<ol>
-  <li><strong>Missing Geotechnical or Soil Reports:</strong> Houston's expansive soils mean foundations require site-specific geotechnical boring data. Submitting standard slabs without soil reports is a quick rejection.</li>
-  <li><strong>Unstamped Architectural or Structural Drawings:</strong> City codes mandate a professional <strong>PE stamped structural drawings Houston</strong> verification for commercial and multi-family structures.</li>
-  <li><strong>Incomplete Egress/Accessibility Plans:</strong> Life-safety plans must clearly map exit travel distances, fire ratings, and ADA compliance details (e.g. ramp gradients, turning radii).</li>
-  <li><strong>Coordination Failures:</strong> Discrepancies between architectural wall locations and structural framing plans raise red flags immediately during plan review.</li>
-  <li><strong>Outdated Building Code Reference:</strong> Submitting designs referencing older code cycles rather than the latest adopted International Building Code (IBC) standard leads to immediate rejections.</li>
-</ol>
-<p>Our team specializes in preparing coordinated, permit-ready sets that slide through plan reviews. Contact our <a href="/about" style="color: #1b3b6f; font-weight: 600; text-decoration: underline;">pre-construction engineering team</a> today to review your drawings.</p>
-    `
-  },
-  // ARCHITECTURAL
-  {
-    id: 'guide-architectural-design',
-    title: 'Complete Guide to Architectural Design Services',
-    category: 'Architectural',
-    readTime: '6 min read',
-    summary: 'An in-depth breakdown of architectural phases from initial conceptual zoning checks to detailed construction documents and construction administration.',
-    content: `
-<h2>Understanding the Architectural Design Process</h2>
-<p>Architectural design services convert your project vision into code-compliant, builder-ready construction sets. For developers and owners alike, understanding the core phases is crucial to managing project schedules and minimizing field change orders.</p>
-
-<h3>1. Schematic Design (SD)</h3>
-<p>The process begins with programmatic alignment. We establish the client's space requirements, aesthetic style, budget limitations, and schedule expectations. During SD, we draft initial spatial layouts and 3D volume studies, checking basic zoning rules such as building heights, lot coverage ratios, and setback limits.</p>
-
-<h3>2. Design Development (DD)</h3>
-<p>Once the schematic plan is approved, we add structural dimensions and mechanical alignments. Here, window styles, exterior wall assemblies, door positions, and basic interior trims are selected. We refine the 3D model, ensuring that structural loads can be supported without blocking architectural circulation grids.</p>
-
-<h3>3. Construction Documents (CD)</h3>
-<p>This is the final permit-ready package. It contains site plan details, dimensional floor plans, structural framing sheets, elevation profiles, electrical schedules, and finish notes. These drawings are signed and stamped by licensed architects or engineers to secure city building licenses.</p>
-
-<h3>Key Architectural Design Deliverables:</h3>
-<ul>
-  <li>Zoning compliance check sheets</li>
-  <li>Detailed site plan layouts</li>
-  <li>Floor plans with exact room grids</li>
-  <li>Cross-sections and transverse elevation drawings</li>
-  <li>Permit submittal packages</li>
-</ul>
-    `
+    readTime: '15 min read',
+    summary: 'Avoid expensive building permit delays. Explore the most common architectural design errors, structural mismatch flaws, and zoning oversights.'
   },
   {
-    id: 'permit-drawing-requirements',
-    title: 'Permit Drawing Requirements Explained',
-    category: 'Architectural',
-    readTime: '5 min read',
-    summary: 'What municipal building departments require in permit drawings. Learn about life-safety plans, egress, accessibility, and PE stamp rules.',
-    content: `
-<h2>Demystifying Building Department Permit Submittals</h2>
-<p>Securing a building license requires submitting a drawings package that demonstrates complete compliance with building codes (e.g. the International Building Code, or local municipal amendments). Incomplete submittals result in city rejections and project delays.</p>
-
-<h3>Core Components of a Permit Set</h3>
-<p>Building inspectors evaluate drawings across several safety and compliance categories:</p>
-
-<h4>1. Life-Safety Plan</h4>
-<p>This is the single most important sheet for commercial or multi-unit residential projects. It details egress pathways, exit travel distances, corridor fire protection ratings, and the positions of exit signage and fire extinguishers.</p>
-
-<h4>2. ADA / Accessibility Compliance</h4>
-<p>Every commercial development must meet access rules. Drawings must detail ramp gradients (maximum 1:12 slope), door widths (minimum 32-inch clear opening), bathroom grab bar heights, and handicap parking locations.</p>
-
-<h4>3. Structural Framing & Calculations</h4>
-<p>Municipal plans examiners require proof that the structure can handle regional live loads, snow weight, and seismic wind forces. Calculations must match code formulas and be signed by a licensed Professional Engineer (PE).</p>
-
-<h3>Common Permit Set Deliverables:</h3>
-<ul>
-  <li>Egress calculations and travel path schematics</li>
-  <li>Structural load path diagrams and stamps</li>
-  <li>Plumbing isometric and sanitary riser sheets</li>
-  <li>Energy performance reports (ComCheck/ResCheck)</li>
-</ul>
-    `
+    id: 'autocad-vs-revit',
+    title: 'AutoCAD vs Revit: Which Software Is Better for Construction Projects?',
+    category: 'BIM',
+    readTime: '12 min read',
+    summary: 'A side-by-side comparison of 2D CAD drafting vs 3D intelligent BIM modeling for project timelines, revision workflows, and multidisciplinary coordination.'
   },
   {
-    id: 'residential-vs-commercial-process',
-    title: 'Residential vs Commercial Design Process',
-    category: 'Architectural',
-    readTime: '5 min read',
-    summary: 'A side-by-side comparison of the zoning rules, structural framing choices, and MEP parameters that separate home design from commercial buildings.',
-    content: `
-<h2>How Commercial Projects Differ From Residential Builds</h2>
-<p>While both residential and commercial projects follow schematic and construction phases, the engineering codes, materials, and municipal oversight differ significantly.</p>
-
-<h3>1. Construction Material & Framing Methods</h3>
-<p>Residential homes primarily rely on lightweight timber framing (wood stud walls and truss systems) governed by the International Residential Code (IRC). Commercial structures utilize structural steel, reinforced concrete, or light-gauge metal framing governed by the International Building Code (IBC).</p>
-
-<h3>2. Mechanical, Electrical & Plumbing (MEP) Complexity</h3>
-<p>Residential MEP systems are simple (single-phase electrical panels, small ducted split HVACs, and basic gravity sewers). Commercial spaces demand three-phase electrical power, specialized multi-zone rooftop HVACs (RTUs), grease interceptor traps for food services, and integrated fire alarm/sprinkler infrastructure.</p>
-
-<h3>3. Licensing & Professional Stamp Rules</h3>
-<p>For custom residential builds, some jurisdictions permit drawings signed by draftsmen. For commercial, multi-unit multifamily, or industrial structures, building departments strictly mandate drawings signed and stamped by licensed Professional Engineers and Registered Architects.</p>
-    `
+    id: 'structural-steel-shop-drawings',
+    title: 'Complete Guide to Structural Steel Shop Drawings',
+    category: 'Structural',
+    readTime: '14 min read',
+    summary: 'Master the shop drawings approval process. Learn about fabricator standards, connections engineering, and preventing field rework.'
   },
-
-  // STRUCTURAL
+  {
+    id: 'as-built-drawings-importance',
+    title: 'What Are As-Built Drawings and Why Are They Important?',
+    category: 'Construction',
+    readTime: '12 min read',
+    summary: 'Explore the critical role of as-built records in renovations, building code compliance, and modern scan-to-BIM digital workflows.'
+  },
+  {
+    id: 'residential-vs-commercial-engineering',
+    title: 'Residential vs Commercial Structural Engineering: Key Differences',
+    category: 'Structural',
+    readTime: '13 min read',
+    summary: 'Discover the distinct building codes, load conditions, material specifications, and engineering requirements between housing and commercial builds.'
+  },
+  {
+    id: 'bim-coordination-cost-reduction',
+    title: 'How BIM Coordination Reduces Construction Costs and Rework',
+    category: 'BIM',
+    readTime: '15 min read',
+    summary: 'How 3D clash detection, Navisworks reviews, and multi-discipline BIM coordination prevent structural errors and on-site rebuilds.'
+  },
+  {
+    id: 'construction-documents-guide',
+    title: 'Everything You Need to Know About Construction Documents',
+    category: 'Construction',
+    readTime: '12 min read',
+    summary: 'A complete pre-construction guide to CSI divisions, engineering specifications, and bid package drawing sets.'
+  },
   {
     id: 'foundation-design-basics',
-    title: 'Foundation Design Basics',
+    title: 'Foundation Design Basics: Types, Process, and Engineering Considerations',
     category: 'Structural',
-    readTime: '6 min read',
-    summary: 'Soil bearing pressure, expansive clay soils, slab-on-grade, and deep piers. Learn how structural engineers prevent foundation cracking.',
-    content: `
-<h2>The Foundation of Structural Engineering</h2>
-<p>Every building load—including structural self-weight (dead load) and wind/occupancy pressures (live loads)—must be transferred safely into the soil beneath. Foundation engineering isolates the building from earth settlement and expansive clay movements.</p>
-
-<h3>1. Soil Mechanics & Geotechnical Reports</h3>
-<p>Geotechnical engineers drill soil borings to measure bearing capacity, plastic index, and water table heights. High plastic index soils expand when wet and shrink when dry, placing upward bending forces on foundations.</p>
-
-<h3>2. Slab-on-Grade vs. Deep Piers</h3>
-<ul>
-  <li><strong>Slab-on-Grade:</strong> Suitable for stable soils. A continuous concrete slab with thickened edges (grade beams) transfers building weight.</li>
-  <li><strong>Deep Drilled Piers:</strong> Mandatory for expansive clay (common in Houston). Deep shafts are drilled down (15-30 ft) to stable earth, filled with reinforced concrete, and attached to grade beams.</li>
-</ul>
-
-<h3>3. Preventative Bending reinforcement</h3>
-<p>By placing high-tensile steel rebar grids or post-tensioning steel cables inside the concrete slab, structural engineers ensure the foundation can bridge soil voids without structural cracking.</p>
-    `
+    readTime: '14 min read',
+    summary: 'Learn how structural engineers design concrete slab-on-grade, post-tension slabs, and deep foundation piers matching local soil profiles.'
   },
   {
-    id: 'structural-systems-commercial',
-    title: 'Structural Systems for Commercial Buildings',
-    category: 'Structural',
-    readTime: '5 min read',
-    summary: 'A review of shear walls, braced frames, moment frames, and horizontal load paths that keep commercial towers standing.',
-    content: `
-<h2>How Commercial Buildings Stand Against Wind & Gravity</h2>
-<p>Commercial structures require open floor plans, large column-free spans, and high resistance to lateral wind or seismic forces. Engineers accomplish this through specialized structural systems:</p>
-
-<h3>1. Gravity Load Pathways</h3>
-<p>Gravity loads (roof decks, concrete slabs, equipment, occupants) travel from floor decks to joists, girders, columns, and finally down to the foundation piers. Minimizing column sizes while maximizing span distance requires high-strength concrete and structural steel sections.</p>
-
-<h3>2. Lateral Load Resistance Systems</h3>
-<ul>
-  <li><strong>Shear Walls:</strong> Solid concrete or masonry walls that absorb wind shear forces, transferring them laterally down to the ground.</li>
-  <li><strong>Braced Frames:</strong> Steel column grids braced diagonally with hollow structural steel (HSS) cross-bracing. Highly cost-effective.</li>
-  <li><strong>Moment Frames:</strong> Rigid steel frame joints that resist bending without diagonal bracing, allowing wall-to-wall glass windows.</li>
-</ul>
-    `
-  },
-  {
-    id: 'steel-vs-concrete-structures',
-    title: 'Steel vs Concrete Structures',
-    category: 'Structural',
-    readTime: '6 min read',
-    summary: 'Comparing structural steel frame speed and beam span distances against cast-in-place concrete mass, fire rating, and design costs.',
-    content: `
-<h2>Steel Frame vs Reinforced Concrete: The Structural Decision</h2>
-<p>Selecting the primary structural material is one of the most critical pre-construction decisions, impacting budget, schedule, and architectural flexibility.</p>
-
-<h3>1. Structural Steel Construction</h3>
-<p>Steel members are pre-fabricated offsite and bolted together on site. This enables rapid construction schedules and long column-free floor spans. However, steel requires secondary fireproofing spray coatings to meet fire resistance codes.</p>
-
-<h3>2. Reinforced Concrete Construction</h3>
-<p>Concrete is cast-in-place on site using formwork and rebar grids. Concrete provides native fireproofing, acoustic dampening between floors, and high thermal mass. It is ideal for multi-unit apartment complexes but requires curing time before framing load submittals.</p>
-
-<h3>Comparison Summary Table:</h3>
-<table>
-  <tr><th>Metric</th><th>Structural Steel</th><th>Reinforced Concrete</th></tr>
-  <tr><td>Build Speed</td><td>Fast (weeks)</td><td>Slow (requires curing)</td></tr>
-  <tr><td>Span Distance</td><td>Long spans (30-60+ ft)</td><td>Medium spans (20-30 ft)</td></tr>
-  <tr><td>Fire Resistance</td><td>Requires secondary spray</td><td>Native fire resistance</td></tr>
-</ul>
-    `
-  },
-  {
-    id: 'structural-engineering-estimate-cost-houston',
-    title: 'How Much Does a Structural Engineering Estimate Cost in Houston?',
-    category: 'Structural',
-    readTime: '6 min read',
-    summary: 'A breakdown of what drives structural engineering estimate pricing in Houston, typical cost ranges by project type, and why fast turnaround can matter as much as price.',
-    content: `
-<h2>What Affects the Cost of a Structural Engineering Estimate</h2>
-<p>If you're a contractor, architect, or developer in Houston, one question comes up before almost every project: how much will the structural engineering estimate cost? The answer depends on a handful of clear factors rather than guesswork.</p>
-
-<h3>1. Project Size & Complexity</h3>
-<p>A single-family residential addition requires far less analysis than a multi-story commercial structure. Square footage, number of floors, and load-bearing requirements all factor directly into engineering hours.</p>
-
-<h3>2. Type of Construction</h3>
-<p>Steel-frame, concrete, and wood structures each demand different calculations. Steel and reinforced concrete projects generally take longer to estimate because of additional load and connection analysis.</p>
-
-<h3>3. PE Stamp & Code Compliance</h3>
-<p>Projects requiring a licensed Professional Engineer (PE) stamp for permitting cost more than informal estimates, since they carry legal and professional liability.</p>
-
-<h3>4. Turnaround Time</h3>
-<p>Standard estimates take longer to prepare than rush estimates. Firms offering same-day or under-24-hour scoping bids typically prioritize scheduling to meet bid deadlines.</p>
-
-<h3>Typical Price Ranges by Project Type</h3>
-<ul>
-  <li><strong>Residential additions & remodels:</strong> Lower end of the pricing scale, since the scope is contained and load paths are simpler.</li>
-  <li><strong>Light commercial buildouts:</strong> Mid-range, due to MEP coordination and code review requirements.</li>
-  <li><strong>Multi-family & larger commercial new-builds:</strong> Higher end, reflecting structural complexity and drawing volume.</li>
-</ul>
-
-<h3>Why Turnaround Time Matters as Much as Price</h3>
-<p>In Houston's competitive bidding environment, contractors often lose jobs not because their numbers were wrong, but because they were late. A structural engineering partner that delivers scoping bids within 24 hours helps you respond to RFPs faster and lock in subcontractor pricing sooner.</p>
-
-<h3>How the Estimating Process Works</h3>
-<ul>
-  <li>Submit your project drawings and specifications through a secure portal or email.</li>
-  <li>Certified estimators review the scope using industry-standard software and current material pricing.</li>
-  <li>Every estimate goes through a quality check before it's sent back to you.</li>
-  <li>You receive PE-stamped documentation when the project requires it for permitting.</li>
-</ul>
-    `
-  },
-
-  // MEP
-  {
-    id: 'hvac-design-best-practices',
-    title: 'HVAC Design Best Practices',
-    category: 'MEP',
-    readTime: '5 min read',
-    summary: 'Energy-efficiency, heat loads (Manual J), duct routing clearances, and fresh air intake codes for commercial structures.',
-    content: `
-<h2>Engineering Mechanical Airflow for Commercial Occupancies</h2>
-<p>Heating, Ventilation, and Air Conditioning (HVAC) design is more than selecting system capacity. It requires balancing indoor temperatures, air circulation volumes, and occupant safety codes.</p>
-
-<h3>1. Volumetric Heat Load Calculations</h3>
-<p>We perform thermal calculations matching ASHRAE guidelines. We measure glass solar heat gain, wall insulation values, lighting heat outputs, and occupant density to size mechanical equipment without over-sizing (which causes damp humidity issues).</p>
-
-<h3>2. Fresh Air Intake & Exhaust Systems</h3>
-<p>Building codes require introducing fresh outside air to prevent carbon dioxide buildup. In commercial restaurants, exhaust design requires fire-wrapped duct routes and grease filter exhausts to comply with fire prevention standards.</p>
-    `
-  },
-  {
-    id: 'electrical-load-calculations',
-    title: 'Electrical Load Calculations Explained',
-    category: 'MEP',
-    readTime: '5 min read',
-    summary: 'Volt-Ampere load splits, phase balance, panel schedules, and service disconnect sizing for commercial properties.',
-    content: `
-<h2>Balancing Electrical Panels to Prevent System Failures</h2>
-<p>Commercial building departments require detailed electrical schematics to verify load capacities, conductor sizing, and fire safety systems.</p>
-
-<h3>1. Demand Volt-Ampere Calculations</h3>
-<p>We tally general lighting (VA per sq. ft.), receptacle quantities, HVAC motors, and kitchen appliances. We apply code-authorized demand factor percentages to calculate total building service loads.</p>
-
-<h3>2. Three-Phase Balance</h3>
-<p>Commercial utility lines distribute electricity across three phases. If one phase supports significantly more electrical load than the others, it causes transformer overheating and system trips. We design panel schedules to distribute load evenly.</p>
-    `
-  },
-  {
-    id: 'plumbing-design-fundamentals',
-    title: 'Plumbing Design Fundamentals',
-    category: 'MEP',
-    readTime: '5 min read',
-    summary: 'Sanitary stacks, venting routes, grease interceptors, and plumbing isometric drawings for commercial submittals.',
-    content: `
-<h2>Designing Code-Compliant Sanitary & Water Systems</h2>
-<p>Plumbing engineering ensures clean water delivery and sanitary waste removal while preventing dangerous sewer gas backup into spaces.</p>
-
-<h3>1. Sanitary Vent Loops</h3>
-<p>Waste piping requires a corresponding system of air vents extending up to the roof. Vent loops maintain atmospheric pressure inside waste lines, allowing water to drain smoothly without pulling trap seals dry.</p>
-
-<h3>2. Grease Traps & Interceptors</h3>
-<p>Commercial food services are legally required to pass waste water through a grease trap. Grease cooling allows oil to float to the top and solids to sink, preventing sewer line blockages.</p>
-    `
-  },
-
-  // BIM
-  {
-    id: 'what-is-bim',
-    title: 'What Is BIM?',
+    id: 'outsource-cad-drafting',
+    title: 'Top 10 Reasons to Outsource CAD Drafting Services',
     category: 'BIM',
-    readTime: '5 min read',
-    summary: 'An introduction to Building Information Modeling, database-driven parameters, and LOD standards.',
-    content: `
-<h2>Building Information Modeling: Beyond Simple 2D CAD</h2>
-<p>Building Information Modeling (BIM) is a digital database-driven process for generating and managing building parameters across its entire lifecycle.</p>
-
-<h3>1. Coordinated 3D Data Geometry</h3>
-<p>In BIM, every wall, door, steel beam, or plumbing pipe is a smart object containing parameters (e.g. fire-ratings, material quantities, thermal values). Updating a window size in one elevation view automatically updates floor plans, sections, and schedules.</p>
-
-<h3>2. Levels of Development (LOD)</h3>
-<ul>
-  <li><strong>LOD 100:</strong> Conceptual massing layout.</li>
-  <li><strong>LOD 300:</strong> Precise structural dimensions and shapes ready for permit reviews.</li>
-  <li><strong>LOD 400:</strong> Fabrication-ready layouts with structural weld coordinates and connection details.</li>
-</ul>
-    `
-  },
-  {
-    id: 'clash-detection-explained',
-    title: 'Clash Detection Explained',
-    category: 'BIM',
-    readTime: '5 min read',
-    summary: 'How Navisworks scans 3D models to find conflicts between HVAC ducts and steel columns before construction begins.',
-    content: `
-<h2>Preventing Field Modifications Through 3D Coordination</h2>
-<p>Clash detection is the computerized identification of spatial overlaps between design disciplines (architectural, structural framing, MEP routing) in a virtual model.</p>
-
-<h3>1. Hard Clashes vs. Soft Clearance Clashes</h3>
-<ul>
-  <li><strong>Hard Clash:</strong> Two objects occupy the exact same 3D coordinates (e.g., a steel beam cutting through an HVAC supply duct).</li>
-  <li><strong>Soft Clash:</strong> An object violates code clearance boundaries (e.g., a pipe running within 2 inches of a high-voltage electrical line).</li>
-</ul>
-
-<h3>2. Cost Benefits</h3>
-<p>Resolving a clash inside a Revit model takes a few mouse clicks. Resolving a clash on a construction site requires cutting steel, ordering fresh fittings, and stopping trade crews, costing thousands of dollars.</p>
-    `
-  },
-  {
-    id: 'bim-coordination-process',
-    title: 'BIM Coordination Process',
-    category: 'BIM',
-    readTime: '6 min read',
-    summary: 'BIM Execution Plans (BEP), shared model coordinates, and review meetings that keep multi-discipline teams aligned.',
-    content: `
-<h2>The BIM Coordination Workflow</h2>
-<p>Successful 3D modeling on large projects requires close collaboration between architects, structural designers, MEP engineers, and general contractors. We follow a strict coordination workflow:</p>
-
-<h3>1. BIM Execution Plan (BEP)</h3>
-<p>We draft a project-specific BEP defining modeling standards, coordinate origins (shared coordinates), file exchange schedules, and level of detail criteria.</p>
-
-<h3>2. Coordination Review Meetings</h3>
-<p>Discipline models are merged into a federated model in Autodesk Navisworks. We run automated clash scans, log conflicts in a tracking dashboard, and resolve them during weekly review calls.</p>
-    `
-  },
-
-  // CONSTRUCTION
-  {
-    id: 'pre-construction-planning-guide',
-    title: 'Pre-Construction Planning Guide',
-    category: 'Construction',
-    readTime: '6 min read',
-    summary: 'Feasibility analysis, zoning variance reviews, constructability reviews, and pre-construction scheduling.',
-    content: `
-<h2>Laying the Groundwork for Construction Success</h2>
-<p>The pre-construction phase sets the parameters for your entire project, establishing budget, schedules, and constructability baselines.</p>
-
-<h3>1. Site Feasibility & Zoning Variance</h3>
-<p>We check site boundaries, zoning classifications, height limits, utility availability, and environmental rules. If design goals conflict with zoning setbacks, we prepare variance drawings for municipal appeals.</p>
-
-<h3>2. Constructability Reviews</h3>
-<p>Our engineers evaluate drawing sets from a builder\'s perspective, checking connection details, material availability, crane access clearances, and staging constraints.</p>
-    `
-  },
-  {
-    id: 'value-engineering-strategies',
-    title: 'Value Engineering Strategies',
-    category: 'Construction',
-    readTime: '5 min read',
-    summary: 'Optimizing structural members, shortening plumbing runs, and selecting alternative materials without reducing safety.',
-    content: `
-<h2>Value Engineering: Optimizing Budgets Without Reducing Quality</h2>
-<p>Value Engineering (VE) is a systematic method to improve the value of project components by analyzing their function and cost ratio.</p>
-
-<h3>1. Material Alternatives</h3>
-<p>For example, if structural steel prices spike, we recalculate framing spans to utilize engineered wood joists (Glulam) or post-tensioned concrete slabs to reduce steel tonnage.</p>
-
-<h3>2. System Optimization</h3>
-<p>We shorten plumbing lines by grouping restrooms vertically (back-to-back wet walls), reducing copper and PVC pipe requirements.</p>
-    `
-  },
-  {
-    id: 'construction-documentation-best-practices',
-    title: 'Construction Documentation Best Practices',
-    category: 'Construction',
-    readTime: '5 min read',
-    summary: 'Detail cross-referencing, dimensioning standards, clear notes, and change-order prevention drawing standards.',
-    content: `
-<h2>Creating Frictionless Drawings for Construction Crews</h2>
-<p>Clear, highly detailed construction documents prevent misunderstandings, delays, and costly change orders on the construction site.</p>
-
-<h3>1. Standard Dimensioning & Grids</h3>
-<p>Drawings must utilize standard, grid-referenced dimensions matching builder layouts. Inconsistent wall dimensions force framing crews to guess, leading to layout shifts.</p>
-
-<h3>2. Detailed Cross-References</h3>
-<p>Every floor plan view must cross-reference detailed section and elevation callouts. We detail window attachments, concrete-to-steel joints, and structural connection plans clearly.</p>
-    `
+    readTime: '12 min read',
+    summary: 'Discover the business benefits of outsourced drafting, BIM modeling scale, Revit family creation, and cost-efficiency.'
   }
 ];
 
-function Blog() {
+export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [loadingArticleId, setLoadingArticleId] = useState(null);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (selectedArticle && modalRef.current) {
+      modalRef.current.scrollTop = 0;
+    }
+  }, [selectedArticle]);
 
   const categories = ['All', 'Architectural', 'Structural', 'MEP', 'BIM', 'Construction'];
+
+  const handleSelectArticle = async (art) => {
+    setLoadingArticleId(art.id);
+    try {
+      const res = await fetch(`/content/blog/${art.id}.json`);
+      if (!res.ok) throw new Error('Failed to fetch article JSON');
+      const data = await res.json();
+      setSelectedArticle(data);
+    } catch (err) {
+      console.error(err);
+      // Fallback
+      setSelectedArticle(art);
+    } finally {
+      setLoadingArticleId(null);
+    }
+  };
 
   const filteredArticles = articles.filter(art => {
     const matchesSearch = art.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -529,10 +183,11 @@ function Blog() {
                   <h3 style={styles.artCardTitle}>{art.title}</h3>
                   <p style={styles.artSummary}>{art.summary}</p>
                   <button 
-                    onClick={() => setSelectedArticle(art)} 
+                    onClick={() => handleSelectArticle(art)} 
                     style={styles.readMoreBtn}
+                    disabled={loadingArticleId === art.id}
                   >
-                    Read Technical Guide <ChevronRight size={14} />
+                    {loadingArticleId === art.id ? 'Loading Guide...' : 'Read Technical Guide'} <ChevronRight size={14} />
                   </button>
                 </div>
               ))}
@@ -548,8 +203,16 @@ function Blog() {
       {/* Full Article Reader Overlay */}
       {selectedArticle && (
         <div style={styles.overlay}>
+          {selectedArticle.metaTitle && (
+            <SchemaManager
+              title={selectedArticle.metaTitle}
+              description={selectedArticle.metaDescription}
+              schemaType={selectedArticle.faq ? "FAQ" : null}
+              schemaData={selectedArticle.faq ? { questions: selectedArticle.faq } : null}
+            />
+          )}
           <div style={styles.overlayBackdrop} onClick={() => setSelectedArticle(null)} />
-          <div style={styles.modal} className="animate-fade-in">
+          <div ref={modalRef} style={styles.modal} className="animate-fade-in">
             <button style={styles.closeBtn} onClick={() => setSelectedArticle(null)}>
               <ArrowLeft size={18} /> <span>Back to Content Hub</span>
             </button>
@@ -570,6 +233,27 @@ function Blog() {
               dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
             />
 
+            {/* FAQ Accordion Section */}
+            {selectedArticle.faq && selectedArticle.faq.length > 0 && (
+              <div style={{ marginTop: '2.5rem', borderTop: '1.5px solid #f1f5f9', paddingTop: '2rem' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#0F2446', marginBottom: '1.25rem', fontFamily: "'Outfit', sans-serif" }}>
+                  Frequently Asked Questions (FAQ)
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {selectedArticle.faq.map((item, index) => (
+                    <div key={index} style={{ padding: '1.25rem', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                      <strong style={{ display: 'block', fontSize: '0.95rem', color: '#0F2446', marginBottom: '0.4rem' }}>
+                        {item.question}
+                      </strong>
+                      <p style={{ fontSize: '0.88rem', color: '#475569', margin: 0, lineHeight: '1.5' }}>
+                        {item.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div style={styles.ctaBox}>
               <h4 style={styles.ctaHeading}>Need Scaffolded Design Support on This Topic?</h4>
               <p style={styles.ctaText}>
@@ -582,40 +266,6 @@ function Blog() {
           </div>
         </div>
       )}
-      
-      {/* Visually hidden keywords for SEO search ranking */}
-      <div style={styles.visuallyHidden}>
-        <span>construction project estimation</span>
-        <span>estimating for contractors</span>
-        <span>estimating for builders</span>
-        <span>estimating for developers</span>
-        <span>estimating for architects</span>
-        <span>estimating for engineers</span>
-        <span>outsourced construction estimates</span>
-        <span>construction estimating support</span>
-        <span>professional takeoff services</span>
-        <span>fast bid estimates</span>
-        <span>competitive bid estimates</span>
-        <span>accurate construction pricing</span>
-        <span>construction cost planning</span>
-        <span>estimate preparation services</span>
-        <span>construction estimating workflow</span>
-        <span>construction estimate outsourcing</span>
-        <span>construction quantity calculations</span>
-        <span>cost estimating professionals</span>
-        <span>commercial bid estimates</span>
-        <span>residential bid estimates</span>
-        <span>plumbing takeoff</span>
-        <span>mechanical takeoff</span>
-        <span>HVAC takeoff</span>
-        <span>roofing takeoff</span>
-        <span>painting takeoff</span>
-        <span>flooring takeoff</span>
-        <span>masonry takeoff</span>
-        <span>lumber takeoff</span>
-        <span>steel takeoff</span>
-        <span>rebar takeoff</span>
-      </div>
     </div>
   );
 }
@@ -623,12 +273,14 @@ function Blog() {
 const styles = {
   containerPage: {
     backgroundColor: '#f8fafc',
-    paddingBottom: '5rem',
+    paddingTop: '6.5rem',
+    paddingBottom: '4rem',
+    minHeight: '100vh',
   },
   heroSection: {
     backgroundColor: '#0f172a',
     color: '#ffffff',
-    padding: '5rem 0',
+    padding: '3rem 0 2.5rem 0',
   },
   heroContent: {
     maxWidth: '800px',
@@ -645,24 +297,24 @@ const styles = {
   title: {
     fontSize: '2.5rem',
     color: '#ffffff',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
     fontFamily: "'Outfit', sans-serif",
   },
   subtitle: {
-    fontSize: '1.05rem',
+    fontSize: '1rem',
     color: '#94a3b8',
     lineHeight: '1.5',
   },
   controlSection: {
     backgroundColor: '#ffffff',
     borderBottom: '1px solid #e2e8f0',
-    padding: '1.5rem 0',
+    padding: '1.25rem 0',
   },
   controlsRow: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: '2rem',
+    gap: '1.5rem',
     flexWrap: 'wrap',
   },
   searchBox: {
@@ -694,7 +346,7 @@ const styles = {
     flexWrap: 'wrap',
   },
   catBtn: {
-    padding: '0.5rem 1rem',
+    padding: '0.45rem 0.9rem',
     border: '1px solid #e2e8f0',
     borderRadius: '6px',
     backgroundColor: '#f8fafc',
@@ -710,15 +362,15 @@ const styles = {
     color: '#ffffff',
   },
   articlesSection: {
-    padding: '4rem 0',
+    padding: '2.5rem 0',
   },
   articlesGrid: {
-    marginTop: '1rem',
+    marginTop: '0.5rem',
   },
   artCard: {
     backgroundColor: '#ffffff',
     borderRadius: '12px',
-    padding: '2rem',
+    padding: '1.75rem',
     border: '1px solid #e2e8f0',
     display: 'flex',
     flexDirection: 'column',
@@ -728,7 +380,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '1rem',
+    marginBottom: '0.75rem',
   },
   artCat: {
     fontSize: '0.75rem',
@@ -744,16 +396,17 @@ const styles = {
     gap: '0.25rem',
   },
   artCardTitle: {
-    fontSize: '1.2rem',
+    fontSize: '1.15rem',
     color: '#0f172a',
-    marginBottom: '0.8rem',
+    marginBottom: '0.6rem',
     lineHeight: '1.3',
+    fontWeight: '700',
   },
   artSummary: {
-    fontSize: '0.88rem',
+    fontSize: '0.86rem',
     color: '#475569',
     lineHeight: '1.5',
-    marginBottom: '1.5rem',
+    marginBottom: '1.25rem',
     flexGrow: 1,
   },
   readMoreBtn: {
@@ -783,7 +436,8 @@ const styles = {
     zIndex: 1000,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end', // slide out style from right
+    justifyContent: 'center',
+    padding: '1.5rem',
   },
   overlayBackdrop: {
     position: 'absolute',
@@ -791,18 +445,19 @@ const styles = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(15, 23, 42, 0.5)',
-    backdropFilter: 'blur(4px)',
+    backgroundColor: 'rgba(15, 23, 42, 0.65)',
+    backdropFilter: 'blur(6px)',
   },
   modal: {
     position: 'relative',
     backgroundColor: '#ffffff',
     width: '100%',
-    maxWidth: '750px',
-    height: '100vh',
+    maxWidth: '800px',
+    maxHeight: '90vh',
+    borderRadius: '16px',
     overflowY: 'auto',
-    boxShadow: '-10px 0 25px rgba(0,0,0,0.15)',
-    padding: '3.5rem 3rem',
+    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+    padding: '2rem 2.25rem',
     zIndex: 1001,
     display: 'flex',
     flexDirection: 'column',
@@ -813,18 +468,18 @@ const styles = {
     border: 'none',
     color: '#1b3b6f',
     fontWeight: '700',
-    fontSize: '0.9rem',
+    fontSize: '0.88rem',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
-    gap: '0.5rem',
-    marginBottom: '2rem',
+    gap: '0.4rem',
+    marginBottom: '1rem',
     padding: 0,
   },
   modalHeader: {
-    borderBottom: '2px solid #f1f5f9',
-    paddingBottom: '1.5rem',
-    marginBottom: '2rem',
+    borderBottom: '1.5px solid #f1f5f9',
+    paddingBottom: '1rem',
+    marginBottom: '1.25rem',
   },
   modalCat: {
     fontSize: '0.8rem',
@@ -885,17 +540,6 @@ const styles = {
     fontWeight: '600',
     fontSize: '0.9rem',
     boxShadow: '0 4px 6px -1px rgba(27, 59, 111, 0.2)',
-  },
-  visuallyHidden: {
-    position: 'absolute',
-    width: '1px',
-    height: '1px',
-    padding: '0',
-    margin: '-1px',
-    overflow: 'hidden',
-    clip: 'rect(0, 0, 0, 0)',
-    whiteSpace: 'nowrap',
-    border: '0',
   }
 };
 
@@ -956,6 +600,3 @@ if (typeof document !== 'undefined') {
   styleSheet.innerText = articleStyles;
   document.head.appendChild(styleSheet);
 }
-
-export { styles };
-export default Blog;
