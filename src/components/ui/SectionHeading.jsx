@@ -36,6 +36,7 @@ export default function SectionHeading({
         </span>
       )}
       <h2 
+        className="section-heading-title"
         style={{ 
           fontSize: '2.5rem', 
           fontWeight: '800', 

@@ -239,7 +239,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             ))}
           </div>
           
-          <div style={styles.certificationsGrid}>
+          <div style={styles.certificationsGrid} className="certificationsGrid">
             {certifications.map((cert, idx) => (
               <GlassCard key={idx} hoverLift={false} style={styles.certCard}>
                 <Award size={18} style={{ color: '#C89A45' }} />

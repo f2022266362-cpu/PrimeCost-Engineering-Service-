@@ -117,8 +117,22 @@ Message: ${err?.message || 'N/A'}
 
   return (
     <div style={styles.overlay}>
+      <style>{`
+        @media (max-width: 480px) {
+          .proposal-modal { padding: 1.25rem !important; border-radius: 12px !important; }
+          .proposal-modal .modal-title { font-size: 1.3rem !important; }
+          .proposal-modal .modal-subtitle { font-size: 0.82rem !important; }
+          .proposal-row { flex-direction: column !important; gap: 0.75rem !important; }
+          .proposal-col { min-width: 100% !important; }
+        }
+        @media (max-width: 576px) {
+          .proposal-modal { padding: 1.5rem !important; }
+          .proposal-row { flex-wrap: wrap !important; }
+          .proposal-col { min-width: 100% !important; }
+        }
+      `}</style>
       <div style={styles.backdrop} onClick={onClose} />
-      <div style={styles.modal} className="animate-fade-in">
+      <div style={styles.modal} className="proposal-modal animate-fade-in">
         <button style={styles.closeBtn} onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
@@ -126,14 +140,14 @@ Message: ${err?.message || 'N/A'}
         {!isSuccess ? (
           <form onSubmit={handleSubmit} style={styles.form}>
             <div style={styles.header}>
-              <h2 style={styles.title}>Request a Design Proposal</h2>
-              <p style={styles.subtitle}>
+              <h2 style={styles.title} className="modal-title">Request a Design Proposal</h2>
+              <p style={styles.subtitle} className="modal-subtitle">
                 Provide details about your project and receive a custom scoping estimate and architectural breakdown within 24 hours.
               </p>
             </div>
 
-            <div style={styles.row}>
-              <div style={styles.col}>
+            <div style={styles.row} className="proposal-row">
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Full Name *</label>
                 <input
                   type="text"
@@ -145,7 +159,7 @@ Message: ${err?.message || 'N/A'}
                   style={styles.input}
                 />
               </div>
-              <div style={styles.col}>
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Corporate Email *</label>
                 <input
                   type="email"
@@ -159,8 +173,8 @@ Message: ${err?.message || 'N/A'}
               </div>
             </div>
 
-            <div style={styles.row}>
-              <div style={styles.col}>
+            <div style={styles.row} className="proposal-row">
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Phone Number *</label>
                 <input
                   type="tel"
@@ -172,7 +186,7 @@ Message: ${err?.message || 'N/A'}
                   style={styles.input}
                 />
               </div>
-              <div style={styles.col}>
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Company / Agency Name</label>
                 <input
                   type="text"
@@ -185,8 +199,8 @@ Message: ${err?.message || 'N/A'}
               </div>
             </div>
 
-            <div style={styles.row}>
-              <div style={styles.col}>
+            <div style={styles.row} className="proposal-row">
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Project Type *</label>
                 <select
                   name="projectType"
@@ -200,7 +214,7 @@ Message: ${err?.message || 'N/A'}
                   <option value="Industrial">Industrial (Warehouse/Mfg/Processing)</option>
                 </select>
               </div>
-              <div style={styles.col}>
+              <div style={styles.col} className="proposal-col">
                 <label style={styles.label}>Target Area (sq. ft.) *</label>
                 <input
                   type="number"
@@ -344,11 +358,13 @@ const styles = {
     borderRadius: '16px',
     width: '100%',
     maxWidth: '650px',
-    maxHeight: '90vh',
+    maxHeight: '92vh',
     overflowY: 'auto',
+    overflowX: 'hidden',
     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     padding: '2.5rem',
     zIndex: 1001,
+    boxSizing: 'border-box',
   },
   closeBtn: {
     position: 'absolute',
