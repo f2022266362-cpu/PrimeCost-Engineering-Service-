@@ -554,7 +554,7 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
 
         {/* Bottom copyright section */}
         <div style={styles.bottomSection}>
-          <p>© {currentYear} PRIMECOST (PrimeCost Engineering & Design LLC). All rights reserved.</p>
+          <p>© 2004 PRIMECOST (PrimeCost Engineering & Design LLC). All rights reserved.</p>
           <div style={styles.bottomLinks}>
             <span onClick={onOpenProposal} style={styles.footerCta}>Request Scoping Bid</span>
             <span>•</span>

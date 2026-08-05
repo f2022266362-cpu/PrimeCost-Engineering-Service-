@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, ArrowRight, ShieldCheck, CheckCircle, Star,
-  HardHat, Award, FileText, MapPin
+  HardHat, Award, FileText, MapPin, PenTool, Globe
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
@@ -156,7 +156,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
                 <div className="hero-divider" />
 
-                <p style={styles.heroParagraph}>
+                <p style={styles.heroParagraph} className="hero-paragraph-services">
                   STRUCTURAL • CIVIL • MEP ENGINEERING<br />
                   Design • Analysis • Permit Solutions
                 </p>
@@ -194,28 +194,28 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                 <div className="glass-stat-icon-frame"><Building2 size={20} /></div>
                 <div className="glass-stat-text-frame">
                   <span className="glass-stat-title">SMART ENGINEERING</span>
-                  <span className="glass-stat-desc">Innovative structural designs built to last.</span>
+                  <span className="glass-stat-desc">Innovative engineering solutions designed for strength, safety, and performance.</span>
                 </div>
               </div>
               <div className="glass-stat-item">
-                <div className="glass-stat-icon-frame"><FileText size={20} /></div>
+                <div className="glass-stat-icon-frame"><PenTool size={20} /></div>
                 <div className="glass-stat-text-frame">
                   <span className="glass-stat-title">EXPERT DESIGN</span>
-                  <span className="glass-stat-desc">Precision-driven designs tailored to your needs.</span>
+                  <span className="glass-stat-desc">Permit-ready engineering designs tailored to your project's requirements.</span>
                 </div>
               </div>
               <div className="glass-stat-item">
                 <div className="glass-stat-icon-frame"><ShieldCheck size={20} /></div>
                 <div className="glass-stat-text-frame">
-                  <span className="glass-stat-title">QUALITY CONSTRUCTION</span>
-                  <span className="glass-stat-desc">Built with the highest standards of safety.</span>
+                  <span className="glass-stat-title">QUALITY ENGINEERING</span>
+                  <span className="glass-stat-desc">Code-compliant designs developed with precision and industry standards.</span>
                 </div>
               </div>
               <div className="glass-stat-item">
-                <div className="glass-stat-icon-frame"><HardHat size={20} /></div>
+                <div className="glass-stat-icon-frame"><Globe size={20} /></div>
                 <div className="glass-stat-text-frame">
                   <span className="glass-stat-title">NATIONWIDE SERVICE</span>
-                  <span className="glass-stat-desc">Delivering excellence across the country.</span>
+                  <span className="glass-stat-desc">Licensed engineering services for residential and commercial projects across the USA.</span>
                 </div>
               </div>
             </div>

@@ -190,6 +190,13 @@ img {
     padding-left: 0.9rem !important;
   }
 
+  /* STRUCTURAL • CIVIL text — smaller on mobile */
+  .hero-paragraph-services {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.8 !important;
+  }
+
   .glass-stats-bar {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
