@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, ArrowRight, ShieldCheck, CheckCircle, Star,
   HardHat, Award, FileText, MapPin
@@ -22,6 +22,7 @@ import { faqs } from '../data/faq';
 import { partners, certifications } from '../data/partners';
 
 export default function Home({ onOpenConsultation, onOpenProposal }) {
+  const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -126,12 +127,14 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
           src="/hero-illustration.png"
           alt="PrimeCost Engineering construction illustration"
           className="hero-bg-img hero-bg-desktop"
+          loading="eager"
         />
         {/* Mobile background illustration */}
         <img
           src="/hero-mobile.png"
           alt="PrimeCost Engineering construction illustration"
           className="hero-bg-img hero-bg-mobile-img"
+          loading="eager"
         />
 
         <div style={styles.heroContainer} className="container">
@@ -141,23 +144,21 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             <div style={styles.heroContent}>
               <ScrollReveal variant="fade-up">
                 <div style={{ margin: 0, padding: 0 }}>
-                  <span className="hero-we-build">WE BUILD</span>
-                  <h1 className="hero-stronger">STRONGER</h1>
+                  <span className="hero-we-build">ENGINEERING</span>
+                  <h1 className="hero-stronger">THE FUTURE</h1>
                 </div>
-                <span className="hero-tomorrow">tomorrow</span>
+                <span className="hero-tomorrow">Today</span>
 
                 <blockquote className="hero-proverbs-quote">
-                  <span className="hero-proverbs-line1">By wisdom a house is built,</span>
-                  <span className="hero-proverbs-line2">and through understanding it is established.</span>
-                  <cite className="hero-proverbs-cite">&mdash; Proverbs 24:3</cite>
+                  <span className="hero-proverbs-line1">Precision in Every Design.</span>
+                  <span className="hero-proverbs-line2">Confidence in Every Structure.</span>
                 </blockquote>
 
                 <div className="hero-divider" />
 
                 <p style={styles.heroParagraph}>
-                  Licensed Structural Engineering,<br />
-                  Design &amp; Construction Solutions &mdash;<br />
-                  <strong style={{ color: '#0F2446', fontWeight: '800' }}>Nationwide</strong>
+                  STRUCTURAL • CIVIL • MEP ENGINEERING<br />
+                  Design • Analysis • Permit Solutions
                 </p>
 
                 <div style={styles.heroCta}>
@@ -170,7 +171,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                       borderRadius: '30px',
                       padding: '0.8rem 2.25rem',
                       fontSize: '0.85rem',
-                      fontWeight: '750',
+                      fontWeight: '800',
                       letterSpacing: '0.05em',
                       textTransform: 'uppercase',
                       border: 'none',
@@ -178,7 +179,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                     }}
                     icon={<ArrowRight size={16} />}
                   >
-                    OUR SERVICES
+                    Start Your Project
                   </PrimaryButton>
                 </div>
               </ScrollReveal>
@@ -219,6 +220,11 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
               </div>
             </div>
           </ScrollReveal>
+
+          {/* Scroll Down Arrow */}
+          <div className="hero-scroll-arrow" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+            <span className="hero-scroll-arrow-icon">&#8595;</span>
+          </div>
 
         </div>
       </section>
@@ -440,7 +446,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
               <ScrollReveal key={p.id} variant="fade-up" style={{ transitionDelay: `${idx * 0.1}s` }}>
                 <ProjectCard 
                   project={p} 
-                  onViewDetails={() => alert(`Case Study: ${p.name}\n\nScope: ${p.scope}\n\nFull details available on our Portfolio page.`)} 
+                  onViewDetails={() => navigate(`/portfolio`)} 
                 />
               </ScrollReveal>
             ))}
@@ -596,6 +602,7 @@ const styles = {
     textAlign: 'left',
     position: 'relative',
     zIndex: 2,
+    background: 'radial-gradient(ellipse at 40% 50%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.0) 75%)',
   },
 
   cranePanel: {
@@ -665,9 +672,13 @@ const styles = {
     display: 'block'
   },
   heroParagraph: {
-    fontSize: '1.15rem',
-    color: '#475569',
-    lineHeight: '1.6',
+    fontFamily: 'var(--font-sans)',
+    fontSize: '0.88rem',
+    fontWeight: '600',
+    color: '#556987',
+    letterSpacing: '0.2em',
+    textTransform: 'uppercase',
+    lineHeight: '2',
     marginBottom: '2.5rem',
     maxWidth: '520px',
   },
