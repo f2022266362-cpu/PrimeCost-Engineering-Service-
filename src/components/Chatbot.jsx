@@ -326,7 +326,7 @@ const FAQ_DATA = [
   },
   {
     question: "Where is your headquarters located?",
-    answer: "Our corporate office is at 440 Louisiana St, Suite 900, Houston, TX 77002, in the heart of Houston's Theater District. We serve clients nationwide and internationally."
+    answer: "Our corporate headquarters (Main Office) is located at 75 E 3RD ST STE 7, SHERIDAN, WY 82801. We also maintain our Houston sub-office at 440 Louisiana St, Suite 900, Houston, TX 77002, serving clients nationwide."
   }
 ];
 

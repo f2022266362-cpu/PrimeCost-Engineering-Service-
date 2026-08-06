@@ -185,7 +185,7 @@ const sections = [
     content: [
       {
         subtitle: 'Legal Correspondence',
-        text: 'All legal notices must be sent in writing to: Frank Moore, CEO — PrimeCost Engineering & Design LLC. Email: Frank.moore@primecost.biz | Phone: (832) 234-6456 | Mailing Address: 440 Louisiana St, Houston, TX 77002. Notices sent by email are effective upon sender receiving a delivery confirmation. Notices sent by certified mail are effective 3 business days after mailing.',
+        text: 'All legal notices must be sent in writing to: Frank Moore, CEO — PrimeCost Engineering & Design LLC. Email: Frank.moore@primecost.biz | Phone: (832) 234-6456 | Mailing Address: 75 E 3RD ST STE 7, SHERIDAN, WY 82801 (with sub-office at 440 Louisiana St, Suite 900, Houston, TX 77002). Notices sent by email are effective upon sender receiving a delivery confirmation. Notices sent by certified mail are effective 3 business days after mailing.',
       },
     ],
   },
@@ -352,7 +352,7 @@ export default function TermsConditions() {
             ("Client") and PrimeCost Engineering & Design LLC, doing business as PRIMECOST
             ("Company", "we", "us", "our"), a Texas limited liability company. PRIMECOST serves
             clients across all U.S. states, maintains 7 regional offices, and provides services in Europe.
-            Our principal office is located at 440 Louisiana St, Houston, TX 77002.
+            Our principal office is located at 75 E 3RD ST STE 7, SHERIDAN, WY 82801, with our main sub-office located at 440 Louisiana St, Suite 900, Houston, TX 77002.
           </p>
           <div style={styles.disclaimer}>
             <AlertTriangle size={16} style={{ color: '#f59e0b', flexShrink: 0, marginTop: '2px' }} />

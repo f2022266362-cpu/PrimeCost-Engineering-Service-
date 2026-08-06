@@ -169,6 +169,19 @@ export default function ConsultationModal({ isOpen, onClose }) {
               </div>
             </div>
 
+            {/* SMS Consent / Opt-in */}
+            <div style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'flex-start', gap: '0.65rem', padding: '0 0.25rem' }}>
+              <input
+                type="checkbox"
+                id="smsOptInConsultation"
+                required
+                style={{ marginTop: '3px', cursor: 'pointer' }}
+              />
+              <label htmlFor="smsOptInConsultation" style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
+                I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
+              </label>
+            </div>
+
             <div style={styles.col}>
               <label style={styles.label}>Consultation Format *</label>
               <div style={styles.formatGroup}>

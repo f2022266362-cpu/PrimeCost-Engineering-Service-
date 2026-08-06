@@ -499,6 +499,7 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               <li><Link to="/service-areas" style={styles.link}>Service Areas</Link></li>
               <li><Link to="/privacy-policy" style={styles.link}>Privacy Policy</Link></li>
               <li><Link to="/terms-conditions" style={styles.link}>Terms &amp; Conditions</Link></li>
+              <li><Link to="/refund-policy" style={styles.link}>Refund Policy</Link></li>
             </ul>
           </div>
 
@@ -508,7 +509,17 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
             <div style={styles.contactDetails}>
               <div style={styles.contactItem}>
                 <MapPin size={16} style={styles.icon} />
-                <span>440 Louisiana St, Suite 900, Houston, TX 77002</span>
+                <div>
+                  <span style={{ fontWeight: 'bold', color: '#c5a880', display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.1rem' }}>Main Office (WY)</span>
+                  <span>75 E 3RD ST STE 7, SHERIDAN, WY 82801</span>
+                </div>
+              </div>
+              <div style={styles.contactItem}>
+                <MapPin size={16} style={styles.icon} />
+                <div>
+                  <span style={{ fontWeight: 'bold', color: '#c5a880', display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.1rem' }}>Sub-office (TX)</span>
+                  <span>440 Louisiana St, Suite 900, Houston, TX 77002</span>
+                </div>
               </div>
               <div style={styles.contactItem}>
                 <Phone size={16} style={styles.icon} />

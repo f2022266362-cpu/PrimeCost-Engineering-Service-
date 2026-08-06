@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone, Clock, Send, ShieldCheck } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import SchemaManager from '../components/SchemaManager';
@@ -12,6 +13,7 @@ export default function About() {
   });
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [activeMap, setActiveMap] = useState('wy');
 
   const handleChange = (e) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -148,6 +150,19 @@ export default function About() {
                     />
                   </div>
 
+                  {/* SMS Consent / Opt-in */}
+                  <div style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                    <input
+                      type="checkbox"
+                      id="smsOptIn"
+                      required
+                      style={{ marginTop: '3px', cursor: 'pointer' }}
+                    />
+                    <label htmlFor="smsOptIn" style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
+                      I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <Link to="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</Link> and <Link to="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</Link>.
+                    </label>
+                  </div>
+
                   <PrimaryButton
                     type="submit"
                     variant="primary"
@@ -171,17 +186,33 @@ export default function About() {
                   <MapPin size={22} style={{ color: '#C89A45' }} />
                 </div>
                 <div>
-                  <h3 style={styles.infoTitle}>Company Location</h3>
-                  <p style={styles.infoText}>440 Louisiana St, Suite 900</p>
-                  <p style={styles.infoText}>Houston, TX 77002</p>
-                  <a
-                    href="https://maps.google.com/?q=440+Louisiana+St+Suite+900+Houston+TX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={styles.infoLink}
-                  >
-                    Open in Google Maps →
-                  </a>
+                  <h3 style={styles.infoTitle}>Company Locations</h3>
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <span style={{ fontWeight: '800', color: '#0F2446', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Main Office (WY)</span>
+                    <p style={styles.infoText}>75 E 3RD ST STE 7</p>
+                    <p style={styles.infoText}>Sheridan, WY 82801</p>
+                    <a
+                      href="https://maps.google.com/?q=75+E+3rd+St+Ste+7+Sheridan+WY+82801"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.infoLink}
+                    >
+                      Open in Google Maps →
+                    </a>
+                  </div>
+                  <div>
+                    <span style={{ fontWeight: '800', color: '#0F2446', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Sub-office (TX)</span>
+                    <p style={styles.infoText}>440 Louisiana St, Suite 900</p>
+                    <p style={styles.infoText}>Houston, TX 77002</p>
+                    <a
+                      href="https://maps.google.com/?q=440+Louisiana+St+Suite+900+Houston+TX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.infoLink}
+                    >
+                      Open in Google Maps →
+                    </a>
+                  </div>
                 </div>
               </GlassCard>
 
@@ -230,16 +261,71 @@ export default function About() {
                 </div>
               </GlassCard>
 
-              {/* Google Map */}
+              {/* Map Selection Controls */}
+              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', width: '100%' }}>
+                <button
+                  type="button"
+                  onClick={() => setActiveMap('wy')}
+                  style={{
+                    flex: 1,
+                    padding: '0.65rem',
+                    fontSize: '0.82rem',
+                    fontWeight: '700',
+                    borderRadius: '8px',
+                    border: '1px solid',
+                    borderColor: activeMap === 'wy' ? '#C89A45' : '#e2e8f0',
+                    backgroundColor: activeMap === 'wy' ? '#C89A45' : 'transparent',
+                    color: activeMap === 'wy' ? '#fff' : '#0F2446',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: activeMap === 'wy' ? '0 4px 12px rgba(200, 154, 69, 0.2)' : 'none',
+                  }}
+                >
+                  WY Main Office Map
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveMap('tx')}
+                  style={{
+                    flex: 1,
+                    padding: '0.65rem',
+                    fontSize: '0.82rem',
+                    fontWeight: '700',
+                    borderRadius: '8px',
+                    border: '1px solid',
+                    borderColor: activeMap === 'tx' ? '#C89A45' : '#e2e8f0',
+                    backgroundColor: activeMap === 'tx' ? '#C89A45' : 'transparent',
+                    color: activeMap === 'tx' ? '#fff' : '#0F2446',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: activeMap === 'tx' ? '0 4px 12px rgba(200, 154, 69, 0.2)' : 'none',
+                  }}
+                >
+                  TX Sub-office Map
+                </button>
+              </div>
+
+              {/* Google Map Display */}
               <div style={styles.mapWrap}>
-                <iframe
-                  title="PRIMECOST Houston HQ"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.136894085444!2d-95.36746862378992!3d29.762145375065096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b322744c80cb%3A0xeab50d32bb5848bb!2s440%20Louisiana%20St%20%23900%2C%20Houston%2C%20TX%2077002!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                  width="100%" height="100%"
-                  style={{ border: 0, borderRadius: '12px' }}
-                  allowFullScreen loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                {activeMap === 'wy' ? (
+                  <iframe
+                    title="PRIMECOST Wyoming HQ Map"
+                    src="https://www.google.com/maps?q=75+E+3rd+St,Sheridan,WY+82801&output=embed"
+                    width="100%" height="100%"
+                    style={{ border: 0, borderRadius: '12px' }}
+                    allowFullScreen loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                ) : (
+                  <iframe
+                    title="PRIMECOST Houston HQ Map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.136894085444!2d-95.36746862378992!3d29.762145375065096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b322744c80cb%3A0xeab50d32bb5848bb!2s440%20Louisiana%20St%20%23900%2C%20Houston%2C%20TX%2077002!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                    width="100%" height="100%"
+                    style={{ border: 0, borderRadius: '12px' }}
+                    allowFullScreen loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                )}
               </div>
 
             </ScrollReveal>

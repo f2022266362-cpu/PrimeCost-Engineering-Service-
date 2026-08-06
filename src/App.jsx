@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import RefundPolicy from './pages/RefundPolicy';
 import ServiceAreas from './pages/ServiceAreas';
 import Pricing from './pages/Pricing';
 import Career from './pages/Career';
@@ -158,6 +159,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/service-areas" element={<ServiceAreas />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/career" element={<Career />} />

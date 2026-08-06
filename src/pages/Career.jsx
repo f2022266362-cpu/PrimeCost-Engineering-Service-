@@ -205,6 +205,20 @@ export default function Career() {
               <input name="email" type="email" required placeholder="Email Address *" value={form.email} onChange={handleChange} style={styles.input} />
               <input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} style={styles.input} />
               <textarea name="message" placeholder="Brief intro / cover note..." value={form.message} onChange={handleChange} style={{ ...styles.input, minHeight: '90px', resize: 'vertical' }} />
+              
+              {/* SMS Consent / Opt-in */}
+              <div style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                <input
+                  type="checkbox"
+                  id="smsOptInCareer"
+                  required
+                  style={{ marginTop: '3px', cursor: 'pointer' }}
+                />
+                <label htmlFor="smsOptInCareer" style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none', textAlign: 'left' }}>
+                  I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
+                </label>
+              </div>
+
               <button type="submit" style={styles.submitBtn}>
                 <Send size={16} /> Submit Application
               </button>

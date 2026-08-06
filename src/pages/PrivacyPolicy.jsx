@@ -58,6 +58,10 @@ const sections = [
         text: 'We may share information with trusted third-party service providers who assist us in website hosting, email communications, payment processing, CRM management, and cloud storage. These providers are contractually obligated to keep your information confidential and use it solely to perform services on our behalf.',
       },
       {
+        subtitle: 'SMS / Mobile Phone Information Sharing',
+        text: 'SMS opt-in consent and phone number data collected for text messaging purposes will not be shared, sold, or rented to any third parties, affiliates, or partners for their marketing or promotional purposes under any circumstances.',
+      },
+      {
         subtitle: 'Professional Collaborators',
         text: 'In some project scenarios, we may share relevant project data with licensed sub-consultants, engineers of record, or permit expeditors working under our direct supervision. Any data shared is limited to what is strictly necessary for project completion.',
       },
@@ -119,6 +123,10 @@ const sections = [
         text: 'You may unsubscribe from marketing emails at any time by clicking "Unsubscribe" in any email or contacting us at Frank.moore@primecost.biz.',
       },
       {
+        subtitle: 'SMS Opt-In / Opt-Out (STOP & HELP)',
+        text: 'You may opt-in to SMS text messages during form submission. To opt-out at any time, reply STOP to any message. Reply HELP for assistance, or contact us directly. Message frequency varies. Carrier message and data rates may apply.',
+      },
+      {
         subtitle: 'CCPA Rights (California Residents)',
         text: 'California residents have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what categories of personal information we collect, the right to opt out of the "sale" of personal information (we do not sell data), and the right to non-discrimination for exercising your privacy rights.',
       },
@@ -142,7 +150,7 @@ const sections = [
     content: [
       {
         subtitle: 'Privacy Inquiries',
-        text: 'For any privacy-related questions, data access requests, or concerns, please contact: Frank Moore, CEO — PrimeCost Engineering & Design LLC. Email: Frank.moore@primecost.biz | Phone: (832) 234-6456 | Address: 440 Louisiana St, Houston, TX 77002. We aim to respond to all privacy inquiries within 5 business days.',
+        text: 'For any privacy-related questions, data access requests, or concerns, please contact: Frank Moore, CEO — PrimeCost Engineering & Design LLC. Email: Frank.moore@primecost.biz | Phone: (832) 234-6456 | Address: 75 E 3RD ST STE 7, SHERIDAN, WY 82801. We aim to respond to all privacy inquiries within 5 business days.',
       },
     ],
   },
