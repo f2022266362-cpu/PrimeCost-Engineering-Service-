@@ -88,31 +88,64 @@ export default function Career() {
         description="Join the PRIMECOST team. We're hiring structural engineers, MEP engineers, BIM coordinators, architects, and project managers nationwide."
       />
 
-      {/* Hero Banner */}
+      {/* Hero Banner — 2-column: text left | image right */}
       <section style={styles.hero}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <ScrollReveal variant="fade-up">
-            <Badge variant="gold" style={{ marginBottom: '1.25rem' }}>WE'RE HIRING</Badge>
-            <h1 style={{ ...styles.heroTitle, fontSize: 'clamp(2.1rem, 6vw, 3.8rem)' }}>Build the Future<br />With Us</h1>
-            <p style={styles.heroSub}>
-              Join a fast-growing structural engineering and design firm trusted by developers,
-              architects, and contractors across all 50 states.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-              <a href="#openings">
-                <PrimaryButton variant="primary" icon={<ArrowRight size={16} />}>
-                  View Open Positions
-                </PrimaryButton>
-              </a>
-              <a href="mailto:Frank.moore@primecost.biz">
-                <PrimaryButton variant="outline" style={{ borderColor: '#0F2446', color: '#0F2446' }}>
-                  Send Your Resume
-                </PrimaryButton>
-              </a>
-            </div>
-          </ScrollReveal>
+          <div style={styles.heroGrid}>
+
+            {/* Left — text content */}
+            <ScrollReveal variant="fade-up">
+              <Badge variant="gold" style={{ marginBottom: '1.25rem' }}>WE'RE HIRING</Badge>
+              <h1 style={{ ...styles.heroTitle, fontSize: 'clamp(2.1rem, 6vw, 3.8rem)' }}>Build the Future<br />With Us</h1>
+              <p style={styles.heroSub}>
+                Join a fast-growing structural engineering and design firm trusted by developers,
+                architects, and contractors across all 50 states.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+                <a href="#openings">
+                  <PrimaryButton variant="primary" icon={<ArrowRight size={16} />}>
+                    View Open Positions
+                  </PrimaryButton>
+                </a>
+                <a href="mailto:Frank.moore@primecost.biz">
+                  <PrimaryButton variant="outline" style={{ borderColor: '#0F2446', color: '#0F2446' }}>
+                    Send Your Resume
+                  </PrimaryButton>
+                </a>
+              </div>
+
+              {/* Quick stats row */}
+              <div style={styles.heroStats}>
+                {[['50+', 'States Served'], ['200+', 'Team Members'], ['2005', 'Est. Year']].map(([num, label]) => (
+                  <div key={label} style={styles.heroStat}>
+                    <strong style={styles.heroStatNum}>{num}</strong>
+                    <span style={styles.heroStatLabel}>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* Right — AI photo */}
+            <ScrollReveal variant="fade-up" style={{ transitionDelay: '0.15s' }}>
+              <div style={styles.heroImgWrap}>
+                {/* Decorative gold ring */}
+                <div style={styles.heroImgRing} />
+                <img
+                  src="/career-hero.jpg"
+                  alt="Engineering team handshake — join PRIMECOST"
+                  style={styles.heroImg}
+                  loading="eager"
+                />
+                {/* Floating badge */}
+                <div style={styles.heroImgBadge}>
+                  <CheckCircle2 size={16} style={{ color: '#10b981' }} />
+                  <span>Trusted by 1,200+ Clients</span>
+                </div>
+              </div>
+            </ScrollReveal>
+
+          </div>
         </div>
-        <div style={styles.heroBg} />
       </section>
 
       {/* Why Join Us */}
@@ -245,11 +278,75 @@ const styles = {
     background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eef8 60%, #fdf6e8 100%)',
     borderBottom: '1px solid #e2e8f0',
   },
-  heroBg: {
-    position: 'absolute', top: 0, right: 0, bottom: 0,
-    width: '45%',
-    background: 'linear-gradient(135deg, transparent 0%, rgba(200,154,69,0.06) 100%)',
+  heroGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '4rem',
+    alignItems: 'center',
+  },
+  heroStats: {
+    display: 'flex',
+    gap: '2rem',
+    marginTop: '2.5rem',
+    paddingTop: '2rem',
+    borderTop: '1px solid rgba(15,36,70,0.1)',
+  },
+  heroStat: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  heroStatNum: {
+    fontSize: '1.6rem',
+    fontWeight: 800,
+    color: '#0F2446',
+    lineHeight: 1,
+  },
+  heroStatLabel: {
+    fontSize: '0.75rem',
+    color: '#8a9bb5',
+    fontWeight: 500,
+    marginTop: '0.2rem',
+  },
+  heroImgWrap: {
+    position: 'relative',
+    borderRadius: '24px',
+    overflow: 'visible',
+  },
+  heroImgRing: {
+    position: 'absolute',
+    inset: '-10px',
+    borderRadius: '30px',
+    border: '2px solid rgba(200,154,69,0.35)',
+    zIndex: 0,
+    pointerEvents: 'none',
+  },
+  heroImg: {
+    width: '100%',
+    height: '420px',
+    objectFit: 'cover',
+    borderRadius: '20px',
+    display: 'block',
+    position: 'relative',
     zIndex: 1,
+    boxShadow: '0 24px 60px rgba(15,36,70,0.18)',
+  },
+  heroImgBadge: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '20px',
+    zIndex: 2,
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    background: 'rgba(255,255,255,0.95)',
+    backdropFilter: 'blur(12px)',
+    border: '1px solid rgba(255,255,255,0.8)',
+    borderRadius: '50px',
+    padding: '0.5rem 1rem',
+    fontSize: '0.78rem',
+    fontWeight: 700,
+    color: '#0F2446',
+    boxShadow: '0 4px 16px rgba(15,36,70,0.12)',
   },
   heroTitle: {
     fontSize: '3.8rem',
@@ -420,6 +517,7 @@ if (typeof document !== 'undefined') {
     @media (max-width: 991px) {
       .career-perks-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .career-jobs-grid  { grid-template-columns: 1fr !important; }
+      .career-hero-grid  { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
     }
     @media (max-width: 576px) {
       .career-perks-grid { grid-template-columns: 1fr !important; }

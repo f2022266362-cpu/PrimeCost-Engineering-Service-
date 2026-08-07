@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { ChevronDown, Search, MessageCircle } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
+import ServiceIcon from '../components/ServiceIcon';
 import { faqCategories } from '../data/faq';
 
 export default function FAQPage() {
@@ -153,7 +154,11 @@ export default function FAQPage() {
                     transition: 'all 0.2s ease'
                   }}
                 >
-                  <span>{cat.icon}</span>
+                  <ServiceIcon
+                    name={cat.icon}
+                    size={16}
+                    color={openCategory === cat.category ? '#C89A45' : '#8a9bb5'}
+                  />
                   <span style={{ flex: 1 }}>{cat.category}</span>
                   <span style={{
                     fontSize: '0.65rem', fontWeight: 700,
@@ -173,7 +178,15 @@ export default function FAQPage() {
                     display: 'flex', alignItems: 'center', gap: '0.75rem',
                     marginBottom: '1.5rem'
                   }}>
-                    <span style={{ fontSize: '2rem' }}>{activeCategoryData.icon}</span>
+                    <div style={{
+                      width: '48px', height: '48px', borderRadius: '12px',
+                      background: 'rgba(200,154,69,0.1)',
+                      border: '1.5px solid rgba(200,154,69,0.25)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <ServiceIcon name={activeCategoryData.icon} size={22} color="#C89A45" />
+                    </div>
                     <div>
                       <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F2446', margin: 0 }}>
                         {activeCategoryData.category}

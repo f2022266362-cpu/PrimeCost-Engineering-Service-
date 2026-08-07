@@ -25,7 +25,7 @@ const gen = (service) => [
 export const faqCategories = [
   {
     category: 'General Engineering',
-    icon: '🏢',
+    icon: 'Building2',
     faqs: [
       ...gen('engineering consultation'),
       ...gen('project planning'),
@@ -41,7 +41,7 @@ export const faqCategories = [
   },
   {
     category: 'Structural Engineering',
-    icon: '🏗️',
+    icon: 'Building2',
     faqs: [
       ...gen('structural design'),
       ...gen('steel structure design'),
@@ -62,7 +62,7 @@ export const faqCategories = [
   },
   {
     category: 'Civil Engineering',
-    icon: '🛣️',
+    icon: 'Ruler',
     faqs: [
       ...gen('site development'),
       ...gen('grading'),
@@ -78,7 +78,7 @@ export const faqCategories = [
   },
   {
     category: 'Architectural Design',
-    icon: '📐',
+    icon: 'Layers',
     faqs: [
       ...gen('architectural design'),
       ...gen('floor plans'),
@@ -94,7 +94,7 @@ export const faqCategories = [
   },
   {
     category: 'MEP Engineering',
-    icon: '⚡',
+    icon: 'Zap',
     faqs: [
       ...gen('HVAC design'),
       ...gen('electrical design'),
@@ -108,7 +108,7 @@ export const faqCategories = [
   },
   {
     category: 'BIM & CAD Services',
-    icon: '💻',
+    icon: 'Monitor',
     faqs: [
       ...gen('BIM modeling'),
       ...gen('Revit modeling'),
@@ -122,7 +122,7 @@ export const faqCategories = [
   },
   {
     category: 'Geotechnical Engineering',
-    icon: '🌍',
+    icon: 'Mountain',
     faqs: [
       ...gen('soil investigation'),
       ...gen('geotechnical report'),
@@ -133,7 +133,7 @@ export const faqCategories = [
   },
   {
     category: 'Surveying',
-    icon: '📏',
+    icon: 'ScanLine',
     faqs: [
       ...gen('land survey'),
       ...gen('topographic survey'),
@@ -144,7 +144,7 @@ export const faqCategories = [
   },
   {
     category: 'Inspection & Assessment',
-    icon: '🔍',
+    icon: 'Search',
     faqs: [
       ...gen('building condition assessment'),
       ...gen('structural health monitoring'),
@@ -156,7 +156,7 @@ export const faqCategories = [
   },
   {
     category: 'Permits & Compliance',
-    icon: '📄',
+    icon: 'FileCheck',
     faqs: [
       ...gen('building permit assistance'),
       ...gen('code compliance review'),
@@ -167,7 +167,7 @@ export const faqCategories = [
   },
   {
     category: 'Construction Services',
-    icon: '🔨',
+    icon: 'HardHat',
     faqs: [
       ...gen('design-build services'),
       ...gen('general contracting'),
@@ -183,7 +183,7 @@ export const faqCategories = [
   },
   {
     category: 'Project Management',
-    icon: '📋',
+    icon: 'ClipboardList',
     faqs: [
       ...gen('project planning'),
       ...gen('risk management'),
@@ -195,7 +195,7 @@ export const faqCategories = [
   },
   {
     category: 'Specialty Engineering',
-    icon: '🌉',
+    icon: 'Wrench',
     faqs: [
       ...gen('bridge engineering'),
       ...gen('industrial plant structures'),
@@ -209,7 +209,7 @@ export const faqCategories = [
   },
   {
     category: 'Sustainability & Green Building',
-    icon: '🌿',
+    icon: 'Leaf',
     faqs: [
       ...gen('green building consulting'),
       ...gen('LEED consulting'),
@@ -220,7 +220,7 @@ export const faqCategories = [
   },
   {
     category: 'Cost Estimation & QS',
-    icon: '💰',
+    icon: 'DollarSign',
     faqs: [
       ...gen('cost estimation'),
       ...gen('quantity surveying'),
@@ -231,7 +231,7 @@ export const faqCategories = [
   },
   {
     category: 'PE Stamp (USA)',
-    icon: '🔏',
+    icon: 'FileCheck',
     faqs: [
       { question: 'What is a PE Stamp?', answer: 'A PE Stamp is the official seal of a licensed Professional Engineer certifying that engineering documents were prepared or reviewed under their responsible charge.' },
       { question: 'What does PE stand for?', answer: 'PE stands for Professional Engineer.' },

@@ -2,7 +2,7 @@ export const services = [
   {
     id: 'structural-engineering',
     title: 'Structural Engineering',
-    icon: '🏗️',
+    icon: 'Building2',
     timeline: '3 - 5 Days',
     startingFrom: '$1,200',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -21,7 +21,7 @@ export const services = [
   {
     id: 'architectural-design',
     title: 'Architectural Design',
-    icon: '📐',
+    icon: 'Layers',
     timeline: '1 - 2 Weeks',
     startingFrom: '$1,800',
     industriesServed: ['Residential', 'Commercial', 'Retail'],
@@ -36,7 +36,7 @@ export const services = [
   {
     id: 'civil-engineering',
     title: 'Civil Engineering',
-    icon: '🛣️',
+    icon: 'Ruler',
     timeline: '5 - 10 Days',
     startingFrom: '$2,000',
     industriesServed: ['Commercial', 'Industrial', 'Municipal'],
@@ -51,7 +51,7 @@ export const services = [
   {
     id: 'mep-engineering',
     title: 'MEP Engineering',
-    icon: '⚡',
+    icon: 'Zap',
     timeline: '4 - 7 Days',
     startingFrom: '$1,500',
     industriesServed: ['Commercial', 'Industrial', 'Multifamily'],
@@ -65,7 +65,7 @@ export const services = [
   {
     id: 'construction-services',
     title: 'Construction Services',
-    icon: '🔨',
+    icon: 'HardHat',
     timeline: 'Project-Based',
     startingFrom: '$3,000',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -81,7 +81,7 @@ export const services = [
   {
     id: 'bim-cad',
     title: 'BIM & Digital Engineering',
-    icon: '💻',
+    icon: 'Monitor',
     timeline: '3 - 6 Days',
     startingFrom: '$950',
     industriesServed: ['Commercial', 'Industrial', 'Healthcare'],
@@ -95,7 +95,7 @@ export const services = [
   {
     id: 'geotechnical-engineering',
     title: 'Geotechnical Engineering',
-    icon: '🌍',
+    icon: 'Mountain',
     timeline: '5 - 10 Days',
     startingFrom: '$1,800',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -109,7 +109,7 @@ export const services = [
   {
     id: 'project-management',
     title: 'Project Management',
-    icon: '📋',
+    icon: 'ClipboardList',
     timeline: 'Ongoing',
     startingFrom: '$2,500',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -123,7 +123,7 @@ export const services = [
   {
     id: 'cost-estimation',
     title: 'Cost Estimation & QS',
-    icon: '💰',
+    icon: 'DollarSign',
     timeline: '2 - 4 Days',
     startingFrom: '$500',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -137,7 +137,7 @@ export const services = [
   {
     id: 'inspection-assessment',
     title: 'Inspection & Assessment',
-    icon: '🔍',
+    icon: 'Search',
     timeline: '1 - 3 Days',
     startingFrom: '$800',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -151,7 +151,7 @@ export const services = [
   {
     id: 'permits-compliance',
     title: 'Permits & Compliance',
-    icon: '📄',
+    icon: 'FileCheck',
     timeline: '2 - 4 Days',
     startingFrom: '$600',
     industriesServed: ['Residential', 'Commercial', 'Multifamily'],
@@ -165,7 +165,7 @@ export const services = [
   {
     id: 'surveying',
     title: 'Surveying',
-    icon: '📏',
+    icon: 'ScanLine',
     timeline: '2 - 5 Days',
     startingFrom: '$1,000',
     industriesServed: ['Residential', 'Commercial', 'Municipal'],
@@ -179,7 +179,7 @@ export const services = [
   {
     id: 'specialty-engineering',
     title: 'Specialty Engineering',
-    icon: '🌉',
+    icon: 'Wrench',
     timeline: 'Project-Based',
     startingFrom: '$2,000',
     industriesServed: ['Industrial', 'Commercial', 'Infrastructure'],
@@ -194,7 +194,7 @@ export const services = [
   {
     id: 'sustainability',
     title: 'Sustainability & Green Building',
-    icon: '🌿',
+    icon: 'Leaf',
     timeline: '3 - 7 Days',
     startingFrom: '$1,200',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],
@@ -208,7 +208,7 @@ export const services = [
   {
     id: 'consultation',
     title: 'Engineering Consultation',
-    icon: '🤝',
+    icon: 'Handshake',
     timeline: '1 - 2 Days',
     startingFrom: '$350',
     industriesServed: ['Residential', 'Commercial', 'Industrial'],

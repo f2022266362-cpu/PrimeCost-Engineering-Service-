@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Search } from 'lucide-react';
+import { ArrowRight, CheckCircle, Search, Star } from 'lucide-react';
+import ServiceIcon from '../components/ServiceIcon';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
 
 const allServicesData = [
   {
     id: 'structural-engineering',
-    icon: '🏗️',
+    icon: 'Building2',
     title: 'Structural Engineering',
     color: '#0F2446',
     subServices: [
@@ -22,7 +23,7 @@ const allServicesData = [
   },
   {
     id: 'civil-engineering',
-    icon: '🛣️',
+    icon: 'Ruler',
     title: 'Civil Engineering',
     color: '#1a5276',
     subServices: [
@@ -33,7 +34,7 @@ const allServicesData = [
   },
   {
     id: 'construction-services',
-    icon: '🔨',
+    icon: 'HardHat',
     title: 'Construction Services',
     color: '#784212',
     subServices: [
@@ -45,7 +46,7 @@ const allServicesData = [
   },
   {
     id: 'architectural-design',
-    icon: '📐',
+    icon: 'Layers',
     title: 'Architectural Services',
     color: '#6c3483',
     subServices: [
@@ -56,7 +57,7 @@ const allServicesData = [
   },
   {
     id: 'mep-engineering',
-    icon: '⚡',
+    icon: 'Zap',
     title: 'MEP Engineering',
     color: '#1a6b1a',
     subServices: [
@@ -66,7 +67,7 @@ const allServicesData = [
   },
   {
     id: 'geotechnical-engineering',
-    icon: '🌍',
+    icon: 'Mountain',
     title: 'Geotechnical Engineering',
     color: '#7b6a12',
     subServices: [
@@ -76,7 +77,7 @@ const allServicesData = [
   },
   {
     id: 'surveying',
-    icon: '📏',
+    icon: 'ScanLine',
     title: 'Surveying',
     color: '#0e6655',
     subServices: [
@@ -86,7 +87,7 @@ const allServicesData = [
   },
   {
     id: 'inspection-assessment',
-    icon: '🔍',
+    icon: 'Search',
     title: 'Inspection & Assessment',
     color: '#922b21',
     subServices: [
@@ -96,7 +97,7 @@ const allServicesData = [
   },
   {
     id: 'permits-compliance',
-    icon: '📄',
+    icon: 'FileCheck',
     title: 'Permits & Compliance',
     color: '#1b4f72',
     subServices: [
@@ -106,7 +107,7 @@ const allServicesData = [
   },
   {
     id: 'bim-cad',
-    icon: '💻',
+    icon: 'Monitor',
     title: 'BIM & Digital Engineering',
     color: '#17202a',
     subServices: [
@@ -116,7 +117,7 @@ const allServicesData = [
   },
   {
     id: 'project-management',
-    icon: '📋',
+    icon: 'ClipboardList',
     title: 'Project Management',
     color: '#154360',
     subServices: [
@@ -126,7 +127,7 @@ const allServicesData = [
   },
   {
     id: 'specialty-engineering',
-    icon: '🌉',
+    icon: 'Wrench',
     title: 'Specialty Engineering',
     color: '#4a235a',
     subServices: [
@@ -137,7 +138,7 @@ const allServicesData = [
   },
   {
     id: 'sustainability',
-    icon: '🌿',
+    icon: 'Leaf',
     title: 'Sustainability & Green Building',
     color: '#1e8449',
     subServices: [
@@ -147,7 +148,7 @@ const allServicesData = [
   },
   {
     id: 'consultation',
-    icon: '🤝',
+    icon: 'Handshake',
     title: 'Engineering Consultation',
     color: '#6e2f0c',
     subServices: [
@@ -157,7 +158,7 @@ const allServicesData = [
   },
   {
     id: 'cost-estimation',
-    icon: '💰',
+    icon: 'DollarSign',
     title: 'Cost Estimation & QS',
     color: '#117a65',
     subServices: [
@@ -264,7 +265,10 @@ export default function AllServices() {
         <p style={{
           fontSize: '0.72rem', fontWeight: 700, color: '#C89A45',
           letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem'
-        }}>⭐ Recommended Premium Services</p>
+        }}>
+          <Star size={13} style={{ marginRight: '0.3rem', verticalAlign: 'middle', color: '#C89A45' }} />
+          Recommended Premium Services
+        </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
           {premiumServices.map((s, i) => (
             <span key={i} style={{
@@ -308,14 +312,14 @@ export default function AllServices() {
                 >
                   {/* Card Header */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-                    <div style={{
+                      <div style={{
                       width: '52px', height: '52px', borderRadius: '14px',
-                      background: cat.color + '12',
+                      background: cat.color + '14',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '1.6rem', flexShrink: 0,
-                      border: `1.5px solid ${cat.color}22`
+                      flexShrink: 0,
+                      border: `1.5px solid ${cat.color}33`
                     }}>
-                      {cat.icon}
+                      <ServiceIcon name={cat.icon} size={24} color={cat.color} />
                     </div>
                     <div>
                       <h2 style={{

@@ -13,6 +13,7 @@ import PrimaryButton from '../components/ui/PrimaryButton';
 import SectionHeading from '../components/ui/SectionHeading';
 import ProjectCard from '../components/ui/ProjectCard';
 import Badge from '../components/ui/Badge';
+import ServiceIcon from '../components/ServiceIcon';
 
 // Data modules
 import { services } from '../data/services';
@@ -267,7 +268,14 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             <ScrollReveal variant="fade-up">
               <GlassCard style={styles.featuredServiceCard} className="glass-hover-lift">
                 <div style={styles.featuredServiceHeader}>
-                  <span style={{ fontSize: '3rem', lineHeight: 1 }}>{services[0].icon}</span>
+                  <div style={{
+                    width: '56px', height: '56px', borderRadius: '14px',
+                    background: 'rgba(200,154,69,0.12)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    border: '1.5px solid rgba(200,154,69,0.25)', flexShrink: 0
+                  }}>
+                    <ServiceIcon name={services[0].icon} size={28} color="#C89A45" />
+                  </div>
                   <div>
                     <Badge variant="gold">Featured Speciality</Badge>
                     <h3 style={styles.featuredServiceTitle}>{services[0].title}</h3>
@@ -326,7 +334,14 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                 <ScrollReveal key={idx} variant="fade-up" style={{ transitionDelay: `${idx * 0.05}s` }}>
                   <GlassCard style={styles.smallServiceCard} className="glass-hover-lift">
                     <div style={styles.smallServiceHeader}>
-                      <span style={{ fontSize: '1.75rem', lineHeight: 1 }}>{srv.icon}</span>
+                      <div style={{
+                        width: '44px', height: '44px', borderRadius: '12px',
+                        background: 'rgba(200,154,69,0.1)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        border: '1.5px solid rgba(200,154,69,0.2)', flexShrink: 0
+                      }}>
+                        <ServiceIcon name={srv.icon} size={22} color="#C89A45" />
+                      </div>
                       <h4 style={styles.smallServiceTitle}>{srv.title}</h4>
                     </div>
                     <p style={styles.smallServiceDesc}>{srv.outcome.slice(0, 100)}...</p>
