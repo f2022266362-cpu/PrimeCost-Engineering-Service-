@@ -91,7 +91,7 @@ export default function Career() {
       {/* Hero Banner — 2-column: text left | image right */}
       <section style={styles.hero}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={styles.heroGrid}>
+          <div style={styles.heroGrid} className="career-hero-grid">
 
             {/* Left — text content */}
             <ScrollReveal variant="fade-up">
@@ -127,13 +127,14 @@ export default function Career() {
 
             {/* Right — AI photo */}
             <ScrollReveal variant="fade-up" style={{ transitionDelay: '0.15s' }}>
-              <div style={styles.heroImgWrap}>
+              <div style={styles.heroImgWrap} className="career-hero-img-wrap">
                 {/* Decorative gold ring */}
                 <div style={styles.heroImgRing} />
                 <img
                   src="/career-hero.jpg"
                   alt="Engineering team handshake — join PRIMECOST"
                   style={styles.heroImg}
+                  className="career-hero-img"
                   loading="eager"
                 />
                 {/* Floating badge */}
@@ -514,10 +515,21 @@ const styles = {
 if (typeof document !== 'undefined') {
   const s = document.createElement('style');
   s.innerText = `
+    /* ── Hero Grid ── */
+    @media (max-width: 991px) {
+      .career-hero-grid  {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+    @media (max-width: 767px) {
+      .career-hero-img  { height: 260px !important; }
+      .career-hero-img-wrap { display: none !important; }
+    }
+    /* ── Perks & Jobs Grid ── */
     @media (max-width: 991px) {
       .career-perks-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .career-jobs-grid  { grid-template-columns: 1fr !important; }
-      .career-hero-grid  { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
     }
     @media (max-width: 576px) {
       .career-perks-grid { grid-template-columns: 1fr !important; }
