@@ -444,3 +444,16 @@ button, input, select, textarea {
 }
 
 
+
+/* SEO: keyword-rich H1 on the homepage (the big "THE FUTURE" text is now decorative) */
+.hero-seo-h1 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem !important;
+  font-weight: 700;
+  color: var(--color-gold, #c5a880);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.45 !important;
+  margin-bottom: 0.9rem;
+  max-width: 34rem;
+}

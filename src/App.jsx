@@ -8,6 +8,8 @@ import ServicePage from './pages/ServicePage';
 import IndustryPage from './pages/IndustryPage';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import NotFound from './pages/NotFound';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
@@ -156,6 +158,7 @@ export default function App() {
           <Route path="/industries/:industryId" element={<IndustryPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
@@ -165,8 +168,8 @@ export default function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/founder" element={<Founder />} />
           
-          {/* Fallback to Home */}
-          <Route path="*" element={<Home onOpenConsultation={openConsultation} onOpenProposal={openProposal} />} />
+          {/* Real 404 (noindex) instead of duplicating the homepage */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
