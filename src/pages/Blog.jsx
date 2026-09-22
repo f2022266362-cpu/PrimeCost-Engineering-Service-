@@ -1,115 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Calendar, User, ArrowLeft, Clock, ChevronRight } from 'lucide-react';
+import { Search, Clock, ChevronRight } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 
-const articles = [
-  {
-    id: 'choose-structural-engineer',
-    title: 'How to Choose the Right Structural Engineer for Your Residential Project',
-    category: 'Structural',
-    readTime: '15 min read',
-    summary: 'Selecting the right structural engineer ensures your home is safe, compliant, and structurally sound. Learn the exact criteria, red flags, and interview questions to find the best fit.'
-  },
-  {
-    id: 'permit-approval-mistakes',
-    title: '10 Common Mistakes That Delay Building Permit Approval',
-    category: 'Construction',
-    readTime: '15 min read',
-    summary: 'Avoid expensive building permit delays. Explore the most common architectural design errors, structural mismatch flaws, and zoning oversights.'
-  },
-  {
-    id: 'autocad-vs-revit',
-    title: 'AutoCAD vs Revit: Which Software Is Better for Construction Projects?',
-    category: 'BIM',
-    readTime: '12 min read',
-    summary: 'A side-by-side comparison of 2D CAD drafting vs 3D intelligent BIM modeling for project timelines, revision workflows, and multidisciplinary coordination.'
-  },
-  {
-    id: 'structural-steel-shop-drawings',
-    title: 'Complete Guide to Structural Steel Shop Drawings',
-    category: 'Structural',
-    readTime: '14 min read',
-    summary: 'Master the shop drawings approval process. Learn about fabricator standards, connections engineering, and preventing field rework.'
-  },
-  {
-    id: 'as-built-drawings-importance',
-    title: 'What Are As-Built Drawings and Why Are They Important?',
-    category: 'Construction',
-    readTime: '12 min read',
-    summary: 'Explore the critical role of as-built records in renovations, building code compliance, and modern scan-to-BIM digital workflows.'
-  },
-  {
-    id: 'residential-vs-commercial-engineering',
-    title: 'Residential vs Commercial Structural Engineering: Key Differences',
-    category: 'Structural',
-    readTime: '13 min read',
-    summary: 'Discover the distinct building codes, load conditions, material specifications, and engineering requirements between housing and commercial builds.'
-  },
-  {
-    id: 'bim-coordination-cost-reduction',
-    title: 'How BIM Coordination Reduces Construction Costs and Rework',
-    category: 'BIM',
-    readTime: '15 min read',
-    summary: 'How 3D clash detection, Navisworks reviews, and multi-discipline BIM coordination prevent structural errors and on-site rebuilds.'
-  },
-  {
-    id: 'construction-documents-guide',
-    title: 'Everything You Need to Know About Construction Documents',
-    category: 'Construction',
-    readTime: '12 min read',
-    summary: 'A complete pre-construction guide to CSI divisions, engineering specifications, and bid package drawing sets.'
-  },
-  {
-    id: 'foundation-design-basics',
-    title: 'Foundation Design Basics: Types, Process, and Engineering Considerations',
-    category: 'Structural',
-    readTime: '14 min read',
-    summary: 'Learn how structural engineers design concrete slab-on-grade, post-tension slabs, and deep foundation piers matching local soil profiles.'
-  },
-  {
-    id: 'outsource-cad-drafting',
-    title: 'Top 10 Reasons to Outsource CAD Drafting Services',
-    category: 'BIM',
-    readTime: '12 min read',
-    summary: 'Discover the business benefits of outsourced drafting, BIM modeling scale, Revit family creation, and cost-efficiency.'
-  }
-];
+import articles from '../data/blogArticles';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedArticle, setSelectedArticle] = useState(null);
-  const [loadingArticleId, setLoadingArticleId] = useState(null);
-  const modalRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    if (selectedArticle && modalRef.current) {
-      modalRef.current.scrollTop = 0;
-    }
-  }, [selectedArticle]);
-
   const categories = ['All', 'Architectural', 'Structural', 'MEP', 'BIM', 'Construction'];
-
-  const handleSelectArticle = async (art) => {
-    setLoadingArticleId(art.id);
-    try {
-      const res = await fetch(`/content/blog/${art.id}.json`);
-      if (!res.ok) throw new Error('Failed to fetch article JSON');
-      const data = await res.json();
-      setSelectedArticle(data);
-    } catch (err) {
-      console.error(err);
-      // Fallback
-      setSelectedArticle(art);
-    } finally {
-      setLoadingArticleId(null);
-    }
-  };
 
   const filteredArticles = articles.filter(art => {
     const matchesSearch = art.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -121,7 +25,7 @@ export default function Blog() {
   return (
     <div style={styles.containerPage}>
       <SchemaManager 
-        title="GEO Content Hub & Authority Blog" 
+        title="Structural Engineering & Construction Blog" 
         description="Read comprehensive technical articles on architectural design standards, structural engineering calculations, commercial MEP codes, and 3D BIM clash detection workflows."
       />
 
@@ -129,7 +33,7 @@ export default function Blog() {
       <section style={styles.heroSection}>
         <div className="container" style={styles.heroContent}>
           <span style={styles.tag}>AUTHORITY KNOWLEDGE</span>
-          <h1 style={styles.title}>GEO Content Hub</h1>
+          <h1 style={styles.title}>Engineering & Construction Guides</h1>
           <p style={styles.subtitle}>
             Read comprehensive guides on code reviews, framing calculations, MEP load splits, and constructability optimization from our design staff.
           </p>
@@ -180,15 +84,11 @@ export default function Blog() {
                     <span style={styles.artCat}>{art.category.toUpperCase()}</span>
                     <span style={styles.artTime}><Clock size={12} /> {art.readTime}</span>
                   </div>
-                  <h3 style={styles.artCardTitle}>{art.title}</h3>
+                  <h2 style={styles.artCardTitle}><Link to={`/blog/${art.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>{art.title}</Link></h2>
                   <p style={styles.artSummary}>{art.summary}</p>
-                  <button 
-                    onClick={() => handleSelectArticle(art)} 
-                    style={styles.readMoreBtn}
-                    disabled={loadingArticleId === art.id}
-                  >
-                    {loadingArticleId === art.id ? 'Loading Guide...' : 'Read Technical Guide'} <ChevronRight size={14} />
-                  </button>
+                  <Link to={`/blog/${art.id}`} style={{ ...styles.readMoreBtn, textDecoration: 'none' }}>
+                    Read Technical Guide <ChevronRight size={14} />
+                  </Link>
                 </div>
               ))}
             </div>
@@ -200,72 +100,6 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Full Article Reader Overlay */}
-      {selectedArticle && (
-        <div style={styles.overlay}>
-          {selectedArticle.metaTitle && (
-            <SchemaManager
-              title={selectedArticle.metaTitle}
-              description={selectedArticle.metaDescription}
-              schemaType={selectedArticle.faq ? "FAQ" : null}
-              schemaData={selectedArticle.faq ? { questions: selectedArticle.faq } : null}
-            />
-          )}
-          <div style={styles.overlayBackdrop} onClick={() => setSelectedArticle(null)} />
-          <div ref={modalRef} style={styles.modal} className="animate-fade-in">
-            <button style={styles.closeBtn} onClick={() => setSelectedArticle(null)}>
-              <ArrowLeft size={18} /> <span>Back to Content Hub</span>
-            </button>
-
-            <div style={styles.modalHeader}>
-              <span style={styles.modalCat}>{selectedArticle.category.toUpperCase()} | {selectedArticle.readTime}</span>
-              <h1 style={styles.modalTitle}>{selectedArticle.title}</h1>
-              <div style={styles.metaRow}>
-                <span style={styles.metaItem}><User size={14} /> PRIMECOS Technical Staff</span>
-                <span style={styles.metaItem}><Calendar size={14} /> Published 2026</span>
-              </div>
-            </div>
-
-            {/* Dynamically Inject HTML Content */}
-            <div 
-              className="article-content-body"
-              style={styles.articleContent}
-              dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
-            />
-
-            {/* FAQ Accordion Section */}
-            {selectedArticle.faq && selectedArticle.faq.length > 0 && (
-              <div style={{ marginTop: '2.5rem', borderTop: '1.5px solid #f1f5f9', paddingTop: '2rem' }}>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#0F2446', marginBottom: '1.25rem', fontFamily: "'Outfit', sans-serif" }}>
-                  Frequently Asked Questions (FAQ)
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {selectedArticle.faq.map((item, index) => (
-                    <div key={index} style={{ padding: '1.25rem', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                      <strong style={{ display: 'block', fontSize: '0.95rem', color: '#0F2446', marginBottom: '0.4rem' }}>
-                        {item.question}
-                      </strong>
-                      <p style={{ fontSize: '0.88rem', color: '#475569', margin: 0, lineHeight: '1.5' }}>
-                        {item.answer}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div style={styles.ctaBox}>
-              <h4 style={styles.ctaHeading}>Need Scaffolded Design Support on This Topic?</h4>
-              <p style={styles.ctaText}>
-                We calculate structural load schedules, draw permit blueprints, and coordination sets matching these exact industry standards.
-              </p>
-              <Link to="/about" style={styles.ctaBtnLink} onClick={() => setSelectedArticle(null)}>
-                Connect With Engineering Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

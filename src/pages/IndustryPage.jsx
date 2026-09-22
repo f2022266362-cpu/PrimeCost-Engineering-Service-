@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 
-const industriesData = {
+export const industriesData = {
   'residential': {
     name: 'Residential Projects',
     subtitle: 'Custom Homes, Luxury Estates, Extensions & Renovations',

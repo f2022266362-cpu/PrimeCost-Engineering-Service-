@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SchemaManager from '../components/SchemaManager';
 import { Shield, Eye, Lock, Database, Bell, Trash2, Mail, ChevronDown } from 'lucide-react';
 
 const sections = [
@@ -271,6 +272,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div style={{ ...styles.page, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
+      <SchemaManager title="Privacy Policy" description="How PRIMECOST collects, uses and protects information submitted through primecost.biz." />
       {/* Hero Banner */}
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />

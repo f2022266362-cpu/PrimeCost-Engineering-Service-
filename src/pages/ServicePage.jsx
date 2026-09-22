@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
 
-const servicesData = {
+export const servicesData = {
   'architectural-design': {
     name: 'Architectural Design Services',
     description: 'We provide professional architectural drawings for commercial permits and residential building permit sets, including conceptual layouts, site plans, cross-sections, and coordinate details.',
@@ -349,7 +349,13 @@ const servicesData = {
 };
 
 export default function ServicePage() {
-  const { serviceId } = useParams();
+  const { serviceId: rawServiceId } = useParams();
+  // Old/alternate slugs that should show an existing page
+  const SERVICE_ALIASES = { 'permits-compliance': 'permit-correction' };
+  const serviceId = SERVICE_ALIASES[rawServiceId] || rawServiceId;
+  const hasOwnPage = Boolean(servicesData[serviceId]);
+  // Services without their own content still render (so links don't break),
+  // but are kept out of Google until real content is written for them.
   const service = servicesData[serviceId] || servicesData['architectural-design'];
 
   const [activeFaq, setActiveFaq] = useState(null);
@@ -364,6 +370,7 @@ export default function ServicePage() {
           name: service.name,
           description: service.description
         }}
+        noindex={!hasOwnPage}
       />
       
       {/* FAQ Schema for local page FAQs */}
@@ -372,6 +379,7 @@ export default function ServicePage() {
         description={service.description}
         schemaType="FAQ"
         schemaData={{ questions: service.faqs }}
+        noindex={!hasOwnPage}
       />
 
       {/* Hero Banner */}
