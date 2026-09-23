@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Licensed structural engineering firm serving 49 states with PE-stamped drawings, architectural & home design, construction services, and permit corrections." />
     <title>Structural Engineering Services | PE Stamped Drawings — PRIMECOST</title>
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CB4YHL3H27"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CB4YHL3H27');
+      // Track contact clicks site-wide (phone, WhatsApp, email)
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('tel:') === 0) gtag('event', 'phone_click', { link_url: href, page_path: location.pathname });
+        else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) gtag('event', 'whatsapp_click', { page_path: location.pathname });
+        else if (href.indexOf('mailto:') === 0) gtag('event', 'email_click', { page_path: location.pathname });
+      }, true);
+    </script>
   </head>
   <body>
     <div id="root"></div>
