@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SchemaManager from '../components/SchemaManager';
 import { FileText, ClipboardList, Ban, Coins, Receipt, Mail, ChevronDown } from 'lucide-react';
 
 const sections = [
@@ -194,6 +195,7 @@ export default function RefundPolicy() {
 
   return (
     <div style={{ ...styles.page, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
+      <SchemaManager title="Refund Policy" description="PRIMECOST refund and cancellation policy for engineering and design services." />
       {/* Hero Banner */}
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />

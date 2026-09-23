@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SchemaManager from '../components/SchemaManager';
 import { FileText, Scale, CreditCard, AlertTriangle, CheckCircle, XCircle, Clock, ChevronDown, Mail } from 'lucide-react';
 
 const sections = [
@@ -306,6 +307,7 @@ export default function TermsConditions() {
 
   return (
     <div style={{ ...styles.page, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
+      <SchemaManager title="Terms & Conditions" description="Terms and conditions for PRIMECOST engineering, architectural design and pre-construction services." />
       {/* Hero Banner */}
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />

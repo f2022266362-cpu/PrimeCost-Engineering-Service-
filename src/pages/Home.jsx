@@ -144,9 +144,10 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             {/* LEFT — Text Content */}
             <div style={styles.heroContent}>
               <ScrollReveal variant="fade-up">
+                <h1 className="hero-seo-h1">Licensed Structural &amp; MEP Engineering — PE-Stamped Drawings in 49 States</h1>
                 <div style={{ margin: 0, padding: 0 }}>
                   <span className="hero-we-build">ENGINEERING</span>
-                  <h1 className="hero-stronger">THE FUTURE</h1>
+                  <div className="hero-stronger">THE FUTURE</div>
                 </div>
                 <span className="hero-tomorrow">Today</span>
 
