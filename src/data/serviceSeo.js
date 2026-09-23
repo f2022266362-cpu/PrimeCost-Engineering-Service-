@@ -62,6 +62,38 @@ const serviceSeo = {
     title: 'Pre-Construction Engineering & Feasibility | PRIMECOST',
     description: 'Drawing audits, feasibility reviews and structural consulting before you break ground, so design problems are caught while they are cheap to fix.',
   },
+  'civil-engineering': {
+    title: 'Civil Engineering & Site Development Design | PRIMECOST',
+    description: 'Site development, grading, drainage, stormwater and utility design for commercial and municipal projects. Permit-ready civil plans from a Houston team.',
+  },
+  'geotechnical-engineering': {
+    title: 'Geotechnical Engineering & Soil Reports | PRIMECOST',
+    description: 'Soil investigation, geotechnical reports and foundation recommendations for residential, commercial and industrial projects, including expansive clay sites.',
+  },
+  'project-management': {
+    title: 'Construction Project Management Services | PRIMECOST',
+    description: 'Project planning, budget control, risk management and progress reporting that keep construction projects on schedule and on budget.',
+  },
+  'inspection-assessment': {
+    title: 'Structural Inspection & Crack Assessment | PRIMECOST',
+    description: 'Structural inspections, building condition assessments, crack investigations and forensic engineering reports with clear repair recommendations.',
+  },
+  'surveying': {
+    title: 'Land, Topographic & Construction Surveying | PRIMECOST',
+    description: 'Boundary, topographic and construction layout surveys plus drone mapping, delivered in CAD and ready for design and construction.',
+  },
+  'specialty-engineering': {
+    title: 'Specialty Structural Engineering: Towers, Solar, PEB | PRIMECOST',
+    description: 'Engineering for bridges, telecom towers, solar structures, industrial plant structures and modular buildings, PE stamped in 49 states.',
+  },
+  'sustainability': {
+    title: 'Green Building & LEED Consulting | PRIMECOST',
+    description: 'LEED and green building consulting, energy efficiency analysis and carbon reduction strategies that lower operating costs.',
+  },
+  'consultation': {
+    title: 'Engineering Consulting & Feasibility Studies | PRIMECOST',
+    description: 'Engineering consultancy, feasibility studies, technical reports, expert witness and owner\'s engineer services for construction projects.',
+  },
 };
 
 export default serviceSeo;
