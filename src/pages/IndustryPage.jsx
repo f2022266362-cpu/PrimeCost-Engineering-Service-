@@ -5,6 +5,7 @@ import {
   ArrowRight, HardDrive, LayoutGrid, Layers
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
+import industrySeo from '../data/industrySeo';
 
 export const industriesData = {
   'residential': {
@@ -82,8 +83,8 @@ export default function IndustryPage() {
   return (
     <div style={styles.containerPage}>
       <SchemaManager 
-        title={industry.name} 
-        description={industry.description}
+        title={(industrySeo[industryId] || {}).title || industry.name}
+        description={(industrySeo[industryId] || {}).description || industry.description}
         schemaType="Service"
         schemaData={{
           name: industry.name,

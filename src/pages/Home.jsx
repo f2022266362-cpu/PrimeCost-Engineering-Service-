@@ -21,6 +21,7 @@ import { projects } from '../data/projects';
 import { testimonials } from '../data/testimonials';
 import { faqs } from '../data/faq';
 import { partners, certifications } from '../data/partners';
+import { serviceHref } from '../data/serviceLinks';
 
 export default function Home({ onOpenConsultation, onOpenProposal }) {
   const navigate = useNavigate();
@@ -322,7 +323,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                   </ul>
                 </div>
                 
-                <Link to={`/services/${services[0].id}`} style={styles.serviceLink} className="arrow-slide-hover">
+                <Link to={serviceHref(services[0].id)} style={styles.serviceLink} className="arrow-slide-hover">
                   <span>Learn More About Structural Specs</span>
                   <ArrowRight size={16} />
                 </Link>
@@ -367,7 +368,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
                     
                     <div style={styles.smallServiceFooter}>
                       <span style={styles.smallServiceMeta}>From: <strong>{srv.startingFrom}</strong></span>
-                      <Link to={`/services/${srv.id}`} className="arrow-slide-hover" style={styles.smallServiceLink}>
+                      <Link to={serviceHref(srv.id)} className="arrow-slide-hover" style={styles.smallServiceLink}>
                         <ArrowRight size={16} />
                       </Link>
                     </div>
