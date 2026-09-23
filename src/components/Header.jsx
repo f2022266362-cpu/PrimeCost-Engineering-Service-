@@ -20,7 +20,7 @@ const serviceItems = [
   { to: '/services/project-management',       Icon: ClipboardList, label: 'Project Management' },
   { to: '/services/cost-estimation',          Icon: DollarSign,    label: 'Cost Estimation & QS' },
   { to: '/services/inspection-assessment',    Icon: Search,        label: 'Inspection & Assessment' },
-  { to: '/services/permits-compliance',       Icon: FileCheck,     label: 'Permits & Compliance' },
+  { to: '/services/permit-correction',        Icon: FileCheck,     label: 'Permits & Compliance' },
   { to: '/services/surveying',                Icon: ScanLine,      label: 'Surveying' },
   { to: '/services/specialty-engineering',    Icon: Wrench,        label: 'Specialty Engineering' },
   { to: '/services/sustainability',           Icon: Leaf,          label: 'Sustainability' },

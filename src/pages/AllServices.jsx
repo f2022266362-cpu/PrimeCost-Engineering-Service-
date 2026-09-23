@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Search, Star } from 'lucide-react';
 import ServiceIcon from '../components/ServiceIcon';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
+import { serviceHref } from '../data/serviceLinks';
 
 const allServicesData = [
   {
@@ -349,7 +350,7 @@ export default function AllServices() {
 
                   {/* CTA */}
                   <Link
-                    to={`/services/${cat.id}`}
+                    to={serviceHref(cat.id)}
                     style={{
                       display: 'flex', alignItems: 'center', gap: '0.5rem',
                       marginTop: '1.5rem', paddingTop: '1.25rem',
