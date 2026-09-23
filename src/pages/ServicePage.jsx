@@ -346,6 +346,182 @@ export const servicesData = {
       { question: 'What is value engineering?', answer: 'Value engineering reviews design packages to optimize structural members and materials, reducing costs without compromising safety or compliance.' },
       { question: 'Why is pre-construction engineering important?', answer: 'It resolves spatial conflicts and structural errors virtually, preventing expensive field modifications during actual construction.' }
     ]
+  },
+  'civil-engineering': {
+    name: 'Civil Engineering Services',
+    description: 'Site development, grading and drainage, stormwater, paving and utility design for commercial, industrial and municipal projects, delivered as permit-ready civil plans.',
+    whoNeedsIt: [
+      { role: 'Developers', context: 'Need a complete site plan package (grading, drainage, utilities, parking) before a site permit can be issued.' },
+      { role: 'General Contractors', context: 'Need civil drawings coordinated with the building set so sitework can be bid and built without surprises.' },
+      { role: 'Municipal & Public Clients', context: 'Need road, pavement, water and sewer design that meets local standards and review requirements.' }
+    ],
+    process: [
+      { step: '1', title: 'Site Review', desc: 'Review the survey, zoning constraints, existing utilities and local drainage requirements.' },
+      { step: '2', title: 'Site Layout', desc: 'Lay out building pads, parking, access drives and earthwork balance.' },
+      { step: '3', title: 'Grading & Utilities', desc: 'Design grading, drainage, stormwater management, water and sewer connections.' },
+      { step: '4', title: 'Permit Set', desc: 'Issue stamped civil plans and stormwater reports for site permit submission.' }
+    ],
+    deliverables: ['Site Development Plans', 'Grading & Drainage Design', 'Road & Parking Layout Drawings', 'Utility Design Plans', 'Stormwater Reports'],
+    software: ['AutoCAD Civil 3D', 'AutoCAD', 'Revit'],
+    faqs: [
+      { question: 'What does a civil engineering site package include?', answer: 'Typically site layout, grading and drainage, stormwater management, paving, and water and sewer utility plans, plus the reports the permitting authority requires.' },
+      { question: 'How long does civil design take?', answer: 'Most civil design packages take about 5 to 10 business days once we have the survey and project requirements, depending on site size and complexity.' },
+      { question: 'Can you coordinate civil plans with the structural and architectural drawings?', answer: 'Yes. Because structural, architectural and MEP design happen in-house, the civil set is coordinated with the building drawings from the start.' }
+    ]
+  },
+  'geotechnical-engineering': {
+    name: 'Geotechnical Engineering Services',
+    description: 'Soil investigation reports, foundation recommendations, ground improvement and slope stability analysis so your foundation is designed for the soil it actually sits on.',
+    whoNeedsIt: [
+      { role: 'Property Owners & Builders', context: 'Need foundation recommendations before designing a slab, pier or beam foundation, especially on expansive clay soils.' },
+      { role: 'Developers', context: 'Need a geotechnical report for lenders, permits or the structural engineer before design can start.' },
+      { role: 'Structural Engineers & Architects', context: 'Need bearing capacity, settlement and soil parameters to size foundations correctly.' }
+    ],
+    process: [
+      { step: '1', title: 'Project Scoping', desc: 'Review building loads, site history and local soil conditions to define the investigation scope.' },
+      { step: '2', title: 'Field Investigation', desc: 'Coordinate soil borings and sampling at the locations the design requires.' },
+      { step: '3', title: 'Analysis', desc: 'Evaluate bearing capacity, settlement, shrink-swell potential and slope stability.' },
+      { step: '4', title: 'Recommendations', desc: 'Issue a geotechnical report with foundation type, depth and ground improvement recommendations.' }
+    ],
+    deliverables: ['Soil Investigation Report', 'Geotechnical Report', 'Foundation Recommendations', 'Ground Improvement Plans', 'Slope Stability Analysis'],
+    software: ['AutoCAD', 'Excel Engineering Tools'],
+    faqs: [
+      { question: 'Do I need a geotechnical report before foundation design?', answer: 'For most new commercial buildings, and many residential ones, yes. Foundation design depends on bearing capacity and soil movement, which only a soil investigation can confirm.' },
+      { question: 'How long does a geotechnical report take?', answer: 'Typically about 5 to 10 business days after the field investigation, depending on the number of borings and the analysis required.' },
+      { question: 'Can the same team design the foundation?', answer: 'Yes. Our structural engineers use the geotechnical recommendations directly to design and stamp the foundation drawings.' }
+    ]
+  },
+  'project-management': {
+    name: 'Construction Project Management Services',
+    description: 'Project planning, budget control, risk management, procurement support and progress monitoring that keep construction projects on schedule and on budget.',
+    whoNeedsIt: [
+      { role: 'Owners & Developers', context: 'Want one accountable team tracking schedule, budget and contractors on their behalf.' },
+      { role: 'Investors', context: 'Need reliable progress reports and cost control on projects they are funding.' },
+      { role: 'Growing Contractors', context: 'Need extra project controls and contract administration support during busy periods.' }
+    ],
+    process: [
+      { step: '1', title: 'Project Planning', desc: 'Define scope, schedule, budget and the key risks before work starts.' },
+      { step: '2', title: 'Procurement', desc: 'Support bidding, contractor selection and contract setup.' },
+      { step: '3', title: 'Controls', desc: 'Track budget, schedule and change orders against the baseline.' },
+      { step: '4', title: 'Reporting', desc: 'Deliver regular progress reports and manage issues through closeout.' }
+    ],
+    deliverables: ['Project Planning Documents', 'Risk Management Reports', 'Budget Control Sheets', 'Progress Reports', 'Contract Administration'],
+    software: ['MS Project', 'Excel', 'Procore'],
+    faqs: [
+      { question: 'What does a construction project manager do for an owner?', answer: 'They plan the schedule and budget, help select contractors, track progress and costs, manage changes, and report to the owner so problems are caught early.' },
+      { question: 'Can you manage projects outside Houston?', answer: 'Yes. We support projects across the U.S., combining remote project controls with coordination with local teams.' },
+      { question: 'Is project management billed as a fixed fee?', answer: 'It depends on the project size and duration. We scope each engagement and provide a clear proposal before starting.' }
+    ]
+  },
+  'inspection-assessment': {
+    name: 'Structural Inspection & Assessment Services',
+    description: 'Building condition assessments, crack investigations, safety inspections and forensic engineering reports that identify structural problems and recommend repairs.',
+    whoNeedsIt: [
+      { role: 'Buyers & Property Owners', context: 'Found cracks, sagging or water damage and need an engineer to say what it means and how to fix it.' },
+      { role: 'Property Managers', context: 'Need periodic condition assessments and safety inspections for buildings they manage.' },
+      { role: 'Attorneys & Insurers', context: 'Need an independent forensic engineering report on the cause of structural damage.' }
+    ],
+    process: [
+      { step: '1', title: 'Intake', desc: 'Review the concern, building age, drawings and any previous reports.' },
+      { step: '2', title: 'Site Inspection', desc: 'Inspect the structure and document cracks, deflection, moisture and other signs of distress.' },
+      { step: '3', title: 'Evaluation', desc: 'Determine the likely cause, the severity and whether the structure is safe.' },
+      { step: '4', title: 'Report', desc: 'Issue a signed report with findings and practical repair recommendations.' }
+    ],
+    deliverables: ['Condition Assessment Report', 'Structural Health Report', 'Crack Investigation Report', 'Safety Inspection Checklist', 'Forensic Engineering Report'],
+    software: ['AutoCAD', 'RISA-3D'],
+    faqs: [
+      { question: 'When should I get a structural inspection?', answer: 'When you see new or widening cracks, sloping floors, sticking doors, sagging framing, or before buying or renovating an older building.' },
+      { question: 'How fast can I get an inspection report?', answer: 'Most inspections and reports are completed within 1 to 3 business days of the site visit.' },
+      { question: 'Will the report include repair recommendations?', answer: 'Yes. Reports explain the cause and severity of the problem and recommend repairs, and we can prepare stamped repair drawings if needed.' }
+    ]
+  },
+  'surveying': {
+    name: 'Land & Construction Surveying Services',
+    description: 'Boundary, topographic and construction layout surveys plus drone mapping that give designers and builders accurate site data from day one.',
+    whoNeedsIt: [
+      { role: 'Developers & Owners', context: 'Need boundary and topographic surveys before site design, financing or permitting.' },
+      { role: 'Civil & Structural Designers', context: 'Need accurate existing grades, utilities and site features to design against.' },
+      { role: 'Contractors', context: 'Need construction layout so foundations and structures are built in the right place.' }
+    ],
+    process: [
+      { step: '1', title: 'Scope & Records', desc: 'Define the survey type and research existing plats, deeds and records.' },
+      { step: '2', title: 'Field Work', desc: 'Collect field data with ground equipment and drones where suitable.' },
+      { step: '3', title: 'Processing', desc: 'Process the data into accurate CAD survey drawings.' },
+      { step: '4', title: 'Delivery', desc: 'Deliver survey drawings and reports ready for design or construction.' }
+    ],
+    deliverables: ['Land Survey Report', 'Topographic Survey Maps', 'Boundary Survey Documents', 'Construction Layout Plans', 'Drone Survey Reports'],
+    software: ['AutoCAD Civil 3D', 'AutoCAD'],
+    faqs: [
+      { question: 'What is the difference between a boundary and a topographic survey?', answer: 'A boundary survey establishes property lines and corners. A topographic survey maps elevations, grades and site features that designers need for grading, drainage and foundations.' },
+      { question: 'How long does a survey take?', answer: 'Most surveys are delivered in about 2 to 5 business days, depending on site size and survey type.' },
+      { question: 'Can survey data go straight into the design?', answer: 'Yes. Surveys are delivered in CAD, so our civil and structural teams can design directly on top of them.' }
+    ]
+  },
+  'specialty-engineering': {
+    name: 'Specialty Structural Engineering Services',
+    description: 'Engineering for complex and non-standard structures: bridges, industrial plant structures, telecom towers, solar structures, modular and pre-engineered buildings.',
+    whoNeedsIt: [
+      { role: 'Industrial Owners', context: 'Need platforms, equipment supports and plant structures designed and stamped.' },
+      { role: 'Solar & Telecom Companies', context: 'Need racking, tower and mounting structures engineered for wind and site conditions.' },
+      { role: 'Modular & PEB Suppliers', context: 'Need structural design and PE stamps for modular or pre-engineered buildings in multiple states.' }
+    ],
+    process: [
+      { step: '1', title: 'Requirements', desc: 'Define loads, codes, site conditions and fabrication constraints.' },
+      { step: '2', title: 'Analysis', desc: 'Model and analyze the structure for gravity, wind, seismic and equipment loads.' },
+      { step: '3', title: 'Design', desc: 'Size members and connections and prepare calculations.' },
+      { step: '4', title: 'Stamped Package', desc: 'Issue PE-stamped drawings and calculations for permit and fabrication.' }
+    ],
+    deliverables: ['Bridge Design Drawings', 'Tower Design Calculations', 'Solar Structure Plans', 'Modular Building Designs', 'PE Stamped Drawings'],
+    software: ['RISA-3D', 'SAP2000', 'Tekla', 'AutoCAD'],
+    faqs: [
+      { question: 'Can you stamp specialty structures in multiple states?', answer: 'Yes. PRIMECOST is licensed in 49 states, so modular, solar and tower designs can be stamped for projects across the country.' },
+      { question: 'Do you work with fabricators?', answer: 'Yes. We coordinate with fabricators and suppliers so the design matches how the structure will actually be built and installed.' },
+      { question: 'How is the timeline set for specialty projects?', answer: 'Specialty work is scoped per project. We give a clear schedule after reviewing loads, codes and the level of detail required.' }
+    ]
+  },
+  'sustainability': {
+    name: 'Sustainability & Green Building Consulting',
+    description: 'Green building and LEED consulting, energy efficiency analysis and carbon reduction strategies that lower operating costs and support certification goals.',
+    whoNeedsIt: [
+      { role: 'Developers & Owners', context: 'Want LEED or green building certification, or lower energy bills over the building life.' },
+      { role: 'Architects', context: 'Need energy analysis and sustainable design input during design development.' },
+      { role: 'Corporate Clients', context: 'Need a carbon reduction strategy to meet company sustainability targets.' }
+    ],
+    process: [
+      { step: '1', title: 'Goals', desc: 'Define certification targets, energy goals and budget.' },
+      { step: '2', title: 'Analysis', desc: 'Analyze energy use and identify the most cost-effective improvements.' },
+      { step: '3', title: 'Design Input', desc: 'Integrate sustainable strategies into the architectural and MEP design.' },
+      { step: '4', title: 'Documentation', desc: 'Prepare scorecards and reports for certification and stakeholders.' }
+    ],
+    deliverables: ['Green Building Report', 'LEED Scorecard', 'Energy Analysis Report', 'Sustainable Design Plans', 'Carbon Reduction Strategy'],
+    software: ['Revit', 'Energy Modeling Tools'],
+    faqs: [
+      { question: 'Is green design much more expensive?', answer: 'Not necessarily. Many efficiency measures pay for themselves through lower energy costs, and early analysis helps pick the ones with the best return.' },
+      { question: 'How long does an energy or green building analysis take?', answer: 'Most analyses take about 3 to 7 business days, depending on building size and the certification path.' },
+      { question: 'Can sustainability be added to a project already in design?', answer: 'Yes, although the earlier it is considered, the more options and savings are available.' }
+    ]
+  },
+  'consultation': {
+    name: 'Engineering Consultation Services',
+    description: 'Engineering consultancy, feasibility studies, technical reports, expert witness and owner\'s engineer services to support decisions from concept through completion.',
+    whoNeedsIt: [
+      { role: 'Buyers & Investors', context: 'Need a feasibility study or technical opinion before committing to a site or building.' },
+      { role: 'Owners', context: 'Need an owner\'s engineer to review designs and contractor submittals on their behalf.' },
+      { role: 'Attorneys', context: 'Need expert witness support and technical reports for construction disputes.' }
+    ],
+    process: [
+      { step: '1', title: 'Consultation Call', desc: 'Discuss the project, the question you need answered and the timeline.' },
+      { step: '2', title: 'Document Review', desc: 'Review drawings, reports, contracts or site information.' },
+      { step: '3', title: 'Analysis', desc: 'Evaluate options, risks and technical requirements.' },
+      { step: '4', title: 'Written Findings', desc: 'Deliver a clear report or summary with recommendations.' }
+    ],
+    deliverables: ['Feasibility Study Report', 'Technical Engineering Report', 'Expert Witness Statement', 'Owner\'s Engineer Report', 'Consultation Summary'],
+    software: ['AutoCAD', 'Revit', 'RISA-3D'],
+    faqs: [
+      { question: 'What is a feasibility study?', answer: 'It evaluates whether a project can be built as planned on a given site and budget, and flags technical, code or cost risks before you commit.' },
+      { question: 'How quickly can I get a consultation?', answer: 'Most consultations and summary reports are delivered within 1 to 2 business days.' },
+      { question: 'Do you offer expert witness services?', answer: 'Yes. We provide technical reports and expert witness support for construction and structural disputes.' }
+    ]
   }
 };
 
