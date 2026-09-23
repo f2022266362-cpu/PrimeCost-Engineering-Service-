@@ -3,6 +3,8 @@
 // Replace APPS_SCRIPT_URL below with your deployed Web App URL
 // ============================================================
 
+import { trackEvent } from './track';
+
 // 🔴 PASTE YOUR DEPLOYED WEB APP URL HERE after deployment:
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
 
@@ -14,6 +16,8 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/
  * @returns {Promise<boolean>} - true if saved successfully
  */
 export async function saveLeadToSheet(payload) {
+  // GA4 lead conversion (fires for every form that saves a lead)
+  trackEvent('generate_lead', { form_type: payload && payload.type ? payload.type : 'unknown' });
   try {
     await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
