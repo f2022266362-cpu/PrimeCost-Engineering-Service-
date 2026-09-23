@@ -44,10 +44,10 @@ export function buildSchemas({ schemaType, schemaData }) {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "75 E 3RD ST STE 7",
-      "addressLocality": "Sheridan",
-      "addressRegion": "WY",
-      "postalCode": "82801",
+      "streetAddress": "440 Louisiana St, Suite 900",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77002",
       "addressCountry": "US"
     },
     "founder": {
@@ -70,50 +70,6 @@ export function buildSchemas({ schemaType, schemaData }) {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "PRIMECOST",
-    "image": `${SITE_URL}/logo.png`,
-    "url": SITE_URL,
-    "telephone": "+1-832-234-6456",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "75 E 3RD ST STE 7",
-      "addressLocality": "Sheridan",
-      "addressRegion": "WY",
-      "postalCode": "82801",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 44.7983,
-      "longitude": -106.9547
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "10:00",
-        "closes": "16:00"
-      }
-    ],
-    "areaServed": ["US", "WY", "Sheridan", "Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"],
-    "sameAs": [
-      "https://www.linkedin.com/company/primecost-biz",
-      "https://www.facebook.com/primecost-biz"
-    ]
-  };
-  schemasToInject.push(localBusinessSchema);
-
-  // Secondary local business schema for the Houston sub-office branch
-  const houstonBranchSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "PRIMECOST - Houston Branch",
     "image": `${SITE_URL}/logo.png`,
     "url": SITE_URL,
     "telephone": "+1-832-234-6456",
@@ -145,9 +101,14 @@ export function buildSchemas({ schemaType, schemaData }) {
         "closes": "16:00"
       }
     ],
-    "areaServed": ["Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"]
+    "areaServed": ["US", "Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"],
+    "sameAs": [
+      "https://www.linkedin.com/company/primecost-biz",
+      "https://www.facebook.com/primecost-biz"
+    ]
   };
-  schemasToInject.push(houstonBranchSchema);
+  schemasToInject.push(localBusinessSchema);
+
 
   // Dynamic Schema Injection based on page type
   if (schemaType && schemaData) {
