@@ -5,6 +5,7 @@ import {
   ChevronRight, Calendar, Info, PlayCircle, Settings
 } from 'lucide-react';
 import SchemaManager from '../components/SchemaManager';
+import serviceSeo from '../data/serviceSeo';
 
 export const servicesData = {
   'architectural-design': {
@@ -357,14 +358,15 @@ export default function ServicePage() {
   // Services without their own content still render (so links don't break),
   // but are kept out of Google until real content is written for them.
   const service = servicesData[serviceId] || servicesData['architectural-design'];
+  const seo = (hasOwnPage && serviceSeo[serviceId]) || { title: service.name, description: service.description };
 
   const [activeFaq, setActiveFaq] = useState(null);
 
   return (
     <div style={styles.containerPage}>
       <SchemaManager 
-        title={service.name} 
-        description={service.description}
+        title={seo.title}
+        description={seo.description}
         schemaType="Service"
         schemaData={{
           name: service.name,
@@ -375,8 +377,8 @@ export default function ServicePage() {
       
       {/* FAQ Schema for local page FAQs */}
       <SchemaManager 
-        title={service.name}
-        description={service.description}
+        title={seo.title}
+        description={seo.description}
         schemaType="FAQ"
         schemaData={{ questions: service.faqs }}
         noindex={!hasOwnPage}
