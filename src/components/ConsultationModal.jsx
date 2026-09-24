@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, Video, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { saveLeadToSheet } from '../utils/sheetsLogger';
+import emailjs from '@emailjs/browser';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -73,8 +74,24 @@ export default function ConsultationModal({ isOpen, onClose }) {
     const body = `Details:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nFormat: ${formData.format}\nDate: ${formData.date}\nTime Slot: ${formData.timeSlot}\nNotes: ${formData.notes}`;
     const mailtoUrl = `mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Save to Google Sheets then redirect
-    saveLeadToSheet({
+    // Send the request by email directly (no reliance on the visitor's mail app).
+    // Falls back to opening their mail app only if sending fails.
+    const sendEmail = emailjs.send(
+      'service_d8j1sej',
+      'template_db31n9m',
+      {
+        full_name: formData.name,
+        corporate_email: formData.email,
+        phone: formData.phone,
+        company: formData.company || '',
+        service_scope: `Consultation (${formData.format})`,
+        message: body,
+      },
+      '0X16ZaXaNEcpPNsbo'
+    ).then(() => true).catch((err) => { console.error(err); return false; });
+
+    // Save to Google Sheets
+    const saveSheet = saveLeadToSheet({
       type: 'consultation',
       name: formData.name,
       email: formData.email,
@@ -84,10 +101,12 @@ export default function ConsultationModal({ isOpen, onClose }) {
       date: formData.date,
       timeSlot: formData.timeSlot,
       notes: formData.notes || ''
-    }).finally(() => {
+    });
+
+    Promise.all([sendEmail, saveSheet]).then(([emailed]) => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      window.location.href = mailtoUrl;
+      if (!emailed) window.location.href = mailtoUrl;
     });
   };
 
