@@ -46,7 +46,7 @@ export default function Founder() {
                   }}
                 />
                 <img
-                  src="/ceo-frank.png"
+                  src="/ceo-frank.webp"
                   alt="Frank Moore - CEO & Founder of PRIMECOST"
                   style={styles.portraitImg}
                 />

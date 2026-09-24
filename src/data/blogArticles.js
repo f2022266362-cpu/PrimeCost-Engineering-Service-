@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'houston-permit-rejected',
+    title: "City of Houston Permit Rejected? Here's What to Do Next",
+    category: 'Permits',
+    readTime: '8 min read',
+    summary: 'A permit rejection in Houston is a list of fixes, not a dead end. Learn how to sort plan review comments, handle Houston-specific issues, and resubmit so you get approved.'
+  },
+  {
     id: 'choose-structural-engineer',
     title: 'How to Choose the Right Structural Engineer for Your Residential Project',
     category: 'Structural',
