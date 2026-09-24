@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'pe-stamp-shop-drawings-texas',
+    title: 'Do I Need a PE Stamp for Shop Drawings in Texas?',
+    category: 'Structural',
+    readTime: '7 min read',
+    summary: 'Shop drawings only need a PE seal in Texas when they contain engineering design. Learn how to tell the difference, what delegated design means, and how to avoid rejected submittals.'
+  },
+  {
     id: 'houston-permit-rejected',
     title: "City of Houston Permit Rejected? Here's What to Do Next",
     category: 'Permits',
