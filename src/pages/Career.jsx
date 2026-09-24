@@ -131,7 +131,7 @@ export default function Career() {
                 {/* Decorative gold ring */}
                 <div style={styles.heroImgRing} />
                 <img
-                  src="/career-hero.jpg"
+                  src="/career-hero.webp"
                   alt="Engineering team handshake — join PRIMECOST"
                   style={styles.heroImg}
                   className="career-hero-img"

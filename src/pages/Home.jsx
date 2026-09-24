@@ -126,14 +126,14 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
 
         {/* Desktop background illustration */}
         <img
-          src="/hero-illustration.png"
+          src="/hero-illustration.webp"
           alt="PrimeCost Engineering construction illustration"
           className="hero-bg-img hero-bg-desktop"
           loading="eager"
         />
         {/* Mobile background illustration */}
         <img
-          src="/hero-mobile.png"
+          src="/hero-mobile.webp"
           alt="PrimeCost Engineering construction illustration"
           className="hero-bg-img hero-bg-mobile-img"
           loading="eager"
@@ -400,7 +400,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
               {/* Left Side: Blueprint Image */}
               <div 
                 style={{ 
-                  backgroundImage: 'url("/before.png")', 
+                  backgroundImage: 'url("/before.webp")', 
                   ...styles.sliderImage 
                 }} 
               />
@@ -408,7 +408,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
               {/* Right Side: Render / Real building cutout */}
               <div 
                 style={{ 
-                  backgroundImage: 'url("/after.png")', 
+                  backgroundImage: 'url("/after.webp")', 
                   clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)`,
                   ...styles.sliderImage 
                 }} 
