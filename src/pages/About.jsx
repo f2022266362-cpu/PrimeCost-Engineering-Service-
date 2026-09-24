@@ -6,6 +6,7 @@ import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
 import GlassCard from '../components/ui/GlassCard';
 import PrimaryButton from '../components/ui/PrimaryButton';
+import { trackEvent } from '../utils/track';
 
 export default function About() {
   const [form, setForm] = useState({
@@ -35,6 +36,7 @@ export default function About() {
         '0X16ZaXaNEcpPNsbo'
       );
       setIsSent(true);
+      trackEvent('generate_lead', { form_type: 'contact' });
       setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
     } catch (err) {
       console.error(err);
