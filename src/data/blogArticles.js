@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'foundation-engineer-letter-houston',
+    title: 'Foundation Engineer Letter in Houston: What It Includes and What It Costs',
+    category: 'Structural',
+    readTime: '8 min read',
+    summary: 'A PE-sealed foundation letter tells buyers, lenders, and homeowners whether a Houston foundation really needs repair. Learn what the engineer checks, what the letter must include, and what it costs.'
+  },
+  {
     id: 'pe-stamp-shop-drawings-texas',
     title: 'Do I Need a PE Stamp for Shop Drawings in Texas?',
     category: 'Structural',
