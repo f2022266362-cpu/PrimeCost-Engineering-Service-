@@ -129,6 +129,10 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
               <Link to="/faq"       style={isActive('/faq')       ? styles.activeNavLink : styles.navLink} className="nav-link-underline">FAQ</Link>
             </nav>
 
+            <a href="tel:+18322346456" className="header-phone" aria-label="Call PRIMECOST at (832) 234-6456">
+              (832) 234-6456
+            </a>
+
             <PrimaryButton
               onClick={onOpenProposal}
               variant="primary"
