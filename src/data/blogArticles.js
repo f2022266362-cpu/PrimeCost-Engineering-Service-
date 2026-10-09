@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'delegated-steel-connection-design',
+    title: 'Delegated Steel Connection Design: What the Connection Engineer Provides',
+    category: 'Structural',
+    readTime: '8 min read',
+    summary: 'When connection design is delegated to the fabricator, a licensed engineer must design and seal the calcs. Learn what the EOR provides, what the connection engineer delivers, and how to avoid rejections.'
+  },
+  {
     id: 'foundation-engineer-letter-houston',
     title: 'Foundation Engineer Letter in Houston: What It Includes and What It Costs',
     category: 'Structural',
