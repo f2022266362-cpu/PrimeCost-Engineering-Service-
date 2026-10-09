@@ -239,7 +239,7 @@ export default function ServiceAreas() {
                     <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem', fontWeight: '600', textTransform: 'uppercase' }}>Licensing Status</p>
                     <p style={{ color: '#4ade80', fontWeight: '700', fontSize: '1rem' }}>✓ Active PE Network</p>
                   </div>
-                  <a href="mailto:info@primecost.biz" style={{
+                  <a href="mailto:Frank.moore@primecost.biz" style={{
                     backgroundColor: '#c5a880',
                     color: '#0c1f3d',
                     padding: '0.85rem 1.5rem',
@@ -268,7 +268,7 @@ export default function ServiceAreas() {
           <p style={{ color: '#2d3748', fontSize: '1rem', marginBottom: '1.75rem' }}>
             Our licensed engineers are available in your state — get a free consultation today.
           </p>
-          <a href="mailto:info@primecost.biz" style={{
+          <a href="mailto:Frank.moore@primecost.biz" style={{
             backgroundColor: '#0c1f3d',
             color: '#fff',
             padding: '1rem 2.5rem',

@@ -201,7 +201,7 @@ export default function Pricing() {
                     <span style={{ fontSize: '0.8rem', color: tier.highlight ? '#94a3b8' : '#64748b' }}>⏱ Turnaround: <strong style={{ color: tier.highlight ? '#cbd5e1' : '#334155' }}>{tier.turnaround}</strong></span>
                   </div>
 
-                  <a href="mailto:info@primecost.biz" style={{
+                  <a href="mailto:Frank.moore@primecost.biz" style={{
                     display: 'block',
                     textAlign: 'center',
                     padding: '0.85rem',
@@ -326,7 +326,7 @@ export default function Pricing() {
                   <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.75rem' }}>
                     * Estimate based on standard rates. Final quote provided after plan review.
                   </p>
-                  <a href="mailto:info@primecost.biz" style={{
+                  <a href="mailto:Frank.moore@primecost.biz" style={{
                     display: 'inline-block',
                     marginTop: '1.25rem',
                     backgroundColor: '#c5a880',
@@ -413,7 +413,7 @@ export default function Pricing() {
           <p style={{ color: '#2d3748', fontSize: '1rem', marginBottom: '1.75rem' }}>
             Send us your plans or project description — we'll respond with a detailed proposal within 24 hours.
           </p>
-          <a href="mailto:info@primecost.biz" style={{
+          <a href="mailto:Frank.moore@primecost.biz" style={{
             backgroundColor: '#0c1f3d',
             color: '#fff',
             padding: '1rem 2.5rem',
