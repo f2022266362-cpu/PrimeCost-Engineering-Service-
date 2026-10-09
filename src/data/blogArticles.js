@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'pe-stamping-services',
+    title: 'PE Stamping Services: How to Get Drawings Sealed Right the First Time',
+    category: 'Structural',
+    readTime: '7 min read',
+    summary: 'A PE seal is more than a stamp. Learn what documents need one, why the engineer must be licensed in your state, what to send for a fast quote, and the red flags to avoid.'
+  },
+  {
     id: 'delegated-steel-connection-design',
     title: 'Delegated Steel Connection Design: What the Connection Engineer Provides',
     category: 'Structural',
