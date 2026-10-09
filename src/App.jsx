@@ -202,10 +202,13 @@ export default function App() {
 
       {/* Sticky mobile CTA bar */}
       <div className="sticky-mobile-cta">
+        <a href="tel:+18322346456" className="sticky-call-btn" aria-label="Call PRIMECOST at (832) 234-6456">
+          Call Now
+        </a>
         <PrimaryButton 
           variant="primary" 
           onClick={openProposal}
-          style={{ width: '100%', borderRadius: '8px', padding: '0.6rem' }}
+          style={{ flex: 1, borderRadius: '8px', padding: '0.6rem' }}
         >
           Get a Quote
         </PrimaryButton>

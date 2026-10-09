@@ -457,3 +457,39 @@ button, input, select, textarea {
   margin-bottom: 0.9rem;
   max-width: 34rem;
 }
+
+/* Header phone link (wide desktop only) */
+.header-phone {
+  display: none;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: #0F2446;
+  text-decoration: none;
+  margin: 0 0.75rem 0 0.25rem;
+  white-space: nowrap;
+}
+.header-phone:hover { color: #C89A45; }
+@media (min-width: 1280px) {
+  .header-phone { display: inline-flex; }
+}
+
+/* Sticky mobile call button */
+.sticky-mobile-cta { gap: 0.5rem; }
+.sticky-call-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #C89A45;
+  color: #0F2446;
+  font-weight: 800;
+  border-radius: 8px;
+  padding: 0.6rem;
+  text-decoration: none;
+}
+
+/* Keep chat buttons above the sticky mobile call/quote bar */
+@media (max-width: 991px) {
+  .chatbot-widget { bottom: 84px !important; right: 14px !important; }
+}

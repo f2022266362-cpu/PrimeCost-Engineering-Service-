@@ -712,10 +712,16 @@ export default function ServicePage() {
               We compile permit-ready drawing packs and structural calculations signed by licensed Professional Engineers.
             </p>
             <a 
-              href="mailto:Frank.moore@primecost.biz"
+              href="tel:+18322346456"
               style={styles.sidebarCta}
             >
-              Get In Touch
+              Call (832) 234-6456
+            </a>
+            <a 
+              href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent('Quote request: ' + service.name)}`}
+              style={{ ...styles.sidebarCta, backgroundColor: 'transparent', color: '#ffffff', border: '1.5px solid #c5a880', marginTop: '0.75rem' }}
+            >
+              Email Your Plans
             </a>
           </div>
         </div>

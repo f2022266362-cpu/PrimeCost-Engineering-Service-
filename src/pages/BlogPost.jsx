@@ -70,6 +70,12 @@ export default function BlogPost() {
           </div>
         </header>
 
+        <div style={styles.contactStrip}>
+          <strong style={{ color: '#0F2446' }}>Need this for your project?</strong>{' '}
+          Talk to a licensed engineer: <a href="tel:+18322346456" style={styles.stripLink}>(832) 234-6456</a>{' '}
+          or <a href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent('Quote request: ' + data.title)}`} style={styles.stripLink}>email your plans</a>.
+        </div>
+
         {post && post.content ? (
           <div
             className="article-content-body"
@@ -98,11 +104,17 @@ export default function BlogPost() {
           <h2 style={styles.ctaHeading}>Need PE-stamped drawings for your project?</h2>
           <p style={styles.ctaText}>
             PRIMECOST provides structural, MEP and architectural engineering with PE licensing across 49 states.
+            Call or email your drawings and we will tell you what it takes to get them sealed.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/services/structural-engineering" style={styles.ctaBtn}>Structural Engineering</Link>
-            <Link to="/services/permit-correction" style={styles.ctaBtnAlt}>Permit Corrections</Link>
+            <a href="tel:+18322346456" style={styles.ctaBtn}>Call (832) 234-6456</a>
+            <a href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent('Quote request: ' + data.title)}`} style={styles.ctaBtnAlt}>Email Your Plans</a>
           </div>
+          <p style={{ ...styles.ctaText, marginTop: '1rem', marginBottom: 0, fontSize: '0.85rem' }}>
+            Related: <Link to="/services/structural-engineering" style={styles.stripLink}>Structural Engineering</Link>{' · '}
+            <Link to="/services/sign-stamp-services" style={styles.stripLink}>PE Stamp Services</Link>{' · '}
+            <Link to="/services/permit-correction" style={styles.stripLink}>Permit Corrections</Link>
+          </p>
         </aside>
       </article>
     </div>
@@ -130,6 +142,11 @@ const styles = {
   faqItem: { padding: '1.25rem', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' },
   faqQ: { fontSize: '0.95rem', color: '#0F2446', margin: '0 0 0.4rem 0' },
   faqA: { fontSize: '0.88rem', color: '#475569', margin: 0, lineHeight: '1.5' },
+  contactStrip: {
+    backgroundColor: '#fdf8f0', borderLeft: '4px solid #c5a880', borderRadius: '6px',
+    padding: '0.85rem 1rem', fontSize: '0.92rem', color: '#334155', lineHeight: '1.5', marginBottom: '1.5rem',
+  },
+  stripLink: { color: '#0F2446', fontWeight: '700', textDecoration: 'underline' },
   ctaBox: {
     backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px',
     padding: '2rem', marginTop: '3rem', textAlign: 'center',
