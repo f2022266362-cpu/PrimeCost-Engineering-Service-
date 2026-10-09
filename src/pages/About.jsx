@@ -228,10 +228,6 @@ export default function About() {
                   <a href="mailto:Frank.moore@primecost.biz" style={styles.infoLink}>
                     Frank.moore@primecost.biz
                   </a>
-                  <br />
-                  <a href="mailto:bids@primecost.biz" style={{ ...styles.infoLink, marginTop: '0.25rem', display: 'inline-block' }}>
-                    bids@primecost.biz
-                  </a>
                 </div>
               </GlassCard>
 
