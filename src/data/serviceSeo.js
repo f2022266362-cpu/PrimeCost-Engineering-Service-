@@ -39,8 +39,8 @@ const serviceSeo = {
     description: 'Fabrication-ready shop drawings for structural steel, architectural and MEP trades. CAD and BIM drafting checked by licensed engineers.',
   },
   'sign-stamp-services': {
-    title: 'PE Stamp & Seal Services, Licensed in 49 States | PRIMECOST',
-    description: 'Professional Engineer review, sign and stamp for drawings and calculations in the 49 states where PRIMECOST is licensed. Fast plan submission.',
+    title: 'PE Stamp Services, Shop Drawing Review & Delegated Design | PRIMECOST',
+    description: 'PE-stamped drawings and calculations, steel shop drawing review and delegated connection design for contractors, fabricators and manufacturers. Licensed in 49 states.',
   },
   'permit-correction': {
     title: 'Permit Corrections & Plan Review Comments | PRIMECOST',

@@ -124,7 +124,7 @@ export function buildSchemas({ schemaType, schemaData }) {
             "name": "PRIMECOST",
             "address": orgSchema.address
           },
-          "areaServed": "US",
+          "areaServed": schemaData.areaServed || "US",
           "offers": {
             "@type": "Offer",
             "priceCurrency": "USD"

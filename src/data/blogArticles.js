@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'structural-engineer-letter-lender-closing',
+    title: 'Structural Engineer Letter for Lenders and Closings: Foundation Clearance and Repair Verification',
+    category: 'Structural',
+    readTime: '7 min read',
+    summary: 'Lenders, buyers and insurers often require a PE-sealed letter before closing. Learn the four common types of engineer letters, what they include, how fast you can get one, and what affects the cost.'
+  },
+  {
     id: 'stamped-submittals-building-product-manufacturers',
     title: 'PE-Stamped Submittals for Building Product Manufacturers: Calcs, Anchorage and BIM/CAD',
     category: 'Structural',

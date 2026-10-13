@@ -228,7 +228,9 @@ export const servicesData = {
     whoNeedsIt: [
       { role: 'Out-of-State Architects', context: 'Need a local engineer of record to review and stamp designs for municipal approval.' },
       { role: 'Developers', context: 'Require professional endorsement on structural packages to secure construction permits.' },
-      { role: 'General Contractors', context: 'Need certified load capacity calculations and framing details stamped by a licensed PE.' }
+      { role: 'General Contractors', context: 'Need certified load capacity calculations and framing details stamped by a licensed PE.' },
+      { role: 'Steel Fabricators & Detailers', context: 'Need delegated connection design, PE-stamped steel calculations and shop drawing review for submittals to the engineer of record.' },
+      { role: 'Building Product Manufacturers', context: 'Need project-specific sealed calculations and anchorage design for railings, canopies, wall protection and storefront systems.' }
     ],
     process: [
       { step: '1', title: 'Plan Submission', desc: 'Submit your completed structural or architectural drawings and geotechnical report.' },
@@ -236,11 +238,13 @@ export const servicesData = {
       { step: '3', title: 'Revisions & Updates', desc: 'Identify and resolve any design issues or building code conflicts.' },
       { step: '4', title: 'Digital/Wet Stamp', desc: 'Apply a state-specific PE stamp and signature to the finalized drawings.' }
     ],
-    deliverables: ['PE Stamped Structural Drawings', 'Certified Calculations Packages', 'Engineer of Record Letters', 'Code Compliance Certifications'],
+    deliverables: ['PE Stamped Structural Drawings', 'Certified Calculations Packages', 'Delegated Steel Connection Design Calcs', 'Shop Drawing Review & Stamping', 'Engineer of Record Letters', 'Code Compliance Certifications'],
     software: ['AutoCAD', 'Revit', 'ETABS', 'RISA-3D'],
     faqs: [
       { question: 'What is a PE stamp?', answer: 'A Professional Engineer (PE) stamp certifies that drawings and calculations were prepared under the supervision of a licensed engineer and comply with local safety codes.' },
-      { question: 'Are you licensed in my state?', answer: 'Yes, we have a network of licensed Professional Engineers covering 49 U.S. states.' }
+      { question: 'Are you licensed in my state?', answer: 'Yes, we have a network of licensed Professional Engineers covering 49 U.S. states.' },
+      { question: 'Do you provide delegated design and shop drawing review for steel fabricators?', answer: 'Yes. We design steel connections for the forces provided by the engineer of record, prepare PE-sealed calculations, and review the connection details on your shop drawings before submittal.' },
+      { question: 'Can you stamp drawings someone else prepared?', answer: 'Only after we review them. We check the design and calculations, correct anything that does not work, and then seal the documents, as state engineering rules require.' }
     ]
   },
   'permit-correction': {

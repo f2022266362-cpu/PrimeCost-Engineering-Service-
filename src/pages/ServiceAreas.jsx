@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
+import { Link } from 'react-router-dom';
+import cityPages from '../data/cityPages';
 
 const stateData = {
   'Alabama': { code: 'AL', note: 'Alabama Residential Building Code (ARBC)', engineering: 'Wind Zone II — 120 mph design winds. Foundation designs require soil bearing reports per local county requirements.' },
@@ -256,6 +258,22 @@ export default function ServiceAreas() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Houston-area local pages */}
+      <section style={{ padding: '3.5rem 0', backgroundColor: '#ffffff' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Local Engineering</span>
+          <h2 style={{ fontSize: '2rem', color: '#1b3b6f', margin: '0.5rem 0 1.5rem', fontFamily: "'Outfit', sans-serif" }}>Houston-Area Cities We Serve</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+            <Link to="/services/structural-engineering" style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1b3b6f', color: '#1b3b6f', fontWeight: 700, textDecoration: 'none' }}>Houston, TX</Link>
+            {Object.entries(cityPages).map(([slug, c]) => (
+              <Link key={slug} to={`/structural-engineer/${slug}`} style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1b3b6f', color: '#1b3b6f', fontWeight: 700, textDecoration: 'none' }}>
+                Structural Engineer {c.city}, TX
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

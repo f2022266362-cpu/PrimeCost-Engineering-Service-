@@ -69,7 +69,7 @@ fs.writeFileSync(path.join(dist, '404.html'), buildPage('/404', render('/__not-f
 
 // sitemap.xml (only indexable pages)
 const today = new Date().toISOString().slice(0, 10);
-const priority = (u) => (u === '/' ? '1.0' : u.startsWith('/services') ? '0.9' : u.startsWith('/industries') ? '0.8' : u.startsWith('/blog/') ? '0.7' : ['/privacy-policy', '/terms-conditions', '/refund-policy'].includes(u) ? '0.3' : '0.6');
+const priority = (u) => (u === '/' ? '1.0' : u.startsWith('/services') ? '0.9' : u.startsWith('/industries') || u.startsWith('/structural-engineer/') ? '0.8' : u.startsWith('/blog/') ? '0.7' : ['/privacy-policy', '/terms-conditions', '/refund-policy'].includes(u) ? '0.3' : '0.6');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${indexable.map((u) => `  <url><loc>${SITE_URL}${u === '/' ? '/' : u}</loc><lastmod>${today}</lastmod><priority>${priority(u)}</priority></url>`).join('\n')}
