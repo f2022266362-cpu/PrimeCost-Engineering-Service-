@@ -7,6 +7,7 @@ import { startCollecting, stopCollecting } from './seo/ssrCollector';
 import { servicesData } from './pages/ServicePage';
 import { industriesData } from './pages/IndustryPage';
 import articles from './data/blogArticles';
+import cityPages from './data/cityPages';
 
 // Every indexable URL on the site. New pages/services/posts are picked up automatically.
 export function getRoutes() {
@@ -20,6 +21,7 @@ export function getRoutes() {
     ...Object.keys(servicesData).map((id) => `/services/${id}`),
     ...Object.keys(industriesData).map((id) => `/industries/${id}`),
     ...articles.map((a) => `/blog/${a.id}`),
+    ...Object.keys(cityPages).map((s) => `/structural-engineer/${s}`),
   ];
 }
 

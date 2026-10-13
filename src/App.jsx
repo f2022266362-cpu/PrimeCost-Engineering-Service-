@@ -10,6 +10,7 @@ import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
+import CityPage from './pages/CityPage';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
@@ -167,6 +168,7 @@ export default function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/career" element={<Career />} />
           <Route path="/founder" element={<Founder />} />
+          <Route path="/structural-engineer/:citySlug" element={<CityPage />} />
           
           {/* Real 404 (noindex) instead of duplicating the homepage */}
           <Route path="*" element={<NotFound />} />
