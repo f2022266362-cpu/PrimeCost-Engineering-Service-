@@ -2,6 +2,13 @@
 // Each id becomes a real URL: /blog/<id>
 export const articles = [
   {
+    id: 'stamped-submittals-building-product-manufacturers',
+    title: 'PE-Stamped Submittals for Building Product Manufacturers: Calcs, Anchorage and BIM/CAD',
+    category: 'Structural',
+    readTime: '7 min read',
+    summary: 'Railings, wall protection, canopies and storefronts often need project-specific sealed calcs. Learn what a stamped submittal includes, why test reports fall short, and how to get approvals faster.'
+  },
+  {
     id: 'pe-stamping-services',
     title: 'PE Stamping Services: How to Get Drawings Sealed Right the First Time',
     category: 'Structural',

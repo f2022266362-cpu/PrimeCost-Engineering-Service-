@@ -6,6 +6,7 @@ import articles from '../data/blogArticles';
 import { getPrerenderData } from '../seo/ssrCollector';
 import { SITE_URL } from '../seo/site';
 import NotFound from './NotFound';
+import QuickQuoteForm from '../components/QuickQuoteForm';
 
 // Each article is a real, crawlable URL: /blog/<id>
 export default function BlogPost() {
@@ -85,6 +86,8 @@ export default function BlogPost() {
         ) : (
           <p style={styles.content}>{meta.summary}</p>
         )}
+
+        <QuickQuoteForm source={`Blog: ${data.title}`} />
 
         {data.faq && data.faq.length > 0 && (
           <section style={styles.faqSection}>

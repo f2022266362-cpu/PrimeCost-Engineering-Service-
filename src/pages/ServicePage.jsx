@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import QuickQuoteForm from '../components/QuickQuoteForm';
 import { useParams, Link } from 'react-router-dom';
 import { 
   CheckCircle, HelpCircle, ArrowRight, HardDrive, Users, 
@@ -636,6 +637,8 @@ export default function ServicePage() {
               ))}
             </div>
           </div>
+
+          <QuickQuoteForm source={`Service: ${service.name}`} heading={`Get a quote for ${service.name}`} />
 
           {/* Software Used */}
           <div style={styles.sectionCard} className="glass">
