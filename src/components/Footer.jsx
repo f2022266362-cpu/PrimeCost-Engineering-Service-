@@ -130,7 +130,7 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
               </div>
               <div style={{ fontSize: '0.82rem', lineHeight: 1.7 }}>
                 <span style={{ fontWeight: 'bold', color: '#c5a880', display: 'block', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.1rem' }}>Houston Area</span>
-                {[['cypress-tx', 'Cypress'], ['katy-tx', 'Katy'], ['the-woodlands-tx', 'The Woodlands'], ['spring-tx', 'Spring'], ['sugar-land-tx', 'Sugar Land'], ['pearland-tx', 'Pearland']].map(([s, c], i) => (
+                {[['cypress-tx', 'Cypress'], ['katy-tx', 'Katy'], ['the-woodlands-tx', 'The Woodlands'], ['spring-tx', 'Spring'], ['sugar-land-tx', 'Sugar Land'], ['pearland-tx', 'Pearland'], ['montgomery-tx', 'Montgomery & Conroe']].map(([s, c], i) => (
                   <React.Fragment key={s}>{i > 0 && ' · '}<Link to={`/structural-engineer/${s}`} style={styles.link}>{c}</Link></React.Fragment>
                 ))}
               </div>

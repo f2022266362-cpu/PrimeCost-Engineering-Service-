@@ -15,8 +15,8 @@ const serviceSeo = {
     description: 'Mechanical, electrical and plumbing design coordinated with your structural and architectural sets. PE stamped MEP drawings in Houston and nationwide.',
   },
   'bim-cad': {
-    title: 'BIM Modeling & CAD Drafting Services | PRIMECOST',
-    description: 'Revit BIM modeling, clash coordination and CAD drafting for contractors and developers. Accurate models that cut rework before construction starts.',
+    title: 'BIM Drawing Services: Revit Modeling & CAD Drafting | PRIMECOST',
+    description: 'BIM drawing services: Revit modeling, clash detection, CAD-to-BIM, Revit families for manufacturers and shop drawings. Reviewed by licensed engineers. Call (832) 234-6456.',
   },
   'interior-design': {
     title: 'Commercial & Residential Interior Design | PRIMECOST',
@@ -35,8 +35,8 @@ const serviceSeo = {
     description: 'Project estimation support tied to engineered drawings, so your budget matches what will actually be built. For contractors and developers.',
   },
   'shop-drawings': {
-    title: 'Structural Steel Shop Drawings & CAD Drafting | PRIMECOST',
-    description: 'Fabrication-ready shop drawings for structural steel, architectural and MEP trades. CAD and BIM drafting checked by licensed engineers.',
+    title: 'Steel Shop Drawings & Structural Shop Drawing Services | PRIMECOST',
+    description: 'Structural steel shop drawings, erection drawings and connection details for fabricators and contractors, checked by licensed engineers. PE-sealed connection calcs available.',
   },
   'sign-stamp-services': {
     title: 'PE Stamp Services, Shop Drawing Review & Delegated Design | PRIMECOST',

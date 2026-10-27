@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuickQuoteForm from '../components/QuickQuoteForm';
+import serviceGuides from '../data/serviceGuides';
 import { useParams, Link } from 'react-router-dom';
 import { 
   CheckCircle, HelpCircle, ArrowRight, HardDrive, Users, 
@@ -589,6 +590,19 @@ export default function ServicePage() {
             </p>
           </div>
 
+          {/* Keyword-focused detail sections (only for services that have them) */}
+          {(serviceGuides[serviceId]?.sections || []).map((sec, idx) => (
+            <div key={idx} style={styles.sectionCard} className="glass">
+              <h2 style={styles.sectionTitle}>{sec.heading}</h2>
+              {sec.paragraphs.map((para, i) => <p key={i} style={styles.paragraph}>{para}</p>)}
+              {sec.bullets && (
+                <ul style={{ ...styles.paragraph, paddingLeft: '1.2rem', lineHeight: 1.8 }}>
+                  {sec.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                </ul>
+              )}
+            </div>
+          ))}
+
           {/* Who Needs It */}
           <div style={styles.sectionCard} className="glass">
             <h2 style={styles.sectionTitle}>Who Needs {service.name}?</h2>
@@ -643,6 +657,17 @@ export default function ServicePage() {
           </div>
 
           <QuickQuoteForm source={`Service: ${service.name}`} heading={`Get a quote for ${service.name}`} />
+
+          {serviceGuides[serviceId]?.related && (
+            <div style={styles.sectionCard} className="glass">
+              <h2 style={styles.sectionTitle}>Related Guides</h2>
+              <ul style={{ ...styles.paragraph, paddingLeft: '1.2rem', lineHeight: 1.9 }}>
+                {serviceGuides[serviceId].related.map((g) => (
+                  <li key={g.to}><Link to={g.to} style={{ color: '#1b3b6f', fontWeight: 700 }}>{g.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Software Used */}
           <div style={styles.sectionCard} className="glass">

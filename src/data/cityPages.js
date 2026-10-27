@@ -40,7 +40,7 @@ export const cityPages = {
       { title: 'Commercial and medical build-outs', desc: 'Tenant improvements often need structural checks for new equipment, rooftop units, or openings in existing framing. We provide the calculations and details reviewers require.' },
     ],
     services: ['structural-engineering', 'inspection-assessment', 'architectural-design', 'mep-engineering'],
-    nearby: ['spring-tx', 'cypress-tx', 'katy-tx'],
+    nearby: ['montgomery-tx', 'spring-tx', 'cypress-tx'],
     faq: [
       { question: 'Do you serve Conroe and Montgomery, TX too?', answer: 'Yes. We work throughout Montgomery County, including The Woodlands, Conroe, Magnolia, and Montgomery, as well as the greater Houston area.' },
       { question: 'Can you design a load-bearing wall removal in The Woodlands?', answer: 'Yes. We evaluate the existing framing, size the new beam and posts, check the foundation support, and provide PE-sealed drawings for review and construction.' },
@@ -109,7 +109,7 @@ export const cityPages = {
       { title: 'Older buildings in Old Town Spring', desc: 'Renovating older commercial and residential buildings often means assessing existing framing before reuse. We provide condition assessments and strengthening designs.' },
     ],
     services: ['structural-engineering', 'inspection-assessment', 'permit-correction', 'construction-services'],
-    nearby: ['the-woodlands-tx', 'cypress-tx', 'katy-tx'],
+    nearby: ['the-woodlands-tx', 'montgomery-tx', 'cypress-tx'],
     faq: [
       { question: 'Is Spring, TX a city?', answer: 'Spring is largely unincorporated and spans parts of Harris and Montgomery counties, so the permitting authority depends on your address.' },
       { question: 'Can you evaluate an older building before I renovate it?', answer: 'Yes. We assess the existing structure, identify what can be reused, and design any strengthening needed for the new use.' },
@@ -137,6 +137,31 @@ export const cityPages = {
       { question: 'Do patio covers in Pearland need engineered drawings?', answer: 'Often yes, especially for larger or attached covers. Wind loads and connections must be designed properly. Check with your permitting authority and HOA; we can provide sealed drawings.' },
       { question: 'Do you serve Friendswood, League City and Alvin?', answer: 'Yes. We work across the south Houston area and Brazoria, Galveston, and Harris counties.' },
       { question: 'Can you provide a foundation letter for a home purchase?', answer: 'Yes. We provide PE-sealed foundation evaluations and letters for buyers, sellers, and lenders.' },
+    ],
+  },
+  'montgomery-tx': {
+    city: 'Montgomery',
+    county: 'Montgomery County',
+    metaTitle: 'Structural Engineer Montgomery TX & Conroe | Commercial | PRIMECOST',
+    metaDescription: 'Commercial and industrial structural engineering in Montgomery, Conroe and Montgomery County, TX: steel and concrete design, structural analysis, PE-stamped plans. Call (832) 234-6456.',
+    h1: 'Structural Engineering Company in Montgomery, TX and Conroe',
+    intro: [
+      'Montgomery County is one of the fastest-growing counties in Texas, and the area around Montgomery, Conroe and Lake Conroe is seeing steady demand for commercial buildings, light industrial space, warehouses, and large custom homes. PRIMECOST provides commercial and industrial structural engineering for developers, general contractors, fabricators and owners across Montgomery County from our Houston office.',
+      'We design and analyze steel and concrete structures, prepare PE-stamped drawings and calculations for permit, and support contractors through plan review and construction. Whether the project is inside the City of Montgomery, in Conroe, or in an unincorporated part of the county, we prepare documents for the authority that reviews it.',
+    ],
+    local: [
+      { title: 'Steel buildings and warehouses', desc: 'Pre-engineered metal buildings, steel-framed warehouses and shops need foundations, anchor bolt designs, mezzanines and connections checked. We design foundations and steel elements and review shop drawings for fabricators.' },
+      { title: 'Concrete structure design and analysis', desc: 'We design slabs, grade beams, piers, tilt-wall panels and retaining walls, and analyze existing concrete structures when cracks, overloads or changes in use raise questions.' },
+      { title: 'Industrial and equipment support', desc: 'Equipment pads, pipe racks, platforms and rooftop equipment supports need structural design for their loads. We provide calculations and sealed details for industrial and commercial facilities.' },
+      { title: 'Lake Conroe homes and waterfront structures', desc: 'Large custom homes, boathouses, decks and retaining walls near Lake Conroe often involve sloped lots and long spans. We design framing, foundations and retaining structures for these sites.' },
+    ],
+    services: ['structural-engineering', 'construction-services', 'inspection-assessment', 'permit-correction'],
+    nearby: ['the-woodlands-tx', 'spring-tx', 'cypress-tx'],
+    faq: [
+      { question: 'Do you provide commercial structural engineering in Montgomery, TX?', answer: 'Yes. We design and analyze steel and concrete structures for commercial and industrial projects in Montgomery, Conroe and across Montgomery County, and provide PE-stamped drawings and calculations for permit.' },
+      { question: 'Can you analyze an existing concrete structure?', answer: 'Yes. We inspect and analyze existing concrete slabs, beams, walls and foundations, evaluate cracks and capacity, and design repairs or strengthening when needed.' },
+      { question: 'Do you work with steel fabricators in Montgomery County?', answer: 'Yes. We provide delegated connection design, PE-sealed steel calculations and shop drawing review for fabricators and erectors.' },
+      { question: 'Do you serve Conroe, Willis and Magnolia?', answer: 'Yes. We work throughout Montgomery County, including Conroe, Willis, Magnolia, Montgomery and The Woodlands.' },
     ],
   },
 };
