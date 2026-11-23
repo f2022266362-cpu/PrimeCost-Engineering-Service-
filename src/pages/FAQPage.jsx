@@ -40,7 +40,7 @@ export default function FAQPage() {
 
       {/* Hero Banner */}
       <div className="faq-hero-banner" style={{
-        background: 'linear-gradient(135deg, #0F2446 0%, #1a3a6e 60%, #0F2446 100%)',
+        background: '#0B1B2B',
         padding: '9rem 1.5rem 5rem',
         textAlign: 'center',
         position: 'relative',
@@ -48,16 +48,16 @@ export default function FAQPage() {
       }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(200,154,69,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(200,154,69,0.1) 0%, transparent 60%)',
+          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 90, 31,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(255, 90, 31,0.1) 0%, transparent 60%)',
           pointerEvents: 'none'
         }} />
         <ScrollReveal variant="fade-up">
           <span style={{
-            display: 'inline-block', background: 'rgba(200,154,69,0.2)',
-            color: '#C89A45', fontSize: '0.75rem', fontWeight: 700,
+            display: 'inline-block', background: 'rgba(255, 90, 31,0.2)',
+            color: '#B13A0B', fontSize: '0.75rem', fontWeight: 700,
             letterSpacing: '0.2em', textTransform: 'uppercase',
             padding: '0.4rem 1.2rem', borderRadius: '20px',
-            border: '1px solid rgba(200,154,69,0.3)', marginBottom: '1.5rem'
+            border: '1px solid rgba(255, 90, 31,0.3)', marginBottom: '1.5rem'
           }}>
             {faqCategories.length} Categories · {totalFaqs}+ Questions Answered
           </span>
@@ -66,7 +66,7 @@ export default function FAQPage() {
             fontWeight: 850, margin: '0 0 1rem', lineHeight: 1.15
           }}>
             Frequently Asked<br />
-            <span style={{ color: '#C89A45' }}>Engineering Questions</span>
+            <span style={{ color: '#B13A0B' }}>Engineering Questions</span>
           </h1>
           <p style={{
             color: 'rgba(255,255,255,0.75)', fontSize: '1rem',
@@ -104,11 +104,11 @@ export default function FAQPage() {
         {searchResults !== null ? (
           <div>
             <p style={{ color: '#556987', marginBottom: '1.5rem', fontWeight: 600 }}>
-              {searchResults.length} result{searchResults.length !== 1 ? 's' : ''} for "<strong style={{ color: '#0F2446' }}>{search}</strong>"
+              {searchResults.length} result{searchResults.length !== 1 ? 's' : ''} for "<strong style={{ color: '#0B1B2B' }}>{search}</strong>"
             </p>
             {searchResults.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '3rem', background: '#fff', borderRadius: '16px' }}>
-                <p style={{ color: '#8a9bb5', fontSize: '1.05rem' }}>No questions found. Try a different search term.</p>
+                <p style={{ color: '#5A6B84', fontSize: '1.05rem' }}>No questions found. Try a different search term.</p>
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -130,11 +130,11 @@ export default function FAQPage() {
             {/* Sidebar — Category List */}
             <div className="faq-sidebar-categories" style={{
               background: '#fff', borderRadius: '20px', padding: '1.25rem',
-              border: '1px solid #e8eef5', boxShadow: '0 4px 20px rgba(15,36,70,0.05)',
+              border: '1px solid #e8eef5', boxShadow: '0 4px 20px rgba(11, 27, 43,0.05)',
               position: 'sticky', top: '100px'
             }}>
               <p style={{
-                fontSize: '0.7rem', fontWeight: 700, color: '#C89A45',
+                fontSize: '0.7rem', fontWeight: 700, color: '#B13A0B',
                 letterSpacing: '0.18em', textTransform: 'uppercase',
                 marginBottom: '0.75rem', paddingBottom: '0.75rem',
                 borderBottom: '1px solid #e8eef5'
@@ -149,7 +149,7 @@ export default function FAQPage() {
                     padding: '0.65rem 0.85rem', borderRadius: '10px',
                     border: 'none', cursor: 'pointer', marginBottom: '0.2rem',
                     fontSize: '0.82rem', fontWeight: openCategory === cat.category ? 700 : 500,
-                    background: openCategory === cat.category ? '#0F2446' : 'transparent',
+                    background: openCategory === cat.category ? '#0B1B2B' : 'transparent',
                     color: openCategory === cat.category ? '#fff' : '#334155',
                     transition: 'all 0.2s ease'
                   }}
@@ -157,13 +157,13 @@ export default function FAQPage() {
                   <ServiceIcon
                     name={cat.icon}
                     size={16}
-                    color={openCategory === cat.category ? '#C89A45' : '#8a9bb5'}
+                    color={openCategory === cat.category ? '#B13A0B' : '#5A6B84'}
                   />
                   <span style={{ flex: 1 }}>{cat.category}</span>
                   <span style={{
                     fontSize: '0.65rem', fontWeight: 700,
-                    background: openCategory === cat.category ? 'rgba(255,255,255,0.2)' : '#eef3fb',
-                    color: openCategory === cat.category ? '#fff' : '#8a9bb5',
+                    background: openCategory === cat.category ? 'rgba(255,255,255,0.2)' : '#F2EFE8',
+                    color: openCategory === cat.category ? '#fff' : '#5A6B84',
                     padding: '0.1rem 0.45rem', borderRadius: '10px'
                   }}>{cat.faqs.length}</span>
                 </button>
@@ -180,18 +180,18 @@ export default function FAQPage() {
                   }}>
                     <div style={{
                       width: '48px', height: '48px', borderRadius: '12px',
-                      background: 'rgba(200,154,69,0.1)',
-                      border: '1.5px solid rgba(200,154,69,0.25)',
+                      background: 'rgba(255, 90, 31,0.1)',
+                      border: '1.5px solid rgba(255, 90, 31,0.25)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0
                     }}>
-                      <ServiceIcon name={activeCategoryData.icon} size={22} color="#C89A45" />
+                      <ServiceIcon name={activeCategoryData.icon} size={22} color="#B13A0B" />
                     </div>
                     <div>
-                      <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F2446', margin: 0 }}>
+                      <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0B1B2B', margin: 0 }}>
                         {activeCategoryData.category}
                       </h2>
-                      <p style={{ fontSize: '0.8rem', color: '#8a9bb5', margin: 0 }}>
+                      <p style={{ fontSize: '0.8rem', color: '#5A6B84', margin: 0 }}>
                         {activeCategoryData.faqs.length} frequently asked questions
                       </p>
                     </div>
@@ -217,10 +217,10 @@ export default function FAQPage() {
         <ScrollReveal variant="fade-up">
           <div style={{
             marginTop: '5rem', textAlign: 'center',
-            background: 'linear-gradient(135deg, #0F2446, #1a3a6e)',
+            background: '#0B1B2B',
             borderRadius: '24px', padding: '3.5rem 2rem',
           }}>
-            <MessageCircle size={36} style={{ color: '#C89A45', marginBottom: '1rem' }} />
+            <MessageCircle size={36} style={{ color: '#B13A0B', marginBottom: '1rem' }} />
             <h2 style={{ color: '#fff', fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.75rem' }}>
               Still Have Questions?
             </h2>
@@ -231,9 +231,9 @@ export default function FAQPage() {
               href="tel:+18322346456"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                background: '#C89A45', color: '#fff', padding: '0.9rem 2.25rem',
+                background: '#FF5A1F', color: '#fff', padding: '0.9rem 2.25rem',
                 borderRadius: '50px', fontWeight: 700, fontSize: '0.9rem',
-                textDecoration: 'none', boxShadow: '0 8px 24px rgba(200,154,69,0.35)'
+                textDecoration: 'none', boxShadow: '0 8px 24px rgba(255, 90, 31,0.35)'
               }}
             >
               Call Us: (832) 234-6456
@@ -250,9 +250,9 @@ function FaqItem({ faq, isOpen, onToggle, badge }) {
     <div
       style={{
         background: '#fff', borderRadius: '14px',
-        border: `1.5px solid ${isOpen ? '#0F2446' : '#e8eef5'}`,
+        border: `1.5px solid ${isOpen ? '#0B1B2B' : '#e8eef5'}`,
         overflow: 'hidden',
-        boxShadow: isOpen ? '0 6px 24px rgba(15,36,70,0.08)' : '0 2px 8px rgba(15,36,70,0.04)',
+        boxShadow: isOpen ? '0 6px 24px rgba(11, 27, 43,0.08)' : '0 2px 8px rgba(11, 27, 43,0.04)',
         transition: 'all 0.2s ease'
       }}
     >
@@ -268,20 +268,20 @@ function FaqItem({ faq, isOpen, onToggle, badge }) {
           {badge && (
             <span style={{
               display: 'inline-block', fontSize: '0.65rem', fontWeight: 700,
-              color: '#C89A45', background: 'rgba(200,154,69,0.1)',
+              color: '#B13A0B', background: 'rgba(255, 90, 31,0.1)',
               padding: '0.15rem 0.5rem', borderRadius: '8px',
               marginBottom: '0.4rem'
             }}>{badge}</span>
           )}
           <p style={{
             margin: 0, fontSize: '0.9rem', fontWeight: 650,
-            color: '#0F2446', lineHeight: 1.4
+            color: '#0B1B2B', lineHeight: 1.4
           }}>{faq.question}</p>
         </div>
         <ChevronDown
           size={18}
           style={{
-            color: '#8a9bb5', flexShrink: 0,
+            color: '#5A6B84', flexShrink: 0,
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
             transition: 'transform 0.25s ease'
           }}

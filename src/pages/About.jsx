@@ -47,7 +47,7 @@ export default function About() {
   };
 
   return (
-    <div style={{ paddingTop: '7rem', minHeight: '100vh', background: '#f8fafc' }}>
+    <div style={{ paddingTop: '7rem', minHeight: '100vh', background: '#FBF7EE' }}>
       <SchemaManager
         title="Contact Us | PRIMECOST Engineering"
         description="Get in touch with PRIMECOST. Send us a message, visit our Houston HQ, or email our scoping desk."
@@ -127,6 +127,7 @@ export default function About() {
                     <div style={styles.group}>
                       <label style={styles.label}>Subject</label>
                       <select
+                        aria-label="Subject"
                         name="subject"
                         value={form.subject} onChange={handleChange}
                         style={styles.input}
@@ -160,8 +161,8 @@ export default function About() {
                       required
                       style={{ marginTop: '3px', cursor: 'pointer' }}
                     />
-                    <label htmlFor="smsOptIn" style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
-                      I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <Link to="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</Link> and <Link to="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</Link>.
+                    <label htmlFor="smsOptIn" style={{ fontSize: '0.78rem', color: '#4F5B6A', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
+                      I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <Link to="/privacy-policy" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</Link> and <Link to="/terms-conditions" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</Link>.
                     </label>
                   </div>
 
@@ -185,12 +186,12 @@ export default function About() {
               {/* Location Card */}
               <GlassCard style={styles.infoCard}>
                 <div style={styles.infoIconBox}>
-                  <MapPin size={22} style={{ color: '#C89A45' }} />
+                  <MapPin size={22} style={{ color: '#B13A0B' }} />
                 </div>
                 <div>
                   <h3 style={styles.infoTitle}>Company Locations</h3>
                   <div style={{ marginBottom: '1.25rem' }}>
-                    <span style={{ fontWeight: '800', color: '#0F2446', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Main Office (WY)</span>
+                    <span style={{ fontWeight: '800', color: '#0B1B2B', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Main Office (WY)</span>
                     <p style={styles.infoText}>75 E 3RD ST STE 7</p>
                     <p style={styles.infoText}>Sheridan, WY 82801</p>
                     <a
@@ -203,7 +204,7 @@ export default function About() {
                     </a>
                   </div>
                   <div>
-                    <span style={{ fontWeight: '800', color: '#0F2446', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Sub-office (TX)</span>
+                    <span style={{ fontWeight: '800', color: '#0B1B2B', display: 'block', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Sub-office (TX)</span>
                     <p style={styles.infoText}>440 Louisiana St, Suite 900</p>
                     <p style={styles.infoText}>Houston, TX 77002</p>
                     <a
@@ -221,7 +222,7 @@ export default function About() {
               {/* Email Card */}
               <GlassCard style={styles.infoCard}>
                 <div style={styles.infoIconBox}>
-                  <Mail size={22} style={{ color: '#C89A45' }} />
+                  <Mail size={22} style={{ color: '#B13A0B' }} />
                 </div>
                 <div>
                   <h3 style={styles.infoTitle}>Email Us</h3>
@@ -234,7 +235,7 @@ export default function About() {
               {/* Phone Card */}
               <GlassCard style={styles.infoCard}>
                 <div style={styles.infoIconBox}>
-                  <Phone size={22} style={{ color: '#C89A45' }} />
+                  <Phone size={22} style={{ color: '#B13A0B' }} />
                 </div>
                 <div>
                   <h3 style={styles.infoTitle}>Phone</h3>
@@ -249,13 +250,13 @@ export default function About() {
               {/* Hours Card */}
               <GlassCard style={styles.infoCard}>
                 <div style={styles.infoIconBox}>
-                  <Clock size={22} style={{ color: '#C89A45' }} />
+                  <Clock size={22} style={{ color: '#B13A0B' }} />
                 </div>
                 <div>
                   <h3 style={styles.infoTitle}>Business Hours</h3>
                   <p style={styles.infoText}>Mon – Fri: 9:00 AM – 6:00 PM</p>
                   <p style={styles.infoText}>Sat: 10:00 AM – 4:00 PM</p>
-                  <p style={{ ...styles.infoText, color: '#ef4444' }}>Sun: Closed</p>
+                  <p style={{ ...styles.infoText, color: '#B42318' }}>Sun: Closed</p>
                 </div>
               </GlassCard>
 
@@ -271,12 +272,12 @@ export default function About() {
                     fontWeight: '700',
                     borderRadius: '8px',
                     border: '1px solid',
-                    borderColor: activeMap === 'wy' ? '#C89A45' : '#e2e8f0',
-                    backgroundColor: activeMap === 'wy' ? '#C89A45' : 'transparent',
-                    color: activeMap === 'wy' ? '#fff' : '#0F2446',
+                    borderColor: activeMap === 'wy' ? '#B13A0B' : '#e2e8f0',
+                    backgroundColor: activeMap === 'wy' ? '#B13A0B' : 'transparent',
+                    color: activeMap === 'wy' ? '#fff' : '#0B1B2B',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    boxShadow: activeMap === 'wy' ? '0 4px 12px rgba(200, 154, 69, 0.2)' : 'none',
+                    boxShadow: activeMap === 'wy' ? '0 4px 12px rgba(255, 90, 31, 0.2)' : 'none',
                   }}
                 >
                   WY Main Office Map
@@ -291,12 +292,12 @@ export default function About() {
                     fontWeight: '700',
                     borderRadius: '8px',
                     border: '1px solid',
-                    borderColor: activeMap === 'tx' ? '#C89A45' : '#e2e8f0',
-                    backgroundColor: activeMap === 'tx' ? '#C89A45' : 'transparent',
-                    color: activeMap === 'tx' ? '#fff' : '#0F2446',
+                    borderColor: activeMap === 'tx' ? '#B13A0B' : '#e2e8f0',
+                    backgroundColor: activeMap === 'tx' ? '#B13A0B' : 'transparent',
+                    color: activeMap === 'tx' ? '#fff' : '#0B1B2B',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    boxShadow: activeMap === 'tx' ? '0 4px 12px rgba(200, 154, 69, 0.2)' : 'none',
+                    boxShadow: activeMap === 'tx' ? '0 4px 12px rgba(255, 90, 31, 0.2)' : 'none',
                   }}
                 >
                   TX Sub-office Map
@@ -338,7 +339,7 @@ export default function About() {
 const styles = {
   pageHeader: {
     padding: '3.5rem 0 3rem 0',
-    background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eef8 100%)',
+    background: '#F3ECDD',
     borderBottom: '1px solid #e2e8f0',
     textAlign: 'center',
   },
@@ -346,7 +347,7 @@ const styles = {
     display: 'inline-block',
     fontSize: '0.72rem',
     fontWeight: '700',
-    color: '#C89A45',
+    color: '#B13A0B',
     letterSpacing: '0.18em',
     textTransform: 'uppercase',
     marginBottom: '0.75rem',
@@ -354,14 +355,14 @@ const styles = {
   pageTitle: {
     fontSize: 'clamp(2rem, 6vw, 3rem)',
     fontWeight: '850',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     lineHeight: 1.15,
     marginBottom: '0.75rem',
   },
   pageSubtitle: {
     fontSize: '1.05rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     maxWidth: '480px',
     margin: '0 auto',
     lineHeight: 1.6,
@@ -383,13 +384,13 @@ const styles = {
   cardTitle: {
     fontSize: '1.65rem',
     fontWeight: '800',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     marginBottom: '0.4rem',
   },
   cardSubtitle: {
     fontSize: '0.92rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     marginBottom: '2rem',
     lineHeight: 1.55,
   },
@@ -411,7 +412,7 @@ const styles = {
   label: {
     fontSize: '0.78rem',
     fontWeight: '700',
-    color: '#0F2446',
+    color: '#0B1B2B',
     textTransform: 'uppercase',
     letterSpacing: '0.06em',
   },
@@ -420,7 +421,7 @@ const styles = {
     borderRadius: '8px',
     border: '1.5px solid #e2e8f0',
     fontSize: '0.9rem',
-    color: '#0F2446',
+    color: '#0B1B2B',
     background: '#ffffff',
     outline: 'none',
     transition: 'border-color 0.2s',
@@ -438,20 +439,20 @@ const styles = {
   successTitle: {
     fontSize: '1.6rem',
     fontWeight: '800',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     marginBottom: '0.5rem',
   },
   successText: {
-    color: '#64748b',
+    color: '#4F5B6A',
     fontSize: '0.95rem',
     lineHeight: 1.55,
     marginBottom: '1.5rem',
   },
   resetBtn: {
     background: 'none',
-    border: '1.5px solid #0F2446',
-    color: '#0F2446',
+    border: '1.5px solid #0B1B2B',
+    color: '#0B1B2B',
     padding: '0.6rem 1.5rem',
     borderRadius: '8px',
     fontWeight: '700',
@@ -474,7 +475,7 @@ const styles = {
     width: '42px',
     height: '42px',
     borderRadius: '10px',
-    background: 'rgba(200,154,69,0.1)',
+    background: 'rgba(255, 90, 31,0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -483,19 +484,19 @@ const styles = {
   infoTitle: {
     fontSize: '1rem',
     fontWeight: '800',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     marginBottom: '0.35rem',
   },
   infoText: {
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: 1.5,
     margin: '0.1rem 0',
   },
   infoLink: {
     fontSize: '0.88rem',
-    color: '#C89A45',
+    color: '#B13A0B',
     fontWeight: '600',
     textDecoration: 'none',
     display: 'inline-block',

@@ -24,7 +24,7 @@ export default function Founder() {
   }, []);
 
   return (
-    <div style={{ paddingTop: '7rem', minHeight: '100vh', background: '#f8fafc', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ paddingTop: '7rem', minHeight: '100vh', background: '#FBF7EE', position: 'relative', overflow: 'hidden' }}>
       <SchemaManager
         title="Meet Frank Moore | CEO & Founder of PRIMECOST"
         description="Learn about Frank Moore, CEO and Founder of PRIMECOST, with 20+ years of experience leading pre-construction and structural engineering."
@@ -81,7 +81,7 @@ export default function Founder() {
               {/* Contact / Highlights */}
               <div style={styles.highlightsGrid}>
                 <div style={styles.highlightItem}>
-                  <Award size={20} style={{ color: '#C89A45', flexShrink: 0 }} />
+                  <Award size={20} style={{ color: '#B13A0B', flexShrink: 0 }} />
                   <div>
                     <strong style={styles.hlTitle}>20+ Years Experience</strong>
                     <p style={styles.hlSub}>Structural & Pre-Construction</p>
@@ -89,7 +89,7 @@ export default function Founder() {
                 </div>
 
                 <div style={styles.highlightItem}>
-                  <ShieldCheck size={20} style={{ color: '#C89A45', flexShrink: 0 }} />
+                  <ShieldCheck size={20} style={{ color: '#B13A0B', flexShrink: 0 }} />
                   <div>
                     <strong style={styles.hlTitle}>Licensed Leadership</strong>
                     <p style={styles.hlSub}>50-State Engineering Bids</p>
@@ -104,7 +104,7 @@ export default function Founder() {
                   </PrimaryButton>
                 </a>
                 <a href="tel:8322346456">
-                  <PrimaryButton variant="outline" icon={<Phone size={16} />} style={{ borderColor: '#0F2446', color: '#0F2446' }}>
+                  <PrimaryButton variant="outline" icon={<Phone size={16} />} style={{ borderColor: '#0B1B2B', color: '#0B1B2B' }}>
                     Call Direct
                   </PrimaryButton>
                 </a>
@@ -139,11 +139,11 @@ const styles = {
     width: '340px',
     height: '340px',
     borderRadius: '50%',
-    background: 'linear-gradient(135deg, #0F2446 0%, #1b3b6f 100%)',
+    background: '#0B1B2B',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: '0 20px 40px rgba(15, 36, 70, 0.2)',
+    boxShadow: '0 20px 40px rgba(11, 27, 43, 0.2)',
   },
   goldRing: {
     position: 'absolute',
@@ -152,8 +152,8 @@ const styles = {
     right: '-8px',
     bottom: '-8px',
     borderRadius: '50%',
-    border: '3px solid #C89A45',
-    boxShadow: '0 0 20px rgba(200, 154, 69, 0.4)',
+    border: '3px solid #B13A0B',
+    boxShadow: '0 0 20px rgba(255, 90, 31, 0.4)',
     pointerEvents: 'none',
     transition: 'transform 0.1s ease-out',
   },
@@ -171,36 +171,36 @@ const styles = {
   name: {
     fontSize: '3.2rem',
     fontWeight: '850',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     lineHeight: '1.1',
     margin: '0.2rem 0',
   },
   title: {
     fontSize: '1.1rem',
     fontWeight: '600',
-    color: '#64748b',
+    color: '#4F5B6A',
     display: 'block',
     marginBottom: '1.5rem',
   },
   quoteCard: {
     padding: '1.5rem 1.75rem',
     marginBottom: '1.75rem',
-    borderLeft: '4px solid #C89A45',
-    backgroundColor: 'rgba(200, 154, 69, 0.06)',
+    borderLeft: '4px solid #B13A0B',
+    backgroundColor: 'rgba(255, 90, 31, 0.06)',
     borderRadius: '0 12px 12px 0',
   },
   quoteText: {
     fontSize: '1.1rem',
     fontWeight: '600',
     fontStyle: 'italic',
-    color: '#0F2446',
+    color: '#0B1B2B',
     lineHeight: '1.5',
     margin: 0,
   },
   signature: {
     fontSize: '1rem',
-    color: '#C89A45',
+    color: '#B13A0B',
     display: 'block',
     marginTop: '0.5rem',
     textAlign: 'right',
@@ -234,11 +234,11 @@ const styles = {
   hlTitle: {
     display: 'block',
     fontSize: '0.92rem',
-    color: '#0F2446',
+    color: '#0B1B2B',
   },
   hlSub: {
     fontSize: '0.8rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     margin: 0,
   },
 };

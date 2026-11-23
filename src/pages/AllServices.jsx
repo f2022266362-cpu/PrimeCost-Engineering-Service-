@@ -11,7 +11,7 @@ const allServicesData = [
     id: 'structural-engineering',
     icon: 'Building2',
     title: 'Structural Engineering',
-    color: '#0F2446',
+    color: '#0B1B2B',
     subServices: [
       'Structural Design', 'Structural Analysis', 'Structural Calculations',
       'Building Design', 'Steel Structure Design', 'Reinforced Concrete (RC) Design',
@@ -197,7 +197,7 @@ export default function AllServices() {
 
       {/* Hero Banner */}
       <div className="services-hero-banner" style={{
-        background: 'linear-gradient(135deg, #0F2446 0%, #1a3a6e 60%, #0F2446 100%)',
+        background: '#0B1B2B',
         padding: '9rem 1.5rem 5rem',
         textAlign: 'center',
         position: 'relative',
@@ -205,16 +205,16 @@ export default function AllServices() {
       }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(200,154,69,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(200,154,69,0.1) 0%, transparent 60%)',
+          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 90, 31,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(255, 90, 31,0.1) 0%, transparent 60%)',
           pointerEvents: 'none'
         }} />
         <ScrollReveal variant="fade-up">
           <span style={{
-            display: 'inline-block', background: 'rgba(200,154,69,0.2)',
-            color: '#C89A45', fontSize: '0.75rem', fontWeight: 700,
+            display: 'inline-block', background: 'rgba(255, 90, 31,0.2)',
+            color: '#B13A0B', fontSize: '0.75rem', fontWeight: 700,
             letterSpacing: '0.2em', textTransform: 'uppercase',
             padding: '0.4rem 1.2rem', borderRadius: '20px',
-            border: '1px solid rgba(200,154,69,0.3)', marginBottom: '1.5rem'
+            border: '1px solid rgba(255, 90, 31,0.3)', marginBottom: '1.5rem'
           }}>
             {allServicesData.length} Categories · {totalServices}+ Services
           </span>
@@ -223,7 +223,7 @@ export default function AllServices() {
             fontWeight: 850, margin: '0 0 1rem', lineHeight: 1.15
           }}>
             Our Complete<br />
-            <span style={{ color: '#C89A45' }}>Service Portfolio</span>
+            <span style={{ color: '#B13A0B' }}>Service Portfolio</span>
           </h1>
           <p style={{
             color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem',
@@ -264,16 +264,16 @@ export default function AllServices() {
         padding: '2rem 1.5rem', textAlign: 'center'
       }}>
         <p style={{
-          fontSize: '0.72rem', fontWeight: 700, color: '#C89A45',
+          fontSize: '0.72rem', fontWeight: 700, color: '#B13A0B',
           letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem'
         }}>
-          <Star size={13} style={{ marginRight: '0.3rem', verticalAlign: 'middle', color: '#C89A45' }} />
+          <Star size={13} style={{ marginRight: '0.3rem', verticalAlign: 'middle', color: '#B13A0B' }} />
           Recommended Premium Services
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
           {premiumServices.map((s, i) => (
             <span key={i} style={{
-              background: 'linear-gradient(135deg, #0F2446, #1a3a6e)',
+              background: '#0B1B2B',
               color: '#fff', fontSize: '0.78rem', fontWeight: 600,
               padding: '0.35rem 0.9rem', borderRadius: '20px',
               letterSpacing: '0.02em'
@@ -297,18 +297,18 @@ export default function AllServices() {
                   borderRadius: '20px',
                   padding: '1.75rem',
                   border: '1px solid #e8eef5',
-                  boxShadow: '0 4px 24px rgba(15,36,70,0.06)',
+                  boxShadow: '0 4px 24px rgba(11, 27, 43,0.06)',
                   transition: 'transform 0.25s ease, box-shadow 0.25s ease',
                   height: '100%',
                   display: 'flex', flexDirection: 'column'
                 }}
                   onMouseEnter={e => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(15,36,70,0.12)';
+                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(11, 27, 43,0.12)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 24px rgba(15,36,70,0.06)';
+                    e.currentTarget.style.boxShadow = '0 4px 24px rgba(11, 27, 43,0.06)';
                   }}
                 >
                   {/* Card Header */}
@@ -325,10 +325,10 @@ export default function AllServices() {
                     <div>
                       <h2 style={{
                         fontSize: '1.05rem', fontWeight: 750,
-                        color: '#0F2446', margin: 0, lineHeight: 1.3
+                        color: '#0B1B2B', margin: 0, lineHeight: 1.3
                       }}>{cat.title}</h2>
                       <span style={{
-                        fontSize: '0.72rem', color: '#8a9bb5', fontWeight: 500
+                        fontSize: '0.72rem', color: '#5A6B84', fontWeight: 500
                       }}>{cat.subServices.length} services</span>
                     </div>
                   </div>
@@ -374,13 +374,13 @@ export default function AllServices() {
         <ScrollReveal variant="fade-up">
           <div style={{
             marginTop: '5rem', textAlign: 'center',
-            background: 'linear-gradient(135deg, #0F2446, #1a3a6e)',
+            background: '#0B1B2B',
             borderRadius: '24px', padding: '3.5rem 2rem',
             position: 'relative', overflow: 'hidden'
           }}>
             <div style={{
               position: 'absolute', inset: 0,
-              backgroundImage: 'radial-gradient(circle at 80% 50%, rgba(200,154,69,0.15) 0%, transparent 60%)',
+              backgroundImage: 'radial-gradient(circle at 80% 50%, rgba(255, 90, 31,0.15) 0%, transparent 60%)',
               pointerEvents: 'none'
             }} />
             <h2 style={{ color: '#fff', fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 800, marginBottom: '1rem' }}>
@@ -394,10 +394,10 @@ export default function AllServices() {
               onClick={() => window.scrollTo({ top: 0 })}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                background: '#C89A45', color: '#fff', padding: '0.9rem 2.25rem',
+                background: '#FF5A1F', color: '#fff', padding: '0.9rem 2.25rem',
                 borderRadius: '50px', fontWeight: 700, fontSize: '0.9rem',
                 textDecoration: 'none', letterSpacing: '0.04em',
-                boxShadow: '0 8px 24px rgba(200,154,69,0.35)'
+                boxShadow: '0 8px 24px rgba(255, 90, 31,0.35)'
               }}
             >
               Get a Free Quote <ArrowRight size={16} />

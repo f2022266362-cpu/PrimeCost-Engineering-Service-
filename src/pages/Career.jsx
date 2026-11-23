@@ -6,6 +6,8 @@ import GlassCard from '../components/ui/GlassCard';
 import SectionHeading from '../components/ui/SectionHeading';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Badge from '../components/ui/Badge';
+import Photo from '../components/ui/Photo';
+import { photos } from '../data/media';
 
 const openings = [
   {
@@ -99,7 +101,7 @@ export default function Career() {
               <h1 style={{ ...styles.heroTitle, fontSize: 'clamp(2.1rem, 6vw, 3.8rem)' }}>Build the Future<br />With Us</h1>
               <p style={styles.heroSub}>
                 Join a fast-growing structural engineering and design firm trusted by developers,
-                architects, and contractors across all 50 states.
+                architects, and contractors across all 49 states.
               </p>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
                 <a href="#openings">
@@ -108,7 +110,7 @@ export default function Career() {
                   </PrimaryButton>
                 </a>
                 <a href="mailto:Frank.moore@primecost.biz">
-                  <PrimaryButton variant="outline" style={{ borderColor: '#0F2446', color: '#0F2446' }}>
+                  <PrimaryButton variant="outline" style={{ borderColor: '#0B1B2B', color: '#0B1B2B' }}>
                     Send Your Resume
                   </PrimaryButton>
                 </a>
@@ -116,7 +118,7 @@ export default function Career() {
 
               {/* Quick stats row */}
               <div style={styles.heroStats}>
-                {[['50+', 'States Served'], ['200+', 'Team Members'], ['2005', 'Est. Year']].map(([num, label]) => (
+                {[['49', 'States Served'], ['200+', 'Team Members'], ['2005', 'Est. Year']].map(([num, label]) => (
                   <div key={label} style={styles.heroStat}>
                     <strong style={styles.heroStatNum}>{num}</strong>
                     <span style={styles.heroStatLabel}>{label}</span>
@@ -125,17 +127,19 @@ export default function Career() {
               </div>
             </ScrollReveal>
 
-            {/* Right — AI photo */}
+            {/* Right — photo */}
             <ScrollReveal variant="fade-up" style={{ transitionDelay: '0.15s' }}>
               <div style={styles.heroImgWrap} className="career-hero-img-wrap">
                 {/* Decorative gold ring */}
                 <div style={styles.heroImgRing} />
-                <img
-                  src="/career-hero.webp"
-                  alt="Engineering team handshake — join PRIMECOST"
+                <Photo
+                  photo={photos.welder}
+                  width={1200}
+                  sizes="(max-width: 900px) 100vw, 45vw"
+                  alt="Construction professionals reviewing work on an active jobsite"
                   style={styles.heroImg}
                   className="career-hero-img"
-                  loading="eager"
+                  eager
                 />
                 {/* Floating badge */}
                 <div style={styles.heroImgBadge}>
@@ -179,7 +183,7 @@ export default function Career() {
       </section>
 
       {/* Open Positions */}
-      <section style={{ ...styles.section, backgroundColor: '#f8fafc' }} id="openings">
+      <section style={{ ...styles.section, backgroundColor: '#FBF7EE' }} id="openings">
         <div className="container">
           <SectionHeading
             tag="OPEN POSITIONS"
@@ -248,8 +252,8 @@ export default function Career() {
                   required
                   style={{ marginTop: '3px', cursor: 'pointer' }}
                 />
-                <label htmlFor="smsOptInCareer" style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none', textAlign: 'left' }}>
-                  I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
+                <label htmlFor="smsOptInCareer" style={{ fontSize: '0.78rem', color: '#5E6B7A', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none', textAlign: 'left' }}>
+                  I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
                 </label>
               </div>
 
@@ -276,7 +280,7 @@ const styles = {
     padding: '5rem 0 6rem 0',
     position: 'relative',
     overflow: 'hidden',
-    background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eef8 60%, #fdf6e8 100%)',
+    background: '#F3ECDD',
     borderBottom: '1px solid #e2e8f0',
   },
   heroGrid: {
@@ -290,7 +294,7 @@ const styles = {
     gap: '2rem',
     marginTop: '2.5rem',
     paddingTop: '2rem',
-    borderTop: '1px solid rgba(15,36,70,0.1)',
+    borderTop: '1px solid rgba(11, 27, 43,0.1)',
   },
   heroStat: {
     display: 'flex',
@@ -299,12 +303,12 @@ const styles = {
   heroStatNum: {
     fontSize: '1.6rem',
     fontWeight: 800,
-    color: '#0F2446',
+    color: '#0B1B2B',
     lineHeight: 1,
   },
   heroStatLabel: {
     fontSize: '0.75rem',
-    color: '#8a9bb5',
+    color: '#5A6B84',
     fontWeight: 500,
     marginTop: '0.2rem',
   },
@@ -317,7 +321,7 @@ const styles = {
     position: 'absolute',
     inset: '-10px',
     borderRadius: '30px',
-    border: '2px solid rgba(200,154,69,0.35)',
+    border: '2px solid rgba(255, 90, 31,0.35)',
     zIndex: 0,
     pointerEvents: 'none',
   },
@@ -329,7 +333,7 @@ const styles = {
     display: 'block',
     position: 'relative',
     zIndex: 1,
-    boxShadow: '0 24px 60px rgba(15,36,70,0.18)',
+    boxShadow: '0 24px 60px rgba(11, 27, 43,0.18)',
   },
   heroImgBadge: {
     position: 'absolute',
@@ -346,14 +350,14 @@ const styles = {
     padding: '0.5rem 1rem',
     fontSize: '0.78rem',
     fontWeight: 700,
-    color: '#0F2446',
-    boxShadow: '0 4px 16px rgba(15,36,70,0.12)',
+    color: '#0B1B2B',
+    boxShadow: '0 4px 16px rgba(11, 27, 43,0.12)',
   },
   heroTitle: {
     fontSize: '3.8rem',
     fontWeight: '850',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
     lineHeight: '1.1',
     letterSpacing: '-0.02em',
     marginBottom: '1.25rem',
@@ -384,12 +388,12 @@ const styles = {
   perkTitle: {
     fontSize: '1.1rem',
     fontWeight: '800',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
   },
   perkDesc: {
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.55',
   },
   jobsGrid: {
@@ -413,8 +417,8 @@ const styles = {
   jobTitle: {
     fontSize: '1.25rem',
     fontWeight: '800',
-    color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif",
+    color: '#0B1B2B',
+    fontFamily: "var(--font-display)",
   },
   jobMeta: {
     display: 'flex',
@@ -426,7 +430,7 @@ const styles = {
     alignItems: 'center',
     gap: '0.3rem',
     fontSize: '0.8rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     fontWeight: '600',
     backgroundColor: '#f1f5f9',
     padding: '0.25rem 0.65rem',
@@ -456,7 +460,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.4rem',
-    backgroundColor: '#0F2446',
+    backgroundColor: '#0B1B2B',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
@@ -483,22 +487,22 @@ const styles = {
   closeBtn: {
     position: 'absolute', top: '1.25rem', right: '1.25rem',
     background: 'none', border: 'none', fontSize: '1.1rem',
-    cursor: 'pointer', color: '#64748b',
+    cursor: 'pointer', color: '#4F5B6A',
   },
   modalTitle: {
-    fontSize: '1.6rem', fontWeight: '800', color: '#0F2446',
-    fontFamily: "'Outfit', sans-serif", marginBottom: '0.4rem',
+    fontSize: '1.6rem', fontWeight: '800', color: '#0B1B2B',
+    fontFamily: "var(--font-display)", marginBottom: '0.4rem',
   },
-  modalSub: { fontSize: '0.9rem', color: '#64748b', marginBottom: '1.5rem' },
+  modalSub: { fontSize: '0.9rem', color: '#4F5B6A', marginBottom: '1.5rem' },
   form: { display: 'flex', flexDirection: 'column', gap: '1rem' },
   input: {
     padding: '0.75rem 1rem', borderRadius: '8px', border: '1px solid #cbd5e1',
-    fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc',
+    fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#FBF7EE',
     outline: 'none', fontFamily: 'inherit', width: '100%',
   },
   submitBtn: {
     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-    backgroundColor: '#0F2446', color: '#ffffff', border: 'none',
+    backgroundColor: '#0B1B2B', color: '#ffffff', border: 'none',
     borderRadius: '8px', padding: '0.85rem', fontWeight: '700', fontSize: '0.95rem',
     cursor: 'pointer', marginTop: '0.5rem',
   },
@@ -507,7 +511,7 @@ const styles = {
     backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px',
     padding: '0.85rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem',
     boxShadow: '0 8px 24px rgba(0,0,0,0.1)', zIndex: 9999,
-    fontSize: '0.9rem', fontWeight: '600', color: '#0F2446',
+    fontSize: '0.9rem', fontWeight: '600', color: '#0B1B2B',
   },
 };
 
