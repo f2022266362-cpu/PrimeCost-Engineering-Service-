@@ -25,9 +25,9 @@ export default function TimelineItem({ year, title, desc, index }) {
           width: '20px',
           height: '20px',
           borderRadius: '50%',
-          backgroundColor: '#0F2446',
-          border: '4px solid #C89A45',
-          boxShadow: '0 0 10px rgba(200, 154, 69, 0.4)',
+          backgroundColor: '#0B1B2B',
+          border: '4px solid #B13A0B',
+          boxShadow: '0 0 10px rgba(255, 90, 31, 0.4)',
           zIndex: 5
         }}
       />
@@ -36,8 +36,8 @@ export default function TimelineItem({ year, title, desc, index }) {
       <div style={{ width: '45%', paddingRight: '2rem', textAlign: 'right' }}>
         {isEven ? (
           <GlassCard style={{ padding: '1.5rem', textAlign: 'right' }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: '800', color: '#C89A45', display: 'block', marginBottom: '0.25rem' }}>{year}</span>
-            <h4 style={{ fontSize: '1.15rem', color: '#0F2446', fontWeight: '700', marginBottom: '0.5rem' }}>{title}</h4>
+            <span style={{ fontSize: '1.25rem', fontWeight: '800', color: '#B13A0B', display: 'block', marginBottom: '0.25rem' }}>{year}</span>
+            <h4 style={{ fontSize: '1.15rem', color: '#0B1B2B', fontWeight: '700', marginBottom: '0.5rem' }}>{title}</h4>
             <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: '1.6' }}>{desc}</p>
           </GlassCard>
         ) : (
@@ -52,8 +52,8 @@ export default function TimelineItem({ year, title, desc, index }) {
       <div style={{ width: '45%', paddingLeft: '2rem', textAlign: 'left' }}>
         {!isEven ? (
           <GlassCard style={{ padding: '1.5rem', textAlign: 'left' }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: '800', color: '#C89A45', display: 'block', marginBottom: '0.25rem' }}>{year}</span>
-            <h4 style={{ fontSize: '1.15rem', color: '#0F2446', fontWeight: '700', marginBottom: '0.5rem' }}>{title}</h4>
+            <span style={{ fontSize: '1.25rem', fontWeight: '800', color: '#B13A0B', display: 'block', marginBottom: '0.25rem' }}>{year}</span>
+            <h4 style={{ fontSize: '1.15rem', color: '#0B1B2B', fontWeight: '700', marginBottom: '0.5rem' }}>{title}</h4>
             <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: '1.6' }}>{desc}</p>
           </GlassCard>
         ) : (

@@ -1,68 +1,34 @@
-import React from 'react';
+
+const VARIANT_CLASS = {
+  primary: 'pc-btn--primary',
+  secondary: 'pc-btn--accent',
+  accent: 'pc-btn--accent',
+  outline: 'pc-btn--outline',
+  'ghost-light': 'pc-btn--ghost-light',
+};
 
 export default function PrimaryButton({
   children,
   onClick = null,
   type = 'button',
-  variant = 'primary', // 'primary', 'secondary', 'outline'
-  className = "",
+  variant = 'primary', // 'primary' | 'secondary' | 'outline' | 'ghost-light'
+  size = 'md',
+  className = '',
   style = {},
-  icon = null
+  icon = null,
+  ...rest
 }) {
-  let buttonStyle = {
-    padding: '0.8rem 2rem',
-    borderRadius: '12px',
-    fontWeight: '700',
-    fontSize: '0.9rem',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    fontFamily: "'Outfit', sans-serif",
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.5rem',
-    transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-    cursor: 'pointer',
-    border: 'none',
-    boxShadow: '0 4px 12px rgba(15, 36, 70, 0.08)'
-  };
-
-  if (variant === 'primary') {
-    buttonStyle = {
-      ...buttonStyle,
-      backgroundColor: '#0F2446',
-      color: '#ffffff',
-      border: '2px solid transparent'
-    };
-  } else if (variant === 'secondary') {
-    buttonStyle = {
-      ...buttonStyle,
-      backgroundColor: '#C89A45',
-      color: '#0F2446',
-      border: '2px solid transparent'
-    };
-  } else {
-    // outline
-    buttonStyle = {
-      ...buttonStyle,
-      backgroundColor: 'transparent',
-      color: '#0F2446',
-      border: '2px solid #0F2446'
-    };
-  }
-
-  // Active styles and hover shadows can be managed via CSS classes
-  const classes = `btn-shine-effect ${variant === 'primary' ? 'primary-glow-hover' : ''} ${className}`;
+  const classes = [
+    'pc-btn',
+    VARIANT_CLASS[variant] || VARIANT_CLASS.primary,
+    size === 'sm' ? 'pc-btn--sm' : '',
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      style={{ ...buttonStyle, ...style }}
-      className={classes}
-    >
+    <button type={type} onClick={onClick} style={style} className={classes} {...rest}>
       {children}
-      {icon && <span className="arrow-slide-hover">{icon}</span>}
+      {icon && <span aria-hidden="true" style={{ display: 'inline-flex' }}>{icon}</span>}
     </button>
   );
 }

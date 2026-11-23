@@ -66,14 +66,14 @@ export default function StatCard({ value, label, suffix = "" }) {
           alignItems: 'center' 
         }}
       >
-        <h3 style={{ fontSize: '3rem', fontWeight: '800', color: '#0F2446', fontFamily: "'Outfit', sans-serif" }}>
+        <h3 style={{ fontSize: '3rem', fontWeight: '800', color: '#0B1B2B', fontFamily: "var(--font-display)" }}>
           {isLessThan && '< '}
           {formattedCount}
           {isPercent && '%'}
           {isPlus && '+'}
           {suffix}
         </h3>
-        <p style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <p style={{ fontSize: '0.9rem', color: '#4F5B6A', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
           {label}
         </p>
       </GlassCard>
