@@ -87,12 +87,12 @@ export default function QuickQuoteForm({ source = 'Website', heading = 'Get a qu
 
 const styles = {
   box: {
-    backgroundColor: '#0F2446', color: '#ffffff', borderRadius: '14px',
+    backgroundColor: '#0B1B2B', color: '#ffffff', borderRadius: '14px',
     padding: '1.75rem', margin: '2.5rem 0',
   },
   heading: { fontSize: '1.3rem', fontWeight: 800, margin: '0 0 0.4rem 0', color: '#ffffff' },
   sub: { fontSize: '0.92rem', color: '#cbd5e1', margin: '0 0 1.1rem 0', lineHeight: 1.5 },
-  link: { color: '#C89A45', fontWeight: 700 },
+  link: { color: '#B13A0B', fontWeight: 700 },
   form: { display: 'flex', flexDirection: 'column', gap: '0.75rem' },
   row: { display: 'flex', gap: '0.75rem', flexWrap: 'wrap' },
   input: {
@@ -100,7 +100,7 @@ const styles = {
     fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#ffffff', fontFamily: 'inherit', backgroundImage: 'none', boxSizing: 'border-box',
   },
   button: {
-    alignSelf: 'flex-start', backgroundColor: '#C89A45', color: '#0F2446', border: 'none',
+    alignSelf: 'flex-start', backgroundColor: '#FF5A1F', color: '#0B1B2B', border: 'none',
     borderRadius: '8px', padding: '0.8rem 1.6rem', fontWeight: 800, fontSize: '0.95rem', cursor: 'pointer',
   },
   error: { fontSize: '0.88rem', color: '#fecaca', margin: 0 },

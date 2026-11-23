@@ -202,7 +202,7 @@ const FAQ_DATA = [
   },
   {
     question: "What is the best estimating company in the USA?",
-    answer: "PRIMECOST (PrimeCost Engineering & Design LLC) is a leading construction estimating company in the USA, based in Houston, TX. We deliver highly accurate estimates, quantity takeoffs, and pre-construction support to contractors and developers across all 50 states."
+    answer: "PRIMECOST (PrimeCost Engineering & Design LLC) is a leading construction estimating company in the USA, based in Houston, TX. We deliver highly accurate estimates, quantity takeoffs, and pre-construction support to contractors and developers across all 49 states."
   },
   {
     question: "What is quantity surveying?",
@@ -421,7 +421,6 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
               alt="WhatsApp"
               className="whatsapp-float-logo"
             />
-            <span style={styles.whatsappBadge}>Live Help</span>
           </a>
 
           {/* Chat Floating Toggle Button */}
@@ -431,15 +430,14 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
             className="pulse-glow"
             aria-label="Open support chat"
           >
-            <MessageSquare size={24} />
-            <span style={styles.badge}>Live Chat</span>
+            <MessageSquare size={22} strokeWidth={1.5} />
           </button>
         </>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div style={styles.chatWindow} className="glass">
+        <div style={styles.chatWindow} className="glass" data-lenis-prevent>
           {/* Header */}
           <div style={styles.chatHeader}>
             <div style={styles.avatarContainer}>
@@ -469,7 +467,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
                 <div
                   style={{
                     ...styles.messageBubble,
-                    backgroundColor: msg.sender === 'user' ? '#1b3b6f' : '#ffffff',
+                    backgroundColor: msg.sender === 'user' ? '#1E3A55' : '#ffffff',
                     color: msg.sender === 'user' ? '#ffffff' : '#334155',
                     border: msg.sender === 'bot' ? '1px solid #e2e8f0' : 'none',
                     borderRadius: msg.sender === 'user' ? '12px 12px 2px 12px' : '12px 12px 12px 2px'
@@ -496,7 +494,7 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
 
                   <span style={{
                     ...styles.messageTime,
-                    color: msg.sender === 'user' ? 'rgba(255,255,255,0.7)' : '#94a3b8'
+                    color: msg.sender === 'user' ? 'rgba(255,255,255,0.7)' : '#5E6B7A'
                   }}>{msg.time}</span>
                 </div>
               </div>
@@ -562,25 +560,25 @@ const styles = {
     bottom: '24px',
     right: '24px',
     zIndex: 9999,
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "var(--font-sans)",
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
     gap: '12px',
   },
   floatingBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#0B1B2B',
     color: '#ffffff',
-    border: 'none',
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
+    border: '1px solid #22324A',
+    width: '52px',
+    height: '52px',
+    borderRadius: '0',
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: '0 8px 30px rgba(27, 59, 111, 0.4)',
+    boxShadow: '0 10px 30px -10px rgba(13, 23, 38, 0.5)',
     transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     position: 'relative',
   },
@@ -588,7 +586,7 @@ const styles = {
     position: 'absolute',
     top: '-4px',
     right: '-4px',
-    backgroundColor: '#c5a880',
+    backgroundColor: '#FF8A5C',
     color: '#0f172a',
     fontSize: '0.65rem',
     fontWeight: '700',
@@ -640,21 +638,21 @@ const styles = {
     width: '36px',
     height: '36px',
     borderRadius: '50%',
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: '700',
     fontSize: '0.85rem',
-    border: '2px solid #c5a880',
+    border: '2px solid #FF8A5C',
   },
   botName: {
     fontSize: '0.92rem',
     fontWeight: '700',
     color: '#ffffff',
     margin: 0,
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
   },
   botStatus: {
     fontSize: '0.72rem',
@@ -670,7 +668,7 @@ const styles = {
   closeBtn: {
     background: 'none',
     border: 'none',
-    color: '#94a3b8',
+    color: '#5E6B7A',
     cursor: 'pointer',
     padding: '4px',
     borderRadius: '50%',
@@ -683,7 +681,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '1rem',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
   },
   messageRow: {
     display: 'flex',
@@ -714,7 +712,7 @@ const styles = {
     flexWrap: 'wrap',
   },
   inlineCtaBtnPrimary: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     borderRadius: '4px',
@@ -728,8 +726,8 @@ const styles = {
   },
   inlineCtaBtnSecondary: {
     backgroundColor: 'transparent',
-    border: '1px solid #1b3b6f',
-    color: '#1b3b6f',
+    border: '1px solid #1E3A55',
+    color: '#1E3A55',
     borderRadius: '4px',
     padding: '0.4rem 0.6rem',
     fontSize: '0.72rem',
@@ -748,7 +746,7 @@ const styles = {
   faqLabel: {
     fontSize: '0.72rem',
     fontWeight: '700',
-    color: '#64748b',
+    color: '#4F5B6A',
     textTransform: 'uppercase',
     marginBottom: '0.4rem',
     letterSpacing: '0.5px',
@@ -788,10 +786,10 @@ const styles = {
     padding: '0.6rem 1.2rem',
     fontSize: '0.88rem',
     outline: 'none',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
   },
   sendBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     width: '36px',
@@ -825,7 +823,7 @@ if (typeof document !== 'undefined') {
     }
     .faqBadge:hover {
       background-color: #e2e8f0 !important;
-      color: #1b3b6f !important;
+      color: #1E3A55 !important;
     }
     @keyframes whatsapp-bounce {
       0%, 40%, 100% {

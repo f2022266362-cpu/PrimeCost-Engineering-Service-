@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
-import { X, Send, CheckCircle2, FileUp, ShieldCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, Send, CheckCircle2, FileUp } from 'lucide-react';
 import { saveLeadToSheet } from '../utils/sheetsLogger';
 import emailjs from '@emailjs/browser';
 
+// Hooks must not run conditionally: the wrapper decides visibility, the inner
+// component owns the form state (and starts fresh every time it opens).
 export default function ProposalModal({ isOpen, onClose }) {
   if (!isOpen) return null;
+  return <ProposalModalDialog onClose={onClose} />;
+}
+
+function ProposalModalDialog({ onClose }) {
+  // Pause page smooth-scroll while the dialog is open so the form itself scrolls
+  useEffect(() => {
+    window.__lenis?.stop();
+    return () => window.__lenis?.start();
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -22,6 +33,7 @@ export default function ProposalModal({ isOpen, onClose }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [fileName, setFileName] = useState('');
+  const [ticketRef] = useState(() => Math.floor(Math.random() * 90000) + 10000);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -116,7 +128,7 @@ Message: ${err?.message || 'N/A'}
   };
 
   return (
-    <div style={styles.overlay}>
+    <div style={styles.overlay} data-lenis-prevent>
       <style>{`
         @media (max-width: 480px) {
           .proposal-modal { padding: 1.25rem !important; border-radius: 12px !important; }
@@ -207,8 +219,8 @@ Message: ${err?.message || 'N/A'}
                 required
                 style={{ marginTop: '3px', cursor: 'pointer' }}
               />
-              <label htmlFor="smsOptInProposal" style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
-                I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
+              <label htmlFor="smsOptInProposal" style={{ fontSize: '0.78rem', color: '#5E6B7A', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
+                I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
               </label>
             </div>
 
@@ -325,7 +337,7 @@ Message: ${err?.message || 'N/A'}
               Thank you, <strong>{formData.name}</strong>. Our engineering and pre-construction bidding team has received your files and details.
             </p>
             <div style={styles.ticketCard}>
-              <p><strong>Ticket reference:</strong> PM-{Math.floor(Math.random() * 90000) + 10000}</p>
+              <p><strong>Ticket reference:</strong> PM-{ticketRef}</p>
               <p><strong>Project:</strong> {formData.projectType} ({formData.area} sq.ft.)</p>
               <p><strong>Location:</strong> {formData.location}</p>
               <p><strong>Expected Scoping Bid:</strong> Within 24 business hours</p>
@@ -385,7 +397,7 @@ const styles = {
     right: '1.25rem',
     background: 'none',
     border: 'none',
-    color: '#64748b',
+    color: '#4F5B6A',
     cursor: 'pointer',
     padding: '0.25rem',
     borderRadius: '50%',
@@ -412,7 +424,7 @@ const styles = {
   },
   subtitle: {
     fontSize: '0.9rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5'
   },
   row: {
@@ -436,7 +448,7 @@ const styles = {
     border: '1px solid #cbd5e1',
     fontSize: '0.95rem',
     color: '#0f172a',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     transition: 'all 0.2s',
     outline: 'none',
   },
@@ -447,7 +459,7 @@ const styles = {
   fileUploadBox: {
     border: '2px dashed #cbd5e1',
     borderRadius: '8px',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     padding: '1rem',
     textAlign: 'center',
     cursor: 'pointer',
@@ -466,7 +478,7 @@ const styles = {
     fontSize: '0.85rem',
   },
   fileIcon: {
-    color: '#1b3b6f',
+    color: '#1E3A55',
   },
   termsBox: {
     display: 'flex',
@@ -485,7 +497,7 @@ const styles = {
     cursor: 'pointer',
   },
   submitBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
@@ -521,7 +533,7 @@ const styles = {
     lineHeight: '1.6',
   },
   ticketCard: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     border: '1px solid #e2e8f0',
     borderRadius: '12px',
     padding: '1.25rem',
@@ -535,11 +547,11 @@ const styles = {
   },
   successNotice: {
     fontSize: '0.85rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     marginBottom: '1.5rem',
   },
   closeSuccessBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',

@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Calendar, Clock, Video, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { saveLeadToSheet } from '../utils/sheetsLogger';
 import emailjs from '@emailjs/browser';
 
+// Hooks must not run conditionally: the wrapper decides visibility, the inner
+// component owns the form state (and starts fresh every time it opens).
 export default function ConsultationModal({ isOpen, onClose }) {
   if (!isOpen) return null;
+  return <ConsultationModalDialog onClose={onClose} />;
+}
+
+function ConsultationModalDialog({ onClose }) {
+  // Pause page smooth-scroll while the dialog is open so the form itself scrolls
+  useEffect(() => {
+    window.__lenis?.stop();
+    return () => window.__lenis?.start();
+  }, []);
 
   const timeSlots = [
     '09:00 AM - 10:00 AM',
@@ -119,7 +130,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
   };
 
   return (
-    <div style={styles.overlay}>
+    <div style={styles.overlay} data-lenis-prevent>
       <div style={styles.backdrop} onClick={onClose} />
       <div style={styles.modal} className="animate-fade-in">
         <button style={styles.closeBtn} onClick={onClose} aria-label="Close modal">
@@ -196,8 +207,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 required
                 style={{ marginTop: '3px', cursor: 'pointer' }}
               />
-              <label htmlFor="smsOptInConsultation" style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
-                I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#C89A45', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
+              <label htmlFor="smsOptInConsultation" style={{ fontSize: '0.78rem', color: '#5E6B7A', lineHeight: '1.45', cursor: 'pointer', userSelect: 'none' }}>
+                I agree to receive SMS communications from PRIMECOST. Message and data rates may apply. Message frequency varies. You can opt-out at any time by replying STOP. Read our <a href="/privacy-policy" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Privacy Policy</a> and <a href="/terms-conditions" target="_blank" style={{ color: '#B13A0B', fontWeight: '600', textDecoration: 'none' }}>Terms & Conditions</a>.
               </label>
             </div>
 
@@ -383,7 +394,7 @@ const styles = {
     right: '1.25rem',
     background: 'none',
     border: 'none',
-    color: '#64748b',
+    color: '#4F5B6A',
     cursor: 'pointer',
     padding: '0.25rem',
     borderRadius: '50%',
@@ -407,7 +418,7 @@ const styles = {
   },
   subtitle: {
     fontSize: '0.9rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5'
   },
   row: {
@@ -431,7 +442,7 @@ const styles = {
     border: '1px solid #cbd5e1',
     fontSize: '0.95rem',
     color: '#0f172a',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     outline: 'none',
   },
   textarea: {
@@ -454,14 +465,14 @@ const styles = {
     cursor: 'pointer',
     fontSize: '0.85rem',
     fontWeight: '500',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     transition: 'all 0.2s',
     textAlign: 'center',
   },
   formatOptionActive: {
-    borderColor: '#1b3b6f',
+    borderColor: '#1E3A55',
     backgroundColor: 'rgba(27, 59, 111, 0.05)',
-    color: '#1b3b6f',
+    color: '#1E3A55',
     boxShadow: '0 0 0 2px rgba(27, 59, 111, 0.1)',
   },
   radioHidden: {
@@ -476,7 +487,7 @@ const styles = {
     padding: '0.6rem 0.25rem',
     border: '1px solid #cbd5e1',
     borderRadius: '8px',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
@@ -487,7 +498,7 @@ const styles = {
     transition: 'all 0.2s',
   },
   dateBtnActive: {
-    borderColor: '#c5a880',
+    borderColor: '#FF8A5C',
     backgroundColor: 'rgba(197, 168, 128, 0.1)',
     color: '#a98d63',
     boxShadow: '0 0 0 2px rgba(197, 168, 128, 0.1)',
@@ -501,7 +512,7 @@ const styles = {
     padding: '0.6rem',
     border: '1px solid #cbd5e1',
     borderRadius: '8px',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
@@ -512,13 +523,13 @@ const styles = {
     transition: 'all 0.2s',
   },
   timeBtnActive: {
-    borderColor: '#1b3b6f',
+    borderColor: '#1E3A55',
     backgroundColor: 'rgba(27, 59, 111, 0.05)',
-    color: '#1b3b6f',
+    color: '#1E3A55',
     boxShadow: '0 0 0 2px rgba(27, 59, 111, 0.1)',
   },
   submitBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
@@ -550,7 +561,7 @@ const styles = {
     lineHeight: '1.6',
   },
   ticketCard: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     border: '1px solid #e2e8f0',
     borderRadius: '12px',
     padding: '1.25rem',
@@ -564,11 +575,11 @@ const styles = {
   },
   successNotice: {
     fontSize: '0.85rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     marginBottom: '1.5rem',
   },
   closeSuccessBtn: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
