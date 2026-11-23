@@ -1,75 +1,23 @@
-import React from 'react';
 
 export default function SectionHeading({
-  tag = "",
+  tag = '',
   title,
-  subtitle = "",
-  align = "center", // "left", "center"
-  style = {}
+  subtitle = '',
+  align = 'center', // 'left' | 'center'
+  dark = false,
+  style = {},
 }) {
-  const isCenter = align === 'center';
-  
   return (
-    <div 
-      style={{ 
-        maxWidth: '750px', 
-        marginLeft: isCenter ? 'auto' : '0', 
-        marginRight: isCenter ? 'auto' : '0', 
-        textAlign: align,
-        marginBottom: '3rem',
-        ...style 
-      }}
-    >
-      {tag && (
-        <span 
-          style={{ 
-            fontSize: '0.82rem', 
-            fontWeight: '700', 
-            color: '#C89A45', 
-            letterSpacing: '0.15em', 
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '0.5rem'
-          }}
-        >
-          {tag}
-        </span>
-      )}
-      <h2 
-        className="section-heading-title"
-        style={{ 
-          fontSize: '2.5rem', 
-          fontWeight: '800', 
-          color: '#0F2446', 
-          fontFamily: "'Outfit', sans-serif",
-          lineHeight: '1.2',
-          letterSpacing: '-0.02em'
-        }}
-      >
+    <div className={`pc-section-head ${align === 'center' ? 'is-center' : ''}`} style={style}>
+      {tag && <span className={`pc-eyebrow ${dark ? 'on-dark' : ''}`}>{tag}</span>}
+      <h2 className="pc-section-head__title section-heading-title" style={dark ? { color: '#fff' } : undefined}>
         {title}
       </h2>
       {subtitle && (
-        <p 
-          style={{ 
-            fontSize: '1.05rem', 
-            color: '#64748b', 
-            marginTop: '0.75rem',
-            lineHeight: '1.6'
-          }}
-        >
+        <p className="pc-section-head__sub" style={dark ? { color: 'rgba(255,255,255,0.68)' } : undefined}>
           {subtitle}
         </p>
       )}
-      <div 
-        style={{ 
-          width: '50px', 
-          height: '2px', 
-          backgroundColor: '#C89A45', 
-          marginTop: '1.25rem',
-          marginLeft: isCenter ? 'auto' : '0',
-          marginRight: isCenter ? 'auto' : '0'
-        }} 
-      />
     </div>
   );
 }

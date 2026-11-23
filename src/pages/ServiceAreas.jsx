@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SchemaManager from '../components/SchemaManager';
 import ScrollReveal from '../components/ScrollReveal';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import cityPages from '../data/cityPages';
 
 const stateData = {
@@ -92,7 +92,23 @@ const codeHighlights = [
 
 export default function ServiceAreas() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedState, setSelectedState] = useState(null);
+  const [searchParams] = useSearchParams();
+  const paramState = searchParams.get('state');
+  const [selectedState, setSelectedState] = useState(paramState && stateData[paramState] ? paramState : null);
+
+  // Arriving from the "Areas Covered" menu (?state=Texas): open that state's panel
+  const [lastParam, setLastParam] = useState(paramState);
+  if (paramState !== lastParam) {
+    setLastParam(paramState);
+    if (paramState && stateData[paramState]) setSelectedState(paramState);
+  }
+  useEffect(() => {
+    if (!paramState || !stateData[paramState]) return undefined;
+    const t = setTimeout(() => {
+      document.getElementById('state-detail')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 600);
+    return () => clearTimeout(t);
+  }, [paramState]);
 
   const filteredStates = allStates.filter(s =>
     s.toLowerCase().includes(searchTerm.toLowerCase())
@@ -108,10 +124,10 @@ export default function ServiceAreas() {
       />
 
       {/* Hero Banner */}
-      <section style={{ background: 'linear-gradient(135deg, #0c1f3d 0%, #1b3b6f 60%, #1e4a8a 100%)', padding: '5rem 0 3rem', color: '#fff', textAlign: 'center' }}>
+      <section style={{ background: '#0B1B2B', padding: '9.5rem 0 4.5rem', color: '#fff', textAlign: 'center' }}>
         <div className="container">
-          <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Licensed Coverage</span>
-          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontFamily: "'Outfit', sans-serif", fontWeight: '800', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#FF8A5C', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Licensed Coverage</span>
+          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontFamily: "var(--font-display)", fontWeight: '800', marginTop: '0.5rem', marginBottom: '1rem' }}>
             Engineering Services Across 49 States
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#cbd5e1', maxWidth: '620px', margin: '0 auto 1.5rem' }}>
@@ -128,20 +144,20 @@ export default function ServiceAreas() {
       </section>
 
       {/* Regional Code Highlights */}
-      <section style={{ padding: '4rem 0', backgroundColor: '#f8fafc' }}>
+      <section style={{ padding: '4rem 0', backgroundColor: '#FBF7EE' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Engineering by Region</span>
-            <h2 style={{ fontSize: '2rem', color: '#1b3b6f', marginTop: '0.5rem', fontFamily: "'Outfit', sans-serif" }}>State-Specific Engineering Expertise</h2>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#FF8A5C', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Engineering by Region</span>
+            <h2 style={{ fontSize: '2rem', color: '#1E3A55', marginTop: '0.5rem', fontFamily: "var(--font-display)" }}>State-Specific Engineering Expertise</h2>
           </div>
           <ScrollReveal>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
               {codeHighlights.map((item, idx) => (
                 <div key={idx} style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 4px 12px rgba(0,0,0,0.04)', position: 'relative', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #1b3b6f, #c5a880)' }} />
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: '#FF5A1F' }} />
                   <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{item.icon}</div>
-                  <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#c5a880', textTransform: 'uppercase', letterSpacing: '0.1em', backgroundColor: '#fafaf9', padding: '0.15rem 0.5rem', borderRadius: '4px', border: '1px solid #f0ece3', display: 'inline-block', marginBottom: '0.75rem' }}>{item.badge}</span>
-                  <h3 style={{ fontSize: '1.1rem', color: '#1b3b6f', fontWeight: '700', marginBottom: '0.5rem' }}>{item.title}</h3>
+                  <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#FF8A5C', textTransform: 'uppercase', letterSpacing: '0.1em', backgroundColor: '#fafaf9', padding: '0.15rem 0.5rem', borderRadius: '4px', border: '1px solid #f0ece3', display: 'inline-block', marginBottom: '0.75rem' }}>{item.badge}</span>
+                  <h3 style={{ fontSize: '1.1rem', color: '#1E3A55', fontWeight: '700', marginBottom: '0.5rem' }}>{item.title}</h3>
                   <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.65' }}>{item.desc}</p>
                 </div>
               ))}
@@ -154,9 +170,9 @@ export default function ServiceAreas() {
       <section style={{ padding: '4rem 0', backgroundColor: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>State Directory</span>
-            <h2 style={{ fontSize: '2rem', color: '#1b3b6f', marginTop: '0.5rem', fontFamily: "'Outfit', sans-serif" }}>Find Engineering Requirements by State</h2>
-            <p style={{ color: '#64748b', marginTop: '0.5rem' }}>Search for your state to see its building code framework and local engineering requirements.</p>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#FF8A5C', letterSpacing: '0.15em', textTransform: 'uppercase' }}>State Directory</span>
+            <h2 style={{ fontSize: '2rem', color: '#1E3A55', marginTop: '0.5rem', fontFamily: "var(--font-display)" }}>Find Engineering Requirements by State</h2>
+            <p style={{ color: '#4F5B6A', marginTop: '0.5rem' }}>Search for your state to see its building code framework and local engineering requirements.</p>
           </div>
 
           {/* Search Input */}
@@ -173,11 +189,11 @@ export default function ServiceAreas() {
                 border: '2px solid #e2e8f0',
                 borderRadius: '8px',
                 outline: 'none',
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "var(--font-sans)",
                 transition: 'border-color 0.2s',
                 boxSizing: 'border-box'
               }}
-              onFocus={e => e.target.style.borderColor = '#1b3b6f'}
+              onFocus={e => e.target.style.borderColor = '#1E3A55'}
               onBlur={e => e.target.style.borderColor = '#e2e8f0'}
             />
           </div>
@@ -190,9 +206,9 @@ export default function ServiceAreas() {
                   key={state}
                   onClick={() => setSelectedState(selectedState === state ? null : state)}
                   style={{
-                    background: selectedState === state ? 'linear-gradient(135deg, #1b3b6f, #2a5298)' : '#f8fafc',
+                    background: selectedState === state ? '#0B1B2B' : '#FBF7EE',
                     color: selectedState === state ? '#fff' : '#334155',
-                    border: selectedState === state ? '2px solid #1b3b6f' : '2px solid #e2e8f0',
+                    border: selectedState === state ? '2px solid #1E3A55' : '2px solid #e2e8f0',
                     borderRadius: '8px',
                     padding: '0.75rem 1rem',
                     cursor: 'pointer',
@@ -200,25 +216,25 @@ export default function ServiceAreas() {
                     fontWeight: '600',
                     textAlign: 'left',
                     transition: 'all 0.18s ease',
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center'
                   }}
                 >
                   <span>{state}</span>
-                  <span style={{ fontSize: '0.75rem', opacity: 0.7 }}>{stateData[state].code}</span>
+                  <span style={{ fontSize: '0.75rem', opacity: 0.9 }}>{stateData[state].code}</span>
                 </button>
               ))}
               {filteredStates.length === 0 && (
-                <p style={{ gridColumn: '1/-1', textAlign: 'center', color: '#94a3b8', padding: '2rem 0' }}>No states found for "{searchTerm}"</p>
+                <p style={{ gridColumn: '1/-1', textAlign: 'center', color: '#5E6B7A', padding: '2rem 0' }}>No states found for "{searchTerm}"</p>
               )}
             </div>
           </ScrollReveal>
 
           {/* State Detail Panel */}
           {selectedState && stateData[selectedState] && (
-            <div style={{
+            <div id="state-detail" style={{
               backgroundColor: '#0c1f3d',
               color: '#fff',
               borderRadius: '16px',
@@ -229,20 +245,20 @@ export default function ServiceAreas() {
             }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
                 <div style={{ flex: 1, minWidth: '260px' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#c5a880', textTransform: 'uppercase', letterSpacing: '0.1em' }}>PE Engineering — {stateData[selectedState].code}</span>
-                  <h3 style={{ fontSize: '1.6rem', fontFamily: "'Outfit', sans-serif", fontWeight: '800', margin: '0.4rem 0 0.75rem' }}>{selectedState}</h3>
+                  <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#FF8A5C', textTransform: 'uppercase', letterSpacing: '0.1em' }}>PE Engineering — {stateData[selectedState].code}</span>
+                  <h3 style={{ fontSize: '1.6rem', fontFamily: "var(--font-display)", fontWeight: '800', margin: '0.4rem 0 0.75rem' }}>{selectedState}</h3>
                   <div style={{ backgroundColor: 'rgba(197,168,128,0.1)', border: '1px solid rgba(197,168,128,0.25)', borderRadius: '8px', padding: '0.6rem 1rem', display: 'inline-block', marginBottom: '1rem' }}>
-                    <span style={{ fontSize: '0.83rem', color: '#c5a880', fontWeight: '600' }}>📋 {stateData[selectedState].note}</span>
+                    <span style={{ fontSize: '0.83rem', color: '#FF8A5C', fontWeight: '600' }}>📋 {stateData[selectedState].note}</span>
                   </div>
                   <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: '1.75' }}>{stateData[selectedState].engineering}</p>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', minWidth: '220px' }}>
                   <div style={{ backgroundColor: 'rgba(255,255,255,0.07)', borderRadius: '10px', padding: '1.25rem', border: '1px solid rgba(255,255,255,0.08)' }}>
-                    <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem', fontWeight: '600', textTransform: 'uppercase' }}>Licensing Status</p>
+                    <p style={{ fontSize: '0.8rem', color: '#5E6B7A', marginBottom: '0.25rem', fontWeight: '600', textTransform: 'uppercase' }}>Licensing Status</p>
                     <p style={{ color: '#4ade80', fontWeight: '700', fontSize: '1rem' }}>✓ Active PE Network</p>
                   </div>
                   <a href="mailto:Frank.moore@primecost.biz" style={{
-                    backgroundColor: '#c5a880',
+                    backgroundColor: '#FF8A5C',
                     color: '#0c1f3d',
                     padding: '0.85rem 1.5rem',
                     borderRadius: '8px',
@@ -264,12 +280,12 @@ export default function ServiceAreas() {
       {/* Houston-area local pages */}
       <section style={{ padding: '3.5rem 0', backgroundColor: '#ffffff' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#c5a880', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Local Engineering</span>
-          <h2 style={{ fontSize: '2rem', color: '#1b3b6f', margin: '0.5rem 0 1.5rem', fontFamily: "'Outfit', sans-serif" }}>Houston-Area Cities We Serve</h2>
+          <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#FF8A5C', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Local Engineering</span>
+          <h2 style={{ fontSize: '2rem', color: '#1E3A55', margin: '0.5rem 0 1.5rem', fontFamily: "var(--font-display)" }}>Houston-Area Cities We Serve</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
-            <Link to="/services/structural-engineering" style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1b3b6f', color: '#1b3b6f', fontWeight: 700, textDecoration: 'none' }}>Houston, TX</Link>
+            <Link to="/services/structural-engineering" style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1E3A55', color: '#1E3A55', fontWeight: 700, textDecoration: 'none' }}>Houston, TX</Link>
             {Object.entries(cityPages).map(([slug, c]) => (
-              <Link key={slug} to={`/structural-engineer/${slug}`} style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1b3b6f', color: '#1b3b6f', fontWeight: 700, textDecoration: 'none' }}>
+              <Link key={slug} to={`/structural-engineer/${slug}`} style={{ padding: '0.7rem 1.2rem', borderRadius: '999px', border: '1.5px solid #1E3A55', color: '#1E3A55', fontWeight: 700, textDecoration: 'none' }}>
                 Structural Engineer {c.city}, TX
               </Link>
             ))}
@@ -278,9 +294,9 @@ export default function ServiceAreas() {
       </section>
 
       {/* CTA Strip */}
-      <section style={{ background: 'linear-gradient(135deg, #c5a880, #d4b896)', padding: '3.5rem 0', textAlign: 'center' }}>
+      <section style={{ background: '#F3ECDD', padding: '3.5rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontSize: '1.9rem', color: '#0c1f3d', fontFamily: "'Outfit', sans-serif", fontWeight: '800', marginBottom: '0.75rem' }}>
+          <h2 style={{ fontSize: '1.9rem', color: '#0c1f3d', fontFamily: "var(--font-display)", fontWeight: '800', marginBottom: '0.75rem' }}>
             Ready to Start Your Engineering Project?
           </h2>
           <p style={{ color: '#2d3748', fontSize: '1rem', marginBottom: '1.75rem' }}>

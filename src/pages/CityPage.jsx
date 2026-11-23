@@ -51,7 +51,7 @@ export default function CityPage() {
         <h1 style={styles.title}>{page.h1}</h1>
 
         <div style={styles.contactStrip}>
-          <strong style={{ color: '#0F2446' }}>Project in {page.city}?</strong>{' '}
+          <strong style={{ color: '#0B1B2B' }}>Project in {page.city}?</strong>{' '}
           Talk to a licensed engineer: <a href="tel:+18322346456" style={styles.link}>(832) 234-6456</a>{' '}
           or <a href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent(`Quote request: ${page.city}, TX`)}`} style={styles.link}>email your plans</a>.
         </div>
@@ -63,7 +63,7 @@ export default function CityPage() {
           {page.services.map((id) => (
             <li key={id}>
               <Link to={serviceHref(id)} style={styles.serviceLink}>
-                <CheckCircle size={16} style={{ color: '#C89A45', flexShrink: 0 }} />
+                <CheckCircle size={16} style={{ color: '#B13A0B', flexShrink: 0 }} />
                 {SERVICE_LABELS[id] || id}
                 <ArrowRight size={14} style={{ marginLeft: 'auto' }} />
               </Link>
@@ -118,29 +118,29 @@ export default function CityPage() {
 }
 
 const styles = {
-  page: { backgroundColor: '#f8fafc', paddingTop: '6.5rem', paddingBottom: '4rem', minHeight: '100vh' },
+  page: { backgroundColor: '#FBF7EE', paddingTop: '6.5rem', paddingBottom: '4rem', minHeight: '100vh' },
   article: {
     backgroundColor: '#ffffff', maxWidth: '860px', borderRadius: '16px',
     boxShadow: '0 10px 30px -12px rgba(0,0,0,0.15)', padding: '2rem 2.25rem', marginTop: '2rem',
   },
-  tag: { display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.8rem', color: '#c5a880', fontWeight: 700, letterSpacing: '0.5px' },
+  tag: { display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.8rem', color: '#FF8A5C', fontWeight: 700, letterSpacing: '0.5px' },
   title: { fontSize: '2.2rem', color: '#0f172a', lineHeight: 1.2, margin: '0.5rem 0 1rem' },
   contactStrip: {
-    backgroundColor: '#fdf8f0', borderLeft: '4px solid #c5a880', borderRadius: '6px',
+    backgroundColor: '#fdf8f0', borderLeft: '4px solid #FF8A5C', borderRadius: '6px',
     padding: '0.85rem 1rem', fontSize: '0.92rem', color: '#334155', lineHeight: 1.5, marginBottom: '1.5rem',
   },
-  link: { color: '#0F2446', fontWeight: 700, textDecoration: 'underline' },
+  link: { color: '#0B1B2B', fontWeight: 700, textDecoration: 'underline' },
   p: { fontSize: '1rem', lineHeight: 1.7, color: '#334155', marginBottom: '1rem' },
-  h2: { fontSize: '1.45rem', color: '#0F2446', margin: '2rem 0 0.9rem', fontWeight: 800 },
-  h3: { fontSize: '1.05rem', color: '#0F2446', margin: '0 0 0.35rem' },
+  h2: { fontSize: '1.45rem', color: '#0B1B2B', margin: '2rem 0 0.9rem', fontWeight: 800 },
+  h3: { fontSize: '1.05rem', color: '#0B1B2B', margin: '0 0 0.35rem' },
   serviceList: { listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.6rem' },
   serviceLink: {
     display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1rem', borderRadius: '8px',
-    border: '1px solid #e2e8f0', backgroundColor: '#f8fafc', color: '#0F2446', fontWeight: 700, textDecoration: 'none', fontSize: '0.92rem',
+    border: '1px solid #e2e8f0', backgroundColor: '#FBF7EE', color: '#0B1B2B', fontWeight: 700, textDecoration: 'none', fontSize: '0.92rem',
   },
   localItem: { padding: '1rem 1.1rem', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '0.75rem' },
-  faqItem: { padding: '1.1rem', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '0.75rem' },
-  faqQ: { fontSize: '0.98rem', color: '#0F2446', margin: '0 0 0.4rem 0' },
+  faqItem: { padding: '1.1rem', backgroundColor: '#FBF7EE', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '0.75rem' },
+  faqQ: { fontSize: '0.98rem', color: '#0B1B2B', margin: '0 0 0.4rem 0' },
   faqA: { fontSize: '0.9rem', color: '#475569', margin: 0, lineHeight: 1.55 },
   plainList: { paddingLeft: '1.2rem', lineHeight: 1.9 },
 };

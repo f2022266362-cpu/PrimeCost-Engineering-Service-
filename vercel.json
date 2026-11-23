@@ -4,6 +4,16 @@
   "framework": "vite",
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/:path*", "destination": "/:path*.html" }
+    {
+      "source": "/:path*",
+      "destination": "/:path*.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/contact",
+      "destination": "/about",
+      "permanent": true
+    }
   ]
 }

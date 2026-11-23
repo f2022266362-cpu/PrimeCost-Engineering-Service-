@@ -1,450 +1,308 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import {
-  Menu, X, ChevronDown, Calendar,
-  Building2, Ruler, Layers, Zap, HardHat, Monitor,
-  Mountain, ClipboardList, DollarSign, Search, FileCheck,
-  ScanLine, Wrench, Leaf, Handshake, Star
-} from 'lucide-react';
-import PrimaryButton from './ui/PrimaryButton';
+import { useState, useEffect, useRef } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { ArrowUpRight, ArrowRight, Plus, MapPin } from 'lucide-react';
+import Photo from './ui/Photo';
+import { photos } from '../data/media';
+import { services } from '../data/services';
+import { serviceHref } from '../data/serviceLinks';
+import cityPages from '../data/cityPages';
+import { usStates, stateHref } from '../data/usStates';
+import { gsap, prefersReducedMotion } from '../motion/gsap';
+import './header.css';
 
-// ─── Service icon map ─────────────────────────────────────────────────────────
-const serviceItems = [
-  { to: '/services/structural-engineering',  Icon: Building2,     label: 'Structural Engineering' },
-  { to: '/services/civil-engineering',        Icon: Ruler,         label: 'Civil Engineering' },
-  { to: '/services/architectural-design',     Icon: Layers,        label: 'Architectural Design' },
-  { to: '/services/mep-engineering',          Icon: Zap,           label: 'MEP Engineering' },
-  { to: '/services/construction-services',    Icon: HardHat,       label: 'Construction Services' },
-  { to: '/services/bim-cad',                  Icon: Monitor,       label: 'BIM & Digital Engineering' },
-  { to: '/services/geotechnical-engineering', Icon: Mountain,      label: 'Geotechnical Engineering' },
-  { to: '/services/project-management',       Icon: ClipboardList, label: 'Project Management' },
-  { to: '/services/cost-estimation',          Icon: DollarSign,    label: 'Cost Estimation & QS' },
-  { to: '/services/inspection-assessment',    Icon: Search,        label: 'Inspection & Assessment' },
-  { to: '/services/permit-correction',        Icon: FileCheck,     label: 'Permits & Compliance' },
-  { to: '/services/surveying',                Icon: ScanLine,      label: 'Surveying' },
-  { to: '/services/specialty-engineering',    Icon: Wrench,        label: 'Specialty Engineering' },
-  { to: '/services/sustainability',           Icon: Leaf,          label: 'Sustainability' },
-  { to: '/services/consultation',             Icon: Handshake,     label: 'Consultation' },
+const TOP_SERVICES = [
+  { id: 'structural-engineering', photo: photos.steelBridge, tone: 'sky' },
+  { id: 'architectural-design', photo: photos.whiteTerraces, tone: 'volt' },
+  { id: 'mep-engineering', photo: photos.officeNight, tone: 'spark' },
+  { id: 'civil-engineering', photo: photos.forestBridge, tone: 'ink' },
+].map((t) => ({ ...t, s: services.find((x) => x.id === t.id) })).filter((t) => t.s);
+
+const MORE_SERVICES = services.filter((s) => !TOP_SERVICES.some((t) => t.id === s.id));
+
+const CITIES = Object.entries(cityPages).map(([slug, c]) => ({ slug, city: c.city }));
+
+const navItems = [
+  { to: '/portfolio', label: 'Projects' },
+  { to: '/about', label: 'About' },
 ];
+
+const blurb = (t) => (t.length > 78 ? `${t.slice(0, 76).replace(/\s+\S*$/, '')}…` : t);
 
 export default function Header({ onOpenConsultation, onOpenProposal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [hidden, setHidden] = useState(false);
+  const [menu, setMenu] = useState(null); // 'services' | 'areas' | null
+  const [showMore, setShowMore] = useState(false);
+  const [mobileSub, setMobileSub] = useState(null);
+  const drawerRef = useRef(null);
   const location = useLocation();
 
+  // Close menus on route change (adjusted during render, no effect needed)
+  const [lastPath, setLastPath] = useState(location.pathname);
+  if (lastPath !== location.pathname) {
+    setLastPath(location.pathname);
+    setIsOpen(false);
+    setMenu(null);
+    setShowMore(false);
+    setMobileSub(null);
+  }
+
   useEffect(() => {
+    let last = window.scrollY;
     let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 30;
-          setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
-          ticking = false;
-        });
-        ticking = true;
-      }
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 40);
+        if (Math.abs(y - last) > 6) {
+          setHidden(y > last && y > 400);
+          last = y;
+        }
+        ticking = false;
+      });
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on page change
   useEffect(() => {
-    setIsOpen(false);
-    setActiveDropdown(null);
-  }, [location]);
+    document.body.classList.toggle('pc-menu-open', isOpen);
+    if (isOpen) {
+      window.__lenis?.stop();
+      if (drawerRef.current && !prefersReducedMotion()) {
+        gsap.fromTo(
+          drawerRef.current.querySelectorAll('.pc-drawer__link, .pc-drawer__cta > *'),
+          { yPercent: 60, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 0.8, ease: 'expo.out', stagger: 0.05, delay: 0.15 },
+        );
+      }
+    } else {
+      window.__lenis?.start();
+    }
+    return () => {
+      document.body.classList.remove('pc-menu-open');
+      window.__lenis?.start();
+    };
+  }, [isOpen]);
 
-  const toggleDropdown = (name) => {
-    setActiveDropdown(activeDropdown === name ? null : name);
-  };
+  // Close an open menu on Escape or a click/tap outside the bar
+  const barRef = useRef(null);
+  useEffect(() => {
+    if (!menu) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') { setMenu(null); setShowMore(false); } };
+    const onDown = (e) => { if (barRef.current && !barRef.current.contains(e.target)) { setMenu(null); setShowMore(false); } };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onDown);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onDown);
+    };
+  }, [menu]);
 
-  const isActive    = (path)   => location.pathname === path;
-  const isSubActive = (prefix) => location.pathname.startsWith(prefix);
+  const open = (m) => setMenu(m);
+  const close = () => { setMenu(null); setShowMore(false); };
+  const solid = location.pathname !== '/';
+  const dark = !solid && !scrolled && !isOpen;
 
   return (
-    <header style={{
-      ...styles.header,
-      height: scrolled ? '90px' : '105px',
-      ...(scrolled ? styles.headerScrolled : styles.headerUnscrolled)
-    }}>
-      <div style={styles.navBar}>
-        <div className="container" style={styles.navContent}>
-          {/* Logo */}
-          <Link to="/" style={styles.logoLink} className="logo-hover-rotate">
-            <img src="/logo-new.png" alt="PRIMECOST Logo" style={{ ...styles.logoImg, height: scrolled ? '86px' : '103px' }} />
-          </Link>
+    <header className={`pc-nav ${scrolled || solid ? 'is-scrolled' : ''} ${hidden && !menu && !isOpen ? 'is-hidden' : ''} ${isOpen ? 'is-open' : ''} ${dark ? 'is-dark' : ''}`}>
+      <div className="pc-nav__bar" ref={barRef} onMouseLeave={close}>
+        <Link to="/" className="pc-nav__logo" aria-label="PRIMECOST — home">
+          <img src={dark ? '/logo-mark-white.png' : '/logo-mark.png'} alt="PRIMECOST Engineering Services" width="647" height="301" />
+        </Link>
 
-          {/* Desktop Navigation Capsule */}
-          <div style={styles.navCapsule} className="desktop-nav-capsule">
-            <nav style={styles.desktopNav}>
-              <Link to="/" style={isActive('/') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Home</Link>
-
-              {/* ── Services Dropdown ── */}
-              <div
-                style={styles.dropdownContainer}
-                onMouseEnter={() => setActiveDropdown('services')}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button style={{ ...(isSubActive('/services') ? styles.activeNavLink : styles.navLink), ...styles.dropdownBtn }}>
-                  Services <ChevronDown size={13} style={{ transition: 'transform 0.2s', transform: activeDropdown === 'services' ? 'rotate(180deg)' : 'rotate(0)' }} />
-                </button>
-
-                {/* Invisible bridge — fills gap between button and panel so cursor doesn't leave hover zone */}
-                {activeDropdown === 'services' && (
-                  <div style={styles.dropdownBridge} />
-                )}
-
-                {activeDropdown === 'services' && (
-                  <div
-                    style={styles.dropdownMenu}
-                    className="animate-fade-in"
-                  >
-                    <div style={styles.dropdownGrid}>
-                      {serviceItems.map(({ to, Icon, label }) => (
-                        <Link key={to} to={to} style={styles.dropdownItem} className="dropdown-item">
-                          <span style={styles.dropdownIconWrap}>
-                            <Icon size={15} strokeWidth={1.8} />
-                          </span>
-                          <span>{label}</span>
-                        </Link>
-                      ))}
-                    </div>
-                    <div style={styles.dropdownFooter}>
-                      <Link to="/services" style={styles.viewAllLink} className="dropdown-item">
-                        <Star size={14} style={{ color: '#C89A45' }} />
-                        <span>View All Services</span>
-                        <span style={{ marginLeft: 'auto' }}>→</span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <Link to="/portfolio" style={isActive('/portfolio') ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Projects</Link>
-              <Link to="/founder"   style={isActive('/founder')   ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Founder</Link>
-              <Link to="/about"     style={isActive('/about')     ? styles.activeNavLink : styles.navLink} className="nav-link-underline">About</Link>
-              <Link to="/career"    style={isActive('/career')    ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Career</Link>
-              <Link to="/blog"      style={isActive('/blog')      ? styles.activeNavLink : styles.navLink} className="nav-link-underline">Blog</Link>
-              <Link to="/faq"       style={isActive('/faq')       ? styles.activeNavLink : styles.navLink} className="nav-link-underline">FAQ</Link>
-            </nav>
-
-            <a href="tel:+18322346456" className="header-phone" aria-label="Call PRIMECOST at (832) 234-6456">
-              (832) 234-6456
-            </a>
-
-            <PrimaryButton
-              onClick={onOpenProposal}
-              variant="primary"
-              style={{ padding: '0.5rem 1.1rem', borderRadius: '30px', fontSize: '0.72rem' }}
-            >
-              Get a Quote <span style={{ marginLeft: '4px' }}>→</span>
-            </PrimaryButton>
-          </div>
-
-          {/* Mobile Menu Toggle */}
+        <nav className="pc-nav__links" aria-label="Primary">
           <button
-            style={styles.mobileToggle}
-            className="mobileToggle"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            type="button"
+            className={`pc-nav__link ${location.pathname.startsWith('/services') || menu === 'services' ? 'is-active' : ''}`}
+            aria-expanded={menu === 'services'}
+            aria-haspopup="true"
+            onMouseEnter={() => open('services')}
+            onClick={() => setMenu('services')}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            Services <Plus size={13} strokeWidth={2} className={`pc-nav__plus ${menu === 'services' ? 'is-open' : ''}`} />
           </button>
+
+          <NavLink to="/portfolio" onMouseEnter={close} className={({ isActive }) => `pc-nav__link ${isActive ? 'is-active' : ''}`}>Projects</NavLink>
+
+          <button
+            type="button"
+            className={`pc-nav__link ${location.pathname.startsWith('/service-areas') || location.pathname.startsWith('/structural-engineer') || menu === 'areas' ? 'is-active' : ''}`}
+            aria-expanded={menu === 'areas'}
+            aria-haspopup="true"
+            onMouseEnter={() => open('areas')}
+            onClick={() => setMenu('areas')}
+          >
+            Areas Covered <Plus size={13} strokeWidth={2} className={`pc-nav__plus ${menu === 'areas' ? 'is-open' : ''}`} />
+          </button>
+
+          <NavLink to="/about" onMouseEnter={close} className={({ isActive }) => `pc-nav__link ${isActive ? 'is-active' : ''}`}>About</NavLink>
+        </nav>
+
+        <div className="pc-nav__actions" onMouseEnter={close}>
+          <a href="tel:+18322346456" className="pc-nav__phone" aria-label="Call PRIMECOST at (832) 234-6456">
+            <span className="pc-live" /> (832) 234-6456
+          </a>
+          <button type="button" onClick={onOpenProposal} className="pc-btn pc-btn--accent pc-btn--sm" data-magnetic>
+            Get a Proposal
+            <span className="pc-btn__icon"><ArrowUpRight size={16} strokeWidth={2} /></span>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          className={`pc-nav__toggle ${isOpen ? 'is-open' : ''}`}
+          onClick={() => setIsOpen((v) => !v)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+        >
+          <span /><span />
+        </button>
+
+        {/* ───── Services: top 4 stacked, more below ───── */}
+        <div className={`pc-mega ${menu === 'services' ? 'is-open' : ''}`} role="menu" aria-hidden={menu !== 'services'}>
+          <div className="pc-mega__inner pc-mega__inner--svc">
+            <div className="pc-stack">
+              <span className="pc-eyebrow">Most requested</span>
+              <ol className="pc-stack__list">
+                {TOP_SERVICES.map((t, i) => (
+                  <li key={t.id} style={{ '--i': i }}>
+                    <Link to={serviceHref(t.id)} className={`pc-stack__card is-${t.tone}`} role="menuitem" tabIndex={menu === 'services' ? 0 : -1}>
+                      <span className="pc-stack__img"><Photo photo={t.photo} width={900} sizes="120px" alt="" /></span>
+                      <span className="pc-stack__body">
+                        <strong>{t.s.title}</strong>
+                        <span>{blurb(t.s.outcome)}</span>
+                      </span>
+                      <span className="pc-stack__meta">
+                        <em>From {t.s.startingFrom}</em>
+                        <span className="pc-stack__go"><ArrowUpRight size={18} strokeWidth={2} /></span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+
+              <button type="button" className="pc-stack__more" onClick={() => setShowMore((v) => !v)} aria-expanded={showMore} tabIndex={menu === 'services' ? 0 : -1}>
+                <Plus size={16} strokeWidth={2} className={`pc-nav__plus ${showMore ? 'is-open' : ''}`} />
+                {showMore ? 'Show less' : `${MORE_SERVICES.length} more services`}
+              </button>
+              <div className={`pc-stack__extra ${showMore ? 'is-open' : ''}`}>
+                <ul>
+                  {MORE_SERVICES.map((s) => (
+                    <li key={s.id}>
+                      <Link to={serviceHref(s.id)} tabIndex={menu === 'services' && showMore ? 0 : -1}>
+                        {s.title} <ArrowUpRight size={14} />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <Link to="/services" className="pc-mega__card" tabIndex={menu === 'services' ? 0 : -1} data-cursor="Explore">
+              <Photo photo={photos.glassCorner} width={900} sizes="320px" className="pc-mega__img" />
+              <div className="pc-mega__card-body">
+                <span className="pc-chip"><span className="pc-live" /> {services.length} disciplines</span>
+                <p>Every service, scope and starting price in one place.</p>
+                <span className="pc-mega__card-cta">All services <ArrowRight size={16} /></span>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* ───── Areas covered ───── */}
+        <div className={`pc-mega ${menu === 'areas' ? 'is-open' : ''}`} role="menu" aria-hidden={menu !== 'areas'}>
+          <div className="pc-mega__inner pc-mega__inner--areas">
+            <Link to="/service-areas" className="pc-areas__hero" tabIndex={menu === 'areas' ? 0 : -1}>
+              <span className="pc-eyebrow on-dark is-volt">Nationwide</span>
+              <strong>49</strong>
+              <span>states where our engineers seal drawings</span>
+              <span className="pc-areas__go">See every state <ArrowRight size={16} /></span>
+            </Link>
+            <div className="pc-areas__list">
+              <span className="pc-eyebrow">Greater Houston — local engineers</span>
+              <ul className="pc-areas__cities">
+                {CITIES.map((c) => (
+                  <li key={c.slug}>
+                    <Link to={`/structural-engineer/${c.slug}`} tabIndex={menu === 'areas' ? 0 : -1}>
+                      <MapPin size={14} strokeWidth={1.75} /> {c.city}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="pc-areas__states-head">
+                <span className="pc-eyebrow">All {usStates.length} states</span>
+                <Link to="/service-areas" className="pc-areas__all" tabIndex={menu === 'areas' ? 0 : -1}>
+                  State requirements <ArrowUpRight size={14} />
+                </Link>
+              </div>
+              <ul className="pc-areas__states" data-lenis-prevent>
+                {usStates.map((st) => (
+                  <li key={st.code}>
+                    <Link to={stateHref(st.name)} tabIndex={menu === 'areas' ? 0 : -1}>
+                      <b>{st.code}</b> {st.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div style={styles.mobileDrawer} className="animate-fade-in glass-panel-dark">
-          <div style={styles.mobileNavLinks}>
-            <Link to="/" style={styles.mobileLink}>Home</Link>
+      {/* ───── Mobile drawer ───── */}
+      <div className={`pc-drawer ${isOpen ? 'is-open' : ''}`} ref={drawerRef} aria-hidden={!isOpen} data-lenis-prevent>
+        <nav className="pc-drawer__nav" aria-label="Mobile">
+          <button type="button" className="pc-drawer__link" onClick={() => setMobileSub((v) => (v === 'services' ? null : 'services'))} aria-expanded={mobileSub === 'services'} tabIndex={isOpen ? 0 : -1}>
+            Services <Plus size={26} strokeWidth={1.5} className={`pc-nav__plus ${mobileSub === 'services' ? 'is-open' : ''}`} />
+          </button>
+          {mobileSub === 'services' && (
+            <ol className="pc-drawer__sub">
+              {TOP_SERVICES.map((t) => (
+                <li key={t.id}><Link to={serviceHref(t.id)} className="is-top">{t.s.title}</Link></li>
+              ))}
+              {MORE_SERVICES.map((s) => (
+                <li key={s.id}><Link to={serviceHref(s.id)}>{s.title}</Link></li>
+              ))}
+              <li><Link to="/services" className="pc-drawer__all">All services <ArrowUpRight size={16} /></Link></li>
+            </ol>
+          )}
+          <Link to="/portfolio" className="pc-drawer__link" tabIndex={isOpen ? 0 : -1}>Projects</Link>
+          <button type="button" className="pc-drawer__link" onClick={() => setMobileSub((v) => (v === 'areas' ? null : 'areas'))} aria-expanded={mobileSub === 'areas'} tabIndex={isOpen ? 0 : -1}>
+            Areas Covered <Plus size={26} strokeWidth={1.5} className={`pc-nav__plus ${mobileSub === 'areas' ? 'is-open' : ''}`} />
+          </button>
+          {mobileSub === 'areas' && (
+            <ol className="pc-drawer__sub">
+              {CITIES.map((c) => (
+                <li key={c.slug}><Link to={`/structural-engineer/${c.slug}`}>{c.city}, TX</Link></li>
+              ))}
+              {usStates.map((st) => (
+                <li key={st.code}><Link to={stateHref(st.name)}><span className="pc-mega__num">{st.code}</span>{st.name}</Link></li>
+              ))}
+              <li><Link to="/service-areas" className="pc-drawer__all">State requirements <ArrowUpRight size={16} /></Link></li>
+            </ol>
+          )}
+          {navItems.slice(1).map(({ to, label }) => (
+            <Link key={to} to={to} className="pc-drawer__link" tabIndex={isOpen ? 0 : -1}>{label}</Link>
+          ))}
 
-            {/* Mobile Services */}
-            <div>
-              <button style={styles.mobileDropdownBtn} onClick={() => toggleDropdown('services')}>
-                Services <ChevronDown size={16} style={{ transform: activeDropdown === 'services' ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
-              </button>
-              {activeDropdown === 'services' && (
-                <div style={styles.mobileSubMenu}>
-                  {serviceItems.map(({ to, Icon, label }) => (
-                    <Link key={to} to={to} style={styles.mobileSubLink} onClick={() => setIsOpen(false)}>
-                      <Icon size={15} strokeWidth={1.8} style={{ color: '#C89A45', flexShrink: 0 }} />
-                      {label}
-                    </Link>
-                  ))}
-                  <Link to="/services" style={{ ...styles.mobileSubLink, color: '#C89A45', fontWeight: 700 }} onClick={() => setIsOpen(false)}>
-                    <Star size={15} style={{ color: '#C89A45', flexShrink: 0 }} />
-                    View All Services →
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link to="/portfolio" style={styles.mobileLink}>Projects</Link>
-            <Link to="/founder"   style={styles.mobileLink}>Founder</Link>
-            <Link to="/about"     style={styles.mobileLink}>About</Link>
-            <Link to="/career"    style={styles.mobileLink}>Career</Link>
-            <Link to="/blog"      style={styles.mobileLink}>Blog</Link>
-            <Link to="/faq"       style={styles.mobileLink} onClick={() => setIsOpen(false)}>FAQ</Link>
-
-            <div style={styles.mobileCtaGroup}>
-              <PrimaryButton onClick={() => { setIsOpen(false); onOpenProposal(); }} variant="outline" style={{ width: '100%', borderColor: '#ffffff', color: '#ffffff' }}>
-                Request a Proposal
-              </PrimaryButton>
-              <PrimaryButton onClick={() => { setIsOpen(false); onOpenConsultation(); }} variant="secondary" style={{ width: '100%' }}>
-                <Calendar size={16} /> Schedule Consultation
-              </PrimaryButton>
-            </div>
+          <div className="pc-drawer__cta">
+            <button type="button" className="pc-btn pc-btn--accent" tabIndex={isOpen ? 0 : -1} onClick={() => { setIsOpen(false); onOpenProposal(); }}>
+              Get a Proposal <span className="pc-btn__icon"><ArrowRight size={16} strokeWidth={2} /></span>
+            </button>
+            <button type="button" className="pc-btn pc-btn--ghost-light" tabIndex={isOpen ? 0 : -1} onClick={() => { setIsOpen(false); onOpenConsultation(); }}>
+              Schedule a Consultation
+            </button>
+            <a href="tel:+18322346456" className="pc-drawer__phone" tabIndex={isOpen ? 0 : -1}>
+              <span className="pc-live" /> (832) 234-6456
+            </a>
           </div>
-        </div>
-      )}
+        </nav>
+      </div>
     </header>
   );
 }
-
-const styles = {
-  header: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    zIndex: 100,
-    transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-    display: 'flex',
-    alignItems: 'center'
-  },
-  headerUnscrolled: {
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
-  },
-  headerScrolled: {
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
-    backdropFilter: 'blur(18px)',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.45)',
-    boxShadow: '0 12px 40px rgba(15, 36, 70, 0.12)',
-  },
-  navBar: { width: '100%' },
-  navContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-  },
-  logoLink: { display: 'flex', alignItems: 'center' },
-  logoImg: { transition: 'height 0.3s cubic-bezier(0.22, 1, 0.36, 1)', width: 'auto' },
-  navCapsule: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.38)',
-    backdropFilter: 'blur(24px) saturate(200%)',
-    WebkitBackdropFilter: 'blur(24px) saturate(200%)',
-    border: '1px solid rgba(255, 255, 255, 0.55)',
-    borderRadius: '9999px',
-    padding: '0.25rem 0.25rem 0.25rem 1.5rem',
-    gap: '1.5rem',
-    boxShadow: '0 15px 35px rgba(15, 36, 70, 0.05), inset 0 0 15px rgba(255, 255, 255, 0.2)',
-  },
-  desktopNav: { display: 'flex', alignItems: 'center', gap: '0.9rem' },
-  navLink: {
-    fontSize: '0.82rem',
-    fontWeight: '700',
-    color: '#050D1F',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    padding: '0.4rem 0',
-    cursor: 'pointer',
-    border: 'none',
-    background: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative'
-  },
-  activeNavLink: {
-    fontSize: '0.82rem',
-    fontWeight: '800',
-    color: '#050D1F',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    padding: '0.4rem 0',
-    cursor: 'pointer',
-    border: 'none',
-    background: 'none',
-    borderBottom: '2px solid #C89A45',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  dropdownContainer: { position: 'relative' },
-  dropdownBtn: { gap: '0.25rem' },
-
-  // Invisible 12px tall bridge that fills the gap so cursor doesn't leave the hover zone
-  dropdownBridge: {
-    position: 'absolute',
-    top: '100%',
-    left: '-30px',
-    right: '-30px',
-    height: '16px',
-    zIndex: 102,
-  },
-
-  dropdownMenu: {
-    position: 'absolute',
-    top: 'calc(100% + 16px)',   // aligns with bottom of bridge
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '640px',
-    zIndex: 101,
-    borderRadius: '16px',
-    overflow: 'hidden',
-    backgroundColor: 'rgba(255,255,255,0.97)',
-    backdropFilter: 'blur(20px)',
-    border: '1px solid rgba(15,36,70,0.12)',
-    boxShadow: '0 24px 60px rgba(15,36,70,0.18), 0 4px 16px rgba(0,0,0,0.06)',
-  },
-  dropdownGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '0',
-    padding: '0.5rem',
-  },
-  dropdownItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.6rem',
-    padding: '0.6rem 0.9rem',
-    fontSize: '0.84rem',
-    fontWeight: '600',
-    color: '#0F2446',         // dark, clearly readable
-    borderRadius: '10px',
-    transition: 'all 0.15s ease',
-    textDecoration: 'none',
-  },
-  dropdownIconWrap: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '28px',
-    height: '28px',
-    borderRadius: '7px',
-    backgroundColor: 'rgba(200,154,69,0.12)',
-    color: '#C89A45',
-    flexShrink: 0,
-  },
-  dropdownFooter: {
-    borderTop: '1px solid rgba(15,36,70,0.08)',
-    padding: '0.4rem 0.5rem',
-    backgroundColor: 'rgba(200,154,69,0.04)',
-  },
-  viewAllLink: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    padding: '0.5rem 0.9rem',
-    fontSize: '0.84rem',
-    fontWeight: '700',
-    color: '#C89A45',
-    borderRadius: '10px',
-    textDecoration: 'none',
-  },
-  mobileToggle: {
-    display: 'none',
-    background: 'none',
-    border: 'none',
-    color: '#0F2446',
-    cursor: 'pointer',
-  },
-  mobileDrawer: {
-    position: 'fixed',
-    top: '78px',
-    left: 0,
-    width: '100%',
-    height: 'calc(100vh - 78px)',
-    zIndex: 99,
-    padding: '2rem 1.5rem',
-    overflowY: 'auto',
-  },
-  mobileNavLinks: { display: 'flex', flexDirection: 'column', gap: '1.25rem' },
-  mobileLink: {
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    color: '#ffffff',
-    paddingBottom: '0.5rem',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-  },
-  mobileDropdownBtn: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    background: 'none',
-    border: 'none',
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    color: '#ffffff',
-    paddingBottom: '0.5rem',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-    cursor: 'pointer',
-    textAlign: 'left',
-  },
-  mobileSubMenu: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.8rem',
-    padding: '0.75rem 1rem 0.25rem 1rem',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: '8px',
-    marginTop: '0.4rem',
-  },
-  mobileSubLink: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.6rem',
-    fontSize: '0.95rem',
-    color: 'rgba(255, 255, 255, 0.85)',
-    fontWeight: '500',
-    textDecoration: 'none',
-  },
-  mobileCtaGroup: { display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1.5rem' }
-};
-
-// Add CSS selectors dynamically for hover effects & active states
-if (typeof document !== 'undefined') {
-  const hoverStyles = `
-    .nav-link-underline::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #C89A45;
-      transition: width var(--duration-fast) var(--ease-out);
-    }
-    .nav-link-underline:hover::after {
-      width: 100%;
-    }
-    
-    .dropdown-item:hover {
-      background-color: rgba(200, 154, 69, 0.1) !important;
-      color: #C89A45 !important;
-    }
-    
-    .primary-glow-hover:hover {
-      box-shadow: 0 12px 24px rgba(15, 36, 70, 0.25), 0 0 12px rgba(200, 154, 69, 0.35) !important;
-      transform: translateY(-2px);
-    }
-    
-    @media (max-width: 991px) {
-      .desktop-nav-capsule { display: none !important; }
-      .mobileToggle { display: block !important; }
-    }
-    @media (min-width: 992px) {
-      .desktop-nav-capsule { display: flex !important; }
-      .mobileToggle { display: none !important; }
-    }
-  `;
-  const styleSheet = document.createElement("style");
-  styleSheet.innerText = hoverStyles;
-  document.head.appendChild(styleSheet);
-}
-export { styles };

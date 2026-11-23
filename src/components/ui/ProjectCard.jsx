@@ -46,7 +46,7 @@ export default function ProjectCard({ project, onViewDetails }) {
             left: 0, 
             width: '100%', 
             height: '100%', 
-            background: 'linear-gradient(to bottom, rgba(15, 36, 70, 0) 50%, rgba(15, 36, 70, 0.8) 100%)',
+            background: 'linear-gradient(to bottom, rgba(11, 27, 43, 0) 50%, rgba(11, 27, 43, 0.8) 100%)',
             zIndex: 1
           }} 
         />
@@ -57,8 +57,8 @@ export default function ProjectCard({ project, onViewDetails }) {
             position: 'absolute', 
             top: '1rem', 
             left: '1rem', 
-            backgroundColor: '#C89A45', 
-            color: '#0F2446', 
+            backgroundColor: '#FF5A1F', 
+            color: '#0B1B2B', 
             padding: '0.35rem 0.85rem', 
             borderRadius: '999px', 
             fontSize: '0.72rem', 
@@ -87,38 +87,38 @@ export default function ProjectCard({ project, onViewDetails }) {
             zIndex: 2
           }}
         >
-          <MapPin size={14} style={{ color: '#C89A45' }} />
+          <MapPin size={14} style={{ color: '#B13A0B' }} />
           {location}
         </span>
       </div>
 
       {/* Project Body details */}
       <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1, gap: '0.75rem' }}>
-        <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: '#0F2446', fontFamily: "'Outfit', sans-serif" }}>
+        <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: '#0B1B2B', fontFamily: "var(--font-display)" }}>
           {name}
         </h3>
 
         {/* Project Metrics Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem', fontSize: '0.82rem', color: '#475569', margin: '0.5rem 0' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <Calendar size={12} style={{ color: '#C89A45' }} />
+            <Calendar size={12} style={{ color: '#B13A0B' }} />
             <span><strong>Completed:</strong> {year}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <Clock size={12} style={{ color: '#C89A45' }} />
+            <Clock size={12} style={{ color: '#B13A0B' }} />
             <span><strong>Duration:</strong> {duration}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <DollarSign size={12} style={{ color: '#C89A45' }} />
+            <DollarSign size={12} style={{ color: '#B13A0B' }} />
             <span><strong>Cost:</strong> {constructionCost}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <Tag size={12} style={{ color: '#C89A45' }} />
+            <Tag size={12} style={{ color: '#B13A0B' }} />
             <span><strong>Area:</strong> {area}</span>
           </div>
         </div>
 
-        <p style={{ fontSize: '0.88rem', color: '#64748b', lineHeight: '1.5' }}>
+        <p style={{ fontSize: '0.88rem', color: '#4F5B6A', lineHeight: '1.5' }}>
           <strong>Client:</strong> {client} <br />
           <strong>Industry:</strong> {industry}
         </p>
@@ -130,8 +130,8 @@ export default function ProjectCard({ project, onViewDetails }) {
               key={idx} 
               style={{ 
                 fontSize: '0.68rem', 
-                backgroundColor: 'rgba(15, 36, 70, 0.05)', 
-                color: '#0F2446', 
+                backgroundColor: 'rgba(11, 27, 43, 0.05)', 
+                color: '#0B1B2B', 
                 padding: '0.2rem 0.5rem', 
                 borderRadius: '4px',
                 fontWeight: '600'
@@ -150,7 +150,7 @@ export default function ProjectCard({ project, onViewDetails }) {
             alignSelf: 'flex-start',
             backgroundColor: 'transparent',
             border: 'none',
-            color: '#0F2446',
+            color: '#0B1B2B',
             fontWeight: '700',
             fontSize: '0.85rem',
             display: 'flex',

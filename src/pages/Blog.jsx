@@ -106,7 +106,7 @@ export default function Blog() {
 
 const styles = {
   containerPage: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     paddingTop: '6.5rem',
     paddingBottom: '4rem',
     minHeight: '100vh',
@@ -122,7 +122,7 @@ const styles = {
   tag: {
     fontSize: '0.8rem',
     fontWeight: '700',
-    color: '#c5a880',
+    color: '#FF8A5C',
     letterSpacing: '1.5px',
     display: 'block',
     marginBottom: '0.5rem',
@@ -132,11 +132,11 @@ const styles = {
     fontSize: '2.5rem',
     color: '#ffffff',
     marginBottom: '0.75rem',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
   },
   subtitle: {
     fontSize: '1rem',
-    color: '#94a3b8',
+    color: '#5E6B7A',
     lineHeight: '1.5',
   },
   controlSection: {
@@ -157,13 +157,13 @@ const styles = {
     border: '1px solid #cbd5e1',
     borderRadius: '8px',
     padding: '0.5rem 1rem',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     flex: 1,
     minWidth: '260px',
     maxWidth: '400px',
   },
   searchIcon: {
-    color: '#64748b',
+    color: '#4F5B6A',
     marginRight: '0.5rem',
   },
   searchInput: {
@@ -183,7 +183,7 @@ const styles = {
     padding: '0.45rem 0.9rem',
     border: '1px solid #e2e8f0',
     borderRadius: '6px',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     color: '#475569',
     fontWeight: '600',
     fontSize: '0.8rem',
@@ -191,8 +191,8 @@ const styles = {
     transition: 'all 0.2s',
   },
   catBtnActive: {
-    backgroundColor: '#1b3b6f',
-    borderColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
+    borderColor: '#1E3A55',
     color: '#ffffff',
   },
   articlesSection: {
@@ -219,12 +219,12 @@ const styles = {
   artCat: {
     fontSize: '0.75rem',
     fontWeight: '700',
-    color: '#c5a880',
+    color: '#FF8A5C',
     letterSpacing: '1px',
   },
   artTime: {
     fontSize: '0.75rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     display: 'flex',
     alignItems: 'center',
     gap: '0.25rem',
@@ -246,7 +246,7 @@ const styles = {
   readMoreBtn: {
     backgroundColor: 'transparent',
     border: 'none',
-    color: '#1b3b6f',
+    color: '#1E3A55',
     fontWeight: '700',
     fontSize: '0.88rem',
     cursor: 'pointer',
@@ -259,7 +259,7 @@ const styles = {
   noResults: {
     textAlign: 'center',
     padding: '3rem 0',
-    color: '#64748b',
+    color: '#4F5B6A',
   },
   overlay: {
     position: 'fixed',
@@ -300,7 +300,7 @@ const styles = {
     alignSelf: 'flex-start',
     backgroundColor: 'transparent',
     border: 'none',
-    color: '#1b3b6f',
+    color: '#1E3A55',
     fontWeight: '700',
     fontSize: '0.88rem',
     cursor: 'pointer',
@@ -317,7 +317,7 @@ const styles = {
   },
   modalCat: {
     fontSize: '0.8rem',
-    color: '#c5a880',
+    color: '#FF8A5C',
     fontWeight: '700',
     letterSpacing: '1px',
     display: 'block',
@@ -333,7 +333,7 @@ const styles = {
     display: 'flex',
     gap: '1.5rem',
     fontSize: '0.82rem',
-    color: '#64748b',
+    color: '#4F5B6A',
   },
   metaItem: {
     display: 'flex',
@@ -347,7 +347,7 @@ const styles = {
     flexGrow: 1,
   },
   ctaBox: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     border: '1px solid #e2e8f0',
     borderRadius: '12px',
     padding: '2rem',
@@ -367,7 +367,7 @@ const styles = {
   },
   ctaBtnLink: {
     display: 'inline-block',
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     padding: '0.75rem 1.5rem',
     borderRadius: '8px',
@@ -390,14 +390,14 @@ if (typeof document !== 'undefined') {
       color: #0f172a;
       margin-top: 2rem;
       margin-bottom: 1rem;
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-display);
     }
     .article-content-body h3 {
       font-size: 1.25rem;
-      color: #1b3b6f;
+      color: #1E3A55;
       margin-top: 1.5rem;
       margin-bottom: 0.8rem;
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-display);
     }
     .article-content-body h4 {
       font-size: 1.05rem;

@@ -44,7 +44,7 @@ export default function LoadingScreen() {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: '#0F2446',
+        backgroundColor: '#0B1B2B',
         zIndex: 99999,
         display: 'flex',
         flexDirection: 'column',
@@ -62,7 +62,7 @@ export default function LoadingScreen() {
           height="80" 
           viewBox="0 0 24 24" 
           fill="none" 
-          stroke="#C89A45" 
+          stroke="#B13A0B" 
           strokeWidth="1.5" 
           strokeLinecap="round" 
           strokeLinejoin="round"
@@ -77,7 +77,7 @@ export default function LoadingScreen() {
         </svg>
         <h1 
           style={{ 
-            fontFamily: "'Outfit', sans-serif", 
+            fontFamily: "var(--font-display)", 
             color: '#ffffff', 
             fontWeight: '800', 
             fontSize: '2rem', 
@@ -89,7 +89,7 @@ export default function LoadingScreen() {
         </h1>
         <span 
           style={{ 
-            fontFamily: "'Inter', sans-serif", 
+            fontFamily: "var(--font-sans)", 
             color: 'rgba(255,255,255,0.6)', 
             fontSize: '0.75rem', 
             letterSpacing: '0.2em',
@@ -115,7 +115,7 @@ export default function LoadingScreen() {
           style={{ 
             width: `${progress}%`, 
             height: '100%', 
-            backgroundColor: '#C89A45', 
+            backgroundColor: '#FF5A1F', 
             transition: 'width 0.1s ease-out' 
           }} 
         />

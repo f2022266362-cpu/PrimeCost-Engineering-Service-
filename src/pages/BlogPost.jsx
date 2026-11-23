@@ -72,7 +72,7 @@ export default function BlogPost() {
         </header>
 
         <div style={styles.contactStrip}>
-          <strong style={{ color: '#0F2446' }}>Need this for your project?</strong>{' '}
+          <strong style={{ color: '#0B1B2B' }}>Need this for your project?</strong>{' '}
           Talk to a licensed engineer: <a href="tel:+18322346456" style={styles.stripLink}>(832) 234-6456</a>{' '}
           or <a href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent('Quote request: ' + data.title)}`} style={styles.stripLink}>email your plans</a>.
         </div>
@@ -125,43 +125,43 @@ export default function BlogPost() {
 }
 
 const styles = {
-  page: { backgroundColor: '#f8fafc', paddingTop: '6.5rem', paddingBottom: '4rem', minHeight: '100vh' },
+  page: { backgroundColor: '#FBF7EE', paddingTop: '6.5rem', paddingBottom: '4rem', minHeight: '100vh' },
   article: {
     backgroundColor: '#ffffff', maxWidth: '820px', borderRadius: '16px',
     boxShadow: '0 10px 30px -12px rgba(0,0,0,0.15)', padding: '2rem 2.25rem', marginTop: '2rem',
   },
   back: {
-    color: '#1b3b6f', fontWeight: '700', fontSize: '0.88rem', display: 'inline-flex',
+    color: '#1E3A55', fontWeight: '700', fontSize: '0.88rem', display: 'inline-flex',
     alignItems: 'center', gap: '0.4rem', marginBottom: '1rem', textDecoration: 'none',
   },
   header: { borderBottom: '1.5px solid #f1f5f9', paddingBottom: '1rem', marginBottom: '1.25rem' },
-  cat: { fontSize: '0.8rem', color: '#c5a880', fontWeight: '700', letterSpacing: '1px', display: 'block', marginBottom: '0.5rem' },
+  cat: { fontSize: '0.8rem', color: '#FF8A5C', fontWeight: '700', letterSpacing: '1px', display: 'block', marginBottom: '0.5rem' },
   title: { fontSize: '2.2rem', color: '#0f172a', lineHeight: '1.2', marginBottom: '0.75rem' },
-  metaRow: { display: 'flex', gap: '1.5rem', fontSize: '0.82rem', color: '#64748b', flexWrap: 'wrap' },
+  metaRow: { display: 'flex', gap: '1.5rem', fontSize: '0.82rem', color: '#4F5B6A', flexWrap: 'wrap' },
   metaItem: { display: 'flex', alignItems: 'center', gap: '0.3rem' },
   content: { fontSize: '1rem', lineHeight: '1.7', color: '#334155' },
   faqSection: { marginTop: '2.5rem', borderTop: '1.5px solid #f1f5f9', paddingTop: '2rem' },
-  faqHeading: { fontSize: '1.4rem', fontWeight: '800', color: '#0F2446', marginBottom: '1.25rem', fontFamily: "'Outfit', sans-serif" },
-  faqItem: { padding: '1.25rem', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' },
-  faqQ: { fontSize: '0.95rem', color: '#0F2446', margin: '0 0 0.4rem 0' },
+  faqHeading: { fontSize: '1.4rem', fontWeight: '800', color: '#0B1B2B', marginBottom: '1.25rem', fontFamily: "var(--font-display)" },
+  faqItem: { padding: '1.25rem', backgroundColor: '#FBF7EE', borderRadius: '8px', border: '1px solid #e2e8f0' },
+  faqQ: { fontSize: '0.95rem', color: '#0B1B2B', margin: '0 0 0.4rem 0' },
   faqA: { fontSize: '0.88rem', color: '#475569', margin: 0, lineHeight: '1.5' },
   contactStrip: {
-    backgroundColor: '#fdf8f0', borderLeft: '4px solid #c5a880', borderRadius: '6px',
+    backgroundColor: '#fdf8f0', borderLeft: '4px solid #FF8A5C', borderRadius: '6px',
     padding: '0.85rem 1rem', fontSize: '0.92rem', color: '#334155', lineHeight: '1.5', marginBottom: '1.5rem',
   },
-  stripLink: { color: '#0F2446', fontWeight: '700', textDecoration: 'underline' },
+  stripLink: { color: '#0B1B2B', fontWeight: '700', textDecoration: 'underline' },
   ctaBox: {
-    backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px',
+    backgroundColor: '#FBF7EE', border: '1px solid #e2e8f0', borderRadius: '12px',
     padding: '2rem', marginTop: '3rem', textAlign: 'center',
   },
   ctaHeading: { fontSize: '1.15rem', color: '#0f172a', marginBottom: '0.5rem' },
   ctaText: { fontSize: '0.9rem', color: '#475569', lineHeight: '1.5', marginBottom: '1.25rem' },
   ctaBtn: {
-    backgroundColor: '#0F2446', color: '#fff', padding: '0.7rem 1.4rem', borderRadius: '8px',
+    backgroundColor: '#0B1B2B', color: '#fff', padding: '0.7rem 1.4rem', borderRadius: '8px',
     fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem',
   },
   ctaBtnAlt: {
-    backgroundColor: 'transparent', color: '#0F2446', border: '1.5px solid #0F2446', padding: '0.7rem 1.4rem',
+    backgroundColor: 'transparent', color: '#0B1B2B', border: '1.5px solid #0B1B2B', padding: '0.7rem 1.4rem',
     borderRadius: '8px', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem',
   },
 };
