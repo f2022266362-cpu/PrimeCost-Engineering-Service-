@@ -1,8 +1,18 @@
+/*
+ * Type system — mixed on purpose
+ *  Display  — Bricolage Grotesque (variable: weight + width + optical size)
+ *  Accent   — Newsreader Italic (editorial serif words inside headlines)
+ *  Text/UI  — Hanken Grotesk
+ *  Labels   — IBM Plex Mono
+ * All self-hosted via @fontsource (imported in main.jsx).
+ */
 :root {
-  --font-display: 'Outfit', sans-serif;
-  --font-sans: 'Inter', sans-serif;
-  --font-script: 'Satisfy', cursive;
-  
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'Hanken Grotesk Variable', system-ui, sans-serif;
+  --font-serif: 'Newsreader Variable', 'Newsreader', Georgia, serif;
+  --font-sans: 'Hanken Grotesk Variable', 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-script: var(--font-serif);
+
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -14,7 +24,7 @@
   --font-size-5xl: 3rem;
   --font-size-6xl: 4rem;
   --font-size-7xl: 4.8rem;
-  
+
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -27,16 +37,23 @@ body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  line-height: 1.2;
+  font-weight: 600;
+  color: inherit;
+  line-height: 1.08;
 }
 
-.font-script {
-  font-family: var(--font-script);
+.font-script,
+.serif-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }

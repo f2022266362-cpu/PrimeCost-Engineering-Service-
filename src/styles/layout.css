@@ -1,8 +1,8 @@
 :root {
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-xl: 32px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
   --radius-full: 9999px;
   
   --spacing-xs: 0.5rem;
@@ -23,11 +23,11 @@
 /* Containers */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-md);
-  padding-right: var(--spacing-md);
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
 }
 
 /* Blueprint Grid Layer */
@@ -45,14 +45,13 @@
   bottom: 0;
   pointer-events: none;
   background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(15, 36, 70, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 36, 70, 0.02) 1px, transparent 1px);
+  background-image: none;
   z-index: var(--z-base);
 }
 
 /* Glass Blobs background accents */
 .glass-blob {
+  display: none !important;
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
