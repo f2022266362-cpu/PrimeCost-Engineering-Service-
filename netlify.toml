@@ -4,3 +4,8 @@
 
 # No catch-all rewrite any more: every page is a real prerendered .html file.
 # Unknown URLs get dist/404.html with a proper 404 status.
+
+[[redirects]]
+  from = "/contact"
+  to = "/about"
+  status = 301
