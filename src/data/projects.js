@@ -18,7 +18,7 @@ export const projects = [
     deliverables: ['PE-Stamped Foundation Prints', 'HVAC Duct Coordinate Plans', 'Navisworks Clash Reports', 'Revit Coordinated Model (LOD 300)'],
     technologies: ['Revit', 'Navisworks Manage', 'ETABS', 'AISC Steel Standards'],
     results: 'Zero field modifications required. Saved developer an estimated $42,500 in framing correction labor and prevented 2 weeks of construction delay.',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/glass-up-900.webp'
   },
   {
     id: 'woodlands-villa',
@@ -39,7 +39,7 @@ export const projects = [
     deliverables: ['Pier Drilling Layout & Detail prints', 'PE-Stamped Structural Calculations Pack', 'Shear Wall Shear Resistance Schedules'],
     technologies: ['RISA-3D', 'AutoCAD', 'WoodWorks Sizer'],
     results: 'Obtained city building permits within 5 days of submittal. Foundation settlement calculations project less than 0.25 inches of movement over 30 years.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/white-balconies-900.webp'
   },
   {
     id: 'galveston-depot',
@@ -60,7 +60,7 @@ export const projects = [
     deliverables: ['Tilt-up Concrete Panel shop drawings', 'Slab-on-Grade Expansion Joint schedule', 'Wind Shear frame calculations'],
     technologies: ['SAP2000', 'Revit Structure', 'ACI 360 Slab Standards'],
     results: 'Passed local building department storm code reviews. Tilt-up panels were erected in 4 working days with zero alignment errors.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/orange-facade-900.webp'
   },
   {
     id: 'memorial-health',
@@ -81,7 +81,7 @@ export const projects = [
     deliverables: ['Imaging Suite Foundation Prints', 'Vibration Analysis Report', 'PE-Stamped Tie-In Details'],
     technologies: ['ETABS', 'RISA-3D', 'Safe Concrete Design'],
     results: 'Delivered permit drawings within 8 days. Completed expansion without interrupting day-to-day operations in the active clinic.',
-    image: 'https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/light-facade-900.webp'
   },
   {
     id: 'spring-academy',
@@ -102,7 +102,7 @@ export const projects = [
     deliverables: ['Classroom Floor Plans', 'Fume Hood Ventilation Schedules', 'Exposed Truss Detailing'],
     technologies: ['AutoCAD', 'Revit MEP', 'Trane Trace 700'],
     results: 'Successfully met all local education board design criteria. Received green school certification for efficient mechanical layouts.',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/facade-grid-900.webp'
   },
   {
     id: 'dallas-steel-tower',
@@ -124,7 +124,7 @@ export const projects = [
     technologies: ['ETABS', 'RISA-3D', 'Revit Structure', 'AISC 360', 'ASCE 7'],
     results: 'City permit approved in 11 days. Steel erection completed 3 weeks ahead of schedule. Zero RFIs related to structural drawings during construction.',
     seoKeywords: ['structural engineering Dallas TX', 'high-rise steel structure design', 'seismic design engineer', 'PE-stamped structural drawings', 'earthquake resistant building design'],
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/brick-tower-900.webp'
   },
   {
     id: 'austin-solar-farm',
@@ -146,7 +146,7 @@ export const projects = [
     technologies: ['AutoCAD', 'SAP2000', 'ASCE 7 Wind Standard', 'IBC 2021'],
     results: 'Full permit approval in 9 days. Installation of all 4,200 structures completed with zero pile failures. Project qualified for federal solar tax incentive documentation.',
     seoKeywords: ['solar structure design engineer', 'PE stamp solar panels', 'solar farm structural engineering', 'wind uplift calculation solar', 'ground mount solar foundation design'],
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/la-sunset-900.webp'
   },
   {
     id: 'san-antonio-leed-office',
@@ -168,7 +168,7 @@ export const projects = [
     technologies: ['Revit MEP', 'eQUEST Energy Modeling', 'ETABS', 'LEED v4 Checklist'],
     results: 'Achieved LEED Gold certification. 38% energy savings vs ASHRAE 90.1 baseline. Annual utility savings of $186,000 for building owner.',
     seoKeywords: ['LEED certified structural engineering', 'green building engineer Texas', 'sustainable MEP design', 'energy efficient building design', 'LEED Gold office building'],
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/fin-facade-900.webp'
   },
   {
     id: 'houston-bridge-overpass',
@@ -190,7 +190,7 @@ export const projects = [
     technologies: ['SAP2000', 'HEC-RAS Flood Modeling', 'AutoCAD Civil 3D', 'AASHTO LRFD Bridge Code'],
     results: 'Passed TxDOT plan review on first submission. Bridge constructed in 8 weeks. Opened to public 2 weeks ahead of schedule.',
     seoKeywords: ['bridge engineering Texas', 'pedestrian bridge structural design', 'civil engineering Houston TX', 'drilled shaft foundation design', 'PE stamped bridge drawings'],
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/brooklyn-900.webp'
   },
   {
     id: 'katy-multifamily-residential',
@@ -212,7 +212,7 @@ export const projects = [
     technologies: ['ETABS', 'Revit', 'Navisworks', 'RAM Structural System', 'AutoCAD'],
     results: '247 clashes resolved before groundbreaking. Structural permit approved in 14 days. On track to deliver all 240 units on schedule.',
     seoKeywords: ['multifamily structural engineering Texas', 'apartment complex structural design', 'post-tensioned concrete slab design', 'residential BIM coordination', 'PE-stamped apartment drawings'],
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/balcony-block-900.webp'
   },
   {
     id: 'corpus-christi-peb',
@@ -234,7 +234,7 @@ export const projects = [
     technologies: ['RISA Foundation', 'AutoCAD', 'AISC 360', 'ASCE 7 Coastal Exposure D'],
     results: 'Building permit issued in 7 days. Foundation constructed in 3 weeks. Steel erection completed in 18 working days with zero anchor bolt revisions needed.',
     seoKeywords: ['pre-engineered building structural design', 'PEMB foundation design Texas', 'metal building PE stamp', 'industrial warehouse foundation engineer', 'anchor bolt design coastal'],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/structure-lines-900.webp'
   },
   {
     id: 'houston-foundation-repair',
@@ -256,7 +256,7 @@ export const projects = [
     technologies: ['GPR Scanning', 'RISA-3D', 'AutoCAD', 'Geotechnical Analysis Software'],
     results: 'Foundation stabilized within tolerance. All 38 helical piers installed in 6 weeks without business closure. Building owner avoided estimated $4.2M full foundation replacement cost.',
     seoKeywords: ['foundation repair engineer Houston TX', 'forensic structural engineering', 'helical pier foundation design', 'commercial building foundation repair', 'PE-stamped repair drawings'],
-    image: 'https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/bw-towers-900.webp'
   },
   {
     id: 'telecom-tower-west-texas',
@@ -278,7 +278,7 @@ export const projects = [
     technologies: ['RISA-3D', 'TIA-222-H Standard', 'ASCE 7 Ice/Wind Maps', 'AutoCAD'],
     results: 'FCC and local building permit approved in 6 days. Tower erected in 3 weeks. All 42 antenna positions verified within ±0.5-inch tolerance.',
     seoKeywords: ['telecom tower structural engineer Texas', 'cell tower PE stamp design', 'TIA-222 tower engineering', 'lattice tower foundation design', 'wind load analysis tower'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/fog-tower-900.webp'
   },
   {
     id: 'houston-hospital-expansion',
@@ -300,7 +300,7 @@ export const projects = [
     technologies: ['ETABS Nonlinear', 'ASCE 41', 'SAP2000', 'Revit MEP', 'TBI Guidelines'],
     results: 'Seismic retrofit phase completed without hospital closure. New wing structural permit approved by city on first submission. Project on track for 2026 completion.',
     seoKeywords: ['hospital seismic retrofit engineer', 'seismic structural engineering Houston', 'earthquake resistant hospital design', 'ASCE 41 seismic evaluation', 'essential facility structural design'],
-    image: 'https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/white-terraces-900.webp'
   },
   {
     id: 'sugar-land-data-center',
@@ -322,7 +322,7 @@ export const projects = [
     technologies: ['ETABS', 'Revit MEP', 'AutoCAD Electrical', 'Navisworks', 'ANSI/TIA 942 Standard'],
     results: 'Achieved Tier III certification from independent assessor. Zero downtime during construction phasing. All server racks installed without a single structural or MEP modification.',
     seoKeywords: ['data center structural engineering Texas', 'MEP engineering data center', 'Tier III data center design', 'mission critical facility engineer', 'raised floor structural design'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop'
+    image: '/images/photos/office-night-900.webp'
   }
 ];
 

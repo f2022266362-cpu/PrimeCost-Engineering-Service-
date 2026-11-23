@@ -12,7 +12,7 @@ export const timeline = [
   {
     year: '2018',
     title: 'Houston HQ & PE Network Expansion',
-    desc: 'Established state-of-the-art corporate offices in downtown Houston and expanded our engineering footprint to cover all 50 states.'
+    desc: 'Established state-of-the-art corporate offices in downtown Houston and expanded our engineering footprint to cover all 49 states.'
   },
   {
     year: '2025',
