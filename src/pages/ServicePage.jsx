@@ -577,7 +577,7 @@ export default function ServicePage() {
       </section>
 
       {/* Main Content Layout */}
-      <div className="container" style={styles.layoutGrid}>
+      <div className="container pc-stack-mobile" style={styles.layoutGrid}>
         {/* Left Side: Detail Sections */}
         <div style={styles.contentCol}>
           
@@ -663,7 +663,7 @@ export default function ServicePage() {
               <h2 style={styles.sectionTitle}>Related Guides</h2>
               <ul style={{ ...styles.paragraph, paddingLeft: '1.2rem', lineHeight: 1.9 }}>
                 {serviceGuides[serviceId].related.map((g) => (
-                  <li key={g.to}><Link to={g.to} style={{ color: '#1b3b6f', fontWeight: 700 }}>{g.label}</Link></li>
+                  <li key={g.to}><Link to={g.to} style={{ color: '#1E3A55', fontWeight: 700 }}>{g.label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -698,7 +698,7 @@ export default function ServicePage() {
                       <ChevronRight size={16} style={{
                         transform: isOpen ? 'rotate(90deg)' : 'rotate(0)',
                         transition: 'transform 0.2s',
-                        color: '#1b3b6f'
+                        color: '#1E3A55'
                       }} />
                     </button>
                     {isOpen && (
@@ -751,7 +751,7 @@ export default function ServicePage() {
             </a>
             <a 
               href={`mailto:Frank.moore@primecost.biz?subject=${encodeURIComponent('Quote request: ' + service.name)}`}
-              style={{ ...styles.sidebarCta, backgroundColor: 'transparent', color: '#ffffff', border: '1.5px solid #c5a880', marginTop: '0.75rem' }}
+              style={{ ...styles.sidebarCta, backgroundColor: 'transparent', color: '#ffffff', border: '1.5px solid #FF8A5C', marginTop: '0.75rem' }}
             >
               Email Your Plans
             </a>
@@ -765,13 +765,13 @@ export default function ServicePage() {
 
 const styles = {
   containerPage: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     paddingBottom: '5rem',
   },
   banner: {
     position: 'relative',
-    background: 'url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop") no-repeat center/cover',
-    padding: '5rem 0',
+    background: 'url("/images/photos/steel-bridge-1800.webp") no-repeat center/cover',
+    padding: '9.5rem 0 4.5rem',
     color: '#ffffff',
     marginBottom: '3rem',
   },
@@ -781,7 +781,7 @@ const styles = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(27, 59, 111, 0.85)',
+    backgroundColor: 'rgba(11, 27, 43, 0.8)',
   },
   bannerContent: {
     position: 'relative',
@@ -791,7 +791,7 @@ const styles = {
   bannerTag: {
     fontSize: '0.78rem',
     fontWeight: '700',
-    color: '#c5a880',
+    color: '#FF8A5C',
     letterSpacing: '1.5px',
     display: 'block',
     marginBottom: '0.5rem',
@@ -800,7 +800,7 @@ const styles = {
     fontSize: '2.5rem',
     color: '#ffffff',
     marginBottom: '0.75rem',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
   },
   bannerDesc: {
     fontSize: '1rem',
@@ -834,7 +834,7 @@ const styles = {
     fontSize: '1.5rem',
     color: '#0f172a',
     marginBottom: '1.5rem',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
     borderBottom: '2px solid #f1f5f9',
     paddingBottom: '0.75rem',
   },
@@ -856,7 +856,7 @@ const styles = {
   },
   whoIconBox: {
     backgroundColor: 'rgba(27, 59, 111, 0.05)',
-    color: '#1b3b6f',
+    color: '#1E3A55',
     padding: '0.5rem',
     borderRadius: '8px',
     flexShrink: 0,
@@ -868,7 +868,7 @@ const styles = {
   },
   whoContext: {
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5',
   },
   timeline: {
@@ -887,7 +887,7 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
     display: 'flex',
     alignItems: 'center',
@@ -907,7 +907,7 @@ const styles = {
   },
   timelineDesc: {
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5',
   },
   deliverableGrid: {
@@ -946,7 +946,7 @@ const styles = {
     gap: '0.4rem',
   },
   swIcon: {
-    color: '#c5a880',
+    color: '#FF8A5C',
   },
   faqList: {
     display: 'flex',
@@ -974,7 +974,7 @@ const styles = {
   faqAnswer: {
     padding: '0 1.25rem 1rem 1.25rem',
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5',
     borderTop: '1px solid #f1f5f9',
   },
@@ -987,10 +987,10 @@ const styles = {
   sidebarTitle: {
     fontSize: '1.15rem',
     color: '#0f172a',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
     marginBottom: '1.25rem',
     paddingBottom: '0.5rem',
-    borderBottom: '2px solid #1b3b6f',
+    borderBottom: '2px solid #1E3A55',
     alignSelf: 'flex-start',
   },
   sidebarList: {
@@ -1007,18 +1007,18 @@ const styles = {
     fontSize: '0.88rem',
     fontWeight: '600',
     color: '#475569',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     transition: 'all 0.2s',
   },
   sidebarLinkActive: {
-    backgroundColor: '#1b3b6f',
+    backgroundColor: '#1E3A55',
     color: '#ffffff',
   },
   sidebarCta: {
     display: 'block',
     width: '100%',
     textAlign: 'center',
-    backgroundColor: '#c5a880',
+    backgroundColor: '#FF8A5C',
     color: '#0f172a',
     padding: '0.75rem',
     borderRadius: '8px',
@@ -1060,7 +1060,7 @@ if (typeof document !== 'undefined') {
     }
     .sidebarLink-custom:hover {
       background-color: #cbd5e1;
-      color: #1b3b6f;
+      color: #1E3A55;
     }
   `;
   const styleSheet = document.createElement("style");

@@ -83,7 +83,7 @@ export default function Portfolio() {
             </button>
             
             <div style={styles.modalHeader}>
-              <span style={styles.modalLoc}><MapPin size={14} style={{ color: '#C89A45' }} /> {selectedProject.location}</span>
+              <span style={styles.modalLoc}><MapPin size={14} style={{ color: '#B13A0B' }} /> {selectedProject.location}</span>
               <h2 style={styles.modalTitle}>{selectedProject.name}</h2>
               <p style={styles.modalType}><strong>Type:</strong> {selectedProject.industry} | <strong>Area:</strong> {selectedProject.area}</p>
             </div>
@@ -163,7 +163,7 @@ const styles = {
   tag: {
     fontSize: '0.8rem',
     fontWeight: '700',
-    color: '#C89A45',
+    color: '#B13A0B',
     letterSpacing: '0.15em',
     textTransform: 'uppercase',
     display: 'block',
@@ -171,14 +171,14 @@ const styles = {
   },
   title: {
     fontSize: '2.5rem',
-    color: '#0F2446',
+    color: '#0B1B2B',
     fontWeight: '800',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
     marginBottom: '1rem',
   },
   subtitle: {
     fontSize: '1.1rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.6',
   },
   filterSection: {
@@ -192,19 +192,19 @@ const styles = {
   tabBtn: {
     padding: '0.5rem 1.25rem',
     borderRadius: '999px',
-    border: '1px solid rgba(15, 36, 70, 0.15)',
+    border: '1px solid rgba(11, 27, 43, 0.15)',
     backgroundColor: 'transparent',
-    color: '#0F2446',
+    color: '#0B1B2B',
     fontWeight: '700',
     fontSize: '0.8rem',
     cursor: 'pointer',
     transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
   },
   tabBtnActive: {
-    backgroundColor: '#0F2446',
+    backgroundColor: '#0B1B2B',
     color: '#ffffff',
-    borderColor: '#0F2446',
-    boxShadow: '0 4px 12px rgba(15, 36, 70, 0.15)',
+    borderColor: '#0B1B2B',
+    boxShadow: '0 4px 12px rgba(11, 27, 43, 0.15)',
   },
   gridSection: {
     padding: '2rem 0',
@@ -232,7 +232,7 @@ const styles = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(15, 36, 70, 0.65)',
+    backgroundColor: 'rgba(11, 27, 43, 0.65)',
     backdropFilter: 'blur(8px)',
   },
   modal: {
@@ -242,7 +242,7 @@ const styles = {
     maxWidth: '700px',
     maxHeight: '90vh',
     overflowY: 'auto',
-    boxShadow: '0 25px 50px -12px rgba(15, 36, 70, 0.25)',
+    boxShadow: '0 25px 50px -12px rgba(11, 27, 43, 0.25)',
     padding: '2.5rem',
     zIndex: 1001,
   },
@@ -252,7 +252,7 @@ const styles = {
     right: '1.25rem',
     background: 'none',
     border: 'none',
-    color: '#64748b',
+    color: '#4F5B6A',
     cursor: 'pointer',
     padding: '0.25rem',
   },
@@ -270,14 +270,14 @@ const styles = {
   },
   modalTitle: {
     fontSize: '1.8rem',
-    color: '#0F2446',
+    color: '#0B1B2B',
     marginBottom: '0.4rem',
     fontWeight: '800',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
   },
   modalType: {
     fontSize: '0.88rem',
-    color: '#64748b',
+    color: '#4F5B6A',
   },
   modalContent: {
     display: 'flex',
@@ -286,12 +286,12 @@ const styles = {
     marginBottom: '2rem',
   },
   modalSection: {
-    borderBottom: '1px solid rgba(15, 36, 70, 0.05)',
+    borderBottom: '1px solid rgba(11, 27, 43, 0.05)',
     paddingBottom: '1rem',
   },
   sectionHeading: {
     fontSize: '1rem',
-    color: '#0F2446',
+    color: '#0B1B2B',
     marginBottom: '0.5rem',
     fontWeight: '700',
     display: 'flex',
@@ -299,7 +299,7 @@ const styles = {
     gap: '0.4rem',
   },
   secIcon: {
-    color: '#C89A45',
+    color: '#B13A0B',
   },
   modalParagraph: {
     fontSize: '0.9rem',
@@ -316,13 +316,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.3rem',
-    backgroundColor: 'rgba(15, 36, 70, 0.05)',
-    color: '#0F2446',
+    backgroundColor: 'rgba(11, 27, 43, 0.05)',
+    color: '#0B1B2B',
     padding: '0.3rem 0.6rem',
     borderRadius: '4px',
     fontSize: '0.8rem',
     fontWeight: '600',
-    border: '1px solid rgba(15, 36, 70, 0.1)',
+    border: '1px solid rgba(11, 27, 43, 0.1)',
   },
   techGrid: {
     display: 'flex',
@@ -331,9 +331,9 @@ const styles = {
     marginTop: '0.5rem',
   },
   techBadge: {
-    backgroundColor: 'rgba(200, 154, 69, 0.05)',
-    color: '#C89A45',
-    border: '1px solid rgba(200, 154, 69, 0.2)',
+    backgroundColor: 'rgba(255, 90, 31, 0.05)',
+    color: '#B13A0B',
+    border: '1px solid rgba(255, 90, 31, 0.2)',
     padding: '0.3rem 0.6rem',
     borderRadius: '4px',
     fontSize: '0.8rem',
@@ -341,7 +341,7 @@ const styles = {
   },
   returnBtn: {
     width: '100%',
-    backgroundColor: '#0F2446',
+    backgroundColor: '#0B1B2B',
     color: '#ffffff',
     border: 'none',
     borderRadius: '8px',
@@ -349,7 +349,7 @@ const styles = {
     fontWeight: '600',
     fontSize: '0.95rem',
     cursor: 'pointer',
-    boxShadow: '0 4px 12px rgba(15, 36, 70, 0.15)',
+    boxShadow: '0 4px 12px rgba(11, 27, 43, 0.15)',
     transition: 'all 0.2s',
   }
 };

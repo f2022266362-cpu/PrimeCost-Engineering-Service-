@@ -23,7 +23,7 @@ export const industriesData = {
       { title: 'Wind & Hurricane Compliance', desc: 'Residential coastal zones demand wind-resistant tie-down configurations, hurricane strapping, and shear wall layouts.' }
     ],
     deliverables: ['PE-Stamped Structural Framing Plans', 'Foundation Plan & Pier Placement Coordinates', 'Wind Load Tie-down Strapping Specifications', 'Zoning setback Site Plan Sheets', 'Architectural Cross-sections & Window Schedules'],
-    accent: '#1b3b6f'
+    accent: '#1E3A55'
   },
   'multifamily': {
     name: 'Multifamily Projects',
@@ -56,7 +56,7 @@ export const industriesData = {
       { title: 'Accessibility Compliance', desc: 'Strict adherence to ADA guidelines for ramps, customer restrooms, egress widths, and parking spaces.' }
     ],
     deliverables: ['ADA Accessibility Site Plans', 'Commercial MEP Panel Schedule Diagrams', 'Grease Trap Sizing calculations', 'Structural Tilt-up Wall Panel Prints', 'Title 24 & ComCheck compliance sheets'],
-    accent: '#c5a880'
+    accent: '#FF8A5C'
   },
   'industrial': {
     name: 'Industrial Projects',
@@ -103,7 +103,7 @@ export default function IndustryPage() {
       </section>
 
       {/* Grid Content */}
-      <div className="container" style={styles.layoutGrid}>
+      <div className="container pc-stack-mobile" style={styles.layoutGrid}>
         {/* Left Columns */}
         <div style={styles.contentCol}>
           
@@ -210,13 +210,13 @@ export default function IndustryPage() {
 
 const styles = {
   containerPage: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     paddingBottom: '5rem',
   },
   banner: {
     position: 'relative',
-    background: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop") no-repeat center/cover',
-    padding: '5rem 0',
+    background: 'url("/images/photos/glass-up-1800.webp") no-repeat center/cover',
+    padding: '9.5rem 0 4.5rem',
     color: '#ffffff',
     marginBottom: '3rem',
   },
@@ -236,7 +236,7 @@ const styles = {
   bannerTag: {
     fontSize: '0.78rem',
     fontWeight: '700',
-    color: '#c5a880',
+    color: '#FF8A5C',
     letterSpacing: '1.5px',
     display: 'block',
     marginBottom: '0.5rem',
@@ -245,7 +245,7 @@ const styles = {
     fontSize: '2.5rem',
     color: '#ffffff',
     marginBottom: '0.75rem',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
   },
   bannerDesc: {
     fontSize: '1rem',
@@ -279,7 +279,7 @@ const styles = {
     fontSize: '1.5rem',
     color: '#0f172a',
     marginBottom: '1.5rem',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
     borderBottom: '2px solid #f1f5f9',
     paddingBottom: '0.75rem',
   },
@@ -307,7 +307,7 @@ const styles = {
   },
   featureDesc: {
     fontSize: '0.9rem',
-    color: '#64748b',
+    color: '#4F5B6A',
     lineHeight: '1.5',
   },
   challengeList: {
@@ -362,10 +362,10 @@ const styles = {
   sidebarTitle: {
     fontSize: '1.15rem',
     color: '#0f172a',
-    fontFamily: "'Outfit', sans-serif",
+    fontFamily: "var(--font-display)",
     marginBottom: '1.25rem',
     paddingBottom: '0.5rem',
-    borderBottom: '2px solid #1b3b6f',
+    borderBottom: '2px solid #1E3A55',
     alignSelf: 'flex-start',
   },
   sidebarList: {
@@ -382,7 +382,7 @@ const styles = {
     fontSize: '0.88rem',
     fontWeight: '600',
     color: '#475569',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#FBF7EE',
     transition: 'all 0.2s',
   },
   sidebarCta: {
