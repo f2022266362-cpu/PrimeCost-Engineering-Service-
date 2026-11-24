@@ -122,10 +122,10 @@ export default function IndustryPage() {
             <div style={styles.featureList}>
               {industry.features.map((feat, idx) => (
                 <div key={idx} style={styles.featureItem}>
-                  <h4 style={styles.featureName}>
+                  <h3 className="pc-h4" style={styles.featureName}>
                     <Layers size={16} style={{ color: industry.accent, marginRight: '0.5rem' }} />
                     {feat.name}
-                  </h4>
+                  </h3>
                   <p style={styles.featureDesc}>{feat.desc}</p>
                 </div>
               ))}
@@ -143,7 +143,7 @@ export default function IndustryPage() {
                 <div key={idx} style={styles.challengeItem}>
                   <div style={styles.challengeHeader}>
                     <ShieldAlert size={18} style={styles.alertIcon} />
-                    <h4 style={styles.challengeTitle}>{chal.title}</h4>
+                    <h3 className="pc-h4" style={styles.challengeTitle}>{chal.title}</h3>
                   </div>
                   <p style={styles.challengeDesc}>{chal.desc}</p>
                 </div>

@@ -107,7 +107,7 @@ function AccordionItem({ section, isOpen, toggle }) {
       >
         {section.content.map((item, i) => (
           <div key={i} style={itemStyles.contentBlock}>
-            <h4 style={itemStyles.subtitle}>{item.subtitle}</h4>
+            <h2 className="pc-h4" style={itemStyles.subtitle}>{item.subtitle}</h2>
             <p style={itemStyles.text}>{item.text}</p>
           </div>
         ))}
@@ -195,7 +195,7 @@ export default function RefundPolicy() {
 
   return (
     <div style={{ ...styles.page, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
-      <SchemaManager title="Refund Policy" description="PRIMECOST refund and cancellation policy for engineering and design services." />
+      <SchemaManager title="Refund & Cancellation Policy" description="PRIMECOST refund and cancellation policy for engineering, PE stamping and design services: eligibility, timelines and how to request a refund." />
       {/* Hero Banner */}
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />

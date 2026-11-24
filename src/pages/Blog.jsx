@@ -26,7 +26,7 @@ export default function Blog() {
     <div style={styles.containerPage}>
       <SchemaManager 
         title="Structural Engineering & Construction Blog" 
-        description="Read comprehensive technical articles on architectural design standards, structural engineering calculations, commercial MEP codes, and 3D BIM clash detection workflows."
+        description="Technical articles on structural calculations, PE stamping, permits, MEP codes and BIM coordination from PRIMECOST's licensed engineering team."
       />
 
       {/* Hero Header */}

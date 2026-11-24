@@ -168,12 +168,12 @@ export default function Career() {
               { icon: '💰', title: 'Competitive Pay', desc: 'Market-rate salaries + performance bonuses for top contributors.' },
               { icon: '🛠️', title: 'Latest Tools', desc: 'Revit, ETABS, Navisworks, Bluebeam — we keep you equipped.' },
               { icon: '🤝', title: 'Team Culture', desc: 'Collaborative, inclusive environment with expert mentors.' },
-              { icon: '🌎', title: 'Nationwide Impact', desc: 'Work on projects across all 50 U.S. states and growing.' },
+              { icon: '🌎', title: 'Nationwide Impact', desc: 'Work on projects across 49 U.S. states and growing.' },
             ].map((perk, i) => (
               <ScrollReveal key={i} variant="fade-up" style={{ transitionDelay: `${i * 0.07}s` }}>
                 <GlassCard style={styles.perkCard} hoverLift>
                   <span style={styles.perkIcon}>{perk.icon}</span>
-                  <h4 style={styles.perkTitle}>{perk.title}</h4>
+                  <h3 className="pc-h4" style={styles.perkTitle}>{perk.title}</h3>
                   <p style={styles.perkDesc}>{perk.desc}</p>
                 </GlassCard>
               </ScrollReveal>

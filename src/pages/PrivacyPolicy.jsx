@@ -184,7 +184,7 @@ function AccordionItem({ section, isOpen, toggle }) {
       >
         {section.content.map((item, i) => (
           <div key={i} style={itemStyles.contentBlock}>
-            <h4 style={itemStyles.subtitle}>{item.subtitle}</h4>
+            <h2 className="pc-h4" style={itemStyles.subtitle}>{item.subtitle}</h2>
             <p style={itemStyles.text}>{item.text}</p>
           </div>
         ))}
@@ -272,7 +272,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div style={{ ...styles.page, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}>
-      <SchemaManager title="Privacy Policy" description="How PRIMECOST collects, uses and protects information submitted through primecost.biz." />
+      <SchemaManager title="Privacy Policy — How We Protect Your Data" description="How PRIMECOST Engineering collects, uses and protects information you submit through primecost.biz, including quote requests and contact forms." />
       {/* Hero Banner */}
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />
@@ -300,7 +300,7 @@ export default function PrivacyPolicy() {
           <p style={styles.introText}>
             By accessing our website or engaging our engineering and architectural design services,
             you agree to the data practices described in this Privacy Policy. PRIMECOST operates
-            across all 50 U.S. states, with 7 regional sub-offices, and provides services
+            across 49 U.S. states, with 7 regional sub-offices, and provides services
             throughout Europe — we are committed to complying with all applicable privacy laws
             including GDPR, CCPA, and Texas Privacy statutes.
           </p>

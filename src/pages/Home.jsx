@@ -192,8 +192,8 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
   return (
     <div className="pc-home" ref={root}>
       <SchemaManager
-        title="Licensed Structural Engineering Services | PE Stamped Drawings — PRIMECOST"
-        description="Licensed structural engineering firm offering PE-stamped structural drawings, architectural design, and pre-construction engineering solutions. Fast, accurate, code-compliant designs."
+        title="Structural Engineering & PE Stamped Drawings | PRIMECOST"
+        description="Houston structural engineering firm licensed in 49 states: PE-stamped drawings, MEP, architectural design and permit corrections. Quotes in 24 hours."
         schemaType="FAQ"
         schemaData={{ questions: faqs }}
       />
@@ -465,7 +465,7 @@ export default function Home({ onOpenConsultation, onOpenProposal }) {
             {projects.slice(0, 7).map((p) => (
               <Link to="/portfolio" key={p.id} className="pc-hcard" data-cursor="View">
                 <div className="pc-hcard__media">
-                  <img src={p.image.replace('-900.', '-1800.')} alt={p.name} loading="lazy" draggable="false" />
+                  <img src={p.image.replace('-900.', '-1800.')} alt={p.name} width="1800" height="1200" loading="lazy" decoding="async" draggable="false" />
                   <span className="pc-hcard__cat">{titleCase(p.category)}</span>
                 </div>
                 <div className="pc-hcard__body">
