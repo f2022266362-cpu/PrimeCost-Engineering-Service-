@@ -613,7 +613,7 @@ export default function ServicePage() {
                     <Users size={18} style={styles.whoIcon} />
                   </div>
                   <div>
-                    <h4 style={styles.whoRole}>{user.role}</h4>
+                    <h3 className="pc-h4" style={styles.whoRole}>{user.role}</h3>
                     <p style={styles.whoContext}>{user.context}</p>
                   </div>
                 </div>
@@ -632,7 +632,7 @@ export default function ServicePage() {
                 <div key={idx} style={styles.timelineItem}>
                   <div style={styles.timelineNum}>{p.step}</div>
                   <div style={styles.timelineContent}>
-                    <h4 style={styles.timelineTitle}>{p.title}</h4>
+                    <h3 className="pc-h4" style={styles.timelineTitle}>{p.title}</h3>
                     <p style={styles.timelineDesc}>{p.desc}</p>
                   </div>
                 </div>

@@ -37,7 +37,7 @@ const sections = [
       },
       {
         subtitle: 'Geographic Coverage',
-        text: 'PRIMECOST operates across all 50 U.S. states with 7 regional sub-offices, and provides services throughout Europe. We are licensed and insured in accordance with the engineering and architectural practice requirements of each jurisdiction in which we operate. International service terms may be supplemented by jurisdiction-specific addenda.',
+        text: 'PRIMECOST operates across 49 U.S. states with 7 regional sub-offices, and provides services throughout Europe. We are licensed and insured in accordance with the engineering and architectural practice requirements of each jurisdiction in which we operate. International service terms may be supplemented by jurisdiction-specific addenda.',
       },
       {
         subtitle: 'Professional Standards',
@@ -219,7 +219,7 @@ function AccordionItem({ section, isOpen, toggle }) {
       >
         {section.content.map((item, i) => (
           <div key={i} style={itemStyles.contentBlock}>
-            <h4 style={itemStyles.subtitle}>{item.subtitle}</h4>
+            <h2 className="pc-h4" style={itemStyles.subtitle}>{item.subtitle}</h2>
             <p style={itemStyles.text}>{item.text}</p>
           </div>
         ))}
@@ -353,7 +353,7 @@ export default function TermsConditions() {
             These Terms & Conditions ("Agreement") constitute a legally binding agreement between you
             ("Client") and PrimeCost Engineering & Design LLC, doing business as PRIMECOST
             ("Company", "we", "us", "our"), a Texas limited liability company. PRIMECOST serves
-            clients across all U.S. states, maintains 7 regional offices, and provides services in Europe.
+            clients across 49 U.S. states, maintains 7 regional offices, and provides services in Europe.
             Our principal office is located at 75 E 3RD ST STE 7, SHERIDAN, WY 82801, with our main sub-office located at 440 Louisiana St, Suite 900, Houston, TX 77002.
           </p>
           <div style={styles.disclaimer}>

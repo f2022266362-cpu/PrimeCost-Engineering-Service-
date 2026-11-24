@@ -46,6 +46,8 @@ export default function BlogPost() {
           description: data.metaDescription || data.summary,
           url,
           keywords: data.focusKeyword,
+          datePublished: data.datePublished,
+          dateModified: data.dateModified,
         }}
       />
       {data.faq && data.faq.length > 0 && (
@@ -63,11 +65,11 @@ export default function BlogPost() {
         </Link>
 
         <header style={styles.header}>
-          <span style={styles.cat}>{data.category?.toUpperCase()} | {data.readTime}</span>
+          <span style={styles.cat}>{data.category?.toUpperCase()} | {data.readTime}{data.dateModified && data.dateModified !== data.datePublished ? <> | Updated <time dateTime={data.dateModified}>{new Date(data.dateModified + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time></> : null}</span>
           <h1 style={styles.title}>{data.title}</h1>
           <div style={styles.metaRow}>
             <span style={styles.metaItem}><User size={14} /> PRIMECOST Engineering Team</span>
-            <span style={styles.metaItem}><Calendar size={14} /> 2026</span>
+            <span style={styles.metaItem}><Calendar size={14} /> {data.datePublished ? <time dateTime={data.datePublished}>{new Date(data.datePublished + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time> : '2026'}</span>
           </div>
         </header>
 

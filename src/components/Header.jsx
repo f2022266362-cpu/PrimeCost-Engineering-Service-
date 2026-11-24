@@ -112,7 +112,7 @@ export default function Header({ onOpenConsultation, onOpenProposal }) {
     <header className={`pc-nav ${scrolled || solid ? 'is-scrolled' : ''} ${hidden && !menu && !isOpen ? 'is-hidden' : ''} ${isOpen ? 'is-open' : ''} ${dark ? 'is-dark' : ''}`}>
       <div className="pc-nav__bar" ref={barRef} onMouseLeave={close}>
         <Link to="/" className="pc-nav__logo" aria-label="PRIMECOST — home">
-          <img src={dark ? '/logo-mark-white.png' : '/logo-mark.png'} alt="PRIMECOST Engineering Services" width="647" height="301" />
+          <img src={dark ? '/logo-mark-white.webp' : '/logo-mark.webp'} alt="PRIMECOST Engineering Services" width="322" height="150" fetchPriority="high" />
         </Link>
 
         <nav className="pc-nav__links" aria-label="Primary">

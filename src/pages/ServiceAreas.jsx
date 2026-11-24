@@ -118,7 +118,7 @@ export default function ServiceAreas() {
     <div>
       <SchemaManager
         title="Service Areas — 49 States PE Engineering Network | PRIMECOST"
-        description="PRIMECOST provides PE-stamped structural engineering and design services across 49 U.S. states. View state-specific building codes, seismic zones, and wind requirements."
+        description="PE-stamped structural engineering and design across 49 U.S. states. See state-specific building codes, seismic zones and wind requirements."
         schemaType="Service"
         schemaData={{ name: 'Nationwide Structural Engineering Services', description: 'PE-stamped structural engineering across 49 states.' }}
       />

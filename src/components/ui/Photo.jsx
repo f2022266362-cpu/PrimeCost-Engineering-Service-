@@ -28,6 +28,8 @@ export default function Photo({
       src={failed ? fallback : photoUrl(photo, width)}
       srcSet={failed ? undefined : photoSrcSet(photo)}
       sizes={sizes}
+      width={photo.w}
+      height={photo.h}
       alt={alt ?? photo.alt}
       className={className}
       loading={eager ? 'eager' : 'lazy'}

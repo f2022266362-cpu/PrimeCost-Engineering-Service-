@@ -1,4 +1,5 @@
 import { useEffect, useId } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SITE_URL, isServer } from '../seo/site';
 import { collect } from '../seo/ssrCollector';
 
@@ -16,20 +17,81 @@ export function formatTitle(title) {
  * Used both in the browser (effect below) and at build time (prerender).
  * Supported schemaType: Service, FAQ, Project, Review, BlogPosting
  */
-export function buildSchemas({ schemaType, schemaData }) {
+const ORG_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
+const SEGMENT_LABELS = {
+  services: { name: 'Services', path: '/services' },
+  blog: { name: 'Blog', path: '/blog' },
+  'structural-engineer': { name: 'Service Areas', path: '/service-areas' },
+};
+
+function breadcrumbFor(path, title) {
+  if (!path || path === '/' || path === '/404' || path.startsWith('/__')) return null;
+  const segs = path.replace(/\/+$/, '').split('/').filter(Boolean);
+  const pageName = (title || '').split('|')[0].trim() || segs[segs.length - 1];
+  const items = [{ name: 'Home', url: `${SITE_URL}/` }];
+  if (segs.length > 1 && SEGMENT_LABELS[segs[0]]) {
+    const parent = SEGMENT_LABELS[segs[0]];
+    items.push({ name: parent.name, url: SITE_URL + parent.path });
+  }
+  items.push({ name: pageName, url: SITE_URL + path });
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((it, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": it.name,
+      "item": it.url
+    }))
+  };
+}
+
+/**
+ * Pure function: builds the JSON-LD objects for a page.
+ * Used both in the browser (effect below) and at build time (prerender).
+ * Supported schemaType: Service, FAQ, Project, Review, BlogPosting
+ */
+export function buildSchemas({ schemaType, schemaData, path, title }) {
   const schemasToInject = [];
 
-  // Base Organization Schema (always present)
+  const address = {
+    "@type": "PostalAddress",
+    "streetAddress": "440 Louisiana St, Suite 900",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "postalCode": "77002",
+    "addressCountry": "US"
+  };
+
+  // One business entity (ProfessionalService is a kind of Organization).
+  // Every other schema points back to it by @id so search engines and AI
+  // answer engines see a single, consistent PRIMECOST entity.
   const orgSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
+    "@id": ORG_ID,
     "name": "PRIMECOST",
+    "alternateName": "PRIMECOST Engineering Services",
     "url": SITE_URL,
-    "logo": `${SITE_URL}/logo.png`,
+    "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` },
+    "image": `${SITE_URL}/og-default.jpg`,
+    "description": "Houston-based structural engineering firm providing PE-stamped structural, MEP and architectural drawings, permit corrections and pre-construction services for contractors, architects and developers in 49 U.S. states.",
+    "email": "Frank.moore@primecost.biz",
+    "telephone": "+1-832-234-6456",
+    "priceRange": "$$",
+    "address": address,
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.7615,
+      "longitude": -95.3675
+    },
     "contactPoint": [
       {
         "@type": "ContactPoint",
         "telephone": "+1-832-234-6456",
+        "email": "Frank.moore@primecost.biz",
         "contactType": "customer service",
         "areaServed": "US",
         "availableLanguage": "en"
@@ -42,51 +104,6 @@ export function buildSchemas({ schemaType, schemaData }) {
         "availableLanguage": "en"
       }
     ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "440 Louisiana St, Suite 900",
-      "addressLocality": "Houston",
-      "addressRegion": "TX",
-      "postalCode": "77002",
-      "addressCountry": "US"
-    },
-    "founder": {
-      "@type": "Person",
-      "name": "Frank Moore",
-      "jobTitle": "CEO"
-    },
-    "employee": [
-      {
-        "@type": "Person",
-        "name": "Hal Jordan",
-        "jobTitle": "President"
-      }
-    ]
-  };
-  schemasToInject.push(orgSchema);
-
-  // Base ProfessionalService Schema (always present, targets nationwide US and local markets)
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "PRIMECOST",
-    "image": `${SITE_URL}/logo.png`,
-    "url": SITE_URL,
-    "telephone": "+1-832-234-6456",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "440 Louisiana St, Suite 900",
-      "addressLocality": "Houston",
-      "addressRegion": "TX",
-      "postalCode": "77002",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 29.7615,
-      "longitude": -95.3675
-    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -101,14 +118,47 @@ export function buildSchemas({ schemaType, schemaData }) {
         "closes": "16:00"
       }
     ],
-    "areaServed": ["US", "Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands"],
+    "areaServed": [
+      { "@type": "Country", "name": "United States" },
+      ...["Houston", "Sugar Land", "Katy", "Spring", "Cypress", "Pearland", "The Woodlands", "Montgomery", "Conroe"]
+        .map((name) => ({ "@type": "City", "name": name, "containedInPlace": { "@type": "State", "name": "Texas" } }))
+    ],
+    "knowsAbout": [
+      "Structural engineering", "PE stamped drawings", "MEP engineering", "Architectural design",
+      "Foundation design", "Steel connection design", "Shop drawings", "BIM and Revit modeling",
+      "Permit corrections", "Civil engineering", "Geotechnical engineering", "Cost estimation"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Frank Moore",
+      "jobTitle": "CEO"
+    },
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Hal Jordan",
+        "jobTitle": "President"
+      }
+    ],
     "sameAs": [
       "https://www.linkedin.com/company/primecost-biz",
       "https://www.facebook.com/primecost-biz"
     ]
   };
-  schemasToInject.push(localBusinessSchema);
+  schemasToInject.push(orgSchema);
 
+  schemasToInject.push({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    "url": SITE_URL,
+    "name": "PRIMECOST",
+    "inLanguage": "en-US",
+    "publisher": { "@id": ORG_ID }
+  });
+
+  const crumbs = breadcrumbFor(path, title);
+  if (crumbs) schemasToInject.push(crumbs);
 
   // Dynamic Schema Injection based on page type
   if (schemaType && schemaData) {
@@ -119,11 +169,9 @@ export function buildSchemas({ schemaType, schemaData }) {
           "@type": "Service",
           "name": schemaData.name,
           "description": schemaData.description,
-          "provider": {
-            "@type": "LocalBusiness",
-            "name": "PRIMECOST",
-            "address": orgSchema.address
-          },
+          "serviceType": schemaData.name,
+          "provider": { "@id": ORG_ID },
+          ...(path ? { "url": SITE_URL + path } : {}),
           "areaServed": schemaData.areaServed || "US",
           "offers": {
             "@type": "Offer",
@@ -160,10 +208,7 @@ export function buildSchemas({ schemaType, schemaData }) {
             "@type": "Place",
             "name": schemaData.location
           },
-          "creator": {
-            "@type": "Organization",
-            "name": "PRIMECOST"
-          },
+          "creator": { "@id": ORG_ID },
           "genre": schemaData.buildingType
         });
         break;
@@ -173,10 +218,7 @@ export function buildSchemas({ schemaType, schemaData }) {
           "@context": "https://schema.org",
           "@type": "Review",
           "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "PRIMECOST",
-            "image": orgSchema.logo,
-            "address": orgSchema.address
+            "@id": ORG_ID
           },
           "author": {
             "@type": "Person",
@@ -198,13 +240,11 @@ export function buildSchemas({ schemaType, schemaData }) {
           "headline": schemaData.headline,
           "description": schemaData.description,
           "mainEntityOfPage": schemaData.url,
-          "author": { "@type": "Organization", "name": "PRIMECOST Engineering Team" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "PRIMECOST",
-            "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` }
-          },
-          ...(schemaData.datePublished ? { "datePublished": schemaData.datePublished } : {}),
+          "author": { "@type": "Organization", "@id": ORG_ID, "name": "PRIMECOST Engineering Team", "url": `${SITE_URL}/about` },
+          "publisher": { "@id": ORG_ID },
+          "image": schemaData.image || `${SITE_URL}/og-default.jpg`,
+          "inLanguage": "en-US",
+          ...(schemaData.datePublished ? { "datePublished": schemaData.datePublished, "dateModified": schemaData.dateModified || schemaData.datePublished } : {}),
           ...(schemaData.keywords ? { "keywords": schemaData.keywords } : {})
         });
         break;
@@ -225,13 +265,15 @@ export function buildSchemas({ schemaType, schemaData }) {
  */
 export default function SchemaManager({ title, description, schemaType, schemaData, noindex = false }) {
   const instanceId = useId();
+  const { pathname } = useLocation();
+  const path = pathname.replace(/\/+$/, '') || '/';
 
   if (isServer) {
     collect({
       title: formatTitle(title),
       description: description || DEFAULT_DESC,
       noindex,
-      schemas: buildSchemas({ schemaType, schemaData }),
+      schemas: buildSchemas({ schemaType, schemaData, path, title }),
     });
   }
 
@@ -273,7 +315,7 @@ export default function SchemaManager({ title, description, schemaType, schemaDa
       [...document.querySelectorAll('script[type="application/ld+json"].primecos-schema')].map((el) => el.text)
     );
     const added = [];
-    buildSchemas({ schemaType, schemaData }).forEach((schemaObj) => {
+    buildSchemas({ schemaType, schemaData, path, title }).forEach((schemaObj) => {
       const text = JSON.stringify(schemaObj);
       if (existing.has(text)) return;
       const script = document.createElement('script');
@@ -287,7 +329,7 @@ export default function SchemaManager({ title, description, schemaType, schemaDa
 
     // Cleanup only the scripts THIS instance added
     return () => added.forEach((el) => el.remove());
-  }, [title, description, schemaType, schemaData, noindex, instanceId]);
+  }, [title, description, schemaType, schemaData, noindex, instanceId, path]);
 
   return null;
 }

@@ -286,7 +286,7 @@ export const faqs = [
   },
   {
     question: 'Which states do you serve?',
-    answer: 'We provide licensed Professional Engineer (PE) stamped drawings across all 50 US States, ensuring designs conform precisely to state, county, and local municipal building codes.'
+    answer: 'We provide licensed Professional Engineer (PE) stamped drawings across 49 U.S. states, ensuring designs conform precisely to state, county, and local municipal building codes.'
   },
   {
     question: 'Do you provide stamped drawings?',

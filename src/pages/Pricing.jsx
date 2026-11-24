@@ -132,7 +132,7 @@ export default function Pricing() {
     <div>
       <SchemaManager
         title="Pricing — Structural Engineering & Design Rates | PRIMECOST"
-        description="Transparent pricing for PE-stamped structural engineering ($0.78/sq ft), architectural drawings ($0.45/sq ft), and MEP engineering ($1.30/sq ft). First project 15% off."
+        description="Transparent pricing: PE-stamped structural engineering $0.78/sq ft, architectural drawings $0.45/sq ft, MEP $1.30/sq ft. First project 15% off."
         schemaType="Service"
         schemaData={{ name: 'Engineering & Design Pricing', description: 'Transparent rates for structural, architectural, and MEP engineering services.' }}
       />

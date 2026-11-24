@@ -49,22 +49,52 @@ export default function About() {
   return (
     <div style={{ paddingTop: '7rem', minHeight: '100vh', background: '#FBF7EE' }}>
       <SchemaManager
-        title="Contact Us | PRIMECOST Engineering"
-        description="Get in touch with PRIMECOST. Send us a message, visit our Houston HQ, or email our scoping desk."
+        title="About & Contact | Houston Structural Engineers"
+        description="About PRIMECOST: Houston structural engineers with PE licenses in 49 states and a staffed office at 440 Louisiana St. Get a quote within 24 hours."
       />
 
       {/* ── Page Header ── */}
       <div style={styles.pageHeader}>
         <div className="container">
           <ScrollReveal variant="fade-up">
-            <span style={styles.tag}>GET IN TOUCH</span>
-            <h1 style={styles.pageTitle}>Contact Us</h1>
+            <span style={styles.tag}>ABOUT &amp; CONTACT</span>
+            <h1 style={styles.pageTitle}>About PRIMECOST</h1>
             <p style={styles.pageSubtitle}>
-              Send us your project details and our team will respond within 24 hours.
+              A Houston engineering firm that gets drawings stamped, approved and built. Send us your project details and our team will respond within 24 hours.
             </p>
           </ScrollReveal>
         </div>
       </div>
+
+      {/* ── About the firm (facts confirmed by PRIMECOST) ── */}
+      <section className="pc-about" aria-labelledby="pc-about-title">
+        <div className="container pc-about__grid">
+          <div className="pc-about__copy">
+            <h2 id="pc-about-title" className="pc-about__h2">Engineering that passes plan review the first time.</h2>
+            <p>
+              PRIMECOST Engineering Services is a structural engineering and design firm headquartered in Houston, Texas.
+              Our staffed office at 440 Louisiana St, Suite 900 serves contractors, architects, developers and project
+              managers who need permit-ready drawings without the back-and-forth.
+            </p>
+            <p>
+              We hold Professional Engineer (PE) licensing across 49 U.S. states, so a licensed engineer in your project&apos;s
+              state reviews, signs and seals the work. Our team covers structural engineering, MEP engineering, architectural
+              design, BIM and CAD drafting, shop drawings, permit corrections and pre-construction services, along with civil,
+              geotechnical, inspection, surveying and sustainability work.
+            </p>
+            <p>
+              Every set goes through scoping, design and calculations, an independent QA/QC check and a state-licensed seal,
+              and our permitting desk stays with you through plan-review comments and resubmittals.
+            </p>
+          </div>
+          <ul className="pc-about__facts">
+            <li><strong>49</strong><span>States with PE licensing</span></li>
+            <li><strong>24 hr</strong><span>Typical quote turnaround</span></li>
+            <li><strong>Houston</strong><span>Staffed office downtown, 440 Louisiana St</span></li>
+            <li><strong>BBB</strong><span>Accredited business</span></li>
+          </ul>
+        </div>
+      </section>
 
       {/* ── Main Grid: Form + Info ── */}
       <section style={styles.section}>

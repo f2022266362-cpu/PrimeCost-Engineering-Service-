@@ -109,8 +109,8 @@ export default function Footer({ onOpenConsultation, onOpenProposal }) {
             <li>Autodesk BIM Certified</li>
           </ul>
           <div className="pc-footer__badges">
-            <img src="/bbb.png" alt="BBB Accredited Business" loading="lazy" />
-            <img src="/yelp.png" alt="Yelp" loading="lazy" />
+            <img src="/bbb-badge.webp" alt="BBB Accredited Business" width="96" height="96" loading="lazy" />
+            <img src="/yelp-badge.webp" alt="Yelp" width="96" height="96" loading="lazy" />
             <a href="https://www.facebook.com/share/1cAJw4ejtE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="pc-footer__social">Facebook <ArrowUpRight size={14} /></a>
             <a href="https://www.instagram.com/primecost_llc?igsh=MXJuMHhxYW5hMnZmeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="pc-footer__social">Instagram <ArrowUpRight size={14} /></a>
           </div>

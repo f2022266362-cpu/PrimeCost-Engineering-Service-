@@ -33,7 +33,7 @@ export default function FAQPage() {
     <div style={{ background: '#f4f7fb', minHeight: '100vh' }}>
       <SchemaManager
         title="Engineering FAQs — 400+ Questions Answered | PRIMECOST"
-        description="Browse 400+ frequently asked questions about structural engineering, civil engineering, MEP, BIM, architectural design, permits, and more from PRIMECOST Engineering."
+        description="400+ answers on structural and civil engineering, MEP, BIM, architectural design, PE stamps and permits from PRIMECOST's licensed engineers."
         schemaType="FAQ"
         schemaData={{ questions: faqCategories.flatMap(c => c.faqs).slice(0, 40) }}
       />
