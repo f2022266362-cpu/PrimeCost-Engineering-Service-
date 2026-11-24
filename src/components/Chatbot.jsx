@@ -9,7 +9,7 @@ const FAQ_DATA = [
   },
   {
     question: "Do you provide permit-ready drawings?",
-    answer: "Yes! We provide permit-ready architectural drawings that comply with local building codes and regulations. Our drawings are accepted by municipal building departments across all 50 US states, including Houston, TX permitting centers."
+    answer: "Yes! We provide permit-ready architectural drawings that comply with local building codes and regulations. Our drawings are accepted by municipal building departments across the 49 states where we hold PE licenses, including Houston, TX permitting centers."
   },
   {
     question: "What is structural engineering?",
@@ -136,7 +136,7 @@ const FAQ_DATA = [
   // Residential Construction
   {
     question: "Can you design custom homes?",
-    answer: "Yes! We design fully custom luxury homes, including all architectural drawings, structural calculations, MEP schematics, and 3D visualizations needed for permit approval and construction. We serve all 50 US states."
+    answer: "Yes! We design fully custom luxury homes, including all architectural drawings, structural calculations, MEP schematics, and 3D visualizations needed for permit approval and construction. We serve clients in 49 U.S. states."
   },
   {
     question: "Do you provide home addition plans?",
@@ -266,7 +266,7 @@ const FAQ_DATA = [
   },
   {
     question: "Can you work on projects nationwide?",
-    answer: "Yes! PRIMECOST provides engineering, estimating, and architectural design services across all 50 US states. We are headquartered in Houston, TX, and serve clients in California, Florida, New York, Arizona, Georgia, and everywhere in between."
+    answer: "Yes! PRIMECOST provides engineering, estimating, and architectural design services across 49 U.S. states. We are headquartered in Houston, TX, and serve clients in California, Florida, New York, Arizona, Georgia, and everywhere in between."
   },
   {
     question: "Do you provide online estimating services?",
@@ -419,6 +419,8 @@ export default function Chatbot({ onOpenConsultation, onOpenProposal }) {
             <img
               src="/whatsapp-logo-3d.png"
               alt="WhatsApp"
+              width="480"
+              height="480"
               className="whatsapp-float-logo"
             />
           </a>
