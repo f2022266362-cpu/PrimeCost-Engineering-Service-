@@ -130,16 +130,14 @@ export function buildSchemas({ schemaType, schemaData, path, title }) {
     ],
     "founder": {
       "@type": "Person",
+      "@id": `${SITE_URL}/founder#frank-moore`,
       "name": "Frank Moore",
-      "jobTitle": "CEO"
+      "jobTitle": "CEO & Founder",
+      "url": `${SITE_URL}/founder`,
+      "image": `${SITE_URL}/ceo-frank.jpg`,
+      "email": "Frank.moore@primecost.biz"
     },
-    "employee": [
-      {
-        "@type": "Person",
-        "name": "Hal Jordan",
-        "jobTitle": "President"
-      }
-    ],
+    "legalName": "PrimeCost Engineering & Design LLC",
     "sameAs": [
       "https://www.linkedin.com/company/primecost-biz",
       "https://www.facebook.com/primecost-biz"
