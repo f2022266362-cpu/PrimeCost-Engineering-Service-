@@ -5,7 +5,7 @@ export const cityPages = {
     city: 'Cypress',
     county: 'Harris County',
     metaTitle: 'Structural Engineer Cypress, TX | PE Stamped Drawings | PRIMECOST',
-    metaDescription: 'Structural engineering in Cypress, TX: PE-stamped plans, foundation design, additions, permit corrections and inspections. Houston-based PE firm. Call (832) 234-6456.',
+    metaDescription: 'Structural engineering in Cypress, TX: PE-stamped plans, foundation design, additions, permit corrections and inspections. Call (832) 234-6456.',
     h1: 'Structural Engineer in Cypress, TX',
     intro: [
       'Cypress has grown from a rural crossroads into one of the busiest building areas in northwest Harris County, with master-planned communities such as Bridgeland and Towne Lake, new retail along US-290, and steady demand for home additions, patio covers, and remodels. PRIMECOST provides PE-stamped structural engineering for homeowners, builders, and commercial developers across Cypress from our Houston office.',
@@ -28,7 +28,7 @@ export const cityPages = {
     city: 'The Woodlands',
     county: 'Montgomery County',
     metaTitle: 'Structural Engineer The Woodlands, TX | PE Stamped | PRIMECOST',
-    metaDescription: 'PE-stamped structural engineering in The Woodlands and Montgomery County, TX: residential additions, commercial projects, foundation letters and permit help. Call (832) 234-6456.',
+    metaDescription: 'PE-stamped structural engineering in The Woodlands, TX: residential additions, commercial projects, foundation letters and permit help. Call (832) 234-6456.',
     h1: 'Structural Engineer in The Woodlands, TX',
     intro: [
       'The Woodlands combines established neighborhoods, a busy town center, and a large corporate and medical employment base, so structural work here ranges from home renovations and pool cabanas to office build-outs and medical facilities. PRIMECOST provides PE-stamped structural engineering for owners, builders, and architects in The Woodlands and the surrounding Montgomery County communities, including Conroe, Magnolia, and Montgomery.',
@@ -50,8 +50,8 @@ export const cityPages = {
   'katy-tx': {
     city: 'Katy',
     county: 'Harris, Fort Bend and Waller Counties',
-    metaTitle: 'Structural Engineer Katy, TX | PE Stamped Plans & Foundations | PRIMECOST',
-    metaDescription: 'Structural engineering in Katy, TX: PE-stamped plans, foundation design and evaluations, additions, commercial projects and permit corrections. Call (832) 234-6456.',
+    metaTitle: 'Structural Engineer Katy, TX | PE Stamped Plans | PRIMECOST',
+    metaDescription: 'Structural engineering in Katy, TX: PE-stamped plans, foundation design and evaluations, additions, commercial projects and permit fixes. Call (832) 234-6456.',
     h1: 'Structural Engineer in Katy, TX',
     intro: [
       'Katy is one of the fastest-growing parts of the Houston region, spreading across Harris, Fort Bend, and Waller counties with communities like Cinco Ranch and a steady stream of new homes, schools, retail, and industrial space along I-10 and the Grand Parkway. PRIMECOST provides PE-stamped structural engineering for Katy homeowners, builders, and developers.',
@@ -74,7 +74,7 @@ export const cityPages = {
     city: 'Sugar Land',
     county: 'Fort Bend County',
     metaTitle: 'Structural Engineer Sugar Land, TX | PE Stamped | PRIMECOST',
-    metaDescription: 'Structural engineering in Sugar Land and Fort Bend County, TX: PE-stamped plans, renovations, commercial projects, foundation letters and permit corrections. Call (832) 234-6456.',
+    metaDescription: 'Structural engineering in Sugar Land and Fort Bend County, TX: PE-stamped plans, renovations, foundation letters and permit fixes. Call (832) 234-6456.',
     h1: 'Structural Engineer in Sugar Land, TX',
     intro: [
       'Sugar Land is an established Fort Bend County city with mature neighborhoods, an active commercial core, and ongoing redevelopment, which means a lot of renovation, addition, and tenant improvement work. PRIMECOST provides PE-stamped structural engineering for Sugar Land homeowners, contractors, and commercial owners from our Houston office.',
@@ -97,7 +97,7 @@ export const cityPages = {
     city: 'Spring',
     county: 'Harris and Montgomery Counties',
     metaTitle: 'Structural Engineer Spring, TX | PE Stamped Drawings | PRIMECOST',
-    metaDescription: 'PE-stamped structural engineering in Spring, TX: home additions, foundation evaluations, commercial drawings and permit help in Harris and Montgomery counties. Call (832) 234-6456.',
+    metaDescription: 'PE-stamped structural engineering in Spring, TX: additions, foundation evaluations, commercial drawings and permit help. Call (832) 234-6456.',
     h1: 'Structural Engineer in Spring, TX',
     intro: [
       'Spring covers a large area of north Harris County and southern Montgomery County, from Old Town Spring to newer subdivisions and commercial corridors along I-45 and the Grand Parkway. PRIMECOST provides PE-stamped structural engineering for Spring homeowners, builders, and businesses.',
@@ -120,7 +120,7 @@ export const cityPages = {
     city: 'Pearland',
     county: 'Brazoria County',
     metaTitle: 'Structural Engineer Pearland, TX | PE Stamped | PRIMECOST',
-    metaDescription: 'Structural engineering in Pearland, TX: PE-stamped drawings, foundation design and evaluations, additions, commercial projects and permit corrections. Call (832) 234-6456.',
+    metaDescription: 'Structural engineering in Pearland, TX: PE-stamped drawings, foundation evaluations, additions, commercial projects and permit fixes. Call (832) 234-6456.',
     h1: 'Structural Engineer in Pearland, TX',
     intro: [
       'Pearland sits just south of Houston, mainly in Brazoria County with parts in Harris and Fort Bend counties, and has grown quickly with new neighborhoods, medical facilities, and retail along SH-288. PRIMECOST provides PE-stamped structural engineering for Pearland homeowners, builders, and commercial clients.',
@@ -143,7 +143,7 @@ export const cityPages = {
     city: 'Montgomery',
     county: 'Montgomery County',
     metaTitle: 'Structural Engineer Montgomery TX & Conroe | Commercial | PRIMECOST',
-    metaDescription: 'Commercial and industrial structural engineering in Montgomery, Conroe and Montgomery County, TX: steel and concrete design, structural analysis, PE-stamped plans. Call (832) 234-6456.',
+    metaDescription: 'Commercial and industrial structural engineering in Montgomery, Conroe and Montgomery County, TX: steel, concrete and PE-stamped plans. Call (832) 234-6456.',
     h1: 'Structural Engineering Company in Montgomery, TX and Conroe',
     intro: [
       'Montgomery County is one of the fastest-growing counties in Texas, and the area around Montgomery, Conroe and Lake Conroe is seeing steady demand for commercial buildings, light industrial space, warehouses, and large custom homes. PRIMECOST provides commercial and industrial structural engineering for developers, general contractors, fabricators and owners across Montgomery County from our Houston office.',

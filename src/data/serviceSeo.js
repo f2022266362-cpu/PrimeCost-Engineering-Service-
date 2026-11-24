@@ -16,7 +16,7 @@ const serviceSeo = {
   },
   'bim-cad': {
     title: 'BIM Drawing Services: Revit Modeling & CAD Drafting | PRIMECOST',
-    description: 'BIM drawing services: Revit modeling, clash detection, CAD-to-BIM, Revit families for manufacturers and shop drawings. Reviewed by licensed engineers. Call (832) 234-6456.',
+    description: 'BIM drawing services: Revit modeling, clash detection, CAD-to-BIM and Revit families, reviewed by licensed engineers. Call (832) 234-6456.',
   },
   'interior-design': {
     title: 'Commercial & Residential Interior Design | PRIMECOST',
@@ -36,11 +36,11 @@ const serviceSeo = {
   },
   'shop-drawings': {
     title: 'Steel Shop Drawings & Structural Shop Drawing Services | PRIMECOST',
-    description: 'Structural steel shop drawings, erection drawings and connection details for fabricators and contractors, checked by licensed engineers. PE-sealed connection calcs available.',
+    description: 'Steel shop drawings, erection drawings and connection details for fabricators and contractors, checked by licensed engineers. PE-sealed calcs available.',
   },
   'sign-stamp-services': {
     title: 'PE Stamp Services, Shop Drawing Review & Delegated Design | PRIMECOST',
-    description: 'PE-stamped drawings and calculations, steel shop drawing review and delegated connection design for contractors, fabricators and manufacturers. Licensed in 49 states.',
+    description: 'PE-stamped drawings and calcs, shop drawing review and delegated connection design for contractors, fabricators and manufacturers. Licensed in 49 states.',
   },
   'permit-correction': {
     title: 'Permit Corrections & Plan Review Comments | PRIMECOST',
