@@ -47,7 +47,10 @@ export default function Founder() {
                 />
                 <img
                   src="/ceo-frank.webp"
-                  alt="Frank Moore - CEO & Founder of PRIMECOST"
+                  alt="Frank Moore, CEO & Founder of PRIMECOST"
+                  width="800"
+                  height="800"
+                  fetchPriority="high"
                   style={styles.portraitImg}
                 />
               </div>
@@ -92,7 +95,7 @@ export default function Founder() {
                   <ShieldCheck size={20} style={{ color: '#B13A0B', flexShrink: 0 }} />
                   <div>
                     <strong style={styles.hlTitle}>Licensed Leadership</strong>
-                    <p style={styles.hlSub}>50-State Engineering Bids</p>
+                    <p style={styles.hlSub}>49-State Engineering Bids</p>
                   </div>
                 </div>
               </div>

@@ -352,7 +352,7 @@ export default function TermsConditions() {
           <p style={styles.introText}>
             These Terms & Conditions ("Agreement") constitute a legally binding agreement between you
             ("Client") and PrimeCost Engineering & Design LLC, doing business as PRIMECOST
-            ("Company", "we", "us", "our"), a Texas limited liability company. PRIMECOST serves
+            ("Company", "we", "us", "our"), a Wyoming limited liability company with its main sub-office in Houston, Texas. PRIMECOST serves
             clients across 49 U.S. states, maintains 7 regional offices, and provides services in Europe.
             Our principal office is located at 75 E 3RD ST STE 7, SHERIDAN, WY 82801, with our main sub-office located at 440 Louisiana St, Suite 900, Houston, TX 77002.
           </p>
