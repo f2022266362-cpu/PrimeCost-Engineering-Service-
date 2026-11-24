@@ -28,8 +28,15 @@ function buildPage(url, { html, head }, data) {
     `<meta property="og:title" content="${esc(head.title)}" />`,
     `<meta property="og:description" content="${esc(head.description)}" />`,
     `<meta property="og:url" content="${canonical}" />`,
-    `<meta property="og:image" content="${SITE_URL}/logo.png" />`,
+    `<meta property="og:image" content="${SITE_URL}/og-default.jpg" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="PRIMECOST: we engineer structures built to last. PE-stamped drawings in 49 states." />`,
+    `<meta property="og:locale" content="en_US" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${esc(head.title)}" />`,
+    `<meta name="twitter:description" content="${esc(head.description)}" />`,
+    `<meta name="twitter:image" content="${SITE_URL}/og-default.jpg" />`,
     ...head.schemas.map((s) => `<script type="application/ld+json" class="prerender-schema">${safeJson(s)}</script>`),
     data ? `<script>window.__PRERENDER_DATA__=${safeJson(data)}</script>` : '',
   ].filter(Boolean).join('\n    ');
@@ -48,6 +55,7 @@ function outFile(url) {
 
 const routes = getRoutes();
 const indexable = [];
+const pageMeta = {};
 
 for (const url of routes) {
   let data = null;
@@ -60,7 +68,10 @@ for (const url of routes) {
   const file = outFile(url);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, buildPage(url, result, data));
-  if (!result.head.noindex) indexable.push(url);
+  if (!result.head.noindex) {
+    indexable.push(url);
+    pageMeta[url] = { title: result.head.title, description: result.head.description };
+  }
   console.log(`  prerendered ${url}${result.head.noindex ? '  (noindex)' : ''}`);
 }
 
@@ -83,6 +94,36 @@ Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `);
+
+// llms.txt: a plain-text map of the site for AI assistants (llmstxt.org)
+const clean = (s = '') => String(s).replace(/\s*\|\s*PRIMECOST\s*$/i, '').replace(/\s*[—-]\s*PRIMECOST\s*$/i, '').trim();
+const line = (u) => `- [${clean(pageMeta[u].title)}](${SITE_URL}${u === '/' ? '/' : u}): ${pageMeta[u].description}`;
+const group = (pred) => indexable.filter(pred).map(line).join('\n');
+const llms = `# PRIMECOST Engineering Services
+
+> Houston-based structural engineering firm providing PE-stamped structural, MEP and architectural drawings, permit corrections, shop drawings and pre-construction services for contractors, architects, developers and homeowners. PE-licensed in 49 U.S. states. Office: 440 Louisiana St, Suite 900, Houston, TX 77002. Phone: (832) 234-6456. Email: Frank.moore@primecost.biz.
+
+Quotes are usually returned within 24 hours. Pricing starts at $0.78/sq ft for PE-stamped structural engineering, $0.45/sq ft for architectural drawings and $1.30/sq ft for MEP engineering (see the pricing page for current rates).
+
+## Company
+${group((u) => ['/', '/about', '/pricing', '/service-areas', '/portfolio', '/faq', '/career', '/founder'].includes(u))}
+
+## Services
+${group((u) => u === '/services' || u.startsWith('/services/'))}
+
+## Industries
+${group((u) => u.startsWith('/industries/'))}
+
+## Local service areas (Houston region)
+${group((u) => u.startsWith('/structural-engineer/'))}
+
+## Guides
+${group((u) => u === '/blog' || u.startsWith('/blog/'))}
+
+## Optional
+${group((u) => ['/privacy-policy', '/terms-conditions', '/refund-policy'].includes(u))}
+`;
+fs.writeFileSync(path.join(dist, 'llms.txt'), llms);
 
 fs.rmSync(path.join(root, 'dist-server'), { recursive: true, force: true });
 console.log(`\n✓ ${routes.length} pages prerendered, ${indexable.length} in sitemap.xml`);
